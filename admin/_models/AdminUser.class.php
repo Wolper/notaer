@@ -4,7 +4,7 @@
  * AdminUser.class [ MODEL ADMIN ]
  * Respnsável por gerenciar os usuários no Admin do sistema!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2017, Dikson Delgado
  */
 class AdminUser {
 
