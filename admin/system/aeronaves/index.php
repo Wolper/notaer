@@ -30,23 +30,21 @@
                 ?>
                 <section>
                     <header>
-                        <h1><?= $prefixoAeronave . ' - ' . $nomeAeronave . ' - ' . $modeloAeronave . ' - ' . $horasDeVooAeronave; ?></h1>
-                   
+                        <h4><?= '<small>Prefixo: </small>' . $prefixoAeronave . '<small> - Nome: </small>' . $nomeAeronave . '<small> - Modelo: </small>' . $modeloAeronave . '<small> - Horas de Voo: </small>' . $horasDeVooAeronave; ?></h4>
 
                         <ul class="info post_actions">
         <!--                            <li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($category_date)); ?>Hs</li>-->
-                            <li><a class="act_view" target="_blank" href="../aeronaves/<?= $nomeAeronave; ?>" title="Ver no site">Ver no site</a></li>
                             <li><a class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $category_id; ?>" title="Editar">Editar</a></li>
                             <li><a class="act_delete" href="painel.php?exe=aeronaves/index&delete=<?= $category_id; ?>" title="Excluir">Deletar</a></li>
                         </ul>
-                    </header>
+                    </header><small>
                 </section>
                 <?php
             endforeach;
         endif;
         ?>
 
-        <div class="clear"></div>
+        <div class="clear"></div></small>
     </section>
 
     <div class="clear"></div>

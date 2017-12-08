@@ -44,7 +44,7 @@ class AdminInspecao {
         $this->Inspecao = (int) $idInspecao;
         $this->Data = $Data;
         if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao Atualizar: Para atualizar a inspecao nº <b>{$this->Data['numero_voo']}</b>, preencha todos os campos!", WS_ALERT];
+            $this->Error = ["Erro ao Atualizar: Para atualizar a inspecao <b>{$this->Data['descricaoInspecao']}</b>, preencha todos os campos!", WS_ALERT];
             $this->Result = false;
         else:
 //            $this->setData();
@@ -59,21 +59,21 @@ class AdminInspecao {
      * checagem excluinto todos os dados nessesários e removendo a inspecao do banco!
      * @param INT $VooId = Id da inspecao!
      */
-    public function ExeDelete($VooId) {
-        $this->Inspecao = (int) $VooId;
+    public function ExeDelete($idInsp) {
+        $this->Inspecao = (int) $idInsp;
 
         $ReadEmp = new Read;
         $ReadEmp->ExeRead(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
         if (!$ReadEmp->getResult()):
-            $this->Error = ["O voo que você tentou deletar não existe no sistema!", WS_ERROR];
+            $this->Error = ["A inspeção que você tentou deletar não existe no sistema!", WS_ERROR];
             $this->Result = false;
         else:
-            $VooDelete = $ReadEmp->getResult()[0];
+            $InspecaoDelete = $ReadEmp->getResult()[0];
 
             $deleta = new Delete;
             $deleta->ExeDelete(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
 
-            $this->Error = ["O voo <b>{$VooDelete['numero_voo']}</b> foi removido com sucesso do sistema!", WS_ACCEPT];
+            $this->Error = ["O tipo de inspeção <b>{$InspecaoDelete['descricaoInspecao']}</b> foi removido com sucesso do sistema!", WS_ACCEPT];
             $this->Result = true;
         endif;
     }
@@ -113,7 +113,7 @@ class AdminInspecao {
         $Create->ExeCreate(self::Entity, $this->Data);
         if ($Create->getResult()):
             $this->Result = $Create->getResult();
-            $this->Error = ["A inspeção <b>{$this->Data['numero_do_voo']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT];
+            $this->Error = ["A inspeção <b>{$this->Data['descricaoInspecao']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT];
         endif;
     }
 

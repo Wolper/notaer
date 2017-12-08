@@ -15,7 +15,7 @@
             require ('_models/AdminInspecao.class.php');
 
             $empAction = filter_input(INPUT_GET, 'emp', FILTER_VALIDATE_INT);
-            $empUpdate = new AdminVoo();
+            $empUpdate = new AdminInspecao();
 
             switch ($action):
                 case 'active':
@@ -45,13 +45,12 @@
 
         $readInspecao = new Read;
 
-        $readInspecao->ExeRead("inspecao", "ORDER BY descricaoInspecao ASC, disponivel_for_date ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+        $readInspecao->ExeRead("tipo_inspecao", "ORDER BY descricaoInspecao ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
         if ($readInspecao->getResult()):
             foreach ($readInspecao->getResult() as $insp):
                 $empi++;
                 extract($insp);
-                $status = (!$idAeronave ? 'style="background: #fffed8"' : '');
-
+//                $status = (!$idInspecao ? 'style="background: #fffed8"' : '');
 //                $stateObj = clone($readInspecao);
 //                $stateObj->ExeRead("app_estados", "WHERE estado_id = :est", "est={$inspecao_uf}");
 //                $state = ($stateObj->getResult() ? $stateObj->getResult()[0]['estado_uf'] : 'NULL');
@@ -60,30 +59,30 @@
 //                $cityObj->ExeRead("app_cidades", "WHERE cidade_id = :city", "city={$inspecao_cidade}");
 //                $city = ($cityObj->getResult() ? $cityObj->getResult()[0]['cidade_nome'] : 'NULL');
                 ?>
-                <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?> <?= $status; ?>>
+                <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?>>
                     <header>
 
-<!--                        <div class="img thumb_small">
-                            <?= Check::Image('../uploads/' . $inspecao_capa, $inspecao_title, 120, 70); ?>
-                        </div>-->
+                        <!--                        <div class="img thumb_small">
+                        <?= $descricaoInspecao . ' - ' . $tlInspecao . ' - ' . $tcInspecao . ' - ' . $frequencia_for_time . ' - ' . $frequencia_for_date; ?>
+                                                </div>-->
 
-<!--                        <hgroup>
-                            <h1><a target="_blank" href="../inspecao/<?= $inspecao_name; ?>" title="Ver Inspecao"><?= $inspecao_title; ?></a></h1>
-                            <h2><?= $city . ' / ' . $state; ?></h2>
-                        </hgroup>-->
+                        <hgroup>
+                            <?= $descricaoInspecao . ' - ' . $tlInspecao . ' - ' . $tcInspecao . ' - ' . $frequencia_for_time . ' - ' . $frequencia_for_date; ?>
+
+                        </hgroup>
                     </header>
                     <ul class="info post_actions">
-                        <li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($inspecao_date)); ?>Hs</li>
-                        <li><a class="act_view" target="_blank" href="../inspecao/<?= $inspecao_name; ?>" title="Ver no site">Ver no site</a></li>
-                        <li><a class="act_edit" href="painel.php?exe=inspecaos/update&emp=<?= $inspecao_id; ?>" title="Editar">Editar</a></li>
+                        <!--<li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($inspecao_date)); ?>Hs</li>-->
 
-                        <?php if (!$idaeronave): ?>
-                            <li><a class="act_inative" href="painel.php?exe=inspecaos/index&emp=<?= $inspecao_id; ?>&action=active" title="Ativar">Ativar</a></li>
+                        <li><a class="act_edit" href="painel.php?exe=inspecoes/update&emp=<?= $idInspecao; ?>" title="Editar">Editar</a></li>
+
+                        <?php if (!$idInspecao): ?>
+                            <li><a class="act_inative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=active" title="Ativar">Ativar</a></li>
                         <?php else: ?>
-                            <li><a class="act_ative" href="painel.php?exe=inspecaos/index&emp=<?= $inspecao_id; ?>&action=inative" title="Inativar">Inativar</a></li>
+                            <li><a class="act_ative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
                         <?php endif; ?>
 
-                        <li><a class="act_delete" href="painel.php?exe=inspecaos/index&emp=<?= $inspecao_id; ?>&action=delete" title="Excluir">Deletar</a></li>
+                        <li><a class="act_delete" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
                     </ul>
                 </article>
                 <?php
