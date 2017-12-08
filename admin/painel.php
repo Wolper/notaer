@@ -66,7 +66,7 @@ endif;
                     ?>
 
                     <ul class="menu">
-                        <li class="li<?php if (in_array('painel', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Painel Geral</a>
+                        <li class="li<?php if (in_array('painel', $linkto)) echo ' active'; ?>"><a class="opensub" href="painel.php">Painel Geral</a>
                             <ul class="sub">
 <!--                                <li><a href="painel.php?exe=voo/create">Registrar Voo</a></li>
                                 <li><a href="painel.php?exe=voo/index">Listar / Editar Registro</a></li>-->
@@ -94,7 +94,7 @@ endif;
                             </ul>
                         </li>
 
-                        <li class="li"><a href="../" target="_blank" class="opensub">Relatórios</a></li>
+                        <li class="li"><a href="painel.php" target="_blank" class="opensub">Relatórios</a></li>
                     </ul>
                 </nav>
 
