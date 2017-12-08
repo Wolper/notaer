@@ -8,13 +8,13 @@
 
             <?php
             $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
- 
+            print_r($data);
             if ($data && $data['SendPostForm']):
 //            $data['empresa_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1');
 //            $data['empresa_capa'] = ($_FILES['empresa_capa']['tmp_name'] ? $_FILES['empresa_capa'] : null);
-print_r($data);
+                print_r($data);
                 unset($data['SendPostForm']);
-               print_r($data);
+                print_r($data);
                 require('_models/AdminInspecao.class.php');
                 $cadastraInspecao = new AdminInspecao;
                 $cadastraInspecao->ExeCreate($data);
@@ -54,7 +54,7 @@ print_r($data);
                         <label><span class="field">Frequência por Data:</span> </label>
                         <input class="form-control" type="date" name="frequencia_for_date" value="2017-12-07"/>
                     </div>
-                    
+
                     <div class="form-group col-md-4">
                         <label><span class="field">Itens de Inspeção:</span> </label>
                         <input class="form-control" type="text" name="itensInspecao" value="blablabla"/>
