@@ -4,7 +4,7 @@
  * Link [ MODEL ]
  * Classe responsável por organizar o SEO do sistema e realizar a navegação!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2017, Dikson Delgado
  */
 class Link {
 

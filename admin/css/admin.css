@@ -4,6 +4,7 @@
     Description:
         Formata o painel admin do sistema.
 */
+
 body{font-family: 'Open Sans', sans-serif;}
 body.login{background: #09f;}
 body.painel{background: url(../images/header_bg.png) repeat-x #fbfbfb;}
@@ -13,8 +14,6 @@ body.painel{background: url(../images/header_bg.png) repeat-x #fbfbfb;}
 .btn{cursor: pointer; font-size: 0.8em; color: #fff;}
 .blue{background: #069; border-color: #053a8a}
 .blue:hover{background: #09f; border-color: #069;}
-.red{background: #70A50E; border-color: #80e258}
-.red:hover{background: #ec971f; border-color: #70A50E;}
 .green{background: #33752c; border-color: #1f471a}
 .green:hover{background: #4aaa40; border-color: #398431;}
 
@@ -151,18 +150,6 @@ body.painel{background: url(../images/header_bg.png) repeat-x #fbfbfb;}
 .form_create article form label textarea{padding: 10px; border: 5px solid #ccc; width: 900px; font-size: 18px; font-family: 'Trebuchet MS', sans-serif; font-weight: initial; color: #333;}
 .form_create article form .label_line{float: left; width: 930px;  margin-bottom: 15px;}
 
-.form_create article form .label_four{float: left; width: 25%;}
-.form_create article form .label_four input{width: 85%;}
-
-.form_create article form .label_little{float: left; width: 12.5%;}
-.form_create article form .label_little input{width: 70%; max-height: 20px;}
-
-.form_create article form .label_trip{float: left; width: 25%;}
-/*.form_create article form .label_trip:last-child{float: right;}*/
-.form_create article form .label_trip:first-child{float: left;}
-.form_create article form .label_trip input{width: 210px;}
-.form_create article form .label_trip select{width: 100%; padding: 1px;}
-
 .form_create article form .label_small{float: left; width: 280px;}
 .form_create article form .label_small:last-child{float: right;}
 .form_create article form .label_small:first-child{float: left; margin-right: 44px;}
@@ -249,12 +236,13 @@ body.painel{background: url(../images/header_bg.png) repeat-x #fbfbfb;}
 .ultable li .ed .user_dele{background: #ccc url(../icons/act_delete.png) center center no-repeat; background-size: 70%}
 
 /*FOOTER GERAL*/
-.main_footer{background: #00254A; width: 100%; padding: 30px 0; text-align: center; border-top: 2px solid #444; color: #ccc}
+.main_footer{background: #00254A; width: 100%; padding: 30px 0; text-align: center; border-top: 2px solid #444;}
 .main_footer a{font-size: 14px; color: #fff; font-variant: small-caps;}
 .main_footer a:hover{text-decoration: underline;}
 
-/*ETAPAS DE VOO*/
+.email_newsletter{background-color: red; width: 70px;}
 
+/*ETAPAS DE VOO*/
 .form-etapas{
     background-color: #ccc; padding: 1% 3% 1% 3%; width: 100%; text-align: center; margin: 1% 0 1% 0;
 }

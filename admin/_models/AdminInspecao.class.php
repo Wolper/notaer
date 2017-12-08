@@ -47,8 +47,8 @@ class AdminInspecao {
             $this->Error = ["Erro ao Atualizar: Para atualizar a inspecao nº <b>{$this->Data['numero_voo']}</b>, preencha todos os campos!", WS_ALERT];
             $this->Result = false;
         else:
-            $this->setData();
-            $this->setName();
+//            $this->setData();
+//            $this->setName();
 //            $this->sendCapa();
             $this->Update();
         endif;
@@ -103,7 +103,7 @@ class AdminInspecao {
 
     //Valida e cria os dados para realizar o cadastro. Realiza Upload da Capa!
     private function setData() {
-//        $this->Data['historico'] = Check::Name($this->Data['historico']);
+        $this->Data['descricaoInspecao'] = Check::Name($this->Data['descricaoInspecao']);
 //        $this->Data['data_do_voo'] = date('Y-m-d H:i:s');
     }
 
@@ -122,7 +122,7 @@ class AdminInspecao {
         $Update = new Update;
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idInspecao = :id", "id={$this->Inspecao}");
         if ($Update->getRowCount() >= 1):
-            $this->Error = ["O voo <b>{$this->Data['numero_voo']}</b> foi atualizada com sucesso!", WS_ACCEPT];
+            $this->Error = ["A inspeção <b>{$this->Data['descricaoInspecao']}</b> foi atualizada com sucesso!", WS_ACCEPT];
             $this->Result = true;
         endif;
     }

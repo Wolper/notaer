@@ -1,7 +1,7 @@
 <div class="content form_create">
 
     <article>
-        <pre>
+     
         <header>
             <h1>Cadastrar Inspeção:</h1>
         </header>
@@ -26,7 +26,7 @@
                 endif;
             endif;
             ?>
-        </pre>
+
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
             <div id="form-top" class="form-group">
                 <div class="row">

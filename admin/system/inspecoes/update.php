@@ -9,7 +9,7 @@
         <?php
         $insp = filter_input(INPUT_GET, 'emp', FILTER_VALIDATE_INT);
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        print_r($data);
+
         if ($data && $data['SendPostForm']):
 //            $data['inspeção_status'] = ($data['SendPostForm'] == 'Atualizar' ? '0' : '1');
 //            $data['inspeção_capa'] = ($_FILES['inspeção_capa']['tmp_name'] ? $_FILES['inspeção_capa'] : 'null');

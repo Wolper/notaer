@@ -29,7 +29,7 @@ endif;
             <script src="../_cdn/html5.js"></script> 
          <![endif]-->
 
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css' />
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/admin.css" />
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
@@ -48,13 +48,13 @@ endif;
 
                 <ul class="systema_nav radius">
                     <li class="username">Olá <?= $userlogin['user_name']; ?> <?= $userlogin['user_lastname']; ?></li>
-                    <li><a class="icon profile radius" href="painel.php?exe=users/profile">Perfíl</a></li>
+                    <li><a class="icon profile radius" href="painel.php?exe=users/profile">Perfil</a></li>
                     <li><a class="icon users radius" href="painel.php?exe=users/users">Usuários</a></li>
                     <li><a class="icon logout radius" href="painel.php?logoff=true">Sair</a></li>
                 </ul>
 
                 <nav>
-                    <h1><a href="painel.php" title="Dasboard">Painel</a></h1>
+                    <!--<h1><a href="painel.php" title="Painel">Painel</a></h1>-->
 
                     <?php
                     //ATIVA MENU
@@ -66,7 +66,14 @@ endif;
                     ?>
 
                     <ul class="menu">
-                        <li class="li<?php if (in_array('posts', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Registro de Voo</a>
+                        <li class="li<?php if (in_array('painel', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Painel Geral</a>
+                            <ul class="sub">
+<!--                                <li><a href="painel.php?exe=voo/create">Registrar Voo</a></li>
+                                <li><a href="painel.php?exe=voo/index">Listar / Editar Registro</a></li>-->
+                            </ul>
+                        </li>
+                        
+                        <li class="li<?php if (in_array('voo', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Registro de Voo</a>
                             <ul class="sub">
                                 <li><a href="painel.php?exe=voo/create">Registrar Voo</a></li>
                                 <li><a href="painel.php?exe=voo/index">Listar / Editar Registro</a></li>

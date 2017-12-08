@@ -4,7 +4,7 @@
  * Login.class [ MODEL ]
  * Responável por autenticar, validar, e checar usuário do sistema de login!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2017, Dikson Delgado
  */
 class Login {
 

@@ -31,11 +31,11 @@
                             if ($readAero->getRowCount()):
                                 foreach ($readAero->getResult() as $aeronave):
                                     extract($aeronave);
-                                    echo "<option value=\"{$idaeronave}\" ";
-                                    if (isset($data['aeronave']) && $data['aeronave'] == $idaeronave):
+                                    echo "<option value=\"{$idAeronave}\" ";
+                                    if (isset($data['aeronave']) && $data['aeronave'] == $idAeronave):
                                         echo "selected";
                                     endif;
-                                    echo "> {$nome} </option>";
+                                    echo "> {$nomeAeronave} </option>";
                                 endforeach;
                             endif;
                             ?>

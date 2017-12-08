@@ -4,7 +4,7 @@
  * Seo [ MODEL ]
  * Classe de apoio para o modelo LINK. Pode ser utilizada para gerar SSEO para as páginas do sistema!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2017, Dikson Delgado
  */
 class Seo {
 
