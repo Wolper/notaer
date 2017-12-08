@@ -80,7 +80,7 @@
             <div class="gbform"></div>
 
             <input type="submit" class="btn blue" value="Atualizar" name="SendPostForm" />
-            <input type="submit" class="btn green" value="Atualizar & Publicar" name="SendPostForm" />
+            <!--<input type="submit" class="btn green" value="Atualizar & Publicar" name="SendPostForm" />-->
         </form>
 
     </article>

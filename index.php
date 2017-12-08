@@ -1,7 +1,9 @@
 <?php
 ob_start();
 require('./_app/Config.inc.php');
+
 $Session = new Session;
+header("Location: ./admin/painel.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
