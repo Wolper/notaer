@@ -4,7 +4,7 @@
  * AdminVoo.class [ MODEL ADMIN ]
  * Responável por gerenciar as voos no admin do sistema!
  * 
- * @copyright (c) 20174, Dikson Delgado
+ * @copyright (c) 2017, Dikson Delgado
  */
 class AdminVoo {
 

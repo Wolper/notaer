@@ -80,10 +80,10 @@ endif;
                             </ul>
                         </li> 
 
-                        <li class="li<?php if (in_array('empresas', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Inspeções</a>
+                        <li class="li<?php if (in_array('inspecoes', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Inspeções</a>
                             <ul class="sub">
-                                <li><a href="painel.php?exe=empresas/create">Cadastrar Inspeção</a></li>
-                                <li><a href="painel.php?exe=empresas/index">Listar / Editar Inspeção</a></li>
+                                <li><a href="painel.php?exe=inspecoes/create">Cadastrar Inspeção</a></li>
+                                <li><a href="painel.php?exe=inspecoes/index">Listar / Editar Inspeção</a></li>
                             </ul>
                         </li>
 

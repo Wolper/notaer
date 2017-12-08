@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04-Dez-2017 às 08:08
+-- Generation Time: 08-Dez-2017 às 11:10
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -29,18 +29,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aeronave` (
-  `idaeronave` int(11) NOT NULL,
-  `prefixo` varchar(15) NOT NULL,
-  `nome` varchar(15) NOT NULL,
-  `modelo` varchar(15) NOT NULL,
-  `horasDeVoo` bigint(20) NOT NULL
+  `idAeronave` int(11) NOT NULL,
+  `prefixoAeronave` varchar(15) NOT NULL,
+  `nomeAeronave` varchar(15) NOT NULL,
+  `modeloAeronave` varchar(15) NOT NULL,
+  `horasDeVooAeronave` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `aeronave`
 --
 
-INSERT INTO `aeronave` (`idaeronave`, `prefixo`, `nome`, `modelo`, `horasDeVoo`) VALUES
+INSERT INTO `aeronave` (`idAeronave`, `prefixoAeronave`, `nomeAeronave`, `modeloAeronave`, `horasDeVooAeronave`) VALUES
 (1, 'PP-EMH', 'HARPIA 02', '', 0),
 (2, 'PT-HZB', 'HARPIA 03', '', 0),
 (3, 'PR-KLS', 'HARPIA 04', '', 0),
@@ -5708,31 +5708,6 @@ INSERT INTO `app_estados` (`estado_id`, `estado_nome`, `estado_uf`, `estado_regi
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `controle_de_inspecao`
---
-
-CREATE TABLE `controle_de_inspecao` (
-  `idcontrole_inspecao` int(11) NOT NULL,
-  `descricao` varchar(45) NOT NULL,
-  `itensInspecao` varchar(200) NOT NULL,
-  `pn` varchar(45) NOT NULL,
-  `sn` varchar(45) NOT NULL,
-  `in-anv` varchar(45) NOT NULL,
-  `in-date` date NOT NULL,
-  `in-tso` varchar(45) NOT NULL,
-  `tl` enum('OC','TBO','OTL','SLL') NOT NULL,
-  `tc` enum('M','H','P','X','D') NOT NULL,
-  `frequencia_for_time` bigint(20) DEFAULT NULL,
-  `frequencia_for_date` date DEFAULT NULL,
-  `vencimento_for_time` bigint(20) DEFAULT NULL,
-  `vencimento_for_date` date DEFAULT NULL,
-  `disponivel_for_date` date DEFAULT NULL,
-  `disponivel_for_time` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `etapas_voo`
 --
 
@@ -5750,33 +5725,10 @@ CREATE TABLE `etapas_voo` (
 --
 
 INSERT INTO `etapas_voo` (`idvoo`, `numero_etapa`, `origem`, `destino`, `hora_de_pouso`, `combustivel_consumido`) VALUES
-(108, 1, 'vitoria', 'vila-velha', '12:00:00', '10'),
-(108, 2, 'vila-velha', 'guarapari', '13:00:00', '15'),
-(108, 3, 'guarapari', 'vitoria', '14:00:00', '20'),
-(109, 1, 'vitoria', 'vila-velha', '11:00:00', '15'),
-(110, 1, 'vitoria', 'vila-velha', '11:00:00', '15'),
-(110, 2, 'vila-velha', 'vitoria', '12:00:00', '15'),
-(111, 1, 'vitoria', 'vila-velha', '11:11:00', '11'),
-(111, 2, 'vila-velha', 'vitoria', '11:11:00', '11'),
-(112, 1, 'heliponto1', 'heliponto2', '11:11:00', '11'),
-(112, 2, 'heliponto2', 'heliponto1', '11:11:00', '11'),
-(113, 1, 'heliponto1', 'heliponto2', '11:11:00', '11'),
-(113, 2, 'heliponto2', 'heliponto1', '11:11:00', '11'),
-(114, 1, 'oiuoiuoi', 'kjhkjhkjh', '11:11:00', '11'),
-(115, 1, 'poppipip', 'piiipiipoi', '11:11:00', '11'),
-(116, 1, 'pppppppppppppppp', 'uuuuuuuuuuuuuuuuu', '11:11:00', '11'),
-(117, 1, 'pppppppppppppppppp', 'eeeeeeeeeeeeee', '11:11:00', '45'),
-(118, 1, 'ttttttttttttttttt', 'kkkkkkkkkkkkkkk', '11:11:00', '11'),
-(119, 1, 'aaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbb', '11:11:00', '11'),
-(119, 2, 'ccccccccccccccc', 'ddddddddddddddd', '12:12:00', '12'),
-(120, 1, 'lllllllllllllllll', 'ffffffffffffffff', '11:11:00', '11'),
-(120, 2, 'ppppppppppppppp', 'tttttttttttttttt', '12:12:00', '12'),
-(121, 1, 'hhhhhhhhhhhhhhhh', 'ggggggggggggggg', '11:11:00', '111'),
-(121, 2, 'ppppppppppppppp', 'aaaaaaaaaaaaaa', '11:11:00', '11'),
-(122, 1, 'oooooooooooooo', 'dddddddddddd', '11:11:00', '11'),
-(122, 2, 'aaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbb', '12:12:00', '12'),
-(123, 1, 'oooooooooo', 'dddddddddddd', '11:11:00', '11'),
-(123, 2, 'aaaaaaaaaaa', 'bbbbbbbbbbbbbbb', '12:12:00', '12');
+(173, 1, 'Rio de Janeiro', 'são paulo', '12:00:00', '30'),
+(173, 2, 'Vitória', '	vila velha', '08:00:00', '15'),
+(174, 1, 'Vitória', 'Vila Velha', '11:11:00', '11'),
+(174, 2, 'Vila Velha', 'Vitória', '22:22:00', '22');
 
 -- --------------------------------------------------------
 
@@ -5785,11 +5737,55 @@ INSERT INTO `etapas_voo` (`idvoo`, `numero_etapa`, `origem`, `destino`, `hora_de
 --
 
 CREATE TABLE `inspecao` (
-  `aeronave_idaeronave` int(11) NOT NULL,
-  `inspecao_idcontroleinspecao` int(11) NOT NULL,
-  `data_da_inspecao` date NOT NULL,
-  `hora_da_inspecao` date NOT NULL
+  `idAeronave` int(11) NOT NULL,
+  `id_tipo_inspecao` int(11) NOT NULL,
+  `pnInspecao` varchar(45) NOT NULL,
+  `snInspecao` varchar(45) NOT NULL,
+  `in_anvInspecao` varchar(45) NOT NULL,
+  `in_tsnInspecao` date NOT NULL,
+  `in_tsoInspecao` varchar(45) NOT NULL,
+  `vencimento_for_time` int(20) DEFAULT NULL,
+  `vencimento_for_date` date DEFAULT NULL,
+  `disponivel_for_date` date DEFAULT NULL,
+  `disponivel_for_time` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `inspecao_backup`
+--
+
+CREATE TABLE `inspecao_backup` (
+  `idInspecao` int(11) NOT NULL,
+  `descricaoInspecao` varchar(45) NOT NULL,
+  `itensInspecao` varchar(200) NOT NULL,
+  `pnInspecao` varchar(45) NOT NULL,
+  `snInspecao` varchar(45) NOT NULL,
+  `in_anvInspecao` varchar(45) NOT NULL,
+  `in_dateInspecao` date NOT NULL,
+  `in_tsoInspecao` varchar(45) NOT NULL,
+  `tlInspecao` enum('OC','TBO','OTL','SLL') NOT NULL,
+  `tcInspecao` enum('M','H','P','X','D') NOT NULL,
+  `frequencia_for_time` int(20) DEFAULT NULL,
+  `frequencia_for_date` date DEFAULT NULL,
+  `vencimento_for_time` int(20) DEFAULT NULL,
+  `vencimento_for_date` date DEFAULT NULL,
+  `disponivel_for_date` date DEFAULT NULL,
+  `disponivel_for_time` int(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `inspecao_backup`
+--
+
+INSERT INTO `inspecao_backup` (`idInspecao`, `descricaoInspecao`, `itensInspecao`, `pnInspecao`, `snInspecao`, `in_anvInspecao`, `in_dateInspecao`, `in_tsoInspecao`, `tlInspecao`, `tcInspecao`, `frequencia_for_time`, `frequencia_for_date`, `vencimento_for_time`, `vencimento_for_date`, `disponivel_for_date`, `disponivel_for_time`) VALUES
+(21, 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', '2017-12-07', 'blablabla', 'OC', 'M', 4500, '2017-12-07', 4500, '2017-12-07', '2017-12-07', 4500),
+(22, 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', '2017-12-07', 'blablabla', 'OC', 'M', 4500, '2017-12-07', 4500, '2017-12-07', '2017-12-07', 4500),
+(23, 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', '2017-12-07', 'blablabla', 'OC', 'M', 4500, '2017-12-07', 4500, '2017-12-07', '2017-12-07', 4500),
+(24, 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', '2017-12-07', 'blablabla', 'OC', 'M', 4500, '2017-12-07', 4500, '2017-12-07', '2017-12-07', 4500),
+(25, 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', '2017-12-07', 'blablabla', 'OC', 'M', 4500, '2017-12-07', 4500, '2017-12-07', '2017-12-07', 4500),
+(26, 'blablablaasd', 'blablablaasd', 'blablablaasd', 'blablablaasd', 'blablablaasd', '2017-12-10', 'blablablaasd', 'OC', 'M', 4501, '2017-12-08', 4501, '2017-12-06', '2016-12-07', 4497);
 
 -- --------------------------------------------------------
 
@@ -5832,13 +5828,31 @@ INSERT INTO `servidor` (`idservidor`, `nome`, `posto`, `funcao`, `instituicao`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tripulacao`
+-- Estrutura da tabela `tipo_inspecao`
 --
 
-CREATE TABLE `tripulacao` (
-  `idvoo` int(11) NOT NULL,
-  `idservidor` int(11) NOT NULL
+CREATE TABLE `tipo_inspecao` (
+  `idInspecao` int(11) NOT NULL,
+  `descricaoInspecao` varchar(45) NOT NULL,
+  `itensInspecao` varchar(200) NOT NULL,
+  `tlInspecao` enum('OC','TBO','OTL','SLL') NOT NULL,
+  `tcInspecao` enum('M','H','P','X','D') NOT NULL,
+  `frequencia_for_time` int(20) DEFAULT NULL,
+  `frequencia_for_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tipo_inspecao`
+--
+
+INSERT INTO `tipo_inspecao` (`idInspecao`, `descricaoInspecao`, `itensInspecao`, `tlInspecao`, `tcInspecao`, `frequencia_for_time`, `frequencia_for_date`) VALUES
+(21, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
+(22, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
+(23, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
+(24, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
+(25, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
+(26, 'blablablaasd', 'blablablaasd', 'OC', 'M', 4501, '2017-12-08'),
+(27, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07');
 
 -- --------------------------------------------------------
 
@@ -5881,30 +5895,17 @@ CREATE TABLE `voo` (
   `tempo_total_de_voo` int(11) NOT NULL,
   `total_de_pousos` int(11) NOT NULL,
   `combustivel_total_consumido` varchar(10) NOT NULL,
-  `natureza` varchar(80) NOT NULL
+  `natureza` varchar(80) NOT NULL,
+  `voo_status` enum('0','1') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `voo`
 --
 
-INSERT INTO `voo` (`idvoo`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `historico`, `partida`, `corte`, `ciclo`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `natureza`) VALUES
-(108, '2017-12-12', 654, 1, 'Bubach', 'Laura', 'Erick', 'Erick', 'ronda-pelas-praias', '11:00:00', '14:00:00', 2.6, 180, 3, '45', 'O111 - Radiopatrulhamento aéreo preventivo'),
-(109, '2017-12-04', 2, 2, 'Borges', 'Laura', 'Freitas', 'Marlon', 'resgate-de-vitima', '10:00:00', '12:00:00', 1.2, 120, 1, '15', 'O213 - Resgate de vitimas de afogamento'),
-(110, '2017-12-04', 2, 2, 'Borges', 'Laura', 'Freitas', 'Marlon', 'resgate-de-vitima', '10:00:00', '13:00:00', 1.2, 180, 2, '30', 'O213 - Resgate de vitimas de afogamento'),
-(111, '2017-12-04', 5, 1, 'Bubach', 'Laura', 'Erick', 'Freitas', 'teste1', '11:11:00', '11:11:00', 1.2, 0, 2, '22', 'O141 - Transporte de Efetivo'),
-(112, '2017-12-02', 2, 1, 'Caus', 'Laura', 'Erick', 'Freitas', 'teste5', '11:11:00', '11:11:00', 1, 0, 2, '22', 'A3 - Experiência (Manutenção)'),
-(113, '2017-12-12', 654, 1, 'Borges', 'Laiber', 'Erick', 'Freitas', 'teste500', '11:11:00', '11:11:00', 2.2, 0, 2, '22', 'O151 - Filmagem e fotografia'),
-(114, '2017-12-12', 45, 1, 'Caus', 'Laura', 'Erick', 'Erick', 'jhgkjgjgjgjgj', '11:11:00', '11:11:00', 1, 0, 1, '11', 'A4 - Exame para concessão ou renovação de licença/tipo (Cheque/Recheque)'),
-(115, '2017-12-12', 654, 1, 'Caus', 'Laura', 'Erick', 'Erick', 'oiuoiuuoiu', '11:11:00', '11:11:00', 1, 0, 1, '11', 'A1 - Abastecimento'),
-(116, '2017-12-12', 64644, 1, 'Caus', 'Laura', 'Erick', 'Freitas', 'oioioiio', '11:11:00', '11:11:00', 1, 0, 1, '11', 'A3 - Experiência (Manutenção)'),
-(117, '2017-12-12', 99999, 1, 'Bubach', 'Laiber', 'Erick', 'Erick', 'oooooooooooooo', '11:11:00', '11:11:00', 1, 0, 1, '45', 'O131 - Ocorrências em estabelecimentos prisionais'),
-(118, '2017-12-12', 12, 1, 'Caus', 'Laura', 'Freitas', 'Erick', 'rrrrrrrrrrrrrrrrr', '11:11:00', '12:12:00', 1, 61, 1, '11', 'I1 - Concessão de licença'),
-(119, '2017-12-12', 555, 1, 'Caus', 'Laura', 'Freitas', 'Erick', 'eeeeeeeeeeeeeeeeeeeeee', '10:10:00', '12:12:00', 1.2, 122, 2, '23', 'A2 - Traslado'),
-(120, '2017-02-12', 8798798, 1, 'Caus', 'Laura', 'Erick', 'Erick', 'kkkkkkkkkkkkk', '12:12:00', '12:12:00', 1, 0, 2, '23', 'A3 - Experiência (Manutenção)'),
-(121, '2017-11-11', 8797, 2, 'Bubach', 'Laiber', 'Erick', 'Erick', 'ppppppppppppp', '11:11:00', '11:11:00', 1, 0, 2, '122', 'A2 - Traslado'),
-(122, '2017-12-12', 6465465, 1, 'Bubach', 'Laura', 'Erick', 'Freitas', 'hhhhhhhhhhhhhhhhhhhhh', '12:12:00', '12:12:00', 1, 0, 2, '23', 'A2 - Traslado'),
-(123, '2017-12-12', 88888, 1, 'Caus', 'Laura', 'Erick', 'Freitas', 'hhhhhhhhhh', '12:12:00', '13:13:00', 1, 61, 2, '23', 'A3 - Experiência (Manutenção)');
+INSERT INTO `voo` (`idvoo`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `historico`, `partida`, `corte`, `ciclo`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `natureza`, `voo_status`) VALUES
+(173, '2017-12-06', 2, 5, 'Pinheiro', 'Laiber', 'Marlon', 'Lyrio', 'teste-final', '11:00:00', '18:00:00', 8.9, 120, 1, '30', 'O161 - Fiscalização ambiental', '0'),
+(174, '2017-11-11', 6, 2, 'Borges', 'Laiber', 'Andrade', 'Freitas', 'gggggggggggg', '10:00:00', '22:22:00', 2, 742, 2, '33', 'A5 - Demonstração', '0');
 
 -- --------------------------------------------------------
 
@@ -6030,7 +6031,9 @@ INSERT INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`,
 (12, '2017-11-28', '1', '1', '17'),
 (13, '2017-11-29', '2', '2', '94'),
 (14, '2017-12-01', '1', '1', '120'),
-(15, '2017-12-02', '1', '1', '26');
+(15, '2017-12-02', '1', '1', '26'),
+(16, '2017-12-06', '1', '1', '2'),
+(17, '2017-12-07', '1', '1', '14');
 
 -- --------------------------------------------------------
 
@@ -6050,7 +6053,7 @@ CREATE TABLE `ws_siteviews_agent` (
 --
 
 INSERT INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`, `agent_lastview`) VALUES
-(1, 'Chrome', '133', '2017-12-02 03:12:54'),
+(1, 'Chrome', '135', '2017-12-06 23:56:48'),
 (2, 'Firefox', '68', '2014-02-12 18:13:06'),
 (3, 'IE', '55', '2014-02-12 18:13:08'),
 (4, 'Outros', '1', '0000-00-00 00:00:00');
@@ -6093,7 +6096,9 @@ INSERT INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startv
 (14, '557bhflcu7nbo5crbaoji6cm3c', '2017-11-29 04:23:17', '2017-11-29 04:43:17', '::1', '/notaer/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
 (15, '99psm36l4jsptc8buigp7t6jcd', '2017-11-29 12:08:37', '2017-11-30 06:19:16', '::1', '/notaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
 (16, 'eftdmo858telbsg83p6b81lmqb', '2017-12-01 19:44:33', '2017-12-02 06:18:26', '::1', '/notaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
-(17, 'kamhp79uk6r2jobrhgfr9vub8c', '2017-12-02 06:12:54', '2017-12-04 10:20:39', '::1', '/notaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome');
+(17, 'kamhp79uk6r2jobrhgfr9vub8c', '2017-12-02 06:12:54', '2017-12-05 02:00:51', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
+(18, 'dnn7oc9rjuhs4h560e0gi267sa', '2017-12-06 17:36:25', '2017-12-06 17:57:37', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
+(19, 'cku32sk2qcr7aubh8aga71761p', '2017-12-07 02:56:48', '2017-12-07 03:59:05', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -6128,7 +6133,7 @@ INSERT INTO `ws_users` (`user_id`, `user_name`, `user_lastname`, `user_email`, `
 -- Indexes for table `aeronave`
 --
 ALTER TABLE `aeronave`
-  ADD PRIMARY KEY (`idaeronave`);
+  ADD PRIMARY KEY (`idAeronave`);
 
 --
 -- Indexes for table `app_cidades`
@@ -6155,10 +6160,22 @@ ALTER TABLE `etapas_voo`
   ADD KEY `fk_voo` (`idvoo`);
 
 --
+-- Indexes for table `inspecao_backup`
+--
+ALTER TABLE `inspecao_backup`
+  ADD PRIMARY KEY (`idInspecao`);
+
+--
 -- Indexes for table `servidor`
 --
 ALTER TABLE `servidor`
   ADD PRIMARY KEY (`idservidor`);
+
+--
+-- Indexes for table `tipo_inspecao`
+--
+ALTER TABLE `tipo_inspecao`
+  ADD PRIMARY KEY (`idInspecao`);
 
 --
 -- Indexes for table `voo`
@@ -6218,7 +6235,7 @@ ALTER TABLE `ws_users`
 -- AUTO_INCREMENT for table `aeronave`
 --
 ALTER TABLE `aeronave`
-  MODIFY `idaeronave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idAeronave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `app_cidades`
@@ -6233,16 +6250,28 @@ ALTER TABLE `app_empresas`
   MODIFY `empresa_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `inspecao_backup`
+--
+ALTER TABLE `inspecao_backup`
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
 -- AUTO_INCREMENT for table `servidor`
 --
 ALTER TABLE `servidor`
   MODIFY `idservidor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `tipo_inspecao`
+--
+ALTER TABLE `tipo_inspecao`
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT for table `voo`
 --
 ALTER TABLE `voo`
-  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT for table `ws_categories`
@@ -6266,7 +6295,7 @@ ALTER TABLE `ws_posts_gallery`
 -- AUTO_INCREMENT for table `ws_siteviews`
 --
 ALTER TABLE `ws_siteviews`
-  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ws_siteviews_agent`
@@ -6278,7 +6307,7 @@ ALTER TABLE `ws_siteviews_agent`
 -- AUTO_INCREMENT for table `ws_siteviews_online`
 --
 ALTER TABLE `ws_siteviews_online`
-  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `ws_users`

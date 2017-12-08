@@ -4,7 +4,7 @@
  * AdminCategory.class [ MODEL ADMIN ]
  * Responável por gerenciar as aeronaves do sistema no admin!
  * 
- * @copyright (c) 2014, Robson V. Leite UPINSIDE TECNOLOGIA
+ * @copyright (c) 2017, Dikson Delgado
  */
 class AdminAeronave {
 
@@ -101,7 +101,6 @@ class AdminAeronave {
      * ***************************************
      */
 
-  
     //Cadastra a aeronave no banco!
     private function Create() {
         $Create = new Create;
