@@ -35,22 +35,27 @@ endif;
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label><span class="field">Prefixo:</span></label> 
-                        <input class="form-control" type="text" name="prefixoAeronave" />
+                        <input class="form-control" type="text" name="prefixoAeronave" value="prefixo"/>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Serial Number:</span></label> 
+                        <input class="form-control" type="text" name="snAeronave" value="1245"/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Nome:</span> </label>
-                        <input class="form-control" type="text" name="nomeAeronave" />
+                        <input class="form-control" type="text" name="nomeAeronave" value="nome"/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Modelo:</span> </label>
-                        <input class="form-control" type="text" name="modeloAeronave" />
+                        <input class="form-control" type="text" name="modeloAeronave" value="modelo"/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Horas de Voo:</span> </label>
-                        <input class="form-control" type="text" name="horasDeVooAeronave" />
+                        <input class="form-control" type="text" name="horasDeVooAeronave" value="2000"/>
                     </div>
 
                 </div>

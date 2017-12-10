@@ -122,7 +122,7 @@ endif;
         </div> <!-- painel -->
 
         <footer class="main_footer">         
-            <p>developed by <b>Dikson Delgado</b> - <?= date('Y'); ?> - <i>version: Beta</i></p>
+            <p style="color: #ccc;">developed by <b>Dikson Delgado</b> - <?= date('Y'); ?> - <i>version: Beta</i></p>
         </footer>
 
     </body>

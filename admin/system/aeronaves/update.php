@@ -20,77 +20,61 @@ endif;
         if (!empty($data['SendPostForm'])):
             unset($data['SendPostForm']);
 
-            require('_models/AdminCategory.class.php');
-            $cadastraVoo = new AdminCategory;
-            $cadastraVoo->ExeUpdate($catid, $data);
+            require('_models/AdminAeronave.class.php');
+            $cadastraAeronave = new AdminCategory;
+            $cadastraAeronave->ExeUpdate($idAero, $data);
 
-            WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
+            WSErro($cadastraAeronave->getError()[0], $cadastraAeronave->getError()[1]);
         else:
             $read = new Read;
-            $read->ExeRead("ws_categories", "WHERE category_id = :id", "id={$catid}");
+            $read->ExeRead("ws_categories", "WHERE idAeronave = :id", "id={$idAero}");
             if (!$read->getResult()):
                 header('Location: painel.php?exe=aeronaves/index&empty=true');
             else:
                 $data = $read->getResult()[0];
             endif;
         endif;
-        
-        $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
-        if($checkCreate && empty($cadastraVoo)):
-            $tipo = ( empty($data['category_parent']) ? 'seção' : 'categoria');
-            WSErro("A {$tipo} <b>{$data['category_title']}</b> foi cadastrada com sucesso no sistema! Continue atualizando a mesma!", WS_ACCEPT);
-        endif;
-        
+
+        WSErro("A Aeronave <b>{$data['nomeAeronave']}</b> foi cadastrada com sucesso no sistema! Continue atualizando a mesma!", WS_ACCEPT);
         ?>
 
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
+            <div id="form-top" class="form-group">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Prefixo:</span></label> 
+                        <input class="form-control" type="text" name="prefixoAeronave" value="<?= $data['prefixoAeronave'] ?>"/>
+                    </div>
 
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Serial Number:</span></label> 
+                        <input class="form-control" type="text" name="snAeronave"  value="<?= $data['snAeronave'] ?>"/>
+                    </div>
 
-            <label class="label">
-                <span class="field">Titulo:</span>
-                <input type="text" name="category_title" value="<?php if (isset($data)) echo $data['category_title']; ?>" />
-            </label>
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Nome:</span> </label>
+                        <input class="form-control" type="text" name="nomeAeronave"  value="<?= $data['nomeAeronave'] ?>"/>
+                    </div>
 
-            <label class="label">
-                <span class="field">Conteúdo:</span>
-                <textarea name="category_content" rows="5"><?php if (isset($data)) echo $data['category_content']; ?></textarea>
-            </label>
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Modelo:</span> </label>
+                        <input class="form-control" type="text" name="modeloAeronave"  value="<?= $data['modeloAeronave'] ?>"/>
+                    </div>
 
-            <div class="label_line">
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Horas de Voo:</span> </label>
+                        <input class="form-control" type="text" name="horasDeVooAeronave"  value="<?= $data['horasDeVooAeronave'] ?>"/>
+                    </div>
 
-                <label class="label_small">
-                    <span class="field">Data:</span>
-                    <input type="text" class="formDate center" name="category_date" value="<?= date('d/m/Y H:i:s'); ?>" />
-                </label>
+                </div>
 
-                <label class="label_small left">
-                    <span class="field">Seção:</span>
-                    <select name="category_parent">
-                        <option value="null"> Selecione a Seção: </option>
-                        <?php
-                        $readAero = new Read;
-                        $readAero->ExeRead("ws_categories", "WHERE category_parent IS NULL ORDER BY category_title ASC");
-                        if (!$readAero->getResult()):
-                            echo '<option disabled="disabled" value="null"> Cadastre antes uma seção! </option>';
-                        else:
-                            foreach ($readAero->getResult() as $aero):
-                                echo "<option value=\"{$aero['category_id']}\" ";
+            </div><!--/line-->
 
-                                if ($aero['category_id'] == $data['category_parent']):
-                                    echo ' selected="selected" ';
-                                endif;
-
-                                echo "> {$aero['category_title']} </option>";
-                            endforeach;
-                        endif;
-                        ?>
-                    </select>
-                </label>
-            </div>
-
+                                  <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
+            <!--<input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />-->
             <div class="gbform"></div>
 
-            <input type="submit" class="btn blue" value="Atualizar Categoria" name="SendPostForm" />
+            <input type="submit" class="btn blue" value="Atualizar" name="SendPostForm" />
         </form>
 
     </article>
