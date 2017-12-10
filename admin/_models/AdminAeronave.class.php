@@ -41,7 +41,7 @@ class AdminAeronave {
      * @param ARRAY $Data = Atribuitivo
      */
     public function ExeUpdate($idAero, array $Data) {
-        $this->idAeronave = (int) $$idAero;
+        $this->idAeronave = (int) $idAero;
         $this->Data = $Data;
 
         if (in_array('', $this->Data)):
@@ -117,7 +117,7 @@ class AdminAeronave {
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idAeronave = :idAero", "idAero={$this->idAeronave}");
         if ($Update->getResult()):
             $this->Result = true;
-            $this->Error = ["<b>Sucesso:</b> A {$tipo} {$this->Data['nomeAeronave']} foi atualizada no sistema!", WS_ACCEPT];
+            $this->Error = ["<b>Sucesso:</b> A {$this->Data['nomeAeronave']} foi atualizada no sistema!", WS_ACCEPT];
         endif;
     }
 

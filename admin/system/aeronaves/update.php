@@ -10,24 +10,24 @@ endif;
     <article>
 
         <header>
-            <h1>Atualizar Categoria:</h1>
+            <h1>Atualizar Aeronave:</h1>
         </header>
 
         <?php
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        $catid = filter_input(INPUT_GET, 'catid', FILTER_VALIDATE_INT);
+        $idAero = filter_input(INPUT_GET, 'catid', FILTER_VALIDATE_INT);
 
         if (!empty($data['SendPostForm'])):
             unset($data['SendPostForm']);
 
             require('_models/AdminAeronave.class.php');
-            $cadastraAeronave = new AdminCategory;
+            $cadastraAeronave = new AdminAeronave;
             $cadastraAeronave->ExeUpdate($idAero, $data);
 
             WSErro($cadastraAeronave->getError()[0], $cadastraAeronave->getError()[1]);
         else:
             $read = new Read;
-            $read->ExeRead("ws_categories", "WHERE idAeronave = :id", "id={$idAero}");
+            $read->ExeRead("aeronave", "WHERE idAeronave = :id", "id={$idAero}");
             if (!$read->getResult()):
                 header('Location: painel.php?exe=aeronaves/index&empty=true');
             else:
