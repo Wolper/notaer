@@ -54,7 +54,7 @@
                 <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?>>
                     <header>
                         <hgroup>
-                            <?= $idAeronave . ' - ' .$prefixoAeronave . ' - ' . $snAeronave . ' - ' . $nomeAeronave . ' - ' . $modeloAeronave . ' - ' . $horasDeVooAeronave; ?>
+                            <?= 'Prefixo: <b>' .$prefixoAeronave . '</b><br>SerialNumber: <b>' . $snAeronave . '</b><br>Nome: <b>' . $nomeAeronave . '</b><br>Modelo: <b>' . $modeloAeronave . '</b><br>Horas de Voo: <b>' . $horasDeVooAeronave . '</b>'?>
                         </hgroup>
                     </header>
                     <ul class="info post_actions">

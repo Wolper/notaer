@@ -188,55 +188,108 @@
             </div>
 
             <div class="form-etapas">
-                <span class="field text-center"><b>E T A P A S</b></span>
-                <div class="row form-group ">
-                    <div id="etapas" class="row">
-                        <div class="form-group col-md-1">
-                            <label><span class="field">Etapa:</span></label>
-                            <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
+                <label><b>V  O  O  S</b></label>
+                <div class="form-group ">
+                    <div id="etapas">
+                        <div class="row">
+                            <!--                            <div class="form-group col-md-1">
+                                                            <label><span class="field">Etapa:</span></label>
+                                                            <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
+                                                        </div>-->
+
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Origem:</span></label>
+                                <input class="form-control" type="text" name="origem"/>
+
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Destino:</span></label>
+                                <input class="form-control" type="text" name="destino"/>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Partida:</span></label>
+                                <input id="ne" class="form-control" type="time" name="hora_de_partida"/> 
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Decolagem:</span></label>
+                                <input class="form-control" type="time" name="hora_de_decolagem"/>
+
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Pouso:</span></label>
+                                <input class="form-control" type="time" name="hora_de_pouso"/>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Corte:</span></label>
+                                <input class="form-control" type="time" name="hora_de_corte"/>
+                            </div>
+
                         </div>
+                        <div class="row">
 
-                        <div class="form-group col-md-4">
-                            <label><span class="field">Origem:</span></label>
-                            <input class="form-control" type="text" name="origem"/>
+                            <div class="form-group col-md-2">
+                                <label><span class="field">NG:</span></label>
+                                <input class="form-control"  type="number" name="ng" step="0.01" min="0"/>
+                            </div>
 
-                        </div>
+                            <div class="form-group col-md-2">
+                                <label><span class="field">NTL:</span></label>
+                                <input class="form-control"  type="number" name="ntl" step="0.01" min="0"/>
+                            </div>
 
-                        <div class="form-group col-md-4">
-                            <label><span class="field">Destino:</span></label>
-                            <input class="form-control" type="text" name="destino"/>
-                        </div>
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Ciclo:</span></label>
+                                <input id="cc" class="form-control"  type="number"  name="ciclo" step="0.01" min="0"/>
+                            </div>
 
-                        <div class="form-group col-md-2">
-                            <label><span class="field">Hora de Pouso:</span></label>
-                            <input class="form-control"  type="time" name="hora_de_pouso" />
-                        </div>
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Diu:</span></label>
+                                <input id="cc" class="form-control"  type="number" name="diurno" step="0.01" min="0"/>
+                            </div>
 
-                        <div class="form-group col-md-1">
-                            <label><span class="field">Gas:</span></label>
-                            <input id="cc" class="form-control"  type="text" name="combustivel_consumido"/>
+                            <div class="form-group col-md-2">
+                                <label><span class="field">Not:</span></label>
+                                <input id="cc" class="form-control"  type="number" name="noturno" step="0.01" min="0"/>
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label><span class="field">Pousos:</span></label>
+                                <input id="cc" class="form-control"  type="text"  name="n_pousos"  min="0"/>
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label><span class="field">Gas:</span></label>
+                                <input id="cc" class="form-control"  type="text" name="combustivel_consumido" min="0"/>
+                            </div>
+
+
                         </div>
                     </div>
-
-
                 </div>
+
+
                 <a class="btn blue" href="#" data-id="1" id="adicionarEtapa">Adicionar Etapa</a> 
             </div>
             <div class="row">
-                <div class="form-group col-md-2">
-                    <label><span class="field">Hora de Partida:</span></label>
-                    <input id="partida" class="form-control"  type="time" name="partida"/>
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label><span class="field">Hora de Corte:</span></label>
-                    <input id="corte" class="form-control"  type="time" name="corte"/>
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label><span class="field">Ciclo:</span></label>
-                    <input class="form-control"  type="number" name="ciclo" step="0.01" />
-                </div>
+                <!--                <div class="form-group col-md-2">
+                                    <label><span class="field">Hora de Partida:</span></label>
+                                    <input id="partida" class="form-control"  type="time" name="partida"/>
+                                </div>
+                
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Hora de Corte:</span></label>
+                                    <input id="corte" class="form-control"  type="time" name="corte"/>
+                                </div>
+                
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Ciclo:</span></label>
+                                    <input class="form-control"  type="number" name="ciclo" step="0.01" />
+                                </div>-->
 
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Tempo de Voo</span></label> 
@@ -257,6 +310,22 @@
                 <label><span class="field">Histórico do voo:</span></label>
                 <textarea class="form-control" name="historico"></textarea>
             </div>
+
+            <div class="form-group">
+                <label><span class="field">Ocorrências:</span></label>
+                <textarea class="form-control" name="ocorrencias"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label><span class="field">Discrepância:</span></label>
+                <textarea class="form-control" name="discrepancia"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label><span class="field">RelPrev:</span></label>
+                <textarea class="form-control" name="relprev"></textarea>
+            </div>
+
             <!--<div class="form-fim">-->
 
             <input type="hidden" name="voo_status" value="0" />
