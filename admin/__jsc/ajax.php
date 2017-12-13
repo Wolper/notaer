@@ -38,37 +38,32 @@ if (isset($data) && isset($data['SendPostForm'])):
 
     if (!$cadastraVoo->getResult()):
         WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
-//    else:
-//        $cadastraEtapa = new AdminEtapaVoo();
-//        for ($i = 0; $i < $dadosVoo['total_de_pousos']; $i++):
-//            if ($i < 1):
-//                $indice = '';
-//            else:
-//                $indice = $i;
-//            endif;
-//
-//            $dadosEtapa['idvoo'] = $cadastraVoo->getIdVoo();
-//            $dadosEtapa['origem'] = $data['origem' . $indice];
-//            $dadosEtapa['destino'] = $data['destino' . $indice];
-//            $dadosEtapa['partida'] = $data['partida' . $indice];
-//            $dadosEtapa['decolagem'] = $data['decolagem' . $indice];
-//            $dadosEtapa['pouso'] = $data['pouso' . $indice];
-//            $dadosEtapa['corte'] = $data['corte' . $indice];
-//            $dadosEtapa['ng'] = $data['ng' . $indice];
-//            $dadosEtapa['ntl'] = $data['ntl' . $indice];
-//            $dadosEtapa['diu'] = $data['diu' . $indice];
-//            $dadosEtapa['not'] = $data['not' . $indice];
-//            $dadosEtapa['qtepouso'] = $data['qtepouso' . $indice];
-//            
-//            
-//            
-//            
-//            $dadosEtapa['combustivel_consumido'] = $data['combustivel_consumido' . $indice];
-//
-//
-//            $cadastraEtapa->ExeCreate($dadosEtapa);
-//        endfor;
+    else:
+        $cadastraEtapa = new AdminEtapaVoo();
+        for ($i = 0; $i < $dadosVoo['total_de_pousos']; $i++):
+            if ($i < 1):
+                $indice = '';
+            else:
+                $indice = $i;
+            endif;
+
+            $dadosEtapa['idvoo'] = $cadastraVoo->getResult();
+            $dadosEtapa['origem'] = $data['origem' . $indice];
+            $dadosEtapa['destino'] = $data['destino' . $indice];
+            $dadosEtapa['partida'] = $data['partida' . $indice];
+            $dadosEtapa['decolagem'] = $data['decolagem' . $indice];
+            $dadosEtapa['pouso'] = $data['pouso' . $indice];
+            $dadosEtapa['corte'] = $data['corte' . $indice];
+            $dadosEtapa['ng'] = $data['ng' . $indice];
+            $dadosEtapa['ntl'] = $data['ntl' . $indice];
+            $dadosEtapa['diurno'] = $data['diurno' . $indice];
+            $dadosEtapa['noturno'] = $data['noturno' . $indice];
+            $dadosEtapa['qtepouso'] = $data['qtepouso' . $indice];
+            $dadosEtapa['combustivel_consumido'] = $data['combustivel_consumido' . $indice];
+
+            $cadastraEtapa->ExeCreate($dadosEtapa);
+        endfor;
     endif;
-//    $dados = array_merge($dadosVoo, $dadosEtapa);
-    echo json_encode($dadosVoo);
+    $dados = array_merge($dadosVoo, $dadosEtapa);
+    echo json_encode($dados);
 endif;

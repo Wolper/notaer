@@ -12,18 +12,18 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label><span class="field">Data do Voo:</span></label> 
-                        <input id="datavoo" class="form-control" type="date" name="data_do_voo" />
+                        <input id="datavoo" class="form-control" type="date" name="data_do_voo" value="2017-12-13"/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Número do Voo:</span> </label>
-                        <input class="form-control" type="text" name="numero_voo" />
+                        <input class="form-control" type="text" name="numero_voo" value="454"/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Aeronave:</span></label>
                         <select class="form-control j_loadcity" name="idaeronave">
-                            <option></option>
+                            <option>ARPHIA 03</option>
                             <?php
                             $readAero = new Read;
                             $readAero->ExeRead("aeronave");
@@ -50,7 +50,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Comandante:</span></label>
                     <select class="form-control j_loadcity" name="comandante">
-                        <option></option>
+                        <option>José</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Comandante");
@@ -72,7 +72,7 @@
                 <div class="form-group  col-md-3">
                     <label><span class="field">Copiloto:</span></label>
                     <select class="form-control j_loadcity" name="copiloto">
-                        <option></option>
+                        <option>Celestino</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Copiloto");
@@ -94,7 +94,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Top D:</span> </label>
                     <select class="form-control j_loadcity" name="topD">
-                        <option></option>
+                        <option>Hamburguer</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
@@ -116,7 +116,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Top E:</span></label>
                     <select class="form-control j_loadcity" name="topE">
-                        <option></option>
+                        <option>Alcachofra</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
@@ -142,7 +142,7 @@
                 <div class="form-group col-md-12">
                     <label><span class="field">Natureza:</span></label>
                     <select  class="form-control j_loadcity"  name="natureza">
-                        <option></option>
+                        <option>A1 - Abastecimento</option>
                         <option>A1 - Abastecimento</option>
                         <option>A2 - Traslado</option>
                         <option>A3 - Experiência (Manutenção)</option>
@@ -199,34 +199,34 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Origem:</span></label>
-                                <input class="form-control" type="text" name="origem"/>
+                                <input class="form-control" type="text" name="origem" value="Vitória"/>
 
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Destino:</span></label>
-                                <input class="form-control" type="text" name="destino"/>
+                                <input class="form-control" type="text" name="destino" value="Vila Velha"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Partida:</span></label>
-                                <input id="ne" class="form-control" type="time" name="hora_de_partida"/> 
+                                <input class="form-control" type="time" name="partida" value="10:00"/> 
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Decolagem:</span></label>
-                                <input class="form-control" type="time" name="hora_de_decolagem"/>
+                                <input class="form-control" type="time" name="decolagem" value="10:05"/>
 
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Pouso:</span></label>
-                                <input class="form-control" type="time" name="hora_de_pouso"/>
+                                <input class="form-control" type="time" name="pouso" value="10:20"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Corte:</span></label>
-                                <input class="form-control" type="time" name="hora_de_corte"/>
+                                <input class="form-control" type="time" name="corte" value="10:22"/>
                             </div>
 
                         </div>
@@ -234,37 +234,32 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">NG:</span></label>
-                                <input class="form-control"  type="number" name="ng" step="0.01" min="0"/>
+                                <input class="form-control"  type="number" name="ng" step="0.01" min="0" value="1"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">NTL:</span></label>
-                                <input class="form-control"  type="number" name="ntl" step="0.01" min="0"/>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Ciclo:</span></label>
-                                <input id="cc" class="form-control"  type="number"  name="ciclo" step="0.01" min="0"/>
+                                <input class="form-control"  type="number" name="ntl" step="0.01" min="0" value="1"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Diu:</span></label>
-                                <input id="cc" class="form-control"  type="number" name="diurno" step="0.01" min="0"/>
+                                <input class="form-control"  type="number" name="diurno" step="0.01" min="0" value="1"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Not:</span></label>
-                                <input id="cc" class="form-control"  type="number" name="noturno" step="0.01" min="0"/>
+                                <input class="form-control"  type="number" name="noturno" step="0.01" min="0" value="1"/>
                             </div>
 
                             <div class="form-group col-md-1">
                                 <label><span class="field">Pousos:</span></label>
-                                <input id="cc" class="form-control"  type="text"  name="n_pousos"  min="0"/>
+                                <input class="form-control"  type="text"  name="qtepouso"  min="0" value="1"/>
                             </div>
 
                             <div class="form-group col-md-1">
                                 <label><span class="field">Gas:</span></label>
-                                <input id="cc" class="form-control"  type="text" name="combustivel_consumido" min="0"/>
+                                <input id="cc" class="form-control"  type="text" name="combustivel_consumido" min="0" value="15"/>
                             </div>
 
 
@@ -276,28 +271,14 @@
                 <a class="btn blue" href="#" data-id="1" id="adicionarEtapa">Adicionar Etapa</a> 
             </div>
             <div class="row">
-                <!--                <div class="form-group col-md-2">
-                                    <label><span class="field">Hora de Partida:</span></label>
-                                    <input id="partida" class="form-control"  type="time" name="partida"/>
-                                </div>
-                
-                                <div class="form-group col-md-2">
-                                    <label><span class="field">Hora de Corte:</span></label>
-                                    <input id="corte" class="form-control"  type="time" name="corte"/>
-                                </div>
-                
-                                <div class="form-group col-md-2">
-                                    <label><span class="field">Ciclo:</span></label>
-                                    <input class="form-control"  type="number" name="ciclo" step="0.01" />
-                                </div>-->
-
+     
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Tempo de Voo</span></label> 
                     <input id="ttv" class="form-control" type="text" name="tempo_total_de_voo"  value="250" readonly="" />
                 </div>
                 <div class="form-group col-md-2">           
                     <label><span class="field">T. Pousos:</span></label>
-                    <input id="tp" class="form-control"  type="text" name="total_de_pousos" value="5" readonly=""/> 
+                    <input id="tp" class="form-control"  type="text" name="total_de_pousos" value="1" readonly=""/> 
                 </div>
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Gas Consumido:</span></label>
@@ -308,22 +289,22 @@
             <!--/line-->    
             <div class="form-group">
                 <label><span class="field">Histórico do voo:</span></label>
-                <textarea class="form-control" name="historico"></textarea>
+                <textarea class="form-control" name="historico">Histórico</textarea>
             </div>
 
             <div class="form-group">
                 <label><span class="field">Ocorrências:</span></label>
-                <textarea class="form-control" name="ocorrencia"></textarea>
+                <textarea class="form-control" name="ocorrencia">Ocorrência</textarea>
             </div>
 
             <div class="form-group">
                 <label><span class="field">Discrepância:</span></label>
-                <textarea class="form-control" name="discrepancia"></textarea>
+                <textarea class="form-control" name="discrepancia">Discrepância</textarea>
             </div>
 
             <div class="form-group">
                 <label><span class="field">RelPrev:</span></label>
-                <textarea class="form-control" name="relprev"></textarea>
+                <textarea class="form-control" name="relprev">Relatório Prevenção</textarea>
             </div>
 
             <!--<div class="form-fim">-->
