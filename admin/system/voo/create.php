@@ -293,15 +293,15 @@
 
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Tempo de Voo</span></label> 
-                    <input id="ttv" class="form-control" type="text" name="tempo_total_de_voo"  readonly="" />
+                    <input id="ttv" class="form-control" type="text" name="tempo_total_de_voo"  value="250" readonly="" />
                 </div>
                 <div class="form-group col-md-2">           
                     <label><span class="field">T. Pousos:</span></label>
-                    <input id="tp" class="form-control"  type="text" name="total_de_pousos" readonly=""/> 
+                    <input id="tp" class="form-control"  type="text" name="total_de_pousos" value="5" readonly=""/> 
                 </div>
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Gas Consumido:</span></label>
-                    <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly="" value="" step="0.01"/>
+                    <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly="" value="45" step="0.01"/>
                 </div>
 
             </div>
@@ -313,7 +313,7 @@
 
             <div class="form-group">
                 <label><span class="field">Ocorrências:</span></label>
-                <textarea class="form-control" name="ocorrencias"></textarea>
+                <textarea class="form-control" name="ocorrencia"></textarea>
             </div>
 
             <div class="form-group">

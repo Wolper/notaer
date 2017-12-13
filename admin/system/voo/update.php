@@ -365,17 +365,17 @@
 
             <div class="form-group">
                 <label><span class="field">Ocorrências:</span></label>
-                <textarea class="form-control" name="ocorrencias"></textarea>
+                <textarea class="form-control" name="ocorrencia"><?= $data[0]['ocorrencia'] ?></textarea>
             </div>
 
             <div class="form-group">
                 <label><span class="field">Discrepância:</span></label>
-                <textarea class="form-control" name="discrepancia"></textarea>
+                <textarea class="form-control" name="discrepancia"><?= $data[0]['discrepancia'] ?></textarea>
             </div>
 
             <div class="form-group">
                 <label><span class="field">RelPrev:</span></label>
-                <textarea class="form-control" name="relprev"></textarea>
+                <textarea class="form-control" name="relprev"><?= $data[0]['relprev'] ?></textarea>
             </div>
 
             <!--<div class="form-fim">-->
