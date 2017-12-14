@@ -10,10 +10,13 @@
         $voo = filter_input(INPUT_GET, 'emp', FILTER_VALIDATE_INT);
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $etapas = array();
-
+//        print_r($voo);
+        print_r($dados);
         if ($dados && $dados['SendPostForm']):
             $dados['voo_status'] = ($dados['SendPostForm'] == 'Atualizar' ? '0' : '1');
+            unset($dados['SendPostForm']);
 
+            $data[0]['voo_status'] = ($dados['voo_status']);
             $data[0]['data_do_voo'] = ($dados['data_do_voo']);
             $data[0]['numero_voo'] = ($dados['numero_voo']);
             $data[0]['idaeronave'] = ($dados['idaeronave']);
@@ -21,15 +24,15 @@
             $data[0]['copiloto'] = ($dados['copiloto']);
             $data[0]['topD'] = ($dados['topD']);
             $data[0]['topE'] = ($dados['topE']);
-            $data[0]['historico'] = ($dados['historico']);
-            $data[0]['partida'] = ($dados['partida']);
-            $data[0]['corte'] = ($dados['corte']);
-            $data[0]['qte'] = ($dados['ciclo']);
+            $data[0]['natureza'] = ($dados['natureza']);
+
             $data[0]['tempo_total_de_voo'] = ($dados['tempo_total_de_voo']);
             $data[0]['total_de_pousos'] = ($dados['total_de_pousos']);
             $data[0]['combustivel_total_consumido'] = ($dados['combustivel_total_consumido']);
-            $data[0]['natureza'] = ($dados['natureza']);
-            $data[0]['voo_status'] = ($dados['voo_status']);
+            $data[0]['historico'] = ($dados['historico']);
+            $data[0]['ocorrencia'] = ($dados['ocorrencia']);
+            $data[0]['discrepancia'] = ($dados['discrepancia']);
+            $data[0]['relprev'] = ($dados['relprev']);
 
             require('_models/AdminEtapaVoo.class.php');
             $atualizaEtapa = new AdminEtapaVoo();
@@ -47,13 +50,19 @@
                 $data[$i + 1]['decolagem'] = $dados['decolagem' . $indice];
                 $data[$i + 1]['pouso'] = $dados['pouso' . $indice];
                 $data[$i + 1]['corte'] = $dados['corte' . $indice];
+                $data[$i + 1]['ng'] = $dados['ng' . $indice];
+                $data[$i + 1]['ntl'] = $dados['ntl' . $indice];
+                $data[$i + 1]['diurno'] = $dados['diurno' . $indice];
+                $data[$i + 1]['noturno'] = $dados['noturno' . $indice];
+                $data[$i + 1]['qtepouso'] = $dados['qtepouso' . $indice];
                 $data[$i + 1]['combustivel_consumido'] = $dados['combustivel_consumido' . $indice];
+
+
 
                 $atualizaEtapa->ExeUpdate($voo, $i + 1, $data[$i + 1]);
 
             endfor;
 
-            unset($data['SendPostForm']);
             require('_models/AdminVoo.class.php');
             $cadastraVoo = new AdminVoo;
             $cadastraVoo->ExeUpdate($voo, $data[0]);
@@ -290,81 +299,81 @@
                     ?>
                     <div class="row form-group ">
                         <div id="etapas">
-                        <div class="row">
-                            <!--                            <div class="form-group col-md-1">
-                                                            <label><span class="field">Etapa:</span></label>
-                                                            <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
-                                                        </div>-->
+                            <div class="row">
+                                <!--                            <div class="form-group col-md-1">
+                                                                <label><span class="field">Etapa:</span></label>
+                                                                <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
+                                                            </div>-->
 
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Origem:</span></label>
-                                <input class="form-control" type="text" name="origem<?= $indice ?>" value="<?= $data[$i + 1]['origem'] ?>"/>
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Origem:</span></label>
+                                    <input class="form-control" type="text" name="origem<?= $indice ?>" value="<?= $data[$i + 1]['origem'] ?>"/>
+
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Destino:</span></label>
+                                    <input class="form-control" type="text" name="destino<?= $indice ?>" value="<?= $data[$i + 1]['destino'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Partida:</span></label>
+                                    <input class="form-control" type="time" name="partida<?= $indice ?>" value="<?= $data[$i + 1]['partida'] ?>"/> 
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Decolagem:</span></label>
+                                    <input class="form-control" type="time" name="decolagem<?= $indice ?>" value="<?= $data[$i + 1]['decolagem'] ?>"/>
+
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Pouso:</span></label>
+                                    <input class="form-control" type="time" name="pouso<?= $indice ?>" value="<?= $data[$i + 1]['pouso'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Corte:</span></label>
+                                    <input class="form-control" type="time" name="corte<?= $indice ?>" value="<?= $data[$i + 1]['corte'] ?>"/>
+                                </div>
 
                             </div>
+                            <div class="row">
 
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Destino:</span></label>
-                                <input class="form-control" type="text" name="destino<?= $indice ?>" value="<?= $data[$i + 1]['destino'] ?>"/>
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">NG:</span></label>
+                                    <input class="form-control"  type="number" name="ng<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['ng'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">NTL:</span></label>
+                                    <input class="form-control"  type="number" name="ntl<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['ntl'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Diu:</span></label>
+                                    <input class="form-control"  type="number" name="diurno<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['diurno'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label><span class="field">Not:</span></label>
+                                    <input class="form-control"  type="number" name="noturno<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['noturno'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label><span class="field">Pousos:</span></label>
+                                    <input class="form-control"  type="text"  name="qtepouso<?= $indice ?>"  min="0" value="<?= $data[$i + 1]['qtepouso'] ?>"/>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label><span class="field">Gas:</span></label>
+                                    <input id="cc" class="form-control"  type="text" name="combustivel_consumido<?= $indice ?>" min="0" value="<?= $data[$i + 1]['combustivel_consumido'] ?>"/>
+                                </div>
+
+
                             </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Partida:</span></label>
-                                <input class="form-control" type="time" name="partida<?= $indice ?>" value="<?= $data[$i + 1]['partida'] ?>"/> 
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Decolagem:</span></label>
-                                <input class="form-control" type="time" name="decolagem<?= $indice ?>" value="<?= $data[$i + 1]['decolagem'] ?>"/>
-
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Pouso:</span></label>
-                                <input class="form-control" type="time" name="pouso<?= $indice ?>" value="<?= $data[$i + 1]['pouso'] ?>"/>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Corte:</span></label>
-                                <input class="form-control" type="time" name="corte<?= $indice ?>" value="<?= $data[$i + 1]['corte'] ?>"/>
-                            </div>
-
                         </div>
-                        <div class="row">
 
-                            <div class="form-group col-md-2">
-                                <label><span class="field">NG:</span></label>
-                                <input class="form-control"  type="number" name="ng<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['ng'] ?>"/>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">NTL:</span></label>
-                                <input class="form-control"  type="number" name="ntl<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['ntl'] ?>"/>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Diu:</span></label>
-                                <input class="form-control"  type="number" name="diurno<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['diurno'] ?>"/>
-                            </div>
-
-                            <div class="form-group col-md-2">
-                                <label><span class="field">Not:</span></label>
-                                <input class="form-control"  type="number" name="noturno<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['noturno'] ?>"/>
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <label><span class="field">Pousos:</span></label>
-                                <input class="form-control"  type="text"  name="qtepouso<?= $indice ?>"  min="0" value="<?= $data[$i + 1]['qtepouso'] ?>"/>
-                            </div>
-
-                            <div class="form-group col-md-1">
-                                <label><span class="field">Gas:</span></label>
-                                <input id="cc" class="form-control"  type="text" name="combustivel_consumido<?= $indice ?>" min="0" value="<?= $data[$i + 1]['combustivel_consumido'] ?>"/>
-                            </div>
-
-
-                        </div>
-                    </div>
-                        
                     </div>
                     <?php
                 endfor;
@@ -372,7 +381,7 @@
                 <a class="btn blue" href="#" data-id="1" id="adicionarEtapa">Adicionar Etapa</a> 
             </div>
 
-           <div class="row">
+            <div class="row">
 
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Tempo de Voo</span></label> 
@@ -485,7 +494,7 @@
                            <span class="field">Cidade:</span>
                            <select class="j_loadcity" name="empresa_cidade">
         <?php if (!isset($data['empresa_cidade'])): ?>
-                                                                                                                                                                                                            <option value="" selected disabled> Selecione antes um estado </option>
+                                                                                                                                                                                                                                                                    <option value="" selected disabled> Selecione antes um estado </option>
             <?php
         else:
             $readAero = new Read;

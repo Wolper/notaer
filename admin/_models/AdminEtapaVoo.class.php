@@ -10,7 +10,7 @@ class AdminEtapaVoo {
 
     private $Data;
     private $Voo;
-    private $nEtapa;
+    private $idEtapa;
     private $idVoo;
     private $Error;
     private $Result;
@@ -40,10 +40,10 @@ class AdminEtapaVoo {
      * @param INT $IdVoo = Id da Empresa
      * @param ARRAY $Data = Atribuitivo
      */
-    public function ExeUpdate($IdVoo, $nEtapa, array $Data) {
+    public function ExeUpdate($IdVoo, $idEtapa, array $Data) {
         $this->Voo = (int) $IdVoo;
         $this->Data = $Data;
-        $this->nEtapa = $nEtapa;
+        $this->idEtapa = $idEtapa;
         if (in_array('', $this->Data)):
             $this->Error = ["Erro ao Atualizar: Para atualizar a etapa do voo <b>{$this->Data['idvoo']}</b>, preencha todos os campos!", WS_ALERT];
             $this->Result = false;
@@ -116,16 +116,16 @@ class AdminEtapaVoo {
         if ($Create->getResult()):
             $this->Result = $Create->getResult();
             $this->idVoo = $Create->getId();
-            $this->Error = ["A etapa de nº {$this->Data['numero']} do voo <b>{$this->Data['idvoo']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
+            $this->Error = ["A etapa de idº {$Create->getResult()} do voo <b>{$this->Data['idvoo']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
         endif;
     }
 
     //Atualiza a empresa no banco!
     private function UpdateEtapa() {
         $Update = new Update;
-        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idvoo = :id AND numero_etapa = :nEtapa", "id={$this->Voo}&nEtapa={$this->nEtapa}");
+        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idvoo = :id AND idetapa = :idEtapa", "id={$this->Voo}&idEtapa={$this->idEtapa}");
         if ($Update->getRowCount() >= 1):
-            $this->Error = ["A etapa de nº {$this->Data['numero_etapa']} do voo <b>{$this->Data['idvoo']}</b> foi atualizada com sucesso!", WS_ACCEPT];
+            $this->Error = ["A etapa de nº {$this->Result} do voo <b>{$this->Data['idvoo']}</b> foi atualizada com sucesso!", WS_ACCEPT];
             $this->Result = true;
         endif;
     }

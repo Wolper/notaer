@@ -23,7 +23,7 @@
                     <div class="form-group col-md-4">
                         <label><span class="field">Aeronave:</span></label>
                         <select class="form-control j_loadcity" name="idaeronave">
-                            <option>ARPHIA 03</option>
+                            <option></option>
                             <?php
                             $readAero = new Read;
                             $readAero->ExeRead("aeronave");
@@ -50,7 +50,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Comandante:</span></label>
                     <select class="form-control j_loadcity" name="comandante">
-                        <option>José</option>
+                        <option></option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Comandante");
@@ -72,7 +72,7 @@
                 <div class="form-group  col-md-3">
                     <label><span class="field">Copiloto:</span></label>
                     <select class="form-control j_loadcity" name="copiloto">
-                        <option>Celestino</option>
+                        <option></option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Copiloto");
@@ -94,7 +94,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Top D:</span> </label>
                     <select class="form-control j_loadcity" name="topD">
-                        <option>Hamburguer</option>
+                        <option></option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
@@ -116,7 +116,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Top E:</span></label>
                     <select class="form-control j_loadcity" name="topE">
-                        <option>Alcachofra</option>
+                        <option></option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");

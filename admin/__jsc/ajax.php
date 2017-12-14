@@ -19,9 +19,6 @@ if (isset($data) && isset($data['SendPostForm'])):
     $dadosVoo['topE'] = $data['topE'];
     $dadosVoo['natureza'] = $data['natureza'];
 
-//    $dadosVoo['partida'] = $data['partida'];
-//    $dadosVoo['corte'] = $data['corte'];
-//    $dadosVoo['ciclo'] = $data['ciclo'];
     $dadosVoo['tempo_total_de_voo'] = $data['tempo_total_de_voo'];
     $dadosVoo['total_de_pousos'] = $data['total_de_pousos'];
     $dadosVoo['combustivel_total_consumido'] = $data['combustivel_total_consumido'];
