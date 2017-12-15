@@ -41,7 +41,7 @@ $(function () {
     $(botaoAdicionar).click(function () {
         //criando instancia dom .conte4udoIndividual
         var linha = $('<div class="conteudoIndividual">' +
-                '<input id="ne" class="form-control" type="hidden" value="' + (i + 1) + '"   readonly="" name="numero_etapa' + i + '" />' +
+                '<div class="form-group col-md-1"><label><span class="field">Etapa:</span></label><input id="ne" class="form-control" type="text" value="' + (i + 1) + '"   readonly="" name="numero_etapa' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Origem:</span></label><input class="form-control" type="text" name="origem' + i + '"/></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Destino:</span></label><input class="form-control" type="text" name="destino' + i + '"/></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Partida:</span></label><input class="form-control"  type="time" name="partida' + i + '" /></div>' +

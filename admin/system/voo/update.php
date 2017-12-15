@@ -81,8 +81,9 @@
                     header('Location: painel.php?exe=voo/index&empty=true');
                 else:
                     $data[0] = $readVoo->getResult()[0];
+                $data['qteetapas'] = $readEtapa->getRowCount();
                     foreach ($readEtapa->getResult() as $etapa):
-                        for ($i = 0; $i <= $readVoo->getResult()[0]['total_de_pousos'] - 1; $i++):
+                        for ($i = 0; $i <= $readEtapa->getRowCount() - 1; $i++):
                             $data[$i + 1] = $readEtapa->getResult()[$i];
                         endfor;
                     endforeach;
@@ -290,8 +291,9 @@
             <div class="form-etapas">
                 <span class="field text-center"><b>E T A P A S</b></span>
                 <?php
-//                print_r($data);
-                for ($i = 0; $i <= $data[0]['total_de_pousos'] - 1; $i++):
+                print_r($data);
+
+                for ($i = 0; $i <= $data[0]['qteetapas'] - 1; $i++):
                     if ($i < 1):
                         $indice = '';
                     else:
@@ -301,16 +303,15 @@
                     <div class="row form-group ">
                         <div id="etapas">
                             <div class="row">
-                                <!--                                <div class="form-group col-md-1">
-                                                                    <label><span class="field">Etapa:</span></label>-->
-                                <input id="ne" class="form-control" type="hidden" name="numero_etapa" readonly="" /> 
-                                <!--</div>-->
+                                <div class="form-group col-md-1">
+                                    <label><span class="field">Etapa:</span></label>
+                                    <input id="ne" class="form-control" type="hidden" name="numero_etapa" readonly="" /> 
+                                </div>
 
 
                                 <div class="form-group col-md-2">
                                     <label><span class="field">Origem:</span></label>
                                     <input class="form-control" type="text" name="origem<?= $indice ?>" value="<?= $data[$i + 1]['origem'] ?>"/>
-
                                 </div>
 
                                 <div class="form-group col-md-2">
@@ -428,6 +429,8 @@
 
             <div class="gbform"></div>
 
+            <input type="hidden" name="qteetapas" value="<?= $readEtapa->getRowCount() ?>" />
+
             <input type="submit" class="btn blue" value="Atualizar" name="SendPostForm" />
             <!--<input type="submit" class="btn green" value="Cadastrar & Publicar" name="SendPostForm" />-->
             </div>
@@ -496,7 +499,7 @@
                            <span class="field">Cidade:</span>
                            <select class="j_loadcity" name="empresa_cidade">
         <?php if (!isset($data['empresa_cidade'])): ?>
-                                                                                                                                                                                                                                                                                            <option value="" selected disabled> Selecione antes um estado </option>
+                                                                                                                                                                                                                                                                                                                <option value="" selected disabled> Selecione antes um estado </option>
             <?php
         else:
             $readAero = new Read;
