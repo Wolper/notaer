@@ -191,10 +191,10 @@
                 <div class="form-group ">
                     <div id="etapas">
                         <div class="row">
-                            <!--                            <div class="form-group col-md-1">
-                                                            <label><span class="field">Etapa:</span></label>
-                                                            <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
-                                                        </div>-->
+                            <!--                                                        <div class="form-group col-md-1">
+                                                                                        <label><span class="field">Etapa:</span></label>-->
+                            <input id="ne" class="form-control" type="hidden" name="numero_etapa" readonly="" /> 
+                            <!--</div>-->
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Origem:</span></label>
@@ -270,7 +270,7 @@
                 <a class="btn blue" href="#" data-id="1" id="adicionarEtapa">Adicionar Etapa</a> 
             </div>
             <div class="row">
-     
+
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Tempo de Voo</span></label> 
                     <input id="ttv" class="form-control" type="text" name="tempo_total_de_voo"  value="250" readonly="" />

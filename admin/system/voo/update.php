@@ -5,96 +5,97 @@
         <header>
             <h1>Editar Atividade Aérea:</h1>
         </header>
-
-        <?php
-        $voo = filter_input(INPUT_GET, 'emp', FILTER_VALIDATE_INT);
-        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        $etapas = array();
+        <pre>
+            <?php
+            $voo = filter_input(INPUT_GET, 'emp', FILTER_VALIDATE_INT);
+            $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+            $etapas = array();
 //        print_r($voo);
-        print_r($dados);
-        if ($dados && $dados['SendPostForm']):
-            $dados['voo_status'] = ($dados['SendPostForm'] == 'Atualizar' ? '0' : '1');
-            unset($dados['SendPostForm']);
+            print_r($dados);
+            if ($dados && $dados['SendPostForm']):
+                $dados['voo_status'] = ($dados['SendPostForm'] == 'Atualizar' ? '0' : '1');
+                unset($dados['SendPostForm']);
 
-            $data[0]['voo_status'] = ($dados['voo_status']);
-            $data[0]['data_do_voo'] = ($dados['data_do_voo']);
-            $data[0]['numero_voo'] = ($dados['numero_voo']);
-            $data[0]['idaeronave'] = ($dados['idaeronave']);
-            $data[0]['comandante'] = ($dados['comandante']);
-            $data[0]['copiloto'] = ($dados['copiloto']);
-            $data[0]['topD'] = ($dados['topD']);
-            $data[0]['topE'] = ($dados['topE']);
-            $data[0]['natureza'] = ($dados['natureza']);
+                $data[0]['voo_status'] = ($dados['voo_status']);
+                $data[0]['data_do_voo'] = ($dados['data_do_voo']);
+                $data[0]['numero_voo'] = ($dados['numero_voo']);
+                $data[0]['idaeronave'] = ($dados['idaeronave']);
+                $data[0]['comandante'] = ($dados['comandante']);
+                $data[0]['copiloto'] = ($dados['copiloto']);
+                $data[0]['topD'] = ($dados['topD']);
+                $data[0]['topE'] = ($dados['topE']);
+                $data[0]['natureza'] = ($dados['natureza']);
 
-            $data[0]['tempo_total_de_voo'] = ($dados['tempo_total_de_voo']);
-            $data[0]['total_de_pousos'] = ($dados['total_de_pousos']);
-            $data[0]['combustivel_total_consumido'] = ($dados['combustivel_total_consumido']);
-            $data[0]['historico'] = ($dados['historico']);
-            $data[0]['ocorrencia'] = ($dados['ocorrencia']);
-            $data[0]['discrepancia'] = ($dados['discrepancia']);
-            $data[0]['relprev'] = ($dados['relprev']);
+                $data[0]['tempo_total_de_voo'] = ($dados['tempo_total_de_voo']);
+                $data[0]['total_de_pousos'] = ($dados['total_de_pousos']);
+                $data[0]['combustivel_total_consumido'] = ($dados['combustivel_total_consumido']);
+                $data[0]['historico'] = ($dados['historico']);
+                $data[0]['ocorrencia'] = ($dados['ocorrencia']);
+                $data[0]['discrepancia'] = ($dados['discrepancia']);
+                $data[0]['relprev'] = ($dados['relprev']);
 
-            require('_models/AdminEtapaVoo.class.php');
-            $atualizaEtapa = new AdminEtapaVoo();
-            for ($i = 0; $i < $dados['total_de_pousos']; $i++):
-                if ($i <= 0):
-                    $indice = '';
-                else:
-                    $indice = $i;
-                endif;
+                require('_models/AdminEtapaVoo.class.php');
+                $atualizaEtapa = new AdminEtapaVoo();
+                for ($i = 0; $i < $dados['total_de_pousos']; $i++):
+                    if ($i <= 0):
+                        $indice = '';
+                    else:
+                        $indice = $i;
+                    endif;
 
-                $data[$i + 1]['idvoo'] = $voo;
-                $data[$i + 1]['origem'] = $dados['origem' . $indice];
-                $data[$i + 1]['destino'] = $dados['destino' . $indice];
-                $data[$i + 1]['partida'] = $dados['partida' . $indice];
-                $data[$i + 1]['decolagem'] = $dados['decolagem' . $indice];
-                $data[$i + 1]['pouso'] = $dados['pouso' . $indice];
-                $data[$i + 1]['corte'] = $dados['corte' . $indice];
-                $data[$i + 1]['ng'] = $dados['ng' . $indice];
-                $data[$i + 1]['ntl'] = $dados['ntl' . $indice];
-                $data[$i + 1]['diurno'] = $dados['diurno' . $indice];
-                $data[$i + 1]['noturno'] = $dados['noturno' . $indice];
-                $data[$i + 1]['qtepouso'] = $dados['qtepouso' . $indice];
-                $data[$i + 1]['combustivel_consumido'] = $dados['combustivel_consumido' . $indice];
-
-
-
-                $atualizaEtapa->ExeUpdate($voo, $i + 1, $data[$i + 1]);
-
-            endfor;
-
-            require('_models/AdminVoo.class.php');
-            $cadastraVoo = new AdminVoo;
-            $cadastraVoo->ExeUpdate($voo, $data[0]);
+                    $data[$i + 1]['idvoo'] = $voo;
+                    $data[$i + 1]['numero_etapa'] = $dados['numero_etapa' . $indice];
+                    $data[$i + 1]['origem'] = $dados['origem' . $indice];
+                    $data[$i + 1]['destino'] = $dados['destino' . $indice];
+                    $data[$i + 1]['partida'] = $dados['partida' . $indice];
+                    $data[$i + 1]['decolagem'] = $dados['decolagem' . $indice];
+                    $data[$i + 1]['pouso'] = $dados['pouso' . $indice];
+                    $data[$i + 1]['corte'] = $dados['corte' . $indice];
+                    $data[$i + 1]['ng'] = $dados['ng' . $indice];
+                    $data[$i + 1]['ntl'] = $dados['ntl' . $indice];
+                    $data[$i + 1]['diurno'] = $dados['diurno' . $indice];
+                    $data[$i + 1]['noturno'] = $dados['noturno' . $indice];
+                    $data[$i + 1]['qtepouso'] = $dados['qtepouso' . $indice];
+                    $data[$i + 1]['combustivel_consumido'] = $dados['combustivel_consumido' . $indice];
 
 
-            WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
+
+                    $atualizaEtapa->ExeUpdate($voo, $i + 1, $data[$i + 1]);
+
+                endfor;
+
+                require('_models/AdminVoo.class.php');
+                $cadastraVoo = new AdminVoo;
+                $cadastraVoo->ExeUpdate($voo, $data[0]);
 
 
-        else:
-            $readVoo = new Read;
-            $readVoo->ExeRead("voo", "WHERE idvoo = :idvoo", "idvoo={$voo}");
-            $readEtapa = new Read;
-            $readEtapa->ExeRead("etapas_voo", "WHERE idvoo = :idvoo", "idvoo={$voo}");
-            if (!$readVoo->getResult() || !$readEtapa->getResult()):
-                header('Location: painel.php?exe=voo/index&empty=true');
+                WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
+
+
             else:
-                $data[0] = $readVoo->getResult()[0];
-                foreach ($readEtapa->getResult() as $etapa):
-                    for ($i = 0; $i <= $readVoo->getResult()[0]['total_de_pousos'] - 1; $i++):
-                        $data[$i + 1] = $readEtapa->getResult()[$i];
-                    endfor;
-                endforeach;
+                $readVoo = new Read;
+                $readVoo->ExeRead("voo", "WHERE idvoo = :idvoo", "idvoo={$voo}");
+                $readEtapa = new Read;
+                $readEtapa->ExeRead("etapas_voo", "WHERE idvoo = :idvoo", "idvoo={$voo}");
+                if (!$readVoo->getResult() || !$readEtapa->getResult()):
+                    header('Location: painel.php?exe=voo/index&empty=true');
+                else:
+                    $data[0] = $readVoo->getResult()[0];
+                    foreach ($readEtapa->getResult() as $etapa):
+                        for ($i = 0; $i <= $readVoo->getResult()[0]['total_de_pousos'] - 1; $i++):
+                            $data[$i + 1] = $readEtapa->getResult()[$i];
+                        endfor;
+                    endforeach;
+                endif;
             endif;
-        endif;
-        $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
+            $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
 
-        if ($checkCreate && empty($cadastraVoo)):
-            WSErro("O voo nº <b>{$data[0]['numero_voo']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT);
-        endif;
-        ?>
+            if ($checkCreate && empty($cadastraVoo)):
+                WSErro("O voo nº <b>{$data[0]['numero_voo']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT);
+            endif;
+            ?>
 
-
+        </pre>
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <div class="row">
@@ -120,7 +121,7 @@
                             if ($readAero->getRowCount()):
                                 foreach ($readAero->getResult() as $aeronave):
                                     extract($aeronave);
-                                    echo "<option value=\"{$idaeronave}\" ";
+                                    echo "<option value=\"{$idAeronave}\" ";
 
                                     if (isset($data[0]['idaeronave']) && $data[0]['idaeronave'] == $idAeronave):
                                         echo "selected";
@@ -300,10 +301,11 @@
                     <div class="row form-group ">
                         <div id="etapas">
                             <div class="row">
-                                <!--                            <div class="form-group col-md-1">
-                                                                <label><span class="field">Etapa:</span></label>
-                                                                <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
-                                                            </div>-->
+                                <!--                                <div class="form-group col-md-1">
+                                                                    <label><span class="field">Etapa:</span></label>-->
+                                <input id="ne" class="form-control" type="hidden" name="numero_etapa" readonly="" /> 
+                                <!--</div>-->
+
 
                                 <div class="form-group col-md-2">
                                     <label><span class="field">Origem:</span></label>
@@ -494,7 +496,7 @@
                            <span class="field">Cidade:</span>
                            <select class="j_loadcity" name="empresa_cidade">
         <?php if (!isset($data['empresa_cidade'])): ?>
-                                                                                                                                                                                                                                                                    <option value="" selected disabled> Selecione antes um estado </option>
+                                                                                                                                                                                                                                                                                            <option value="" selected disabled> Selecione antes um estado </option>
             <?php
         else:
             $readAero = new Read;

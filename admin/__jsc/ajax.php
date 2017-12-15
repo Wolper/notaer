@@ -45,6 +45,7 @@ if (isset($data) && isset($data['SendPostForm'])):
             endif;
 
             $dadosEtapa['idvoo'] = $cadastraVoo->getResult();
+            $dadosEtapa['numero_etapa'] = $data['numero_etapa' . $indice];
             $dadosEtapa['origem'] = $data['origem' . $indice];
             $dadosEtapa['destino'] = $data['destino' . $indice];
             $dadosEtapa['partida'] = $data['partida' . $indice];
