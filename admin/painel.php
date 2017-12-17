@@ -73,10 +73,11 @@ endif;
                             </ul>
                         </li>
                         
-                        <li class="li<?php if (in_array('voo', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Registro de Voo</a>
+                        <li class="li<?php if (in_array('voo', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Registro de Atividade Aérea</a>
                             <ul class="sub">
-                                <li><a href="painel.php?exe=voo/create">Registrar Voo</a></li>
-                                <li><a href="painel.php?exe=voo/index">Listar / Editar Registro</a></li>
+                                <li><a href="painel.php?exe=voo/create">Registrar</a></li>
+                                <li><a href="painel.php?exe=voo/index">Listar / Editar</a></li>
+                                <li><a href="painel.php?exe=voo/diario">Gerar Diário de Bordo</a></li>
                             </ul>
                         </li>
 
