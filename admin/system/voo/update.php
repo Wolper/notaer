@@ -300,16 +300,16 @@
                     <div class="row form-group ">
                         <div id="etapas">
                             <div class="row">
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-1" style="display: none">
                                     <label><span class="field">Etapa:</span></label>
                                     <input id="ne" class="form-control" type="text" name="numero_etapa<?= $indice ?>" value="<?= $data[$i + 1]['numero_etapa']; ?>" readonly="" /> 
                                 </div>
 
                                 <div class="form-group col-md-2">
                                     <label><span class="field">Origem:</span></label>
-    <!--                                    <input class="form-control" type="text" name="origem<?= $indice ?>" value="<?= $data[$i + 1]['origem'] ?>"/>-->
-                                     <select class="form-control j_loadcity" name="origem<?= $indice ?>">
-                                    <option></option>
+                                    <input class="form-control" type="text" name="origem<?= $indice ?>" value="<?= $data[$i + 1]['origem'] ?>"/>
+    <!--                                     <select class="form-control j_loadcity" name="origem<?= $indice ?>">
+                                <option></option>
                                     <?php
                                     $readAero = new Read;
                                     $readAero->ExeRead("app_cidades", "WHERE estado_id = :uf ORDER BY cidade_nome ASC", "uf=8");
@@ -324,16 +324,16 @@
                                         endforeach;
                                     endif;
                                     ?>  
-                                </select>
+                            </select>-->
 
                                 </div>
 
                                 <div class="form-group col-md-2">
                                     <label><span class="field">Destino:</span></label>
-                                    <!--<input class="form-control" type="text" name="destino<?= $indice ?>" value="<?= $data[$i + 1]['destino'] ?>"/>-->
-                                
-                                  <select class="form-control j_loadcity" name="destino<?= $indice ?>">
-                                    <option></option>
+                                    <input class="form-control" type="text" name="destino<?= $indice ?>" value="<?= $data[$i + 1]['destino'] ?>"/>
+
+    <!--                                  <select class="form-control j_loadcity" name="destino<?= $indice ?>">
+        <option></option>
                                     <?php
                                     $readAero = new Read;
                                     $readAero->ExeRead("app_cidades", "WHERE estado_id = :uf ORDER BY cidade_nome ASC", "uf=8");
@@ -348,7 +348,7 @@
                                         endforeach;
                                     endif;
                                     ?>  
-                                </select>
+    </select>-->
                                 </div>
 
                                 <div class="form-group col-md-2">
@@ -395,12 +395,12 @@
                                     <input class="form-control"  type="number" name="noturno<?= $indice ?>" step="0.01" min="0" value="<?= $data[$i + 1]['noturno'] ?>"/>
                                 </div>
 
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label><span class="field">Pousos:</span></label>
                                     <input class="form-control"  type="text"  name="qtepouso<?= $indice ?>"  min="0" value="<?= $data[$i + 1]['qtepouso'] ?>"/>
                                 </div>
 
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <label><span class="field">Gas:</span></label>
                                     <input id="cc" class="form-control"  type="text" name="combustivel_consumido<?= $indice ?>" min="0" value="<?= $data[$i + 1]['combustivel_consumido'] ?>"/>
                                 </div>
@@ -426,7 +426,7 @@
                     <label><span class="field">T. Pousos:</span></label>
                     <input id="tp" class="form-control"  type="text" name="total_de_pousos"  value="<?= $data[0]['total_de_pousos'] ?>" readonly=""/> 
                 </div>
-                <div class="form-group col-md-2">           
+                <div class="form-group col-md-2" style="display: none">           
                     <label><span class="field">Qte Etapas:</span></label>
                     <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" value="<?= $data[0]['qte_etapas'] ?>" readonly=""/> 
                 </div>
@@ -533,7 +533,7 @@
                            <span class="field">Cidade:</span>
                            <select class="j_loadcity" name="empresa_cidade">
         <?php if (!isset($data['empresa_cidade'])): ?>
-                                                                                                                                                                                                                                                                                                                                                    <option value="" selected disabled> Selecione antes um estado </option>
+                                                                                                                                                                                                                                                                                                                                                        <option value="" selected disabled> Selecione antes um estado </option>
             <?php
         else:
             $readAero = new Read;

@@ -191,54 +191,54 @@
                 <div class="form-group ">
                     <div id="etapas">
                         <div class="row">
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-md-1" style="display: none">
                                 <label><span class="field">Etapa:</span></label>
                                 <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label><span class="field">Origem:</span></label>
-                                <!--<input class="form-control" type="text" name="origem" value="Vitória"/>-->
+                                <input class="form-control" type="text" name="origem" value="Vitória"/>
 
-                                <select class="form-control j_loadcity" name="origem">
-                                    <option></option>
-                                    <?php
-                                    $readAero = new Read;
-                                    $readAero->ExeRead("app_cidades", "WHERE estado_id = :uf ORDER BY cidade_nome ASC", "uf=8");
-                                    if ($readAero->getRowCount()):
-                                        foreach ($readAero->getResult() as $cidade):
-                                            extract($cidade);
-                                            echo "<option value=\"{$cidade_id}\" ";
-                                            if (isset($data['origem']) && $data['origem'] == $cidade_id):
-                                                echo "selected";
-                                            endif;
-                                            echo "> {$cidade_nome} </option>";
-                                        endforeach;
-                                    endif;
-                                    ?>  
-                                </select>
+<!--                                <select class="form-control j_loadcity" name="origem"><option></option>
+                                    
+                                <?php
+                                $readAero = new Read;
+                                $readAero->ExeRead("app_cidades", "WHERE estado_id = :uf ORDER BY cidade_nome ASC", "uf=8");
+                                if ($readAero->getRowCount()):
+                                    foreach ($readAero->getResult() as $cidade):
+                                        extract($cidade);
+                                        echo "<option value=\"{$cidade_id}\" ";
+                                        if (isset($data['origem']) && $data['origem'] == $cidade_id):
+                                            echo "selected";
+                                        endif;
+                                        echo "> {$cidade_nome} </option>";
+                                    endforeach;
+                                endif;
+                                ?>  
+                                </select>-->
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label><span class="field">Destino:</span></label>
-                                <!--<input class="form-control" type="text" name="destino" value="Vila Velha"/>-->
-                            <select class="form-control j_loadcity" name="destino">
+                                <input class="form-control" type="text" name="destino" value="Vila Velha"/>
+<!--                            <select class="form-control j_loadcity" name="destino">
                                     <option></option>
-                                    <?php
-                                    $readAero = new Read;
-                                    $readAero->ExeRead("app_cidades", "WHERE estado_id = :uf ORDER BY cidade_nome ASC", "uf=8");
-                                    if ($readAero->getRowCount()):
-                                        foreach ($readAero->getResult() as $cidade):
-                                            extract($cidade);
-                                            echo "<option value=\"{$cidade_id}\" ";
-                                            if (isset($data['origem']) && $data['origem'] == $cidade_id):
-                                                echo "selected";
-                                            endif;
-                                            echo "> {$cidade_nome} </option>";
-                                        endforeach;
-                                    endif;
-                                    ?>  
-                                </select>
+                                <?php
+                                $readAero = new Read;
+                                $readAero->ExeRead("app_cidades", "WHERE estado_id = :uf ORDER BY cidade_nome ASC", "uf=8");
+                                if ($readAero->getRowCount()):
+                                    foreach ($readAero->getResult() as $cidade):
+                                        extract($cidade);
+                                        echo "<option value=\"{$cidade_id}\" ";
+                                        if (isset($data['origem']) && $data['origem'] == $cidade_id):
+                                            echo "selected";
+                                        endif;
+                                        echo "> {$cidade_nome} </option>";
+                                    endforeach;
+                                endif;
+                                ?>  
+                                </select>-->
                             </div>
 
                             <div class="form-group col-md-2">
@@ -285,12 +285,12 @@
                                 <input class="form-control"  type="number" name="noturno" step="0.01" min="0" value="1"/>
                             </div>
 
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-md-2">
                                 <label><span class="field">Pousos:</span></label>
                                 <input class="form-control"  type="text"  name="qtepouso"  min="0" value="1"/>
                             </div>
 
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-md-2">
                                 <label><span class="field">Gas:</span></label>
                                 <input id="cc" class="form-control"  type="text" name="combustivel_consumido" min="0" value="15"/>
                             </div>
@@ -313,7 +313,7 @@
                     <label><span class="field">T. Pousos:</span></label>
                     <input id="tp" class="form-control"  type="text" name="total_de_pousos" value="1" readonly=""/> 
                 </div>
-                <div class="form-group col-md-2">           
+                <div class="form-group col-md-2" style="display: none">           
                     <label><span class="field">Qte Etapas:</span></label>
                     <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly=""/> 
                 </div>
