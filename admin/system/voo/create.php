@@ -23,7 +23,7 @@
                     <div class="form-group col-md-4">
                         <label><span class="field">Aeronave:</span></label>
                         <select class="form-control j_loadcity" name="idaeronave">
-                            <option></option>
+                            <option>HARPIA 05</option>
                             <?php
                             $readAero = new Read;
                             $readAero->ExeRead("aeronave");
@@ -49,7 +49,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Comandante:</span></label>
                     <select class="form-control j_loadcity" name="comandante">
-                        <option></option>
+                        <option>Caus</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Comandante");
@@ -71,7 +71,7 @@
                 <div class="form-group  col-md-3">
                     <label><span class="field">Copiloto:</span></label>
                     <select class="form-control j_loadcity" name="copiloto">
-                        <option></option>
+                        <option>Laura</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Copiloto");
@@ -93,7 +93,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Top D:</span> </label>
                     <select class="form-control j_loadcity" name="topD">
-                        <option></option>
+                        <option>Erick</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
@@ -115,7 +115,7 @@
                 <div class="form-group col-md-3">
                     <label><span class="field">Top E:</span></label>
                     <select class="form-control j_loadcity" name="topE">
-                        <option></option>
+                        <option>Freitas</option>
                         <?php
                         $readServ = new Read;
                         $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
@@ -279,6 +279,11 @@
                     <label><span class="field">T. Pousos:</span></label>
                     <input id="tp" class="form-control"  type="text" name="total_de_pousos" value="1" readonly=""/> 
                 </div>
+                <div class="form-group col-md-2">           
+                    <label><span class="field">Qte Etapas:</span></label>
+                    <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly=""/> 
+                </div>
+             
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Gas Consumido:</span></label>
                     <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly="" value="45" step="0.01"/>
@@ -288,7 +293,7 @@
             <!--/line-->    
             <div class="form-group">
                 <label><span class="field">Histórico do voo:</span></label>
-                <textarea class="form-control" name="historico">Histórico</textarea>
+                <textarea id="historico" class="form-control" name="historico">Histórico</textarea>
             </div>
 
             <div class="form-group">
@@ -307,7 +312,7 @@
             </div>
 
             <!--<div class="form-fim">-->
-
+            <!--<input id="tp" type="hidden" name="qte_etapas"/>--> 
             <input type="hidden" name="voo_status" value="0" />
                            <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
             <input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />

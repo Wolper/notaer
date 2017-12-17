@@ -4,10 +4,12 @@ require('../../_app/Config.inc.php');
 require '../_models/AdminEtapaVoo.class.php';
 
 $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
+//print_r($data);
 if (isset($data) && isset($data['SendPostForm'])):
 
     $data['voo_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1' );
+
+
 
     $dadosVoo['voo_status'] = $data['voo_status'];
     $dadosVoo['data_do_voo'] = $data['data_do_voo'];
@@ -19,6 +21,7 @@ if (isset($data) && isset($data['SendPostForm'])):
     $dadosVoo['topE'] = $data['topE'];
     $dadosVoo['natureza'] = $data['natureza'];
 
+
     $dadosVoo['tempo_total_de_voo'] = $data['tempo_total_de_voo'];
     $dadosVoo['total_de_pousos'] = $data['total_de_pousos'];
     $dadosVoo['combustivel_total_consumido'] = $data['combustivel_total_consumido'];
@@ -26,6 +29,7 @@ if (isset($data) && isset($data['SendPostForm'])):
     $dadosVoo['ocorrencia'] = $data['ocorrencia'];
     $dadosVoo['discrepancia'] = $data['discrepancia'];
     $dadosVoo['relprev'] = $data['relprev'];
+    $dadosVoo['qte_etapas'] = $data['qte_etapas'];
 
     unset($data['SendPostForm']);
 
@@ -61,7 +65,7 @@ if (isset($data) && isset($data['SendPostForm'])):
 
             $cadastraEtapa->ExeCreate($dadosEtapa);
         endfor;
+        $dados = array_merge($dadosVoo, $dadosEtapa);
+        echo json_encode($dados);
     endif;
-    $dados = array_merge($dadosVoo, $dadosEtapa);
-    echo json_encode($dados);
-endif;
+   endif;

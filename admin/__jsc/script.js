@@ -1,6 +1,6 @@
 $(function () {
     i = 1;
-
+    document.querySelector("[id='tp']").value = i;
     var inputEscondido = $('input[type=submit]')[0];
 //---------------------------------ENVIO DO FORMULÁRIO DE CADASTRO--------------------------------------
     $('#form').bind('submit', function (e) {
@@ -63,10 +63,11 @@ $(function () {
         linha.find("a").on("click", function () {
             $(this).parent(".conteudoIndividual").remove();
             i--;
+            document.querySelector("[id='qteEtapas']").value = i;
             document.querySelector("[id='tp']").value = i;
             return false;
         });
-
+        document.querySelector("[id='qteEtapas']").value = i;
         document.querySelector("[id='tp']").value = i;
         return false;
 
@@ -83,6 +84,10 @@ $(function () {
             document.querySelector("[id='ctc']").value = parseFloat(0);
         }
         document.querySelector("[id='ctc']").value = document.querySelector("#cc").value;
+    });
+
+    $("#historico").focusin(function () {
+        document.querySelector("[id='qteEtapas']").value = i;
     });
 
 
