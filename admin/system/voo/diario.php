@@ -7,7 +7,7 @@
             <h1>Gerar Diário de Bordo:</h1>
         </header>
 
-        <form id="form" name="PostForm" action="http://localhost/notaer/diarioPDF" method="post" enctype="multipart/form-data">
+        <form id="form" name="PostForm" target="_blank" action="http://localhost/notaer/diarioPDF.php" method="post" enctype="multipart/form-data">
             <div id="form-top" class="form-group">
                 <div class="row">
                     <div class="form-group col-md-4">
