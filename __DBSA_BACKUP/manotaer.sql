@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Dez-2017 às 11:10
+-- Generation Time: 19-Dez-2017 às 12:05
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `aeronave` (
   `idAeronave` int(11) NOT NULL,
   `prefixoAeronave` varchar(15) NOT NULL,
+  `snAeronave` tinyint(4) NOT NULL,
   `nomeAeronave` varchar(15) NOT NULL,
   `modeloAeronave` varchar(15) NOT NULL,
   `horasDeVooAeronave` bigint(20) NOT NULL
@@ -40,12 +41,11 @@ CREATE TABLE `aeronave` (
 -- Extraindo dados da tabela `aeronave`
 --
 
-INSERT INTO `aeronave` (`idAeronave`, `prefixoAeronave`, `nomeAeronave`, `modeloAeronave`, `horasDeVooAeronave`) VALUES
-(1, 'PP-EMH', 'HARPIA 02', '', 0),
-(2, 'PT-HZB', 'HARPIA 03', '', 0),
-(3, 'PR-KLS', 'HARPIA 04', '', 0),
-(4, 'PP-MES', 'HARPIA 05', '', 0),
-(5, 'PR-ESE', 'HARPIA 06', '', 0);
+INSERT INTO `aeronave` (`idAeronave`, `prefixoAeronave`, `snAeronave`, `nomeAeronave`, `modeloAeronave`, `horasDeVooAeronave`) VALUES
+(1, 'PP-EMH', 127, 'HARPIA 02', 'AS350B2', 0),
+(3, 'PR-KLS', 0, 'HARPIA 04', 'HU30', 0),
+(4, 'PP-MES', 127, 'HARPIA 05', 'AS350B2', 0),
+(5, 'PR-ESE', 127, 'HARPIA 06', 'AS350B3e', 0);
 
 -- --------------------------------------------------------
 
@@ -5713,10 +5713,19 @@ INSERT INTO `app_estados` (`estado_id`, `estado_nome`, `estado_uf`, `estado_regi
 
 CREATE TABLE `etapas_voo` (
   `idvoo` int(11) NOT NULL,
+  `idetapa` int(11) NOT NULL,
   `numero_etapa` tinyint(4) NOT NULL,
   `origem` varchar(40) NOT NULL,
   `destino` varchar(40) NOT NULL,
-  `hora_de_pouso` time NOT NULL,
+  `partida` time NOT NULL,
+  `decolagem` time NOT NULL,
+  `pouso` time NOT NULL,
+  `corte` time NOT NULL,
+  `ng` float NOT NULL,
+  `ntl` float NOT NULL,
+  `diurno` float NOT NULL,
+  `noturno` float NOT NULL,
+  `qtepouso` int(11) NOT NULL,
   `combustivel_consumido` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -5724,11 +5733,14 @@ CREATE TABLE `etapas_voo` (
 -- Extraindo dados da tabela `etapas_voo`
 --
 
-INSERT INTO `etapas_voo` (`idvoo`, `numero_etapa`, `origem`, `destino`, `hora_de_pouso`, `combustivel_consumido`) VALUES
-(173, 1, 'Rio de Janeiro', 'são paulo', '12:00:00', '30'),
-(173, 2, 'Vitória', '	vila velha', '08:00:00', '15'),
-(174, 1, 'Vitória', 'Vila Velha', '11:11:00', '11'),
-(174, 2, 'Vila Velha', 'Vitória', '22:22:00', '22');
+INSERT INTO `etapas_voo` (`idvoo`, `idetapa`, `numero_etapa`, `origem`, `destino`, `partida`, `decolagem`, `pouso`, `corte`, `ng`, `ntl`, `diurno`, `noturno`, `qtepouso`, `combustivel_consumido`) VALUES
+(305, 68, 1, 'Vitória', 'Vila Velha', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
+(306, 69, 1, '103', '103', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
+(307, 70, 1, '857', '1112', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
+(308, 71, 1, '112', '225', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
+(309, 72, 1, '56', '103', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
+(310, 73, 1, 'Vitória', 'Vila Velha', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
+(311, 74, 1, 'Vitória', 'Vila Velha', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15');
 
 -- --------------------------------------------------------
 
@@ -5841,19 +5853,6 @@ CREATE TABLE `tipo_inspecao` (
   `frequencia_for_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `tipo_inspecao`
---
-
-INSERT INTO `tipo_inspecao` (`idInspecao`, `descricaoInspecao`, `itensInspecao`, `tlInspecao`, `tcInspecao`, `frequencia_for_time`, `frequencia_for_date`) VALUES
-(21, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
-(22, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
-(23, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
-(24, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
-(25, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07'),
-(26, 'blablablaasd', 'blablablaasd', 'OC', 'M', 4501, '2017-12-08'),
-(27, 'blablabla', 'blablabla', 'OC', 'M', 4500, '2017-12-07');
-
 -- --------------------------------------------------------
 
 --
@@ -5881,6 +5880,7 @@ INSERT INTO `usuario` (`idusuario`, `email`, `senha`) VALUES
 
 CREATE TABLE `voo` (
   `idvoo` int(11) NOT NULL,
+  `voo_status` enum('0','1') NOT NULL,
   `data_do_voo` date NOT NULL,
   `numero_voo` int(11) NOT NULL,
   `idaeronave` int(11) NOT NULL,
@@ -5888,24 +5888,16 @@ CREATE TABLE `voo` (
   `copiloto` varchar(40) NOT NULL,
   `topD` varchar(40) NOT NULL,
   `topE` varchar(40) NOT NULL,
-  `historico` text NOT NULL,
-  `partida` time NOT NULL,
-  `corte` time NOT NULL,
-  `ciclo` float NOT NULL,
+  `natureza` varchar(80) NOT NULL,
   `tempo_total_de_voo` int(11) NOT NULL,
   `total_de_pousos` int(11) NOT NULL,
   `combustivel_total_consumido` varchar(10) NOT NULL,
-  `natureza` varchar(80) NOT NULL,
-  `voo_status` enum('0','1') NOT NULL
+  `historico` text NOT NULL,
+  `ocorrencia` text NOT NULL,
+  `discrepancia` text NOT NULL,
+  `relprev` text NOT NULL,
+  `qte_etapas` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `voo`
---
-
-INSERT INTO `voo` (`idvoo`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `historico`, `partida`, `corte`, `ciclo`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `natureza`, `voo_status`) VALUES
-(173, '2017-12-06', 2, 5, 'Pinheiro', 'Laiber', 'Marlon', 'Lyrio', 'teste-final', '11:00:00', '18:00:00', 8.9, 120, 1, '30', 'O161 - Fiscalização ambiental', '0'),
-(174, '2017-11-11', 6, 2, 'Borges', 'Laiber', 'Andrade', 'Freitas', 'gggggggggggg', '10:00:00', '22:22:00', 2, 742, 2, '33', 'A5 - Demonstração', '0');
 
 -- --------------------------------------------------------
 
@@ -6033,7 +6025,11 @@ INSERT INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`,
 (14, '2017-12-01', '1', '1', '120'),
 (15, '2017-12-02', '1', '1', '26'),
 (16, '2017-12-06', '1', '1', '2'),
-(17, '2017-12-07', '1', '1', '14');
+(17, '2017-12-07', '1', '1', '14'),
+(18, '2017-12-08', '1', '1', '9'),
+(19, '2017-12-09', '2', '2', '2'),
+(20, '2017-12-11', '1', '1', '1'),
+(21, '2017-12-18', '1', '1', '5');
 
 -- --------------------------------------------------------
 
@@ -6053,10 +6049,10 @@ CREATE TABLE `ws_siteviews_agent` (
 --
 
 INSERT INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`, `agent_lastview`) VALUES
-(1, 'Chrome', '135', '2017-12-06 23:56:48'),
+(1, 'Chrome', '137', '2017-12-18 09:50:45'),
 (2, 'Firefox', '68', '2014-02-12 18:13:06'),
 (3, 'IE', '55', '2014-02-12 18:13:08'),
-(4, 'Outros', '1', '0000-00-00 00:00:00');
+(4, 'Outros', '4', '2017-12-11 12:50:18');
 
 -- --------------------------------------------------------
 
@@ -6098,7 +6094,9 @@ INSERT INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startv
 (16, 'eftdmo858telbsg83p6b81lmqb', '2017-12-01 19:44:33', '2017-12-02 06:18:26', '::1', '/notaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
 (17, 'kamhp79uk6r2jobrhgfr9vub8c', '2017-12-02 06:12:54', '2017-12-05 02:00:51', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
 (18, 'dnn7oc9rjuhs4h560e0gi267sa', '2017-12-06 17:36:25', '2017-12-06 17:57:37', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
-(19, 'cku32sk2qcr7aubh8aga71761p', '2017-12-07 02:56:48', '2017-12-07 03:59:05', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome');
+(19, 'cku32sk2qcr7aubh8aga71761p', '2017-12-07 02:56:48', '2017-12-07 03:59:05', '::1', '/SysNotaer/admin/bootstrap/bootstrap.min.css.map', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
+(20, 'hi7gai81r6b13hg9qn19dqh5ci', '2017-12-08 18:50:22', '2017-12-08 22:28:28', '::1', '/notaer/index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36', 'Chrome'),
+(21, 'kgirdmjspc6u06223ikojl86kp', '2017-12-18 12:50:45', '2017-12-18 13:14:18', '::1', '/notaer/index.php', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -6157,6 +6155,7 @@ ALTER TABLE `app_estados`
 -- Indexes for table `etapas_voo`
 --
 ALTER TABLE `etapas_voo`
+  ADD PRIMARY KEY (`idetapa`),
   ADD KEY `fk_voo` (`idvoo`);
 
 --
@@ -6250,6 +6249,12 @@ ALTER TABLE `app_empresas`
   MODIFY `empresa_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `etapas_voo`
+--
+ALTER TABLE `etapas_voo`
+  MODIFY `idetapa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
+--
 -- AUTO_INCREMENT for table `inspecao_backup`
 --
 ALTER TABLE `inspecao_backup`
@@ -6265,13 +6270,13 @@ ALTER TABLE `servidor`
 -- AUTO_INCREMENT for table `tipo_inspecao`
 --
 ALTER TABLE `tipo_inspecao`
-  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `voo`
 --
 ALTER TABLE `voo`
-  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
 
 --
 -- AUTO_INCREMENT for table `ws_categories`
@@ -6295,7 +6300,7 @@ ALTER TABLE `ws_posts_gallery`
 -- AUTO_INCREMENT for table `ws_siteviews`
 --
 ALTER TABLE `ws_siteviews`
-  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `ws_siteviews_agent`
@@ -6307,7 +6312,7 @@ ALTER TABLE `ws_siteviews_agent`
 -- AUTO_INCREMENT for table `ws_siteviews_online`
 --
 ALTER TABLE `ws_siteviews_online`
-  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `ws_users`
