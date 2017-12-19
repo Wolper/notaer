@@ -20,7 +20,9 @@ $pdf->Cell(19, 1, utf8_decode('Diário de Bordo'), 0, 1, 'C');
 $pdf->Cell(19, 1, '', 0, 1, 'C');
 
 $pdf->Cell(12, 1, utf8_decode('APRESENTAÇÃO DA TRIPULAÇÃO'), 1, 0, 'C');
-$pdf->Cell(12, 1, utf8_decode('REGISTRO DE VOO'), 1, 0, 'C');
+$pdf->MultiCell(10, 6, utf8_decode('REGISTRO DE VOO'), 1, 'C');
+$pdf->SetXY(23, 3);
+$pdf->MultiCell(4, 6, utf8_decode('REGISTRO DE VOO'), 1, 'C');
 $pdf->Cell(19, 1, '', 0, 1, 'C');
 $pdf->Cell(3, 1, utf8_decode('Nº VOO'), 0, 0, 'C', '');
 $pdf->Cell(8, 1, utf8_decode('ID_AERO'), 0, 0, 'C', '');
