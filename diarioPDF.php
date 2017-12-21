@@ -16,21 +16,66 @@ $mes = date('m');
 $diario = new Read();
 $diario->FullRead("SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.idvoo GROUP BY v.numero_voo");
 
-$pdf->Cell(19, 1, utf8_decode('Diário de Bordo'), 0, 1, 'C');
-$pdf->Cell(19, 1, '', 0, 1, 'C');
+//------------------    CABEÇALHO DO PDF    -------------------
 
-$pdf->Cell(12, 1, utf8_decode('APRESENTAÇÃO DA TRIPULAÇÃO'), 1, 0, 'C');
-$pdf->MultiCell(10, 6, utf8_decode('REGISTRO DE VOO'), 1, 'C');
-$pdf->SetXY(23, 3);
-$pdf->MultiCell(4, 6, utf8_decode('REGISTRO DE VOO'), 1, 'C');
-$pdf->Cell(19, 1, '', 0, 1, 'C');
-$pdf->Cell(3, 1, utf8_decode('Nº VOO'), 0, 0, 'C', '');
-$pdf->Cell(8, 1, utf8_decode('ID_AERO'), 0, 0, 'C', '');
-$pdf->Cell(3, 1, utf8_decode('T. TEMPO VOO'), 0, 0, 'C', '');
-$pdf->Cell(2, 1, utf8_decode('T. POUSOS'), 0, 0, 'C', '');
-$pdf->Cell(3, 1, utf8_decode('COMB.'), 0, 1, 'C', '');
+//$pdf->Cell(19, 1, utf8_decode('Diário de Bordo'), 0, 1, 'C');
+//$pdf->Cell(19, 1, '', 0, 1, 'C');
+
+$pdf->Cell(12, 1, utf8_decode('APRESENTAÇÃO DA TRIPULAÇÃO'), 1, 1, 'C');
+$pdf->Cell(3, 0.5, utf8_decode('Tripulante'), 1, 0, 'C');
+$pdf->Cell(1.5, 0.5, utf8_decode('Hora'), 1, 0, 'C');
+$pdf->Cell(1.5, 0.5, utf8_decode('Rubrica'), 1, 0, 'C');
+$pdf->Cell(3, 0.5, utf8_decode('Tripulante'), 1, 0, 'C');
+$pdf->Cell(1.5, 0.5, utf8_decode('Hora'), 1, 0, 'C');
+$pdf->Cell(1.5, 0.5, utf8_decode('Rubrica'), 1, 1, 'C');
+$pdf->Cell(3, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(3, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 1, 'C');
+$pdf->Cell(3, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(3, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+
+$pdf->SetXY(13, 1);
+$pdf->MultiCell(11, 3.5, utf8_decode('REGISTRO DE VOO'), 1, 'C');
+$pdf->SetXY(24,1);
+$pdf->MultiCell(4, 1.5, utf8_decode(''), 1, 'C');
+$pdf->SetXY(24, 2.5);
+$pdf->MultiCell(4, 3, utf8_decode('VEMD'), 1, 'C');
+
+$pdf->SetXY(1, 4.5);
+$pdf->Cell(5, 1, utf8_decode('Marcas: '), 1, 0, 'L');
+$pdf->Cell(5, 1, utf8_decode('Fabricante: '), 1, 0, 'L');
+$pdf->Cell(5, 1, utf8_decode('Modelo: '), 1, 0, 'L');
+$pdf->Cell(4, 1, utf8_decode('S/N: '), 1, 0, 'L');
+$pdf->Cell(4, 1, utf8_decode('Cat. Reg: '), 1, 0, 'L');
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//$pdf->Cell(19, 1, '', 0, 1, 'C');
+//$pdf->Cell(3, 1, utf8_decode('Nº VOO'), 0, 0, 'C', '');
+//$pdf->Cell(8, 1, utf8_decode('ID_AERO'), 0, 0, 'C', '');
+//$pdf->Cell(3, 1, utf8_decode('T. TEMPO VOO'), 0, 0, 'C', '');
+//$pdf->Cell(2, 1, utf8_decode('T. POUSOS'), 0, 0, 'C', '');
+//$pdf->Cell(3, 1, utf8_decode('COMB.'), 0, 1, 'C', '');
 
 //$pdf->SetTextColor(0, 0, 0);
+//------------------    FIM DO CABEÇALHO    -------------------
 
 if ($diario->getRowCount() > 0):
 
