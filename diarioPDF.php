@@ -77,19 +77,115 @@ $pdf->Cell(9, 1, utf8_decode('Horas de voo final: '), 1, 0, 'L');
 
 $pdf->SetXY(1, 7.5);
 $pdf->Cell(5, 2, utf8_decode('Trecho '), 1, 0, 'C');
-$pdf->Cell(8.5, 1, utf8_decode('Célula '), 1, 0, 'C');
-$pdf->Cell(5, 1, utf8_decode('Motor '), 1, 0, 'C');
-$pdf->Cell(8.5, 1, utf8_decode('Geral '), 1, 0, 'C');
+$pdf->Cell(9, 1, utf8_decode('Célula '), 1, 0, 'C');
+$pdf->Cell(3, 1, utf8_decode('Motor '), 1, 0, 'C');
+$pdf->Cell(10, 1, utf8_decode('Geral '), 1, 1, 'C');
+
+
+$pdf->SetFont('Arial', 'B', 8);
+
+//ALINHAMENTO DA COLUNA CÉLULA
+$pdf->SetXY(6, 8.5);
+$pdf->Cell(7, 1, utf8_decode('Horas'), 1, 0, 'C');
+$pdf->Cell(2, 1, utf8_decode('Ciclos'), 1, 0, 'C');
+
+//ALINHAMENTO DA COLUNA MOTOR
+$pdf->Cell(1, 1, utf8_decode('Horas'), 1, 0, 'C');
+$pdf->Cell(2, 1, utf8_decode('Ciclos'), 1, 0, 'C');
+
+//ALINHAMENTO DA COLUNA GERAL
+$pdf->Cell(1.5, 2, utf8_decode('Comb'), 1, 0, 'C');
+$pdf->Cell(1.25, 2, utf8_decode('Ordem'), 1, 0, 'C');
+$pdf->Cell(1, 2, utf8_decode('Pax'), 1, 0, 'C');
+$pdf->Cell(1, 2, utf8_decode('Nat'), 1, 0, 'C');
+$pdf->Cell(1, 2, utf8_decode('1P'), 1, 0, 'C');
+$pdf->Cell(2.25, 2, utf8_decode('ANAC'), 1, 0, 'C');
+$pdf->Cell(1, 2, utf8_decode('Rub'), 1, 0, 'C');
+$pdf->Cell(1, 2, utf8_decode('2P'), 1, 0, 'C');
+
+
+$pdf->SetXY(18, 9);
+$pdf->Cell(1.5, 2, utf8_decode('QAV'), 0, 0, 'C');
+$pdf->Cell(1.25, 2, utf8_decode('Voo'), 0, 0, 'C');
+$pdf->SetXY(26, 9);
+$pdf->Cell(1, 2, utf8_decode('Cmte'), 0, 0, 'C');
 
 
 
+$pdf->SetXY(1, 9.5);
+$pdf->Cell(0.30, 1, utf8_decode('Et'), 1, 0, 'C');
+$pdf->Cell(2.35, 1, utf8_decode('De'), 1, 0, 'C');
+$pdf->Cell(2.35, 1, utf8_decode('Para'), 1, 0, 'C');
 
 
+$pdf->Cell(1, 1, utf8_decode('Par'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Dec'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Pou'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Cor'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Diu'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Not'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Tot'), 1, 0, 'C');
+$pdf->Cell(2, 1, utf8_decode('Pousos'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('Total'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('NG'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('NTL'), 1, 0, 'C');
 
 
+//--------------TRECHO QUE VAI ITERAR AS ETAPAS----------------
+
+$pdf->SetXY(1, 10.5);
+$pdf->Cell(0.30, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(2.35, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(2.35, 1, utf8_decode(''), 1, 0, 'C');
+
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1.25, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(2.25, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
 
 
+//--------------FIM DI TRECHO QUE ITERA AS ETAPAS----------------
 
+
+$pdf->SetXY(1, 11.5);
+$pdf->Cell(5, 1, utf8_decode('Total'), 1, 0, 'C');
+
+$pdf->Cell(1, 1, utf8_decode('////////'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode('////////'), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+
+$pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
+$pdf->Cell(8.5, 1, utf8_decode('////////////////////////////////////////////////////////////////////////////////////////////////////'), 1, 1, 'C');
+
+$pdf->Cell(27, 1, utf8_decode('Ocorrências: '), 1, 1, 'L');
+$pdf->Cell(27, 1, utf8_decode(''), 1, 1, 'L');
+$pdf->Cell(27, 1, utf8_decode(''), 1, 1, 'L');
+$pdf->Cell(27, 1, utf8_decode(''), 1, 1, 'L');
+$pdf->Cell(27, 1, utf8_decode('Lavagem de Compressor: (   )Sim   (   )Não   Nº VEMD/Voo:           Obs:'), 1, 1, 'L');
 
 //
 //$pdf->Cell(19, 1, '', 0, 1, 'C');
