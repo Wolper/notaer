@@ -62,26 +62,22 @@
                 <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?>>
                     <header>
 
-                        <!--                        <div class="img thumb_small">
-                        <?= $descricaoInspecao . ' - ' . $tlInspecao . ' - ' . $tcInspecao . ' - ' . $frequencia_for_time . ' - ' . $frequencia_for_date; ?>
-                                                </div>-->
-
                         <hgroup>
-                            <?= $descricaoInspecao . ' - ' . $tlInspecao . ' - ' . $tcInspecao . ' - ' . $frequencia_for_time . ' - ' . $frequencia_for_date; ?>
-
+                            <?= '<b>Descrição: </b>' . strtoupper(str_replace('-', ' ', $descricaoInspecao))  . '<br/><b>PN: </b>' . $pnInspecao . '<br/><b>SN: </b>' . $snInspecao . '<br/><b>TL: </b>' . $tlInspecao . '<br/><b>TC: </b>' . $tcInspecao . '<br/><b>Frequência: </b>' . $frequencia_for_time; ?>
                         </hgroup>
+                        
                     </header>
                     <ul class="info post_actions">
                         <!--<li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($inspecao_date)); ?>Hs</li>-->
 
                         <li><a class="act_edit" href="painel.php?exe=inspecoes/update&emp=<?= $idInspecao; ?>" title="Editar">Editar</a></li>
-
+<!--
                         <?php if (!$idInspecao): ?>
                             <li><a class="act_inative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=active" title="Ativar">Ativar</a></li>
                         <?php else: ?>
                             <li><a class="act_ative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
                         <?php endif; ?>
-
+-->
                         <li><a class="act_delete" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
                     </ul>
                 </article>

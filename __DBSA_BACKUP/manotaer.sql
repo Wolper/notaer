@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Dez-2017 às 12:05
+-- Generation Time: 27-Dez-2017 às 11:20
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `aeronave` (
   `idAeronave` int(11) NOT NULL,
   `prefixoAeronave` varchar(15) NOT NULL,
-  `snAeronave` tinyint(4) NOT NULL,
+  `snAeronave` varchar(4) NOT NULL,
   `nomeAeronave` varchar(15) NOT NULL,
   `modeloAeronave` varchar(15) NOT NULL,
   `horasDeVooAeronave` bigint(20) NOT NULL
@@ -42,10 +42,10 @@ CREATE TABLE `aeronave` (
 --
 
 INSERT INTO `aeronave` (`idAeronave`, `prefixoAeronave`, `snAeronave`, `nomeAeronave`, `modeloAeronave`, `horasDeVooAeronave`) VALUES
-(1, 'PP-EMH', 127, 'HARPIA 02', 'AS350B2', 0),
-(3, 'PR-KLS', 0, 'HARPIA 04', 'HU30', 0),
-(4, 'PP-MES', 127, 'HARPIA 05', 'AS350B2', 0),
-(5, 'PR-ESE', 127, 'HARPIA 06', 'AS350B3e', 0);
+(1, 'PP-EMH', '3332', 'HARPIA 02', 'AS350B2', 0),
+(3, 'PR-KLS', '127', 'HARPIA 04', 'HU30', 0),
+(4, 'PP-MES', '127', 'HARPIA 05', 'AS350B2', 0),
+(5, 'PR-ESE', '127', 'HARPIA 06', 'AS350B3e', 0);
 
 -- --------------------------------------------------------
 
@@ -5846,12 +5846,23 @@ INSERT INTO `servidor` (`idservidor`, `nome`, `posto`, `funcao`, `instituicao`, 
 CREATE TABLE `tipo_inspecao` (
   `idInspecao` int(11) NOT NULL,
   `descricaoInspecao` varchar(45) NOT NULL,
-  `itensInspecao` varchar(200) NOT NULL,
+  `pnInspecao` varchar(20) NOT NULL,
+  `snInspecao` varchar(20) NOT NULL,
   `tlInspecao` enum('OC','TBO','OTL','SLL') NOT NULL,
   `tcInspecao` enum('M','H','P','X','D') NOT NULL,
   `frequencia_for_time` int(20) DEFAULT NULL,
-  `frequencia_for_date` date DEFAULT NULL
+  `frequencia_for_date` date DEFAULT NULL,
+  `itensInspecao` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tipo_inspecao`
+--
+
+INSERT INTO `tipo_inspecao` (`idInspecao`, `descricaoInspecao`, `pnInspecao`, `snInspecao`, `tlInspecao`, `tcInspecao`, `frequencia_for_time`, `frequencia_for_date`, `itensInspecao`) VALUES
+(1, 'IAM', 'RBHA 91.409', '3011', 'OC', 'M', 12, NULL, 'nenhum'),
+(2, 'certificado-aeronavegabilidade', 'IS-21-181-001B', '15258', 'OC', 'M', 72, NULL, 'nenhum'),
+(3, 'licenca-de-estacao', 'Cap 13 mpr 100', '0009/2010-ES', 'OC', 'M', 120, NULL, 'nenhum');
 
 -- --------------------------------------------------------
 
@@ -6270,13 +6281,13 @@ ALTER TABLE `servidor`
 -- AUTO_INCREMENT for table `tipo_inspecao`
 --
 ALTER TABLE `tipo_inspecao`
-  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `voo`
 --
 ALTER TABLE `voo`
-  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
+  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ws_categories`
