@@ -48,7 +48,7 @@ endif;
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Serial Number:</span></label> 
-                        <input class="form-control" type="text" name="snAeronave"  value="<?= $data['snAeronave'] ?>"/>
+                        <input class="form-control" type="number" name="snAeronave"  value="<?= $data['snAeronave'] ?>"/>
                     </div>
 
                     <div class="form-group col-md-4">

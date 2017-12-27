@@ -40,7 +40,7 @@ endif;
                     
                     <div class="form-group col-md-4">
                         <label><span class="field">Serial Number:</span></label> 
-                        <input class="form-control" type="text" name="snAeronave" />
+                        <input class="form-control" type="number" name="snAeronave" />
                     </div>
 
                     <div class="form-group col-md-4">
