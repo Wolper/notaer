@@ -89,7 +89,7 @@
                         <input class="form-control" type="date" name="frequencia_for_date"/>
                     </div>-->
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-9">
                         <label><span class="field">Itens de Inspeção:</span> </label>
                         <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" value="<?= $data['itensInspecao'] ?>"/>
                     </div>

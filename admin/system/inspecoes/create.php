@@ -32,22 +32,22 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label><span class="field">Descrição:</span></label> 
-                        <input class="form-control" type="text" name="descricaoInspecao" value="Certificado aeronavegabilidade"/>
+                        <input class="form-control" type="text" name="descricaoInspecao" />
                     </div>
 
                     <div class="form-group col-md-2">
                         <label><span class="field">PN:</span></label> 
-                        <input class="form-control" type="text" name="pnInspecao" value="IS-21-181-001B"/>
+                        <input class="form-control" type="text" name="pnInspecao" />
                     </div>
                     <div class="form-group col-md-2">
                         <label><span class="field">SN:</span></label> 
-                        <input class="form-control" type="text" name="snInspecao" value="15258"/>
+                        <input class="form-control" type="text" name="snInspecao" />
                     </div>
 
                     <div class="form-group col-md-2">
                         <label><span class="field">TL:</span> </label>
                         <select class="form-control" name="tlInspecao" required>
-                            <option disabled="" selected="">OC</option>
+                            <option disabled="" selected=""></option>
                             <option>OC</option>                        
                             <option>TBO</option>                        
                             <option>OTL</option>                        
@@ -58,7 +58,7 @@
                     <div class="form-group col-md-2">
                         <label><span class="field">TC:</span> </label>
                         <select class="form-control" name="tcInspecao" required>
-                            <option disabled="" selected="">M</option>
+                            <option disabled="" selected=""></option>
                             <option>M</option>                        
                             <option>H</option>                        
                             <option>P</option>                        
@@ -70,17 +70,17 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label><span class="field">Frequencia/Tempo:</span></label>
-                        <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" value="72"/>
+                        <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" />
                     </div>
 
-<!--                    <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia/Data:</span></label>
-                        <input class="form-control" type="date" name="frequencia_for_date"/>
-                    </div>-->
+                    <!--                    <div class="form-group col-md-3">
+                                            <label><span class="field">Frequencia/Data:</span></label>
+                                            <input class="form-control" type="date" name="frequencia_for_date"/>
+                                        </div>-->
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-9">
                         <label><span class="field">Itens de Inspeção:</span> </label>
-                        <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" value="nenhum"/>
+                        <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" />
                     </div>
 
                 </div>
