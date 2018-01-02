@@ -2,7 +2,7 @@
 
     <section class="list_emp">
 
-        <h1>Instalações:</h1>      
+        <h1>Inspeções:</h1>      
 
         <?php
         $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);

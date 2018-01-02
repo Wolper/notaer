@@ -84,6 +84,7 @@ endif;
                         <li class="li<?php if (in_array('aeronaves', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Aeronaves</a>
                             <ul class="sub">
                                 <li><a href="painel.php?exe=aeronaves/create">Cadastrar Aeronave</a></li>
+                                <li><a href="painel.php?exe=instalacoes/create">Cadastrar Instalação</a></li>
                                 <li><a href="painel.php?exe=aeronaves/index">Listar / Editar Aeronave</a></li>
                             </ul>
                         </li> 
