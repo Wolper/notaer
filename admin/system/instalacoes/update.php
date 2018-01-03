@@ -3,7 +3,7 @@
     <article>
 
         <header>
-            <h1>Atualizar Inspeção:</h1>
+            <h1>Atualizar Instalação:</h1>
         </header>
 
         <?php
@@ -15,16 +15,16 @@
 //            $data['inspeção_capa'] = ($_FILES['inspeção_capa']['tmp_name'] ? $_FILES['inspeção_capa'] : 'null');
 
             unset($data['SendPostForm']);
-            require('_models/AdminInspecao.class.php');
-            $cadastraVoo = new AdminInspecao;
+            require('_models/AdminInstalacao.class.php');
+            $cadastraVoo = new AdminInstalacao;
             $cadastraVoo->ExeUpdate($insp, $data);
 
             WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
         else:
             $readInsp = new Read;
-            $readInsp->ExeRead("tipo_inspecao", "WHERE idInspecao = :insp", "insp={$insp}");
+            $readInsp->ExeRead("inspecao", "WHERE idInspecao = :insp", "insp={$insp}");
             if (!$readInsp->getResult()):
-                header('Location: painel.php?exe=inspecoes/index&empty=true');
+                header('Location: painel.php?exe=instalacao/index&empty=true');
             else:
                 $data = $readInsp->getResult()[0];
 //                extract($data);
@@ -33,74 +33,82 @@
 
         $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
         if ($checkCreate && empty($cadastraVoo)):
-            WSErro("A inspeção <b>{$data['descricaoInspecao']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT);
+            WSErro("A instalação foi cadastrada com sucesso no sistema!", WS_ACCEPT);
         endif;
         ?>
 
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
             <div id="form-top" class="form-group">
                 <div class="row">
-         
                     <div class="form-group col-md-4">
-                        <label><span class="field">Descrição:</span></label> 
-                        <input class="form-control" type="text" name="descricaoInspecao" value="<?= $data['descricaoInspecao'] ?>"/>
-                    </div>
+                        <label><span class="field">Aeronave:</span></label>
+                         <select class="form-control j_loadcity" name="idaeronave">
 
-                    <div class="form-group col-md-2">
-                        <label><span class="field">PN:</span></label> 
-                        <input class="form-control" type="text" name="pnInspecao" value="<?= $data['pnInspecao'] ?>"/>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label><span class="field">SN:</span></label> 
-                        <input class="form-control" type="text" name="snInspecao" value="<?= $data['snInspecao'] ?>"/>
-                    </div>
+                            <?php
+                            $readAero = new Read;
+                            $readAero->ExeRead("aeronave");
 
-                    <div class="form-group col-md-2">
-                        <label><span class="field">TL:</span> </label>
-                        <select class="form-control" name="tlInspecao" required>
-                            <option disabled="" selected=""><?= $data['tlInspecao'] ?></option>
-                            <option>OC</option>                        
-                            <option>TBO</option>                        
-                            <option>OTL</option>                        
-                            <option>SSL</option>                        
+                            if ($readAero->getRowCount()):
+                                foreach ($readAero->getResult() as $aeronave):
+                                    extract($aeronave);
+                                    echo "<option value=\"{$idAeronave}\" ";
+
+                                    if (isset($data[0]['idaeronave']) && $data[0]['idaeronave'] == $idAeronave):
+                                        echo "selected";
+                                    endif;
+
+                                    echo "> {$nomeAeronave} </option>";
+                                endforeach;
+                            endif;
+                            ?>
                         </select>
                     </div>
+                    <div class="form-group col-md-4">
+                        <label><span class="field">Tipo de Inspeção:</span></label>
+                         <select class="form-control j_loadcity" name="id_tipo_inspecao" value="<?= $data[0]['id_tipo_inspecao']; ?>">
 
-                    <div class="form-group col-md-2">
-                        <label><span class="field">TC:</span> </label>
-                        <select class="form-control" name="tcInspecao" required>
-                            <option disabled="" selected=""><?= $data['tcInspecao'] ?></option>
-                            <option>M</option>                        
-                            <option>H</option>                        
-                            <option>P</option>                        
-                            <option>X</option>                        
-                            <option>D</option>                        
+                            <?php
+                            $readAero = new Read;
+                            $readAero->ExeRead("tipo_inspecao");
+
+                            if ($readAero->getRowCount()):
+                                foreach ($readAero->getResult() as $inspecao):
+                                    extract($inspecao);
+                                    echo "<option value=\"{$id_tipo_inspecao}\" ";
+
+                                    if (isset($data[0]['id_tipo_inspecao']) && $data[0]['id_tipo_inspecao'] == $id_tipo_inspecao):
+                                        echo "selected";
+                                    endif;
+
+                                    echo "> {$descricaoInspecao} </option>";
+                                endforeach;
+                            endif;
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia/Tempo:</span></label>
-                        <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" value="<?= $data['frequencia_for_time'] ?>"/>
+                        <label><span class="field">In-Anv:</span></label> 
+                        <input class="form-control" type="text" name="in_anvInspecao" value="<?= $data['in_anvInspecao'] ?>"/>
                     </div>
 
-<!--                    <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia/Data:</span></label>
-                        <input class="form-control" type="date" name="frequencia_for_date"/>
-                    </div>-->
-
-                    <div class="form-group col-md-9">
-                        <label><span class="field">Itens de Inspeção:</span> </label>
-                        <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" value="<?= $data['itensInspecao'] ?>"/>
+                    <div class="form-group col-md-3">
+                        <label><span class="field">In-Data:</span></label> 
+                        <input class="form-control" type="text" name="in_dataInspecao" value="<?= $data['in_dataInspecao'] ?>"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label><span class="field">In-TSN:</span></label> 
+                        <input class="form-control" type="text" name="in_tsnInspecao" value="<?= $data['in_tsnInspecao'] ?>"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label><span class="field">In-TS0:</span></label> 
+                        <input class="form-control" type="text" name="in_tsoInspecao" value="<?= $data['in_tsoInspecao'] ?>"/>
                     </div>
 
-                </div>
-
-            </div><!--/line-->
-
-                    <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
-            <!--<input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />-->
-
+                </div><!--/line-->
+            </div>
+            
             <div class="gbform"></div>
 
             <input type="submit" class="btn blue" value="Atualizar" name="SendPostForm" />

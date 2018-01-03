@@ -70,15 +70,15 @@
                     <ul class="info post_actions">
                         <!--<li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($inspecao_date)); ?>Hs</li>-->
 
-                        <li><a class="act_edit" href="painel.php?exe=inspecoes/update&emp=<?= $idInspecao; ?>" title="Editar">Editar</a></li>
+                        <li><a class="act_edit" href="painel.php?exe=inspecoes/update&emp=<?= $id_tipo_inspecao; ?>" title="Editar">Editar</a></li>
 <!--
                         <?php if (!$idInspecao): ?>
-                            <li><a class="act_inative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=active" title="Ativar">Ativar</a></li>
+                            <li><a class="act_inative" href="painel.php?exe=inspecoes/index&emp=<?= $id_tipo_inspecao; ?>&action=active" title="Ativar">Ativar</a></li>
                         <?php else: ?>
-                            <li><a class="act_ative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
+                            <li><a class="act_ative" href="painel.php?exe=inspecoes/index&emp=<?= $id_tipo_inspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
                         <?php endif; ?>
 -->
-                        <li><a class="act_delete" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
+                        <li><a class="act_delete" href="painel.php?exe=inspecoes/index&emp=<?= $id_tipo_inspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
                     </ul>
                 </article>
                 <?php

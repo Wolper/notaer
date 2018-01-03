@@ -22,7 +22,7 @@
             WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
         else:
             $readInsp = new Read;
-            $readInsp->ExeRead("tipo_inspecao", "WHERE idInspecao = :insp", "insp={$insp}");
+            $readInsp->ExeRead("tipo_inspecao", "WHERE id_tipo_inspecao = :insp", "insp={$insp}");
             if (!$readInsp->getResult()):
                 header('Location: painel.php?exe=inspecoes/index&empty=true');
             else:

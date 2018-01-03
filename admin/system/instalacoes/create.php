@@ -22,7 +22,7 @@
             if (!$cadastraInstalacao->getResult()):
                 WSErro($cadastraInstalacao->getError()[0], $cadastraInstalacao->getError()[1]);
             else:
-                header("Location:painel.php?exe=inspecoes/update&create=true&emp={$cadastraInstalacao->getResult()}");
+                header("Location:painel.php?exe=instalacoes/update&create=true&emp={$cadastraInstalacao->getResult()}");
             endif;
         endif;
         ?>
@@ -42,7 +42,7 @@
                                 foreach ($readAero->getResult() as $aeronave):
                                     extract($aeronave);
                                     echo "<option value=\"{$idAeronave}\" ";
-                                    if (isset($data['aeronave']) && $data['aeronave'] == $idAeronave):
+                                    if (isset($data['idaeronave']) && $data['idaeronave'] == $idAeronave):
                                         echo "selected";
                                     endif;
                                     echo "> {$nomeAeronave} </option>";
@@ -62,8 +62,8 @@
                             if ($readAero->getRowCount()):
                                 foreach ($readAero->getResult() as $aeronave):
                                     extract($aeronave);
-                                    echo "<option value=\"{$idInspecao}\" ";
-                                    if (isset($data['inspecao']) && $data['inspecao'] == $idInspecao):
+                                    echo "<option value=\"{$id_tipo_inspecao}\" ";
+                                    if (isset($data['inspecao']) && $data['inspecao'] == $id_tipo_inspecao):
                                         echo "selected";
                                     endif;
                                     echo "> {$descricaoInspecao} </option>";
@@ -81,7 +81,7 @@
 
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Data:</span></label> 
-                        <input class="form-control" type="text" name="in_dataInspecao" />
+                        <input class="form-control" type="date" name="in_dataInspecao" />
                     </div>
                     <div class="form-group col-md-3">
                         <label><span class="field">In-TSN:</span></label> 

@@ -12,7 +12,7 @@
 
         $action = filter_input(INPUT_GET, 'action', FILTER_DEFAULT);
         if ($action):
-            require ('_models/AdminInspecao.class.php');
+            require ('_models/AdminInstalacao.class.php');
 
             $empAction = filter_input(INPUT_GET, 'emp', FILTER_VALIDATE_INT);
             $empUpdate = new AdminInspecao();
@@ -40,12 +40,12 @@
 
         $empi = 0;
         $getPage = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
-        $Pager = new Pager('painel.php?exe=inspecoes/index&page=');
+        $Pager = new Pager('painel.php?exe=instalacoes/index&page=');
         $Pager->ExePager($getPage, 10);
 
         $readInspecao = new Read;
 
-        $readInspecao->ExeRead("tipo_inspecao", "ORDER BY descricaoInspecao ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+        $readInspecao->ExeRead("inspecao", "ORDER BY descricaoInspecao ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
         if ($readInspecao->getResult()):
             foreach ($readInspecao->getResult() as $insp):
                 $empi++;
@@ -70,15 +70,15 @@
                     <ul class="info post_actions">
                         <!--<li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($inspecao_date)); ?>Hs</li>-->
 
-                        <li><a class="act_edit" href="painel.php?exe=inspecoes/update&emp=<?= $idInspecao; ?>" title="Editar">Editar</a></li>
+                        <li><a class="act_edit" href="painel.php?exe=instalacoes/update&emp=<?= $idInspecao; ?>" title="Editar">Editar</a></li>
 <!--
                         <?php if (!$idInspecao): ?>
-                            <li><a class="act_inative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=active" title="Ativar">Ativar</a></li>
+                            <li><a class="act_inative" href="painel.php?exe=instalacoes/index&emp=<?= $idInspecao; ?>&action=active" title="Ativar">Ativar</a></li>
                         <?php else: ?>
-                            <li><a class="act_ative" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
+                            <li><a class="act_ative" href="painel.php?exe=instalacoes/index&emp=<?= $idInspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
                         <?php endif; ?>
 -->
-                        <li><a class="act_delete" href="painel.php?exe=inspecoes/index&emp=<?= $idInspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
+                        <li><a class="act_delete" href="painel.php?exe=instalacoes/index&emp=<?= $idInspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
                     </ul>
                 </article>
                 <?php
