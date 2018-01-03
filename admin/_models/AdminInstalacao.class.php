@@ -9,7 +9,7 @@
 class AdminInstalacao {
 
     private $Data;
-    private $Instalacao;
+    private $Inspecao;
     private $Error;
     private $Result;
 
@@ -41,7 +41,7 @@ class AdminInstalacao {
      * @param ARRAY $Data = Atribuitivo
      */
     public function ExeUpdate($idInstalacao, array $Data) {
-        $this->Instalacao = (int) $idInstalacao;
+        $this->Inspecao = (int) $idInstalacao;
         $this->Data = $Data;
         if (in_array('', $this->Data)):
             $this->Error = ["Erro ao Atualizar: Para atualizar a instalacao <b>{$this->Data['descricaoInstalacao']}</b>, preencha todos os campos!", WS_ALERT];
@@ -60,10 +60,10 @@ class AdminInstalacao {
      * @param INT $VooId = Id da instalacao!
      */
     public function ExeDelete($idInsp) {
-        $this->Instalacao = (int) $idInsp;
+        $this->Inspecao = (int) $idInsp;
 
         $ReadEmp = new Read;
-        $ReadEmp->ExeRead(self::Entity, "WHERE idInstalacao = :insp", "insp={$this->Instalacao}");
+        $ReadEmp->ExeRead(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
         if (!$ReadEmp->getResult()):
             $this->Error = ["A inspeção que você tentou deletar não existe no sistema!", WS_ERROR];
             $this->Result = false;
@@ -71,7 +71,7 @@ class AdminInstalacao {
             $InstalacaoDelete = $ReadEmp->getResult()[0];
 
             $deleta = new Delete;
-            $deleta->ExeDelete(self::Entity, "WHERE idInstalacao = :insp", "insp={$this->Instalacao}");
+            $deleta->ExeDelete(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
 
             $this->Error = ["O tipo de inspeção <b>{$InstalacaoDelete['descricaoInstalacao']}</b> foi removido com sucesso do sistema!", WS_ACCEPT];
             $this->Result = true;
@@ -120,9 +120,9 @@ class AdminInstalacao {
     //Atualiza a instalacao no banco!
     private function Update() {
         $Update = new Update;
-        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idInstalacao = :id", "id={$this->Instalacao}");
+        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idInspecao = :id", "id={$this->Inspecao}");
         if ($Update->getRowCount() >= 1):
-            $this->Error = ["A inspeção <b>{$this->Data['descricaoInstalacao']}</b> foi atualizada com sucesso!", WS_ACCEPT];
+            $this->Error = ["A inspeção foi atualizada com sucesso!", WS_ACCEPT];
             $this->Result = true;
         endif;
     }
