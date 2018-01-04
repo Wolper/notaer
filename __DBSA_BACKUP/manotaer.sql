@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Jan-2018 às 16:49
--- Versão do servidor: 5.6.26
--- PHP Version: 5.6.12
+-- Generation Time: 04-Jan-2018 às 12:17
+-- Versão do servidor: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,14 +28,14 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `aeronave`
 --
 
-CREATE TABLE IF NOT EXISTS `aeronave` (
+CREATE TABLE `aeronave` (
   `idAeronave` int(11) NOT NULL,
   `prefixoAeronave` varchar(15) NOT NULL,
   `snAeronave` varchar(4) NOT NULL,
   `nomeAeronave` varchar(15) NOT NULL,
   `modeloAeronave` varchar(15) NOT NULL,
   `horasDeVooAeronave` bigint(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `aeronave`
@@ -51,12 +53,12 @@ INSERT INTO `aeronave` (`idAeronave`, `prefixoAeronave`, `snAeronave`, `nomeAero
 -- Estrutura da tabela `app_cidades`
 --
 
-CREATE TABLE IF NOT EXISTS `app_cidades` (
+CREATE TABLE `app_cidades` (
   `cidade_id` int(11) NOT NULL,
   `estado_id` int(11) DEFAULT NULL,
   `cidade_nome` varchar(75) CHARACTER SET latin1 DEFAULT NULL,
   `cidade_uf` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5566 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `app_cidades`
@@ -194,7 +196,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (129, 21, 'Alpestre', 'RS'),
 (130, 13, 'Alpinópolis', 'MG'),
 (131, 11, 'Alta Floresta', 'MT'),
-(132, 22, 'Alta Floresta D''Oeste', 'RO'),
+(132, 22, 'Alta Floresta D\'Oeste', 'RO'),
 (133, 25, 'Altair', 'SP'),
 (134, 14, 'Altamira', 'PA'),
 (135, 10, 'Altamira do Maranhão', 'MA'),
@@ -246,7 +248,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (181, 18, 'Alvorada do Gurguéia', 'PI'),
 (182, 9, 'Alvorada do Norte', 'GO'),
 (183, 16, 'Alvorada do Sul', 'PR'),
-(184, 22, 'Alvorada D''Oeste', 'RO'),
+(184, 22, 'Alvorada D\'Oeste', 'RO'),
 (185, 23, 'Amajari', 'RR'),
 (186, 12, 'Amambai', 'MS'),
 (187, 3, 'Amapá', 'AP'),
@@ -337,7 +339,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (272, 9, 'Aparecida do Rio Doce', 'GO'),
 (273, 27, 'Aparecida do Rio Negro', 'TO'),
 (274, 12, 'Aparecida do Taboado', 'MS'),
-(275, 25, 'Aparecida d''Oeste', 'SP'),
+(275, 25, 'Aparecida d\'Oeste', 'SP'),
 (276, 19, 'Aperibé', 'RJ'),
 (277, 8, 'Apiacá', 'ES'),
 (278, 11, 'Apiacás', 'MT'),
@@ -571,7 +573,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (506, 24, 'Barra Bonita', 'SC'),
 (507, 25, 'Barra Bonita', 'SP'),
 (508, 5, 'Barra da Estiva', 'BA'),
-(509, 18, 'Barra D''Alcântara', 'PI'),
+(509, 18, 'Barra D\'Alcântara', 'PI'),
 (510, 17, 'Barra de Guabiraba', 'PE'),
 (511, 15, 'Barra de Santa Rosa', 'PB'),
 (512, 15, 'Barra de Santana', 'PB'),
@@ -1426,7 +1428,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1361, 13, 'Congonhas do Norte', 'MG'),
 (1362, 16, 'Congonhinhas', 'PR'),
 (1363, 13, 'Conquista', 'MG'),
-(1364, 11, 'Conquista D''Oeste', 'MT'),
+(1364, 11, 'Conquista D\'Oeste', 'MT'),
 (1365, 13, 'Conselheiro Lafaiete', 'MG'),
 (1366, 16, 'Conselheiro Mairinck', 'PR'),
 (1367, 13, 'Conselheiro Pena', 'MG'),
@@ -1617,11 +1619,11 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1552, 15, 'Diamante', 'PB'),
 (1553, 16, 'Diamante do Norte', 'PR'),
 (1554, 16, 'Diamante do Sul', 'PR'),
-(1555, 16, 'Diamante D''Oeste', 'PR'),
+(1555, 16, 'Diamante D\'Oeste', 'PR'),
 (1556, 13, 'Diamantina', 'MG'),
 (1557, 11, 'Diamantino', 'MT'),
 (1558, 27, 'Dianópolis', 'TO'),
-(1559, 5, 'Dias d''Ávila', 'BA'),
+(1559, 5, 'Dias d\'Ávila', 'BA'),
 (1560, 21, 'Dilermando de Aguiar', 'RS'),
 (1561, 13, 'Diogo de Vasconcelos', 'MG'),
 (1562, 13, 'Dionísio', 'MG'),
@@ -1764,7 +1766,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1698, 27, 'Esperantina', 'TO'),
 (1699, 10, 'Esperantinópolis', 'MA'),
 (1700, 16, 'Espigão Alto do Iguaçu', 'PR'),
-(1701, 22, 'Espigão d''Oeste', 'RO'),
+(1701, 22, 'Espigão d\'Oeste', 'RO'),
 (1702, 13, 'Espinosa', 'MG'),
 (1703, 20, 'Espírito Santo', 'RN'),
 (1704, 13, 'Espírito Santo do Dourado', 'MG'),
@@ -1786,7 +1788,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1720, 9, 'Estrela do Norte', 'GO'),
 (1721, 25, 'Estrela do Norte', 'SP'),
 (1722, 13, 'Estrela do Sul', 'MG'),
-(1723, 25, 'Estrela d''Oeste', 'SP'),
+(1723, 25, 'Estrela d\'Oeste', 'SP'),
 (1724, 21, 'Estrela Velha', 'RS'),
 (1725, 5, 'Euclides da Cunha', 'BA'),
 (1726, 25, 'Euclides da Cunha Paulista', 'SP'),
@@ -1850,7 +1852,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1784, 16, 'Figueira', 'PR'),
 (1785, 12, 'Figueirão', 'MS'),
 (1786, 27, 'Figueirópolis', 'TO'),
-(1787, 11, 'Figueirópolis D''Oeste', 'MT'),
+(1787, 11, 'Figueirópolis D\'Oeste', 'MT'),
 (1788, 5, 'Filadélfia', 'BA'),
 (1789, 27, 'Filadélfia', 'TO'),
 (1790, 5, 'Firmino Alves', 'BA'),
@@ -1979,7 +1981,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1913, 5, 'Glória', 'BA'),
 (1914, 12, 'Glória de Dourados', 'MS'),
 (1915, 17, 'Glória do Goitá', 'PE'),
-(1916, 11, 'Glória D''Oeste', 'MT'),
+(1916, 11, 'Glória D\'Oeste', 'MT'),
 (1917, 21, 'Glorinha', 'RS'),
 (1918, 10, 'Godofredo Viana', 'MA'),
 (1919, 16, 'Godoy Moreira', 'PR'),
@@ -2079,7 +2081,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2013, 13, 'Guarani', 'MG'),
 (2014, 21, 'Guarani das Missões', 'RS'),
 (2015, 9, 'Guarani de Goiás', 'GO'),
-(2016, 25, 'Guarani d''Oeste', 'SP'),
+(2016, 25, 'Guarani d\'Oeste', 'SP'),
 (2017, 16, 'Guaraniaçu', 'PR'),
 (2018, 25, 'Guarantã', 'SP'),
 (2019, 11, 'Guarantã do Norte', 'MT'),
@@ -2121,7 +2123,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2055, 5, 'Heliópolis', 'BA'),
 (2056, 25, 'Herculândia', 'SP'),
 (2057, 21, 'Herval', 'RS'),
-(2058, 24, 'Herval d''Oeste', 'SC'),
+(2058, 24, 'Herval d\'Oeste', 'SC'),
 (2059, 21, 'Herveiras', 'RS'),
 (2060, 6, 'Hidrolândia', 'CE'),
 (2061, 9, 'Hidrolândia', 'GO'),
@@ -2428,7 +2430,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2362, 13, 'Itapecerica', 'MG'),
 (2363, 25, 'Itapecerica da Serra', 'SP'),
 (2364, 10, 'Itapecuru Mirim', 'MA'),
-(2365, 16, 'Itapejara d''Oeste', 'PR'),
+(2365, 16, 'Itapejara d\'Oeste', 'PR'),
 (2366, 24, 'Itapema', 'SC'),
 (2367, 8, 'Itapemirim', 'ES'),
 (2368, 16, 'Itaperuçu', 'PR'),
@@ -2456,7 +2458,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2390, 27, 'Itaporã do Tocantins', 'TO'),
 (2391, 15, 'Itaporanga', 'PB'),
 (2392, 25, 'Itaporanga', 'SP'),
-(2393, 26, 'Itaporanga d''Ajuda', 'SE'),
+(2393, 26, 'Itaporanga d\'Ajuda', 'SE'),
 (2394, 15, 'Itapororoca', 'PB'),
 (2395, 22, 'Itapuã do Oeste', 'RO'),
 (2396, 21, 'Itapuca', 'RS'),
@@ -2749,7 +2751,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2683, 2, 'Lagoa da Canoa', 'AL'),
 (2684, 27, 'Lagoa da Confusão', 'TO'),
 (2685, 13, 'Lagoa da Prata', 'MG'),
-(2686, 20, 'Lagoa d''Anta', 'RN'),
+(2686, 20, 'Lagoa d\'Anta', 'RN'),
 (2687, 15, 'Lagoa de Dentro', 'PB'),
 (2688, 17, 'Lagoa de Itaenga', 'PE'),
 (2689, 20, 'Lagoa de Pedras', 'RN'),
@@ -2798,7 +2800,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2732, 13, 'Lajinha', 'MG'),
 (2733, 5, 'Lamarão', 'BA'),
 (2734, 13, 'Lambari', 'MG'),
-(2735, 11, 'Lambari D''Oeste', 'MT'),
+(2735, 11, 'Lambari D\'Oeste', 'MT'),
 (2736, 13, 'Lamim', 'MG'),
 (2737, 18, 'Landri Sales', 'PI'),
 (2738, 16, 'Lapa', 'PR'),
@@ -2905,7 +2907,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2839, 2, 'Maceió', 'AL'),
 (2840, 13, 'Machacalis', 'MG'),
 (2841, 21, 'Machadinho', 'RS'),
-(2842, 22, 'Machadinho D''Oeste', 'RO'),
+(2842, 22, 'Machadinho D\'Oeste', 'RO'),
 (2843, 13, 'Machado', 'MG'),
 (2844, 17, 'Machados', 'PE'),
 (2845, 24, 'Macieira', 'SC'),
@@ -2915,7 +2917,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2849, 18, 'Madeiro', 'PI'),
 (2850, 5, 'Madre de Deus', 'BA'),
 (2851, 13, 'Madre de Deus de Minas', 'MG'),
-(2852, 15, 'Mãe d''Água', 'PB'),
+(2852, 15, 'Mãe d\'Água', 'PB'),
 (2853, 14, 'Mãe do Rio', 'PA'),
 (2854, 5, 'Maetinga', 'BA'),
 (2855, 24, 'Mafra', 'SC'),
@@ -3159,7 +3161,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3093, 25, 'Mirante do Paranapanema', 'SP'),
 (3094, 16, 'Miraselva', 'PR'),
 (3095, 25, 'Mirassol', 'SP'),
-(3096, 11, 'Mirassol d''Oeste', 'MT'),
+(3096, 11, 'Mirassol d\'Oeste', 'MT'),
 (3097, 25, 'Mirassolândia', 'SP'),
 (3098, 13, 'Miravânia', 'MG'),
 (3099, 24, 'Mirim Doce', 'SC'),
@@ -3364,7 +3366,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3298, 13, 'Nova Belém', 'MG'),
 (3299, 21, 'Nova Boa Vista', 'RS'),
 (3300, 11, 'Nova Brasilândia', 'MT'),
-(3301, 22, 'Nova Brasilândia D''Oeste', 'RO'),
+(3301, 22, 'Nova Brasilândia D\'Oeste', 'RO'),
 (3302, 21, 'Nova Bréscia', 'RS'),
 (3303, 25, 'Nova Campina', 'SP');
 INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`) VALUES
@@ -3498,14 +3500,14 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3431, 3, 'Oiapoque', 'AP'),
 (3432, 13, 'Olaria', 'MG'),
 (3433, 25, 'Óleo', 'SP'),
-(3434, 15, 'Olho d''Água', 'PB'),
-(3435, 10, 'Olho d''Água das Cunhãs', 'MA'),
-(3436, 2, 'Olho d''Água das Flores', 'AL'),
-(3437, 2, 'Olho d''Água do Casado', 'AL'),
-(3438, 18, 'Olho D''Água do Piauí', 'PI'),
-(3439, 2, 'Olho d''Água Grande', 'AL'),
-(3440, 20, 'Olho-d''Água do Borges', 'RN'),
-(3441, 13, 'Olhos-d''Água', 'MG'),
+(3434, 15, 'Olho d\'Água', 'PB'),
+(3435, 10, 'Olho d\'Água das Cunhãs', 'MA'),
+(3436, 2, 'Olho d\'Água das Flores', 'AL'),
+(3437, 2, 'Olho d\'Água do Casado', 'AL'),
+(3438, 18, 'Olho D\'Água do Piauí', 'PI'),
+(3439, 2, 'Olho d\'Água Grande', 'AL'),
+(3440, 20, 'Olho-d\'Água do Borges', 'RN'),
+(3441, 13, 'Olhos-d\'Água', 'MG'),
 (3442, 25, 'Olímpia', 'SP'),
 (3443, 13, 'Olímpio Noronha', 'MG'),
 (3444, 17, 'Olinda', 'PE'),
@@ -3600,7 +3602,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3533, 24, 'Palmeira', 'SC'),
 (3534, 21, 'Palmeira das Missões', 'RS'),
 (3535, 18, 'Palmeira do Piauí', 'PI'),
-(3536, 25, 'Palmeira d''Oeste', 'SP'),
+(3536, 25, 'Palmeira d\'Oeste', 'SP'),
 (3537, 2, 'Palmeira dos Índios', 'AL'),
 (3538, 18, 'Palmeirais', 'PI'),
 (3539, 10, 'Palmeirândia', 'MA'),
@@ -3718,9 +3720,9 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3651, 20, 'Patu', 'RN'),
 (3652, 19, 'Paty do Alferes', 'RJ'),
 (3653, 5, 'Pau Brasil', 'BA'),
-(3654, 14, 'Pau D''Arco', 'PA'),
-(3655, 27, 'Pau D''Arco', 'TO'),
-(3656, 18, 'Pau D''Arco do Piauí', 'PI'),
+(3654, 14, 'Pau D\'Arco', 'PA'),
+(3655, 27, 'Pau D\'Arco', 'TO'),
+(3656, 18, 'Pau D\'Arco do Piauí', 'PI'),
 (3657, 20, 'Pau dos Ferros', 'RN'),
 (3658, 17, 'Paudalho', 'PE'),
 (3659, 4, 'Pauini', 'AM'),
@@ -3817,7 +3819,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3750, 10, 'Peritoró', 'MA'),
 (3751, 16, 'Perobal', 'PR'),
 (3752, 16, 'Pérola', 'PR'),
-(3753, 16, 'Pérola d''Oeste', 'PR'),
+(3753, 16, 'Pérola d\'Oeste', 'PR'),
 (3754, 9, 'Perolândia', 'GO'),
 (3755, 25, 'Peruíbe', 'SP'),
 (3756, 13, 'Pescador', 'MG'),
@@ -3862,7 +3864,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3795, 25, 'Pindorama', 'SP'),
 (3796, 27, 'Pindorama do Tocantins', 'TO'),
 (3797, 6, 'Pindoretama', 'CE'),
-(3798, 13, 'Pingo-d''Água', 'MG'),
+(3798, 13, 'Pingo-d\'Água', 'MG'),
 (3799, 16, 'Pinhais', 'PR'),
 (3800, 21, 'Pinhal', 'RS'),
 (3801, 21, 'Pinhal da Serra', 'RS'),
@@ -4164,7 +4166,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4097, 16, 'Ramilândia', 'PR'),
 (4098, 25, 'Rancharia', 'SP'),
 (4099, 16, 'Rancho Alegre', 'PR'),
-(4100, 16, 'Rancho Alegre D''Oeste', 'PR'),
+(4100, 16, 'Rancho Alegre D\'Oeste', 'PR'),
 (4101, 24, 'Rancho Queimado', 'SC'),
 (4102, 10, 'Raposa', 'MA'),
 (4103, 13, 'Raposos', 'MG'),
@@ -4416,7 +4418,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4349, 14, 'Santa Bárbara do Pará', 'PA'),
 (4350, 21, 'Santa Bárbara do Sul', 'RS'),
 (4351, 13, 'Santa Bárbara do Tugúrio', 'MG'),
-(4352, 25, 'Santa Bárbara d''Oeste', 'SP'),
+(4352, 25, 'Santa Bárbara d\'Oeste', 'SP'),
 (4353, 25, 'Santa Branca', 'SP'),
 (4354, 5, 'Santa Brígida', 'BA'),
 (4355, 11, 'Santa Carmem', 'MT'),
@@ -4425,7 +4427,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4358, 16, 'Santa Cecília do Pavão', 'PR'),
 (4359, 21, 'Santa Cecília do Sul', 'RS'),
 (4360, 21, 'Santa Clara do Sul', 'RS'),
-(4361, 25, 'Santa Clara d''Oeste', 'SP'),
+(4361, 25, 'Santa Clara d\'Oeste', 'SP'),
 (4362, 15, 'Santa Cruz', 'PB'),
 (4363, 17, 'Santa Cruz', 'PE'),
 (4364, 20, 'Santa Cruz', 'RN'),
@@ -4487,7 +4489,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4420, 2, 'Santa Luzia do Norte', 'AL'),
 (4421, 14, 'Santa Luzia do Pará', 'PA'),
 (4422, 10, 'Santa Luzia do Paruá', 'MA'),
-(4423, 22, 'Santa Luzia D''Oeste', 'RO'),
+(4423, 22, 'Santa Luzia D\'Oeste', 'RO'),
 (4424, 13, 'Santa Margarida', 'MG'),
 (4425, 21, 'Santa Margarida do Sul', 'RS'),
 (4426, 20, 'Santa Maria', 'RN'),
@@ -4526,7 +4528,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4459, 13, 'Santa Rita do Sapucaí', 'MG'),
 (4460, 27, 'Santa Rita do Tocantins', 'TO'),
 (4461, 11, 'Santa Rita do Trivelato', 'MT'),
-(4462, 25, 'Santa Rita d''Oeste', 'SP'),
+(4462, 25, 'Santa Rita d\'Oeste', 'SP'),
 (4463, 21, 'Santa Rosa', 'RS'),
 (4464, 13, 'Santa Rosa da Serra', 'MG'),
 (4465, 9, 'Santa Rosa de Goiás', 'GO'),
@@ -4572,7 +4574,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4505, 2, 'Santana do Ipanema', 'AL'),
 (4506, 16, 'Santana do Itararé', 'PR'),
 (4507, 13, 'Santana do Jacaré', 'MG'),
-(4508, 21, 'Sant''Ana do Livramento', 'RS'),
+(4508, 21, 'Sant\'Ana do Livramento', 'RS'),
 (4509, 13, 'Santana do Manhuaçu', 'MG'),
 (4510, 10, 'Santana do Maranhão', 'MA'),
 (4511, 20, 'Santana do Matos', 'RN'),
@@ -4688,7 +4690,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4621, 13, 'São Domingos do Prata', 'MG'),
 (4622, 21, 'São Domingos do Sul', 'RS'),
 (4623, 5, 'São Felipe', 'BA'),
-(4624, 22, 'São Felipe D''Oeste', 'RO'),
+(4624, 22, 'São Felipe D\'Oeste', 'RO'),
 (4625, 5, 'São Félix', 'BA'),
 (4626, 10, 'São Félix de Balsas', 'MA'),
 (4627, 13, 'São Félix de Minas', 'MG'),
@@ -4760,7 +4762,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4693, 18, 'São João da Serra', 'PI'),
 (4694, 21, 'São João da Urtiga', 'RS'),
 (4695, 18, 'São João da Varjota', 'PI'),
-(4696, 9, 'São João d''Aliança', 'GO'),
+(4696, 9, 'São João d\'Aliança', 'GO'),
 (4697, 25, 'São João das Duas Pontes', 'SP'),
 (4698, 13, 'São João das Missões', 'MG'),
 (4699, 25, 'São João de Iracema', 'SP'),
@@ -4782,7 +4784,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4715, 13, 'São João do Pacuí', 'MG'),
 (4716, 10, 'São João do Paraíso', 'MA'),
 (4717, 13, 'São João do Paraíso', 'MG'),
-(4718, 25, 'São João do Pau d''Alho', 'SP'),
+(4718, 25, 'São João do Pau d\'Alho', 'SP'),
 (4719, 18, 'São João do Piauí', 'PI'),
 (4720, 21, 'São João do Polêsine', 'RS'),
 (4721, 15, 'São João do Rio do Peixe', 'PB'),
@@ -4801,7 +4803,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4734, 21, 'São Jorge', 'RS'),
 (4735, 16, 'São Jorge do Ivaí', 'PR'),
 (4736, 16, 'São Jorge do Patrocínio', 'PR'),
-(4737, 16, 'São Jorge d''Oeste', 'PR'),
+(4737, 16, 'São Jorge d\'Oeste', 'PR'),
 (4738, 24, 'São José', 'SC'),
 (4739, 13, 'São José da Barra', 'MG'),
 (4740, 25, 'São José da Bela Vista', 'SP'),
@@ -5127,7 +5129,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (5059, 16, 'Siqueira Campos', 'PR'),
 (5060, 17, 'Sirinhaém', 'PE'),
 (5061, 26, 'Siriri', 'SE'),
-(5062, 9, 'Sítio d''Abadia', 'GO'),
+(5062, 9, 'Sítio d\'Abadia', 'GO'),
 (5063, 5, 'Sítio do Mato', 'BA'),
 (5064, 5, 'Sítio do Quinto', 'BA'),
 (5065, 10, 'Sítio Novo', 'MA'),
@@ -5206,7 +5208,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (5138, 11, 'Tangará da Serra', 'MT'),
 (5139, 19, 'Tanguá', 'RJ'),
 (5140, 5, 'Tanhaçu', 'BA'),
-(5141, 2, 'Tanque d''Arca', 'AL'),
+(5141, 2, 'Tanque d\'Arca', 'AL'),
 (5142, 18, 'Tanque do Piauí', 'PI'),
 (5143, 5, 'Tanque Novo', 'BA'),
 (5144, 5, 'Tanquinho', 'BA'),
@@ -5638,7 +5640,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 -- Estrutura da tabela `app_empresas`
 --
 
-CREATE TABLE IF NOT EXISTS `app_empresas` (
+CREATE TABLE `app_empresas` (
   `empresa_id` int(11) NOT NULL,
   `empresa_title` varchar(255) DEFAULT NULL,
   `empresa_name` varchar(255) DEFAULT NULL,
@@ -5663,7 +5665,7 @@ CREATE TABLE IF NOT EXISTS `app_empresas` (
 -- Estrutura da tabela `app_estados`
 --
 
-CREATE TABLE IF NOT EXISTS `app_estados` (
+CREATE TABLE `app_estados` (
   `estado_id` int(11) NOT NULL,
   `estado_nome` varchar(75) CHARACTER SET latin1 DEFAULT NULL,
   `estado_uf` varchar(5) CHARACTER SET latin1 DEFAULT NULL,
@@ -5709,7 +5711,7 @@ INSERT INTO `app_estados` (`estado_id`, `estado_nome`, `estado_uf`, `estado_regi
 -- Estrutura da tabela `etapas_voo`
 --
 
-CREATE TABLE IF NOT EXISTS `etapas_voo` (
+CREATE TABLE `etapas_voo` (
   `idvoo` int(11) NOT NULL,
   `idetapa` int(11) NOT NULL,
   `numero_etapa` tinyint(4) NOT NULL,
@@ -5725,7 +5727,7 @@ CREATE TABLE IF NOT EXISTS `etapas_voo` (
   `noturno` float NOT NULL,
   `qtepouso` int(11) NOT NULL,
   `combustivel_consumido` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `etapas_voo`
@@ -5746,7 +5748,7 @@ INSERT INTO `etapas_voo` (`idvoo`, `idetapa`, `numero_etapa`, `origem`, `destino
 -- Estrutura da tabela `inspecao`
 --
 
-CREATE TABLE IF NOT EXISTS `inspecao` (
+CREATE TABLE `inspecao` (
   `idInspecao` int(11) NOT NULL,
   `idAeronave` int(11) NOT NULL,
   `id_tipo_inspecao` int(11) NOT NULL,
@@ -5758,7 +5760,7 @@ CREATE TABLE IF NOT EXISTS `inspecao` (
   `vencimento_for_date` date DEFAULT NULL,
   `disponivel_for_date` date DEFAULT NULL,
   `disponivel_for_time` int(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inspecao`
@@ -5782,7 +5784,7 @@ INSERT INTO `inspecao` (`idInspecao`, `idAeronave`, `id_tipo_inspecao`, `in_anvI
 -- Estrutura da tabela `inspecao_backup`
 --
 
-CREATE TABLE IF NOT EXISTS `inspecao_backup` (
+CREATE TABLE `inspecao_backup` (
   `idInspecao` int(11) NOT NULL,
   `descricaoInspecao` varchar(45) NOT NULL,
   `itensInspecao` varchar(200) NOT NULL,
@@ -5799,7 +5801,7 @@ CREATE TABLE IF NOT EXISTS `inspecao_backup` (
   `vencimento_for_date` date DEFAULT NULL,
   `disponivel_for_date` date DEFAULT NULL,
   `disponivel_for_time` int(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inspecao_backup`
@@ -5819,7 +5821,7 @@ INSERT INTO `inspecao_backup` (`idInspecao`, `descricaoInspecao`, `itensInspecao
 -- Estrutura da tabela `servidor`
 --
 
-CREATE TABLE IF NOT EXISTS `servidor` (
+CREATE TABLE `servidor` (
   `idservidor` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `posto` enum('CEL','TEN_CEL','MAJ','CAP','1_TEN','2_TEN','ASP','ST','1_SGT','2_SGT','3_SGT','CB','SD','DELEGADO') NOT NULL,
@@ -5829,7 +5831,7 @@ CREATE TABLE IF NOT EXISTS `servidor` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(32) NOT NULL,
   `privilegio` enum('1','2','3') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servidor`
@@ -5857,7 +5859,7 @@ INSERT INTO `servidor` (`idservidor`, `nome`, `posto`, `funcao`, `instituicao`, 
 -- Estrutura da tabela `tipo_inspecao`
 --
 
-CREATE TABLE IF NOT EXISTS `tipo_inspecao` (
+CREATE TABLE `tipo_inspecao` (
   `id_tipo_inspecao` int(11) NOT NULL,
   `descricaoInspecao` varchar(45) NOT NULL,
   `pnInspecao` varchar(20) NOT NULL,
@@ -5865,9 +5867,9 @@ CREATE TABLE IF NOT EXISTS `tipo_inspecao` (
   `tlInspecao` enum('OC','TBO','OTL','SLL') NOT NULL,
   `tcInspecao` enum('M','H','P','X','D','M/H','D/H') NOT NULL,
   `frequencia_for_time` int(20) DEFAULT NULL,
-  `frequencia_for_date` date DEFAULT NULL,
+  `frequencia_for_date` int(20) DEFAULT NULL,
   `itensInspecao` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tipo_inspecao`
@@ -5876,7 +5878,25 @@ CREATE TABLE IF NOT EXISTS `tipo_inspecao` (
 INSERT INTO `tipo_inspecao` (`id_tipo_inspecao`, `descricaoInspecao`, `pnInspecao`, `snInspecao`, `tlInspecao`, `tcInspecao`, `frequencia_for_time`, `frequencia_for_date`, `itensInspecao`) VALUES
 (1, 'IAM', 'RBHA 91.409', '3011', 'OC', 'M', 12, NULL, 'nenhum'),
 (2, 'certificado-aeronavegabilidade', 'IS-21-181-001B', '15258', 'OC', 'M', 72, NULL, 'nenhum'),
-(3, 'licenca-de-estacao', 'Cap 13 mpr 100', '0009/2010-ES', 'OC', 'M', 120, NULL, 'nenhum');
+(3, 'licenca-de-estacao', 'Cap 13 mpr 100', '0009/2010-ES', 'OC', 'M', 120, NULL, 'nenhum'),
+(6, 'qqqq', '23', '34', 'TBO', 'M/H', 23, 0, 'nenhum'),
+(7, 'www', '32', '12', 'OTL', 'M', 44, NULL, 'nenhum'),
+(8, 'rrrr', '33', '22', 'TBO', 'D', 12, NULL, 'nenhum'),
+(9, 'yyyy', '66', '77', 'OTL', 'M', 88, NULL, 'nenhum'),
+(10, 'rrr', '33', '22', 'OC', 'D', 22, NULL, '33'),
+(11, 'rr', '44', '44', 'OTL', 'M', 44, NULL, '44'),
+(12, '333', '33', '44', 'OTL', 'M', 44, NULL, '44'),
+(13, '33', '33', '333', 'OC', 'M', 33, NULL, '33'),
+(14, 'rrrrr', '54', '45', 'OC', 'M', 34, NULL, '34'),
+(15, 'er', 'er', 'err', 'OC', 'M', 23, NULL, 'er'),
+(16, 'fkjkj', '765', '765', 'OC', 'M', 45, NULL, '4554'),
+(17, '55', '555', '555', 'OC', 'M', 55, NULL, '555'),
+(18, 'rrrr', '333', '33', 'OC', 'M', 33, NULL, '33'),
+(19, '345', '345345', '3455', 'OC', 'M', 3453, NULL, '345345'),
+(20, '435345', '345', '345', 'OC', 'M', 345, NULL, '345'),
+(21, '4567', '5467', '5647', 'OC', 'M', 4567, NULL, '4567'),
+(22, '4364536', '43563', '3456', 'OC', 'M', 3456, NULL, '4356'),
+(23, '3456', '3456', '3456', 'OC', 'M/H', 3456, 3456, '3456');
 
 -- --------------------------------------------------------
 
@@ -5884,7 +5904,7 @@ INSERT INTO `tipo_inspecao` (`id_tipo_inspecao`, `descricaoInspecao`, `pnInspeca
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
+CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(32) NOT NULL
@@ -5903,7 +5923,7 @@ INSERT INTO `usuario` (`idusuario`, `email`, `senha`) VALUES
 -- Estrutura da tabela `voo`
 --
 
-CREATE TABLE IF NOT EXISTS `voo` (
+CREATE TABLE `voo` (
   `idvoo` int(11) NOT NULL,
   `voo_status` enum('0','1') NOT NULL,
   `data_do_voo` date NOT NULL,
@@ -5930,7 +5950,7 @@ CREATE TABLE IF NOT EXISTS `voo` (
 -- Estrutura da tabela `ws_categories`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_categories` (
+CREATE TABLE `ws_categories` (
   `category_id` int(11) NOT NULL,
   `category_parent` int(11) DEFAULT NULL,
   `category_name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
@@ -5947,7 +5967,7 @@ CREATE TABLE IF NOT EXISTS `ws_categories` (
 -- Estrutura da tabela `ws_posts`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_posts` (
+CREATE TABLE `ws_posts` (
   `post_id` int(11) NOT NULL,
   `post_name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `post_title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
@@ -5961,28 +5981,28 @@ CREATE TABLE IF NOT EXISTS `ws_posts` (
   `post_last_views` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `post_status` int(11) DEFAULT NULL,
   `post_type` varchar(255) CHARACTER SET latin1 DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_posts`
 --
 
 INSERT INTO `ws_posts` (`post_id`, `post_name`, `post_title`, `post_content`, `post_cover`, `post_date`, `post_author`, `post_category`, `post_cat_parent`, `post_views`, `post_last_views`, `post_status`, `post_type`) VALUES
-(4, 'pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni', 'Pato visita CT, veste camisa do São Paulo e é recebido por Ceni', '<p>Alexandre Pato j&aacute; veste a camisa do S&atilde;o Paulo. Nesta ter&ccedil;a-feira, o atacante visitou o Centro de Treinamento da Barra Funda e foi recebido por Rog&eacute;rio Ceni. O jogador, ex-Corinthians, passou por exames nesta manh&atilde; no HCOR e seguiu para conhecer os novos companheiros de time. Pato tem contrato de empr&eacute;stimo ao clube tricolor at&eacute; o final de 2015.</p>\r\n<p>Ainda n&atilde;o h&aacute; data para a apresenta&ccedil;&atilde;o de Pato. De acordo com o S&atilde;o Paulo, somente quando forem resolvidos "acertos burocr&aacute;ticos" que o atacante poder&aacute; falar como jogador do clube. A falta de pressa s&atilde;o-paulina tem como motivo o fato de que Pato n&atilde;o pode jogar no Campeonato Paulista, j&aacute; que atuou no torneio em mais de tr&ecirc;s jogos pelo Corinthians.</p>\r\n<p>"Desejei as boas-vindas, de cora&ccedil;&atilde;o, e que ele vista a camisa do nosso time. Todos os jogadores que chegam para refor&ccedil;ar o S&atilde;o Paulo s&atilde;o sempre bem recebidos, e que ele d&ecirc; o m&aacute;ximo para nos ajudar", disse Ceni ao site do clube. O goleiro se envolveu em pol&ecirc;micas com Pato durante o Paulista de 2013, quando o atacante provocou o arqueiro ap&oacute;s cobran&ccedil;a de p&ecirc;nalti e participou de dividida que resultou em les&atilde;o no p&eacute; do &iacute;dolo tricolor.</p>\r\n<p>Alexandre Pato ainda conheceu as depend&ecirc;ncias do S&atilde;o Paulo e se encontrou com o t&eacute;cnico Muricy Ramalho. "Aqui voc&ecirc; vai ser muito feliz", disse o treinador do clube tricolor.</p>', 'images/2014/02/pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni.jpg', '2014-02-11 23:27:45', 1, 5, 1, '1', '2014-03-31 10:11:34', 1, 'post'),
+(4, 'pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni', 'Pato visita CT, veste camisa do São Paulo e é recebido por Ceni', '<p>Alexandre Pato j&aacute; veste a camisa do S&atilde;o Paulo. Nesta ter&ccedil;a-feira, o atacante visitou o Centro de Treinamento da Barra Funda e foi recebido por Rog&eacute;rio Ceni. O jogador, ex-Corinthians, passou por exames nesta manh&atilde; no HCOR e seguiu para conhecer os novos companheiros de time. Pato tem contrato de empr&eacute;stimo ao clube tricolor at&eacute; o final de 2015.</p>\r\n<p>Ainda n&atilde;o h&aacute; data para a apresenta&ccedil;&atilde;o de Pato. De acordo com o S&atilde;o Paulo, somente quando forem resolvidos \"acertos burocr&aacute;ticos\" que o atacante poder&aacute; falar como jogador do clube. A falta de pressa s&atilde;o-paulina tem como motivo o fato de que Pato n&atilde;o pode jogar no Campeonato Paulista, j&aacute; que atuou no torneio em mais de tr&ecirc;s jogos pelo Corinthians.</p>\r\n<p>\"Desejei as boas-vindas, de cora&ccedil;&atilde;o, e que ele vista a camisa do nosso time. Todos os jogadores que chegam para refor&ccedil;ar o S&atilde;o Paulo s&atilde;o sempre bem recebidos, e que ele d&ecirc; o m&aacute;ximo para nos ajudar\", disse Ceni ao site do clube. O goleiro se envolveu em pol&ecirc;micas com Pato durante o Paulista de 2013, quando o atacante provocou o arqueiro ap&oacute;s cobran&ccedil;a de p&ecirc;nalti e participou de dividida que resultou em les&atilde;o no p&eacute; do &iacute;dolo tricolor.</p>\r\n<p>Alexandre Pato ainda conheceu as depend&ecirc;ncias do S&atilde;o Paulo e se encontrou com o t&eacute;cnico Muricy Ramalho. \"Aqui voc&ecirc; vai ser muito feliz\", disse o treinador do clube tricolor.</p>', 'images/2014/02/pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni.jpg', '2014-02-11 23:27:45', 1, 5, 1, '1', '2014-03-31 10:11:34', 1, 'post'),
 (5, 'lyoto-machida-autografa-poster-e-convoca-torcida-para-o-ufc', 'Lyoto Machida autografa pôster e convoca torcida para o UFC', '<p>Lyoto Machida j&aacute; est&aacute; no Brasil. O lutador, que enfrentar&aacute; Gegard Mousasi no pr&oacute;ximo s&aacute;bado (15), pelo UFC Fight Night 36, em Jaragu&aacute; do Sul, Santa Catarina, postou uma foto em suas redes sociais, nesta ter&ccedil;a-feira (11), em que aparece autografando os p&ocirc;steres do evento.</p>\r\n<p><em>O &ldquo;Drag&atilde;o&rdquo; aproveitou ainda para convocar a torcida brasileira para o evento.</em></p>\r\n<p>&ldquo;Valeu, pessoal! Conto com a torcida de voc&ecirc;s e quero agradecer o apoio de todos&rdquo;, postou o carateca.</p>\r\n<p>Em sua estreia pelo peso m&eacute;dio, Lyoto nocauteou Mark Mu&ntilde;oz, em outubro do ano passado, e tenta manter os 100% de aproveitamento em sua nova categoria. Ex-Strikeforce, Mousasi debutou pelo Ultimate ao vencer Ilir Latifi, por pontos, ap&oacute;s atua&ccedil;&atilde;o discreta, e sabe que vencer o brasileiro poder&aacute; deix&aacute;-lo em &oacute;tima situa&ccedil;&atilde;o na divis&atilde;o.</p>\r\n<p>O UFC Fight Night 36 ser&aacute; transmitido, ao vivo e na &iacute;ntegra, pelo canal Combate a partir das 22h. A TATAME acompanha o evento em tempo real &agrave;s 22h30, hor&aacute;rio previsto para o in&iacute;cio do card preliminar, pelo site, pelo Twitter e pelo Facebook.</p>', 'images/2014/02/lyoto-machida-autografa-poster-e-convoca-torcida-para-o-ufc.jpg', '2014-02-11 23:31:24', 1, 5, 1, '1', '2014-03-31 10:11:40', 1, 'post'),
-(6, 'queridinho-local-surpreende-e-e-ouro-no-snowboard', 'Queridinho local surpreende e é ouro no snowboard', '<p>Nascido na R&uacute;ssia, mas competindo sob a bandeira da Su&iacute;&ccedil;a, o atleta Iouri Podladtchikov surpreendeu nesta ter&ccedil;a-feira, na final do snowboard halfpipe dos Jogos de Inverno 2014, disputados na cidade de Sochi. O su&iacute;&ccedil;o levou a medalha de ouro da prova com a melhor nota (94.75) entre os 12 participantes da decis&atilde;o - Podladtchikov superou a estrela americana bicampe&atilde; ol&iacute;mpica Shaun White, que nem medalha levou.</p>\r\n<p>O novo campe&atilde;o do snowboard halfpipe &eacute; nascido em Moscou, mas foi criado na su&iacute;&ccedil;a. Podladtchikov, que tem o apelido de "iPod" e viveu parte da vida na Holanda e na Su&iacute;&ccedil;a, chegou a representar os russos nos Jogos de Inverno em 2006, mas a partir de 2007 passou a competir em nome dos su&iacute;&ccedil;os - j&aacute; havia competido pela Su&iacute;&ccedil;a na Olimp&iacute;ada de 2010.</p>\r\n<p>A torcida da prova entre os locais era toda para o "russo". Torcedores foram acompanhar a disputa com bandeiras da R&uacute;ssia misturadas com a da Su&iacute;&ccedil;a e fizeram grande festa com a medalha de ouro do queridinho. Podladtchikov chamou a aten&ccedil;&atilde;o ao comemorar muito logo ap&oacute;s receber a nota e assumir a lideran&ccedil;a da prova, embora mais seis participantes ainda passassem pelo circuito incluindo a estrela Shaun White - a cada entrada de um rival, o su&iacute;&ccedil;o fazia uma careta.</p>\r\n<p>Ap&oacute;s a apresenta&ccedil;&atilde;o do americano e a nota decepcionante que garantiu apenas o quarto lugar para o astro, Podladtchikov foi ao del&iacute;rio e recebeu um abra&ccedil;o exatamente de Shaun White, que levou a derrota no esp&iacute;rito esportivo - euestionado sobre o papo com Shaun White durante o abra&ccedil;o, Podladtchikov brincou: "ele me disse parab&eacute;ns".</p>\r\n<p>Se vencesse nesta ter&ccedil;a, a estrela do snowboard americano seria o primeiro americano da hist&oacute;ria a garantir tr&ecirc;s medalhas de ouro em edi&ccedil;&otilde;es diferentes dos Jogos de Inverno.</p>\r\n<p>O ouro e o bronze do snowboard halfpipe ficaram com japoneses: Ayumu Hirano, fen&ocirc;meno de 15 anos que j&aacute; havia sido prata nos X-Games de 2013 em Aspen, terminou em segundo com 93.50 e Taku Hiraoka cravou 92.25, na terceira coloca&ccedil;&atilde;o.</p>\r\n<p>A surpresa pela vit&oacute;ria de Iouri Podladtchikov &eacute; ainda maior pelo su&iacute;&ccedil;o n&atilde;o ter classificado diretamente para a final. O atleta foi mal na primeira fase. que contava com 40 participantes, e teve que disputar uma repescagem para se garantir entre os 12 melhores</p>', 'images/2014/02/queridinho-local-surpreende-e-e-ouro-no-snowboard.jpg', '2014-02-11 23:32:31', 1, 5, 1, '348', '2014-04-03 23:10:05', 1, 'post'),
-(7, 'sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica', 'Sochi 2014: fotos sensuais de atletas russas despertam polêmica', '<p>Fotos sensuais de atletas russas que competem na Olimp&iacute;ada de Inverno de 2014 em alguns meios de comunica&ccedil;&atilde;o do pa&iacute;s causaram pol&ecirc;mica na Inglaterra nesta semana. O jornal brit&acirc;nico The Telegraph questionou se a inten&ccedil;&atilde;o das imagens &eacute; "explorar" a imagem das mulheres para tirar o foco das "m&aacute;s not&iacute;cias" envolvendo Sochi 2014, como o "sentimento antigay" ou o fato de a Vila Ol&iacute;mpica parecer um "canteiro de obras".</p>\r\n<p>O texto questiona se as atletas russas est&atilde;o se despindo para as c&acirc;meras para "vender o pa&iacute;s da &uacute;nica maneira que sabem", ou se simplesmente querem fazer isso porque se sentem bem, e cita a "objetifica&ccedil;&atilde;o" das mulheres no pa&iacute;s-sede dos Jogos de Inverno.</p>\r\n<p>Em resposta, uma russa que vive na Inglaterra, Yulia Ivanova, afirmou ao jornal que as mulheres do pa&iacute;s s&atilde;o "sexualmente confiantes" e gostam de mostrar seus corpos. Segundo ela, na R&uacute;ssia a sensualidade n&atilde;o &eacute; um tabu - &eacute; vista como "for&ccedil;a e confian&ccedil;a" e n&atilde;o como "prostitui&ccedil;&atilde;o ou degrada&ccedil;&atilde;o".</p>\r\n<p>Ivanova tamb&eacute;m reclamou que os Jogos de Sochi ser&atilde;o uma "oportunidade" para que a imprensa ocidental "ataque a R&uacute;ssia e a deixe em peda&ccedil;os", focando apenas nas coisas negativas e passando por cima dos pontos positivos.</p>\r\n<p>Confira ensaio sensual das atletas russas &agrave; revista ProSports</p>', 'images/2014/02/sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica.jpg', '2014-02-11 23:34:43', 1, 5, 1, '5', '2014-03-31 10:11:42', 1, 'post'),
+(6, 'queridinho-local-surpreende-e-e-ouro-no-snowboard', 'Queridinho local surpreende e é ouro no snowboard', '<p>Nascido na R&uacute;ssia, mas competindo sob a bandeira da Su&iacute;&ccedil;a, o atleta Iouri Podladtchikov surpreendeu nesta ter&ccedil;a-feira, na final do snowboard halfpipe dos Jogos de Inverno 2014, disputados na cidade de Sochi. O su&iacute;&ccedil;o levou a medalha de ouro da prova com a melhor nota (94.75) entre os 12 participantes da decis&atilde;o - Podladtchikov superou a estrela americana bicampe&atilde; ol&iacute;mpica Shaun White, que nem medalha levou.</p>\r\n<p>O novo campe&atilde;o do snowboard halfpipe &eacute; nascido em Moscou, mas foi criado na su&iacute;&ccedil;a. Podladtchikov, que tem o apelido de \"iPod\" e viveu parte da vida na Holanda e na Su&iacute;&ccedil;a, chegou a representar os russos nos Jogos de Inverno em 2006, mas a partir de 2007 passou a competir em nome dos su&iacute;&ccedil;os - j&aacute; havia competido pela Su&iacute;&ccedil;a na Olimp&iacute;ada de 2010.</p>\r\n<p>A torcida da prova entre os locais era toda para o \"russo\". Torcedores foram acompanhar a disputa com bandeiras da R&uacute;ssia misturadas com a da Su&iacute;&ccedil;a e fizeram grande festa com a medalha de ouro do queridinho. Podladtchikov chamou a aten&ccedil;&atilde;o ao comemorar muito logo ap&oacute;s receber a nota e assumir a lideran&ccedil;a da prova, embora mais seis participantes ainda passassem pelo circuito incluindo a estrela Shaun White - a cada entrada de um rival, o su&iacute;&ccedil;o fazia uma careta.</p>\r\n<p>Ap&oacute;s a apresenta&ccedil;&atilde;o do americano e a nota decepcionante que garantiu apenas o quarto lugar para o astro, Podladtchikov foi ao del&iacute;rio e recebeu um abra&ccedil;o exatamente de Shaun White, que levou a derrota no esp&iacute;rito esportivo - euestionado sobre o papo com Shaun White durante o abra&ccedil;o, Podladtchikov brincou: \"ele me disse parab&eacute;ns\".</p>\r\n<p>Se vencesse nesta ter&ccedil;a, a estrela do snowboard americano seria o primeiro americano da hist&oacute;ria a garantir tr&ecirc;s medalhas de ouro em edi&ccedil;&otilde;es diferentes dos Jogos de Inverno.</p>\r\n<p>O ouro e o bronze do snowboard halfpipe ficaram com japoneses: Ayumu Hirano, fen&ocirc;meno de 15 anos que j&aacute; havia sido prata nos X-Games de 2013 em Aspen, terminou em segundo com 93.50 e Taku Hiraoka cravou 92.25, na terceira coloca&ccedil;&atilde;o.</p>\r\n<p>A surpresa pela vit&oacute;ria de Iouri Podladtchikov &eacute; ainda maior pelo su&iacute;&ccedil;o n&atilde;o ter classificado diretamente para a final. O atleta foi mal na primeira fase. que contava com 40 participantes, e teve que disputar uma repescagem para se garantir entre os 12 melhores</p>', 'images/2014/02/queridinho-local-surpreende-e-e-ouro-no-snowboard.jpg', '2014-02-11 23:32:31', 1, 5, 1, '348', '2014-04-03 23:10:05', 1, 'post'),
+(7, 'sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica', 'Sochi 2014: fotos sensuais de atletas russas despertam polêmica', '<p>Fotos sensuais de atletas russas que competem na Olimp&iacute;ada de Inverno de 2014 em alguns meios de comunica&ccedil;&atilde;o do pa&iacute;s causaram pol&ecirc;mica na Inglaterra nesta semana. O jornal brit&acirc;nico The Telegraph questionou se a inten&ccedil;&atilde;o das imagens &eacute; \"explorar\" a imagem das mulheres para tirar o foco das \"m&aacute;s not&iacute;cias\" envolvendo Sochi 2014, como o \"sentimento antigay\" ou o fato de a Vila Ol&iacute;mpica parecer um \"canteiro de obras\".</p>\r\n<p>O texto questiona se as atletas russas est&atilde;o se despindo para as c&acirc;meras para \"vender o pa&iacute;s da &uacute;nica maneira que sabem\", ou se simplesmente querem fazer isso porque se sentem bem, e cita a \"objetifica&ccedil;&atilde;o\" das mulheres no pa&iacute;s-sede dos Jogos de Inverno.</p>\r\n<p>Em resposta, uma russa que vive na Inglaterra, Yulia Ivanova, afirmou ao jornal que as mulheres do pa&iacute;s s&atilde;o \"sexualmente confiantes\" e gostam de mostrar seus corpos. Segundo ela, na R&uacute;ssia a sensualidade n&atilde;o &eacute; um tabu - &eacute; vista como \"for&ccedil;a e confian&ccedil;a\" e n&atilde;o como \"prostitui&ccedil;&atilde;o ou degrada&ccedil;&atilde;o\".</p>\r\n<p>Ivanova tamb&eacute;m reclamou que os Jogos de Sochi ser&atilde;o uma \"oportunidade\" para que a imprensa ocidental \"ataque a R&uacute;ssia e a deixe em peda&ccedil;os\", focando apenas nas coisas negativas e passando por cima dos pontos positivos.</p>\r\n<p>Confira ensaio sensual das atletas russas &agrave; revista ProSports</p>', 'images/2014/02/sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica.jpg', '2014-02-11 23:34:43', 1, 5, 1, '5', '2014-03-31 10:11:42', 1, 'post'),
 (11, 'especialistas-alertam-para-os-perigos-que-rival-do-brasil-oferece-na-fed-cup', 'Especialistas alertam para os perigos que rival do Brasil oferece na Fed Cup!', '<p>O Brasil j&aacute; conhece o seu advers&aacute;rio do playoff da Fed Cup, que ser&aacute; em 19 e 20 de abril. Em busca de uma vaga no Grupo Mundial da competi&ccedil;&atilde;o entre na&ccedil;&otilde;es, a equipe brasileira vai encarar a Su&iacute;&ccedil;a, em casa.</p>\r\n<p>A princ&iacute;pio, o sorteio foi bom para o Brasil que tinha a chance de enfrentar S&eacute;rvia, Jap&atilde;o, Su&eacute;cia ou Su&iacute;&ccedil;a. Portanto, o time da capit&atilde; Carla Tiene fugiu do confronto com as s&eacute;rvias, que t&ecirc;m na equipe a ex-l&iacute;der do ranking e atual 12&ordf; colocada Ana Ivanovic, tenista que eliminou Serena Williams no Aberto da Austr&aacute;lia este ano.</p>\r\n<p>Por&eacute;m, o LANCE!Net procurou especialistas de t&ecirc;nis para obter opini&otilde;es a respeito do confronto contra a Su&iacute;&ccedil;a. O colunista do L!Net Fabrizio Gallas e o ex-tenista brasileiro Fernando Meligeni alertaram que o time su&iacute;&ccedil;o n&atilde;o &eacute; simples de ser batido (confira as opini&otilde;es abaixo).</p>\r\n<p>O perigo das su&iacute;&ccedil;as se deve muito a Belinda Bencic (139&ordf; do ranking), de apenas 16 anos e que foi l&iacute;der do ranking mundial juvenil. Ela est&aacute; em plena evolu&ccedil;&atilde;o no circuito, passou pelo qualificat&oacute;rio do Aberto da Austr&aacute;lia e ainda venceu a japonesa Kimiko Date-Krumm na primeira rodada do Grand Slam este ano. Depois, foi eliminada para a chinesa Na Li, que seria a campe&atilde; em Melbourne.</p>\r\n<p>Al&eacute;m de Bencic, a Su&iacute;&ccedil;a tem tenistas como Timea Bacsinszky (196&ordf; do ranking) e Stephanie Voegele (47&ordf;) na equipe. O Brasil foi campe&atilde;o do Zonal Americano, que deu vaga no playoff, jogando com Teliana Pereira (92&ordf;), Paula Gon&ccedil;alves (314&ordf;), Laura Pigossi (269&ordf;) e Gabriela C&eacute; (301&ordf;).</p>', 'images/2014/02/especialistas-alertam-para-os-perigos-que-rival-do-brasil-oferece-na-fed-cup.jpg', '2014-02-11 23:45:03', 1, 5, 1, '155', '2014-04-01 08:51:15', 1, 'post'),
 (12, 'vocalista-do-jota-quest-levanta-o-publico-do-planeta', 'Vocalista do Jota Quest levanta o público do Planeta', '<p>Os mineiros da banda Jota Quest est&atilde;o alucinando no palco e j&aacute; tocaram dois grandes hits: &ldquo;Na Moral&rdquo; e &ldquo;Al&eacute;m do Horizonete&rdquo;. Apesar de estar com o p&eacute; imobilizado com bota ortop&eacute;dica, Rog&eacute;rio Flausino n&atilde;o desanima, pula em um p&eacute; s&oacute; e bota todo mundo pra dan&ccedil;ar!</p>\r\n<p>Se voc&ecirc; n&atilde;o est&aacute; vendo o Planeta de perto, ainda pode conferir ao vivo as transmiss&otilde;es do portal G1, da TVCOM e do canal Multishow! O que n&atilde;o pode &eacute; parar de dan&ccedil;ar! #s&oacute;quemvaisabe</p>\r\n<p>Fotos: Jefferson Bernardes / Ag&ecirc;ncia Preview</p>', 'images/2014/02/vocalista-do-jota-quest-levanta-o-publico-do-planeta.jpg', '2014-02-11 23:52:49', 1, 3, 1, '1', '2014-04-01 08:51:37', 1, 'post'),
 (13, 'cidadao-quem-abre-com-muita-elegancia-o-segundo-dia-de-shows', 'Cidadão Quem abre com muita elegância o segundo dia de shows', '<p>Abrindo o segundo dia de shows no Palco Central, os rapazes da Cidad&atilde;o Quem esbanjaram eleg&acirc;ncia de terno, sem uma gota de suor sequer. O p&uacute;blico pode ver a banda tocando m&uacute;sicas como &ldquo;Um dia&rdquo;, &ldquo;Nosso pr&oacute;prio mar&rdquo; e &ldquo;Pinhal&rdquo;.</p>\r\n<p>A pr&oacute;xima atra&ccedil;&atilde;o a subir ao palco &eacute; Gabriel o Pensador e, em seguida, Raimundos com a participa&ccedil;&atilde;o da Comunidade Nin-Jitsu.</p>\r\n<p>Acompanhe a transmiss&atilde;o ao vivo pela internet atrav&eacute;s do portal G1, e na TV veja pela TVCOM e Multishow.</p>\r\n<p>#s&oacute;quemvaisabe</p>', 'images/2014/02/cidadao-quem-abre-com-muita-elegancia-o-segundo-dia-de-shows.jpg', '2014-02-11 23:54:02', 1, 3, 1, '1', '2014-04-01 08:51:40', 1, 'post'),
 (14, 'skank-faz-show-inesquecivel', 'Skank faz show inesquecível', '<p>Skank embala gera&ccedil;&otilde;es com suas m&uacute;sica simples e contagiantes. Para enriquecer ainda mais a apresenta&ccedil;&atilde;o desta noite no Palco Central, a banda contou com a participa&ccedil;&atilde;o do fen&ocirc;meno do hip-hop brasileiro Emicida.</p>\r\n<p>Samuel Rosa incendeia a plateia empunhando camisetas &ldquo;coloradas&rdquo; e &ldquo;gremistas&rdquo; da banda.</p>\r\n<p>#s&oacute;quemvaisabe</p>', 'images/2014/02/skank-faz-show-inesquecivel.jpg', '2014-02-11 23:55:01', 1, 3, 1, '1', '2014-03-31 10:06:30', 1, 'post'),
 (15, 'raimundos-encerra-show-homenageando-chorao-com-participacao-de-seu-filho-e-comunidade-nin-jitsu', 'Raimundos encerra show homenageando Chorão com participação de seu filho e Comunidade Nin-Jitsu', '<p>A banda Raimundos faz um show en&eacute;rgico e empolgante, fazendo todo mundo pular e cantar junto com os hits.</p>\r\n<p>O ponto alto foram &ldquo;Mulher de Fases&rdquo;, logo no in&iacute;cio do show, depois veio a desenfreada &ldquo;N&ecirc;ga Jurema&rdquo; e o &aacute;pice foi em &ldquo;Puteiro em Jo&atilde;o Pessoa&rdquo;.</p>\r\n<p>Mas o momento mais glorioso do show foi a parceria com a Comunidade Nin-Jitsu e a participa&ccedil;&atilde;o de Alexandre Abr&atilde;o, filho de Chor&atilde;o, quando tocaram m&uacute;sicas da banda Charlie Brown Jr.</p>\r\n<p>O p&uacute;blico cantou emocionado com a homenagem.</p>', 'images/2014/02/raimundos-encerra-show-homenageando-chorao-com-participacao-de-seu-filho-e-comunidade-nin-jitsu.jpg', '2014-02-11 23:56:28', 1, 3, 1, '25', '2014-04-01 08:51:33', 1, 'post'),
 (16, 'the-offspring-sacode-a-roda-punk-no-planeta', 'The Offspring sacode a roda punk no Planeta', '<p>The Offspring estreia no Planeta no &uacute;ltimo dia de Planeta 2014 com muita roda punk entre os planet&aacute;rios. A energia da banda de punk rock californiana contagia o p&uacute;blico. F&atilde;s de todas as idades vibraram com os cl&aacute;ssicos.</p>\r\n<p>O guitarrista Noodles subiu ao palco vestindo uma camiseta verde amarela. O presente foi dado aos integrantes da banda pelo pessoal do The Offspring Brasil, f&atilde;-clube oficial da banda no Pa&iacute;s.</p>\r\n<p>Cerca de 50 mil pessoas pularam ao som de m&uacute;sicas como &ldquo;(Come Out And Play) Keep&rsquo;em Separated&rdquo;, &ldquo;Days go by&rdquo; e Staring at the sun&rdquo;.</p>\r\n<p>#s&oacute;quemvaisabe</p>', 'images/2014/02/the-offspring-sacode-a-roda-punk-no-planeta.jpg', '2014-02-11 23:58:14', 1, 3, 1, '37', '2014-03-31 08:49:40', 1, 'post'),
-(17, 'musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade', 'Musas usam fotos no Instagram para testar fantasias, dietas e popularidade', '<p>Na reta final da prepara&ccedil;&atilde;o para o carnaval, as rainhas e as musas das escolas de samba de S&atilde;o Paulo usam o Instagram, rede social de fotos, para compartilhar looks, fantasias, alimenta&ccedil;&atilde;o e exerc&iacute;cios f&iacute;sicos com o p&uacute;blico. Com as imagens, acumulam seguidores e testam a popularidade antes do desfile no Samb&oacute;dromo.</p>\r\n<p>"Antes eu n&atilde;o gostava muito de redes sociais, mas me apaixonei. As fotos ajudam a criar um v&iacute;nculo muito bacana com o p&uacute;blico e, assim, as pessoas podem acompanhar um pouco do meu dia-a-dia", explicou Gracyanne Barbosa, rainha de bateria da X-9 Paulistana, que tem 664 mil seguidores na rede social.</p>\r\n<h3>Carnaval</h3>\r\n<p>A agenda de uma rainha de bateria &eacute; repleta de ensaios t&eacute;cnicos e na quadra. Tatiane Minerato, da Gavi&otilde;es da Fiel, aproveita essas ocasi&otilde;es para encher seu perfil na rede social de postagens. Sempre caprichando na escolha da fantasia, Tati tamb&eacute;m aposta em v&iacute;deos para mostrar seu samba no p&eacute; aos seguidores. "Comecei a postar v&iacute;deos e o pessoal adorou, faz muito sucesso", comentou a rainha.</p>\r\n<h3>Projeto rainha de bateria</h3>\r\n<p>A modelo Gracyanne Barbosa posta sua rotina di&aacute;ria de treinos na academia e dicas de alimenta&ccedil;&atilde;o. Para agrupar todas as postagens, ela usa a hashtag #projetogracyanne, tamb&eacute;m compartilhada por seguidores que buscam qualidade de vida.</p>\r\n<p>"Eu vejo que as pessoas que me seguem t&ecirc;m mudado os h&aacute;bitos e ficando mais saud&aacute;veis", alegrou-se Gracyanne. Segundo ela, &eacute; comum ver coment&aacute;rios de pessoas contando que estavam com pregui&ccedil;a de ir treinar, mas que viram a postagem e ficaram motivadas.</p>', 'images/2014/02/musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade.jpg', '2014-02-12 11:29:11', 1, 2, 1, '9', '2014-04-02 08:17:01', 1, 'post'),
-(18, 'correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas', 'Correios começam em maio a enviar SMS avisando entrega de cartas', '<p>Come&ccedil;ar&aacute; a funcionar em maio o sistema de envio de SMS dos Correios, que, em um primeiro momento, ser&aacute; usado para avisar que uma correspond&ecirc;ncia foi entregue, mas, no futuro, servir&aacute; at&eacute; para alterar a data e o local em que cartas e encomendas devem chegar.</p>\r\n<p>"Em maio deste ano, a gente j&aacute; vai mandar esse recado ao destinat&aacute;rio", informou Antonio Luiz Fuschino, vice-presidente de Tecnologia e Infraestrutura dos Correios, com exclusividade ao G1.</p>\r\n<p>Atualmente, o sistema est&aacute; em fase de piloto. Por meio do site, os interessados em rastrear alguma correspond&ecirc;ncia pelo site dos Correios s&atilde;o convidados a cadastrar o n&uacute;mero de celular para que sejam avisados via SMS quando a entrega chegar ao destino.</p>\r\n<p>Quando o sistema for lan&ccedil;ado em maio, o cadastro dos n&uacute;meros de celular ser&aacute; feito diretamente na ag&ecirc;ncia, no momento em que um pacote ou correspond&ecirc;ncia for postado.<br />Segundo Fuschino, j&aacute; est&aacute; pronto o sistema de atendimento que coletar&aacute; os n&uacute;meros de contato do destinat&aacute;rio e do remetente.</p>\r\n<p>Isso permitir&aacute; n&atilde;o s&oacute; que o remetente saiba quando seu despacho foi entregue, mas que o destinat&aacute;rio seja informado de que receber&aacute; uma correspond&ecirc;ncia e a previs&atilde;o da data de recebimento, al&eacute;m de ter ci&ecirc;ncia de quando ela foi deixada em sua casa.</p>', 'images/2014/02/correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas.jpg', '2014-02-12 11:31:20', 1, 2, 1, '26', '2014-03-31 08:58:49', 1, 'post'),
-(19, 'empresa-lanca-pendrive-para-smartphones-e-tablets-android', 'Empresa lança pendrive para smartphones e tablets Android', '<p>Ter mais espa&ccedil;o de armazenamento em tablets e smartphones ou conseguir usar arquivos que est&atilde;o em pendrives s&atilde;o algumas das dificuldades de usu&aacute;rios de dispositivos m&oacute;veis.</p>\r\n<p>Para conseguir transferir estes arquivos com maior facilidade, a fabricante SanDisk apresentou nesta ter&ccedil;a-feira (11) o pendrive "Ultra Dual USB Drive", com entradas USB - para conectar no PC, e uma micro-USB, que &eacute; conectada na entrada presente em celulares e tablets.</p>\r\n<p>De acordo com a empresa, o pendrive permite guardar e fazer backup de dados, al&eacute;m de liberar mais espa&ccedil;o ou simplesmente transferir dados multim&iacute;dia entre smartphones, tablets e computadores. O dispositivo tem at&eacute; 64 GB de espa&ccedil;o de armazenamento e as duas portas possuem prote&ccedil;&atilde;o retr&aacute;til, sem capinhas para perder, mas mantendo as conex&otilde;es seguras.</p>\r\n<p>Um aplicativo chamado "Memory Zone", dispon&iacute;vel para download na loja Google Play, permite o gerenciamento do conte&uacute;do no pendrive, organizando rquivos armazenados na mem&oacute;ria interna e externa do telefone, para gerenciamento, visualiza&ccedil;&atilde;o, c&oacute;pia e backup.</p>\r\n<p>O SanDisk Ultra Dual USB Drive est&aacute; dispon&iacute;vel no Brasil em capacidades de 16GB a 64 GB com pre&ccedil;os sugeridos de R$ 80 a R$ 250.</p>', 'images/2014/02/empresa-lanca-pendrive-para-smartphones-e-tablets-android.jpg', '2014-02-12 11:32:31', 1, 2, 1, '54', '2014-04-01 07:49:41', 1, 'post'),
-(20, 'twitter-testa-novo-layout-similar-a-facebook-e-google', 'Twitter testa novo layout similar a Facebook e Google+', '<h2>O Twitter est&aacute; testando uma remodela&ccedil;&atilde;o de layout que aproximar&aacute; a forma como microblog exibe o conte&uacute;do do jeito como as redes sociais Facebook e Google+ organizam as publica&ccedil;&otilde;es de usu&aacute;rios.</h2>\r\n<p>A imagem de um perfil com esse redesenho foi publicada pelo site &ldquo;Mashable&rdquo; nesta ter&ccedil;a-feira (11).</p>\r\n<p>Se confirmadas, as mudan&ccedil;as marcar&atilde;o uma virada na rela&ccedil;&atilde;o entre o microblog e as outras redes sociais. Nos &uacute;ltimos anos, foram Facebook e companhia que adotaram as ferramentas criadas pelo Twitter, como a "hashtag", os "trending topics" e a forma de citar outros usu&aacute;rios usando o s&iacute;mbolo &ldquo;@&rdquo;.</p>\r\n<p>Segundo a imagem postada pelo site, o layout da timeline dos usu&aacute;rios no Twitter deve incorporar uma mescla de elementos da rede social do Google e Facebook.</p>\r\n<p>Os usu&aacute;rios poder&atilde;o escolher uma imagem de exibi&ccedil;&atilde;o e outra grande para estampar como capa, como ocorre nos dois sites concorrentes. As fotos de cobertura poder&atilde;o ter dimens&otilde;es de 1.500 x 1.500 pixels, acima do permitido atualmente, de 1.252 x 626 pixels.</p>\r\n<p>J&aacute; as postagens ser&atilde;o exibidas em quadros grandes. As que contiverem imagens ter&atilde;o maior destaque. Com isso, o formato atual, de lista de tu&iacute;tes, sai de cena.</p>\r\n<p>Recentemente, o Twitter mudou a vers&atilde;o para web para que ficasse mais pr&oacute;xima da exibida pelos aplicativos para celulares e tablets.</p>\r\n<p>Segundo a empresa, a altera&ccedil;&atilde;o foi uma acomoda&ccedil;&atilde;o do design de sua plataforma ao formato mais utilizado, pois 76% de seus usu&aacute;rios acessam o microblog por meio de dispositivos m&oacute;veis.</p>', 'images/2014/02/twitter-testa-novo-layout-similar-a-facebook-e-google.jpg', '2014-02-12 11:35:09', 1, 2, 1, '75', '2014-03-31 10:06:22', 1, 'post'),
-(21, 'apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado', 'Após vídeo virar hit, game que simula bode, ''Goat Simulator'', será lançado', '<p>O est&uacute;dio Coffee Stain Studios publicou h&aacute; algumas semanas um v&iacute;deo que mostrava uma demonstra&ccedil;&atilde;o t&eacute;cnica de um motor gr&aacute;fico que mostrava um bode destruindo tudo o que via pela frente e que causava muita confus&atilde;o.</p>\r\n<p>N&atilde;o era para virar um jogo propriamente dito, mas a repercuss&atilde;o foi tanta, com pessoas pedindo que essa "demo" fosse lan&ccedil;ada, que o est&uacute;dio resolveu concluir o jogo e lan&ccedil;ar "Goat Simulator" na metade de 2014.</p>\r\n<p>A vers&atilde;o ser&aacute; exclusiva para PCs e ser&aacute; vendida por download na loja virtual Steam. O pre&ccedil;o e a data de lan&ccedil;amentos n&atilde;o foram divulgados.</p>\r\n<p>No game, os jogadores far&atilde;o o papel de um bode que fica sempre com sua l&iacute;ngua para fora e tem como objetivo destruir tudo o que v&ecirc; pela frente.</p>\r\n<p>Haver&aacute; objetivos espec&iacute;ficos para serem cumpridos no mundo aberto do jogo. Para atacar o jogador pode usar oa chifres, o traseiro ou pode dar coices nos advers&aacute;rios.</p>\r\n<p>A lingua tamb&eacute;m podera ser usada, podendo grudar em objetos como machados para causar ainda mais destrui&ccedil;&atilde;o.</p>', 'images/2014/02/apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado.jpg', '2014-02-12 11:39:09', 1, 2, 1, '115', '2014-04-03 17:00:51', 1, 'post');
+(17, 'musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade', 'Musas usam fotos no Instagram para testar fantasias, dietas e popularidade', '<p>Na reta final da prepara&ccedil;&atilde;o para o carnaval, as rainhas e as musas das escolas de samba de S&atilde;o Paulo usam o Instagram, rede social de fotos, para compartilhar looks, fantasias, alimenta&ccedil;&atilde;o e exerc&iacute;cios f&iacute;sicos com o p&uacute;blico. Com as imagens, acumulam seguidores e testam a popularidade antes do desfile no Samb&oacute;dromo.</p>\r\n<p>\"Antes eu n&atilde;o gostava muito de redes sociais, mas me apaixonei. As fotos ajudam a criar um v&iacute;nculo muito bacana com o p&uacute;blico e, assim, as pessoas podem acompanhar um pouco do meu dia-a-dia\", explicou Gracyanne Barbosa, rainha de bateria da X-9 Paulistana, que tem 664 mil seguidores na rede social.</p>\r\n<h3>Carnaval</h3>\r\n<p>A agenda de uma rainha de bateria &eacute; repleta de ensaios t&eacute;cnicos e na quadra. Tatiane Minerato, da Gavi&otilde;es da Fiel, aproveita essas ocasi&otilde;es para encher seu perfil na rede social de postagens. Sempre caprichando na escolha da fantasia, Tati tamb&eacute;m aposta em v&iacute;deos para mostrar seu samba no p&eacute; aos seguidores. \"Comecei a postar v&iacute;deos e o pessoal adorou, faz muito sucesso\", comentou a rainha.</p>\r\n<h3>Projeto rainha de bateria</h3>\r\n<p>A modelo Gracyanne Barbosa posta sua rotina di&aacute;ria de treinos na academia e dicas de alimenta&ccedil;&atilde;o. Para agrupar todas as postagens, ela usa a hashtag #projetogracyanne, tamb&eacute;m compartilhada por seguidores que buscam qualidade de vida.</p>\r\n<p>\"Eu vejo que as pessoas que me seguem t&ecirc;m mudado os h&aacute;bitos e ficando mais saud&aacute;veis\", alegrou-se Gracyanne. Segundo ela, &eacute; comum ver coment&aacute;rios de pessoas contando que estavam com pregui&ccedil;a de ir treinar, mas que viram a postagem e ficaram motivadas.</p>', 'images/2014/02/musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade.jpg', '2014-02-12 11:29:11', 1, 2, 1, '9', '2014-04-02 08:17:01', 1, 'post'),
+(18, 'correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas', 'Correios começam em maio a enviar SMS avisando entrega de cartas', '<p>Come&ccedil;ar&aacute; a funcionar em maio o sistema de envio de SMS dos Correios, que, em um primeiro momento, ser&aacute; usado para avisar que uma correspond&ecirc;ncia foi entregue, mas, no futuro, servir&aacute; at&eacute; para alterar a data e o local em que cartas e encomendas devem chegar.</p>\r\n<p>\"Em maio deste ano, a gente j&aacute; vai mandar esse recado ao destinat&aacute;rio\", informou Antonio Luiz Fuschino, vice-presidente de Tecnologia e Infraestrutura dos Correios, com exclusividade ao G1.</p>\r\n<p>Atualmente, o sistema est&aacute; em fase de piloto. Por meio do site, os interessados em rastrear alguma correspond&ecirc;ncia pelo site dos Correios s&atilde;o convidados a cadastrar o n&uacute;mero de celular para que sejam avisados via SMS quando a entrega chegar ao destino.</p>\r\n<p>Quando o sistema for lan&ccedil;ado em maio, o cadastro dos n&uacute;meros de celular ser&aacute; feito diretamente na ag&ecirc;ncia, no momento em que um pacote ou correspond&ecirc;ncia for postado.<br />Segundo Fuschino, j&aacute; est&aacute; pronto o sistema de atendimento que coletar&aacute; os n&uacute;meros de contato do destinat&aacute;rio e do remetente.</p>\r\n<p>Isso permitir&aacute; n&atilde;o s&oacute; que o remetente saiba quando seu despacho foi entregue, mas que o destinat&aacute;rio seja informado de que receber&aacute; uma correspond&ecirc;ncia e a previs&atilde;o da data de recebimento, al&eacute;m de ter ci&ecirc;ncia de quando ela foi deixada em sua casa.</p>', 'images/2014/02/correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas.jpg', '2014-02-12 11:31:20', 1, 2, 1, '26', '2014-03-31 08:58:49', 1, 'post'),
+(19, 'empresa-lanca-pendrive-para-smartphones-e-tablets-android', 'Empresa lança pendrive para smartphones e tablets Android', '<p>Ter mais espa&ccedil;o de armazenamento em tablets e smartphones ou conseguir usar arquivos que est&atilde;o em pendrives s&atilde;o algumas das dificuldades de usu&aacute;rios de dispositivos m&oacute;veis.</p>\r\n<p>Para conseguir transferir estes arquivos com maior facilidade, a fabricante SanDisk apresentou nesta ter&ccedil;a-feira (11) o pendrive \"Ultra Dual USB Drive\", com entradas USB - para conectar no PC, e uma micro-USB, que &eacute; conectada na entrada presente em celulares e tablets.</p>\r\n<p>De acordo com a empresa, o pendrive permite guardar e fazer backup de dados, al&eacute;m de liberar mais espa&ccedil;o ou simplesmente transferir dados multim&iacute;dia entre smartphones, tablets e computadores. O dispositivo tem at&eacute; 64 GB de espa&ccedil;o de armazenamento e as duas portas possuem prote&ccedil;&atilde;o retr&aacute;til, sem capinhas para perder, mas mantendo as conex&otilde;es seguras.</p>\r\n<p>Um aplicativo chamado \"Memory Zone\", dispon&iacute;vel para download na loja Google Play, permite o gerenciamento do conte&uacute;do no pendrive, organizando rquivos armazenados na mem&oacute;ria interna e externa do telefone, para gerenciamento, visualiza&ccedil;&atilde;o, c&oacute;pia e backup.</p>\r\n<p>O SanDisk Ultra Dual USB Drive est&aacute; dispon&iacute;vel no Brasil em capacidades de 16GB a 64 GB com pre&ccedil;os sugeridos de R$ 80 a R$ 250.</p>', 'images/2014/02/empresa-lanca-pendrive-para-smartphones-e-tablets-android.jpg', '2014-02-12 11:32:31', 1, 2, 1, '54', '2014-04-01 07:49:41', 1, 'post'),
+(20, 'twitter-testa-novo-layout-similar-a-facebook-e-google', 'Twitter testa novo layout similar a Facebook e Google+', '<h2>O Twitter est&aacute; testando uma remodela&ccedil;&atilde;o de layout que aproximar&aacute; a forma como microblog exibe o conte&uacute;do do jeito como as redes sociais Facebook e Google+ organizam as publica&ccedil;&otilde;es de usu&aacute;rios.</h2>\r\n<p>A imagem de um perfil com esse redesenho foi publicada pelo site &ldquo;Mashable&rdquo; nesta ter&ccedil;a-feira (11).</p>\r\n<p>Se confirmadas, as mudan&ccedil;as marcar&atilde;o uma virada na rela&ccedil;&atilde;o entre o microblog e as outras redes sociais. Nos &uacute;ltimos anos, foram Facebook e companhia que adotaram as ferramentas criadas pelo Twitter, como a \"hashtag\", os \"trending topics\" e a forma de citar outros usu&aacute;rios usando o s&iacute;mbolo &ldquo;@&rdquo;.</p>\r\n<p>Segundo a imagem postada pelo site, o layout da timeline dos usu&aacute;rios no Twitter deve incorporar uma mescla de elementos da rede social do Google e Facebook.</p>\r\n<p>Os usu&aacute;rios poder&atilde;o escolher uma imagem de exibi&ccedil;&atilde;o e outra grande para estampar como capa, como ocorre nos dois sites concorrentes. As fotos de cobertura poder&atilde;o ter dimens&otilde;es de 1.500 x 1.500 pixels, acima do permitido atualmente, de 1.252 x 626 pixels.</p>\r\n<p>J&aacute; as postagens ser&atilde;o exibidas em quadros grandes. As que contiverem imagens ter&atilde;o maior destaque. Com isso, o formato atual, de lista de tu&iacute;tes, sai de cena.</p>\r\n<p>Recentemente, o Twitter mudou a vers&atilde;o para web para que ficasse mais pr&oacute;xima da exibida pelos aplicativos para celulares e tablets.</p>\r\n<p>Segundo a empresa, a altera&ccedil;&atilde;o foi uma acomoda&ccedil;&atilde;o do design de sua plataforma ao formato mais utilizado, pois 76% de seus usu&aacute;rios acessam o microblog por meio de dispositivos m&oacute;veis.</p>', 'images/2014/02/twitter-testa-novo-layout-similar-a-facebook-e-google.jpg', '2014-02-12 11:35:09', 1, 2, 1, '75', '2014-03-31 10:06:22', 1, 'post'),
+(21, 'apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado', 'Após vídeo virar hit, game que simula bode, \'Goat Simulator\', será lançado', '<p>O est&uacute;dio Coffee Stain Studios publicou h&aacute; algumas semanas um v&iacute;deo que mostrava uma demonstra&ccedil;&atilde;o t&eacute;cnica de um motor gr&aacute;fico que mostrava um bode destruindo tudo o que via pela frente e que causava muita confus&atilde;o.</p>\r\n<p>N&atilde;o era para virar um jogo propriamente dito, mas a repercuss&atilde;o foi tanta, com pessoas pedindo que essa \"demo\" fosse lan&ccedil;ada, que o est&uacute;dio resolveu concluir o jogo e lan&ccedil;ar \"Goat Simulator\" na metade de 2014.</p>\r\n<p>A vers&atilde;o ser&aacute; exclusiva para PCs e ser&aacute; vendida por download na loja virtual Steam. O pre&ccedil;o e a data de lan&ccedil;amentos n&atilde;o foram divulgados.</p>\r\n<p>No game, os jogadores far&atilde;o o papel de um bode que fica sempre com sua l&iacute;ngua para fora e tem como objetivo destruir tudo o que v&ecirc; pela frente.</p>\r\n<p>Haver&aacute; objetivos espec&iacute;ficos para serem cumpridos no mundo aberto do jogo. Para atacar o jogador pode usar oa chifres, o traseiro ou pode dar coices nos advers&aacute;rios.</p>\r\n<p>A lingua tamb&eacute;m podera ser usada, podendo grudar em objetos como machados para causar ainda mais destrui&ccedil;&atilde;o.</p>', 'images/2014/02/apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado.jpg', '2014-02-12 11:39:09', 1, 2, 1, '115', '2014-04-03 17:00:51', 1, 'post');
 
 -- --------------------------------------------------------
 
@@ -5990,12 +6010,12 @@ INSERT INTO `ws_posts` (`post_id`, `post_name`, `post_title`, `post_content`, `p
 -- Estrutura da tabela `ws_posts_gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_posts_gallery` (
+CREATE TABLE `ws_posts_gallery` (
   `post_id` int(11) DEFAULT NULL,
   `gallery_id` int(11) NOT NULL,
   `gallery_image` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `gallery_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_posts_gallery`
@@ -6023,13 +6043,13 @@ INSERT INTO `ws_posts_gallery` (`post_id`, `gallery_id`, `gallery_image`, `galle
 -- Estrutura da tabela `ws_siteviews`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_siteviews` (
+CREATE TABLE `ws_siteviews` (
   `siteviews_id` int(11) NOT NULL,
   `siteviews_date` date NOT NULL,
   `siteviews_users` decimal(10,0) NOT NULL,
   `siteviews_views` decimal(10,0) NOT NULL,
   `siteviews_pages` decimal(10,0) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_siteviews`
@@ -6062,12 +6082,12 @@ INSERT INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`,
 -- Estrutura da tabela `ws_siteviews_agent`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_siteviews_agent` (
+CREATE TABLE `ws_siteviews_agent` (
   `agent_id` int(11) NOT NULL,
   `agent_name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_views` decimal(10,0) NOT NULL,
   `agent_lastview` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_siteviews_agent`
@@ -6085,7 +6105,7 @@ INSERT INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`, `agen
 -- Estrutura da tabela `ws_siteviews_online`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
+CREATE TABLE `ws_siteviews_online` (
   `online_id` int(11) NOT NULL,
   `online_session` varchar(255) CHARACTER SET latin1 NOT NULL,
   `online_startview` timestamp NULL DEFAULT NULL,
@@ -6094,7 +6114,7 @@ CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
   `online_url` varchar(255) CHARACTER SET latin1 NOT NULL,
   `online_agent` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_siteviews_online`
@@ -6129,7 +6149,7 @@ INSERT INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startv
 -- Estrutura da tabela `ws_users`
 --
 
-CREATE TABLE IF NOT EXISTS `ws_users` (
+CREATE TABLE `ws_users` (
   `user_id` int(11) NOT NULL,
   `user_name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `user_lastname` varchar(255) CHARACTER SET latin1 NOT NULL,
@@ -6138,7 +6158,7 @@ CREATE TABLE IF NOT EXISTS `ws_users` (
   `user_registration` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_lastupdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_level` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_users`
@@ -6265,82 +6285,99 @@ ALTER TABLE `ws_users`
 -- AUTO_INCREMENT for table `aeronave`
 --
 ALTER TABLE `aeronave`
-  MODIFY `idAeronave` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `idAeronave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `app_cidades`
 --
 ALTER TABLE `app_cidades`
-  MODIFY `cidade_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5566;
+  MODIFY `cidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5566;
+
 --
 -- AUTO_INCREMENT for table `app_empresas`
 --
 ALTER TABLE `app_empresas`
   MODIFY `empresa_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `etapas_voo`
 --
 ALTER TABLE `etapas_voo`
-  MODIFY `idetapa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=75;
+  MODIFY `idetapa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
 --
 -- AUTO_INCREMENT for table `inspecao`
 --
 ALTER TABLE `inspecao`
-  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `inspecao_backup`
 --
 ALTER TABLE `inspecao_backup`
-  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- AUTO_INCREMENT for table `servidor`
 --
 ALTER TABLE `servidor`
-  MODIFY `idservidor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `idservidor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `tipo_inspecao`
 --
 ALTER TABLE `tipo_inspecao`
-  MODIFY `id_tipo_inspecao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id_tipo_inspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT for table `voo`
 --
 ALTER TABLE `voo`
   MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `ws_categories`
 --
 ALTER TABLE `ws_categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `ws_posts`
 --
 ALTER TABLE `ws_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `ws_posts_gallery`
 --
 ALTER TABLE `ws_posts_gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `ws_siteviews`
 --
 ALTER TABLE `ws_siteviews`
-  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `ws_siteviews_agent`
 --
 ALTER TABLE `ws_siteviews_agent`
-  MODIFY `agent_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `agent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `ws_siteviews_online`
 --
 ALTER TABLE `ws_siteviews_online`
-  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `ws_users`
 --
 ALTER TABLE `ws_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
