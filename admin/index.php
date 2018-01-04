@@ -16,6 +16,7 @@ require('../_app/Config.inc.php');
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
         <script type="text/javascript" src="bootstrap/jquery.min.js"></script>
         <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="system/inspecoes/script.js"></script>
         
     </head>
     <body class="login">

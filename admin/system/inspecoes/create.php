@@ -8,7 +8,7 @@
 
         <?php
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-//        print_r($data);
+        print_r($data);
         if ($data && $data['SendPostForm']):
 //            $data['empresa_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1');
 //            $data['empresa_capa'] = ($_FILES['empresa_capa']['tmp_name'] ? $_FILES['empresa_capa'] : null);
@@ -56,32 +56,45 @@
 
                     <div class="form-group col-md-2">
                         <label><span class="field">TC:</span> </label>
-                        <select class="form-control" name="tcInspecao" required>
+                        <select id="frequencia" class="form-control" name="tcInspecao" required>
                             <option disabled="" selected=""></option>
                             <option>M</option>                        
+                            <option>D</option>                        
                             <option>H</option>                        
+                            <option>M/H</option>                        
+                            <option>D/H</option>                        
                             <option>P</option>                        
                             <option>X</option>                        
-                            <option>D</option>                        
                         </select>
                     </div>
                 </div>
-                <div class="row">
+                <div id="freq_simples" class="row" style="display: none">
                     <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia/Tempo:</span></label>
+                        <label><span class="field">Frequencia:</span></label>
                         <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" />
                     </div>
 
-                    <!--                    <div class="form-group col-md-3">
-                                            <label><span class="field">Frequencia/Data:</span></label>
-                                            <input class="form-control" type="date" name="frequencia_for_date"/>
-                                        </div>-->
-
-                    <div class="form-group col-md-9">
+                    <div class="form-group col-md-6 right">
                         <label><span class="field">Itens de Inspeção:</span> </label>
                         <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" />
                     </div>
+                </div>
 
+                <div id="freq_composta" class="row"  style="display: none">
+                    <div class="form-group col-md-3">
+                        <label><span class="field">Frequencia/Hora:</span></label>
+                        <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" />
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label><span class="field">Frequencia/M/D:</span></label>
+                        <input class="form-control" type="text" name="frequencia_for_date" placeholder="só números" />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label><span class="field">Itens de Inspeção:</span> </label>
+                        <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" />
+                    </div>
                 </div>
 
             </div><!--/line-->
