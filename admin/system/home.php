@@ -1,5 +1,5 @@
 <?php ?>
-<div class="content home">
+<div class="content home" style="width: 80%;">
 
     <h1>Manutenções</h1>
     <div class="table-responsive">
@@ -39,7 +39,8 @@
                         echo '<td>' . $tlInspecao . '</td>';
                         echo '<td>' . $tcInspecao . '</td>';
                         echo '<td>' . $in_anvInspecao . '</td>';
-                        echo '<td>' . $in_dataInspecao . '</td>';
+                        $inData = explode('-', $in_dataInspecao);
+                        echo '<td>' . $inData[2] . '/' . $inData[1] . '/' . $inData[0] .'</td>';
                         echo '<td>' . $in_tsnInspecao . '</td>';
                         echo '<td>' . $in_tsoInspecao . '</td>';
                         echo '<td>' . $vencimento_for_time . '</td>';
