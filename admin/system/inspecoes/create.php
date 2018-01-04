@@ -12,8 +12,12 @@
         if ($data && $data['SendPostForm']):
 //            $data['empresa_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1');
 //            $data['empresa_capa'] = ($_FILES['empresa_capa']['tmp_name'] ? $_FILES['empresa_capa'] : null);
-                unset($data['SendPostForm']);
-      
+            unset($data['SendPostForm']);
+            $comp = false;
+            if ($data['tcInspecao'] == 'M/H' || $data['tcInspecao'] == 'D/H'):
+                $comp = true;
+            endif;
+
             require('_models/AdminInspecao.class.php');
             $cadastraInspecao = new AdminInspecao;
             $cadastraInspecao->ExeCreate($data);
@@ -21,7 +25,11 @@
             if (!$cadastraInspecao->getResult()):
                 WSErro($cadastraInspecao->getError()[0], $cadastraInspecao->getError()[1]);
             else:
-                header("Location:painel.php?exe=inspecoes/update&create=true&emp={$cadastraInspecao->getResult()}");
+                if ($data['tcInspecao'] == 'M/H' || $data['tcInspecao'] == 'D/H'):
+                    header("Location:painel.php?exe=inspecoes/update&create=true&emp={$cadastraInspecao->getResult()}&comp=true");
+                else:
+                    header("Location:painel.php?exe=inspecoes/update&create=true&emp={$cadastraInspecao->getResult()}&comp=false");
+                endif;
             endif;
         endif;
         ?>

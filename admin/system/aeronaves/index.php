@@ -51,14 +51,17 @@
                 $empi++;
                 extract($insp);
                 ?>
-                <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?>>
+                <article<?php if ($empi % 2 == 0)  ?>
+
+                    class="left">
+
                     <header>
                         <hgroup>
-                            <?= 'Prefixo: <b>' .$prefixoAeronave . '</b><br>SerialNumber: <b>' . $snAeronave . '</b><br>Nome: <b>' . $nomeAeronave . '</b><br>Modelo: <b>' . $modeloAeronave . '</b><br>Horas de Voo: <b>' . $horasDeVooAeronave . '</b>'?>
+                            <?= 'Nome: <b>' . $nomeAeronave . '</b><br>Prefixo: <b>' . $prefixoAeronave . '</b><br>SerialNumber: <b>' . $snAeronave . '</b><br>Modelo: <b>' . $modeloAeronave . '</b><br>Horas de Voo: <b>' . $horasDeVooAeronave . '</b>' ?>
                         </hgroup>
                     </header>
                     <ul class="info post_actions">
-                       
+
                         <li><a class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $idAeronave; ?>" title="Editar">Editar</a></li>
 
                         <li><a class="act_delete" href="painel.php?exe=aeronaves/index&emp=<?= $idAeronave; ?>&action=delete" title="Excluir">Deletar</a></li>

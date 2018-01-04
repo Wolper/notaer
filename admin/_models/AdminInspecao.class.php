@@ -63,7 +63,7 @@ class AdminInspecao {
         $this->Inspecao = (int) $idInsp;
 
         $ReadEmp = new Read;
-        $ReadEmp->ExeRead(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
+        $ReadEmp->ExeRead(self::Entity, "WHERE id_tipo_inspecao = :insp", "insp={$this->Inspecao}");
         if (!$ReadEmp->getResult()):
             $this->Error = ["A inspeção que você tentou deletar não existe no sistema!", WS_ERROR];
             $this->Result = false;
@@ -71,7 +71,7 @@ class AdminInspecao {
             $InspecaoDelete = $ReadEmp->getResult()[0];
 
             $deleta = new Delete;
-            $deleta->ExeDelete(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
+            $deleta->ExeDelete(self::Entity, "WHERE id_tipo_inspecao = :insp", "insp={$this->Inspecao}");
 
             $this->Error = ["O tipo de inspeção <b>{$InspecaoDelete['descricaoInspecao']}</b> foi removido com sucesso do sistema!", WS_ACCEPT];
             $this->Result = true;
@@ -120,7 +120,7 @@ class AdminInspecao {
     //Atualiza a inspecao no banco!
     private function Update() {
         $Update = new Update;
-        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idInspecao = :id", "id={$this->Inspecao}");
+        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE id_tipo_inspecao = :id", "id={$this->Inspecao}");
         if ($Update->getRowCount() >= 1):
             $this->Error = ["A inspeção <b>{$this->Data['descricaoInspecao']}</b> foi atualizada com sucesso!", WS_ACCEPT];
             $this->Result = true;
