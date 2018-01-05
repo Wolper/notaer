@@ -114,7 +114,7 @@ class AdminEtapaVoo {
         $Create = new Create;
         $Create->ExeCreate(self::Entity, $this->Data);
         if ($Create->getResult()):
-            $this->Result = $Create->getResult();
+            $this->Result = true;
             $this->idVoo = $Create->getId();
             $this->Error = ["A etapa do voo <b>{$this->Data['idvoo']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
         endif;
