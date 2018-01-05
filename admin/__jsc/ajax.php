@@ -38,6 +38,7 @@ if (isset($data) && isset($data['SendPostForm'])):
     $cadastraVoo->ExeCreate($dadosVoo);
 
     if (!$cadastraVoo->getResult()):
+        print_r($cadastraVoo->getResult());
         WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
     else:
         $cadastraEtapa = new AdminEtapaVoo();
@@ -48,7 +49,7 @@ if (isset($data) && isset($data['SendPostForm'])):
                 $indice = $i;
             endif;
 
-            $dadosEtapa['idvoo'] = $cadastraVoo->getResult();
+            $dadosEtapa['idvoo'] = $cadastraVoo->getIdVoo();
             $dadosEtapa['numero_etapa'] = $data['numero_etapa' . $indice];
             $dadosEtapa['origem'] = $data['origem' . $indice];
             $dadosEtapa['destino'] = $data['destino' . $indice];

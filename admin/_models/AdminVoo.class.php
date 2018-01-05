@@ -132,7 +132,8 @@ class AdminVoo {
         $Create = new Create;
         $Create->ExeCreate(self::Entity, $this->Data);
         if ($Create->getResult()):
-            $this->Result = $Create->getResult();
+            $this->Result = true;
+//            $this->idVoo = $Create->getResult();
             $this->idVoo = $Create->getId();
             $this->Error = ["O voo <b>{$this->Data['numero_voo']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT];
         endif;
