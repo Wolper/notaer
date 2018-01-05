@@ -37,30 +37,6 @@ class AdminManutencao {
         endif;
     }
 
-    /**
-     * <b>Deleta Instalacaos:</b> Informe o ID da instalacao a ser removida para que esse método realize uma
-     * checagem excluinto todos os dados nessesários e removendo a instalacao do banco!
-     * @param INT $VooId = Id da instalacao!
-     */
-    
-    public function ExeDelete($idInsp) {
-        $this->Inspecao = (int) $idInsp;
-
-        $ReadEmp = new Read;
-        $ReadEmp->ExeRead(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
-        if (!$ReadEmp->getResult()):
-            $this->Error = ["A inspeção que você tentou deletar não existe no sistema!", WS_ERROR];
-            $this->Result = false;
-        else:
-            $InstalacaoDelete = $ReadEmp->getResult()[0];
-
-            $deleta = new Delete;
-            $deleta->ExeDelete(self::Entity, "WHERE idInspecao = :insp", "insp={$this->Inspecao}");
-
-            $this->Error = ["O tipo de inspeção <b>{$InstalacaoDelete['descricaoInstalacao']}</b> foi removido com sucesso do sistema!", WS_ACCEPT];
-            $this->Result = true;
-        endif;
-    }
 
     /**
      * <b>Verificar Ação:</b> Retorna TRUE se ação for efetuada ou FALSE se não. Para verificar erros
