@@ -1,4 +1,4 @@
-<pre>
+<!--<pre>
 <?php
 $query = "SELECT * FROM voo AS v JOIN etapas_voo ev ON v.idvoo = ev.idvoo";
 //$query = "SELECT * FROM voo";
@@ -9,7 +9,7 @@ if ($readRegVoo->getRowCount() > 0):
     print_r($readRegVoo->getResult());
 endif;
 ?>
-</pre>
+</pre>-->
 <div class="content home" style="width: 80%;">
 
     <h1>Manutenções</h1>

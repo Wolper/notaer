@@ -90,20 +90,20 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Anv:</span></label> 
-                        <input class="form-control" type="text" name="in_anvInspecao" value="<?= $data['in_anvInspecao'] ?>"/>
+                        <input class="form-control" type="time" name="in_anvInspecao" value="<?= $data['in_anvInspecao'] ?>"/>
                     </div>
 
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Data:</span></label> 
-                        <input class="form-control" type="text" name="in_dataInspecao" value="<?= $data['in_dataInspecao'] ?>"/>
+                        <input class="form-control" type="date" name="in_dataInspecao" value="<?= $data['in_dataInspecao'] ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label><span class="field">In-TSN:</span></label> 
-                        <input class="form-control" type="text" name="in_tsnInspecao" value="<?= $data['in_tsnInspecao'] ?>"/>
+                        <input class="form-control" type="time" name="in_tsnInspecao" value="<?= $data['in_tsnInspecao'] ?>"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label><span class="field">In-TS0:</span></label> 
-                        <input class="form-control" type="text" name="in_tsoInspecao" value="<?= $data['in_tsoInspecao'] ?>"/>
+                        <input class="form-control" type="time" name="in_tsoInspecao" value="<?= $data['in_tsoInspecao'] ?>"/>
                     </div>
 
                 </div><!--/line-->
