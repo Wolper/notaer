@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.4.14
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04-Jan-2018 às 12:17
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: 08-Jan-2018 às 17:23
+-- Versão do servidor: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,14 +26,14 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `aeronave`
 --
 
-CREATE TABLE `aeronave` (
+CREATE TABLE IF NOT EXISTS `aeronave` (
   `idAeronave` int(11) NOT NULL,
   `prefixoAeronave` varchar(15) NOT NULL,
   `snAeronave` varchar(4) NOT NULL,
   `nomeAeronave` varchar(15) NOT NULL,
   `modeloAeronave` varchar(15) NOT NULL,
   `horasDeVooAeronave` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `aeronave`
@@ -53,12 +51,12 @@ INSERT INTO `aeronave` (`idAeronave`, `prefixoAeronave`, `snAeronave`, `nomeAero
 -- Estrutura da tabela `app_cidades`
 --
 
-CREATE TABLE `app_cidades` (
+CREATE TABLE IF NOT EXISTS `app_cidades` (
   `cidade_id` int(11) NOT NULL,
   `estado_id` int(11) DEFAULT NULL,
   `cidade_nome` varchar(75) CHARACTER SET latin1 DEFAULT NULL,
   `cidade_uf` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5566 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `app_cidades`
@@ -196,7 +194,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (129, 21, 'Alpestre', 'RS'),
 (130, 13, 'Alpinópolis', 'MG'),
 (131, 11, 'Alta Floresta', 'MT'),
-(132, 22, 'Alta Floresta D\'Oeste', 'RO'),
+(132, 22, 'Alta Floresta D''Oeste', 'RO'),
 (133, 25, 'Altair', 'SP'),
 (134, 14, 'Altamira', 'PA'),
 (135, 10, 'Altamira do Maranhão', 'MA'),
@@ -248,7 +246,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (181, 18, 'Alvorada do Gurguéia', 'PI'),
 (182, 9, 'Alvorada do Norte', 'GO'),
 (183, 16, 'Alvorada do Sul', 'PR'),
-(184, 22, 'Alvorada D\'Oeste', 'RO'),
+(184, 22, 'Alvorada D''Oeste', 'RO'),
 (185, 23, 'Amajari', 'RR'),
 (186, 12, 'Amambai', 'MS'),
 (187, 3, 'Amapá', 'AP'),
@@ -339,7 +337,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (272, 9, 'Aparecida do Rio Doce', 'GO'),
 (273, 27, 'Aparecida do Rio Negro', 'TO'),
 (274, 12, 'Aparecida do Taboado', 'MS'),
-(275, 25, 'Aparecida d\'Oeste', 'SP'),
+(275, 25, 'Aparecida d''Oeste', 'SP'),
 (276, 19, 'Aperibé', 'RJ'),
 (277, 8, 'Apiacá', 'ES'),
 (278, 11, 'Apiacás', 'MT'),
@@ -573,7 +571,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (506, 24, 'Barra Bonita', 'SC'),
 (507, 25, 'Barra Bonita', 'SP'),
 (508, 5, 'Barra da Estiva', 'BA'),
-(509, 18, 'Barra D\'Alcântara', 'PI'),
+(509, 18, 'Barra D''Alcântara', 'PI'),
 (510, 17, 'Barra de Guabiraba', 'PE'),
 (511, 15, 'Barra de Santa Rosa', 'PB'),
 (512, 15, 'Barra de Santana', 'PB'),
@@ -1428,7 +1426,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1361, 13, 'Congonhas do Norte', 'MG'),
 (1362, 16, 'Congonhinhas', 'PR'),
 (1363, 13, 'Conquista', 'MG'),
-(1364, 11, 'Conquista D\'Oeste', 'MT'),
+(1364, 11, 'Conquista D''Oeste', 'MT'),
 (1365, 13, 'Conselheiro Lafaiete', 'MG'),
 (1366, 16, 'Conselheiro Mairinck', 'PR'),
 (1367, 13, 'Conselheiro Pena', 'MG'),
@@ -1619,11 +1617,11 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1552, 15, 'Diamante', 'PB'),
 (1553, 16, 'Diamante do Norte', 'PR'),
 (1554, 16, 'Diamante do Sul', 'PR'),
-(1555, 16, 'Diamante D\'Oeste', 'PR'),
+(1555, 16, 'Diamante D''Oeste', 'PR'),
 (1556, 13, 'Diamantina', 'MG'),
 (1557, 11, 'Diamantino', 'MT'),
 (1558, 27, 'Dianópolis', 'TO'),
-(1559, 5, 'Dias d\'Ávila', 'BA'),
+(1559, 5, 'Dias d''Ávila', 'BA'),
 (1560, 21, 'Dilermando de Aguiar', 'RS'),
 (1561, 13, 'Diogo de Vasconcelos', 'MG'),
 (1562, 13, 'Dionísio', 'MG'),
@@ -1766,7 +1764,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1698, 27, 'Esperantina', 'TO'),
 (1699, 10, 'Esperantinópolis', 'MA'),
 (1700, 16, 'Espigão Alto do Iguaçu', 'PR'),
-(1701, 22, 'Espigão d\'Oeste', 'RO'),
+(1701, 22, 'Espigão d''Oeste', 'RO'),
 (1702, 13, 'Espinosa', 'MG'),
 (1703, 20, 'Espírito Santo', 'RN'),
 (1704, 13, 'Espírito Santo do Dourado', 'MG'),
@@ -1788,7 +1786,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1720, 9, 'Estrela do Norte', 'GO'),
 (1721, 25, 'Estrela do Norte', 'SP'),
 (1722, 13, 'Estrela do Sul', 'MG'),
-(1723, 25, 'Estrela d\'Oeste', 'SP'),
+(1723, 25, 'Estrela d''Oeste', 'SP'),
 (1724, 21, 'Estrela Velha', 'RS'),
 (1725, 5, 'Euclides da Cunha', 'BA'),
 (1726, 25, 'Euclides da Cunha Paulista', 'SP'),
@@ -1852,7 +1850,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1784, 16, 'Figueira', 'PR'),
 (1785, 12, 'Figueirão', 'MS'),
 (1786, 27, 'Figueirópolis', 'TO'),
-(1787, 11, 'Figueirópolis D\'Oeste', 'MT'),
+(1787, 11, 'Figueirópolis D''Oeste', 'MT'),
 (1788, 5, 'Filadélfia', 'BA'),
 (1789, 27, 'Filadélfia', 'TO'),
 (1790, 5, 'Firmino Alves', 'BA'),
@@ -1981,7 +1979,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (1913, 5, 'Glória', 'BA'),
 (1914, 12, 'Glória de Dourados', 'MS'),
 (1915, 17, 'Glória do Goitá', 'PE'),
-(1916, 11, 'Glória D\'Oeste', 'MT'),
+(1916, 11, 'Glória D''Oeste', 'MT'),
 (1917, 21, 'Glorinha', 'RS'),
 (1918, 10, 'Godofredo Viana', 'MA'),
 (1919, 16, 'Godoy Moreira', 'PR'),
@@ -2081,7 +2079,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2013, 13, 'Guarani', 'MG'),
 (2014, 21, 'Guarani das Missões', 'RS'),
 (2015, 9, 'Guarani de Goiás', 'GO'),
-(2016, 25, 'Guarani d\'Oeste', 'SP'),
+(2016, 25, 'Guarani d''Oeste', 'SP'),
 (2017, 16, 'Guaraniaçu', 'PR'),
 (2018, 25, 'Guarantã', 'SP'),
 (2019, 11, 'Guarantã do Norte', 'MT'),
@@ -2123,7 +2121,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2055, 5, 'Heliópolis', 'BA'),
 (2056, 25, 'Herculândia', 'SP'),
 (2057, 21, 'Herval', 'RS'),
-(2058, 24, 'Herval d\'Oeste', 'SC'),
+(2058, 24, 'Herval d''Oeste', 'SC'),
 (2059, 21, 'Herveiras', 'RS'),
 (2060, 6, 'Hidrolândia', 'CE'),
 (2061, 9, 'Hidrolândia', 'GO'),
@@ -2430,7 +2428,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2362, 13, 'Itapecerica', 'MG'),
 (2363, 25, 'Itapecerica da Serra', 'SP'),
 (2364, 10, 'Itapecuru Mirim', 'MA'),
-(2365, 16, 'Itapejara d\'Oeste', 'PR'),
+(2365, 16, 'Itapejara d''Oeste', 'PR'),
 (2366, 24, 'Itapema', 'SC'),
 (2367, 8, 'Itapemirim', 'ES'),
 (2368, 16, 'Itaperuçu', 'PR'),
@@ -2458,7 +2456,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2390, 27, 'Itaporã do Tocantins', 'TO'),
 (2391, 15, 'Itaporanga', 'PB'),
 (2392, 25, 'Itaporanga', 'SP'),
-(2393, 26, 'Itaporanga d\'Ajuda', 'SE'),
+(2393, 26, 'Itaporanga d''Ajuda', 'SE'),
 (2394, 15, 'Itapororoca', 'PB'),
 (2395, 22, 'Itapuã do Oeste', 'RO'),
 (2396, 21, 'Itapuca', 'RS'),
@@ -2751,7 +2749,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2683, 2, 'Lagoa da Canoa', 'AL'),
 (2684, 27, 'Lagoa da Confusão', 'TO'),
 (2685, 13, 'Lagoa da Prata', 'MG'),
-(2686, 20, 'Lagoa d\'Anta', 'RN'),
+(2686, 20, 'Lagoa d''Anta', 'RN'),
 (2687, 15, 'Lagoa de Dentro', 'PB'),
 (2688, 17, 'Lagoa de Itaenga', 'PE'),
 (2689, 20, 'Lagoa de Pedras', 'RN'),
@@ -2800,7 +2798,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2732, 13, 'Lajinha', 'MG'),
 (2733, 5, 'Lamarão', 'BA'),
 (2734, 13, 'Lambari', 'MG'),
-(2735, 11, 'Lambari D\'Oeste', 'MT'),
+(2735, 11, 'Lambari D''Oeste', 'MT'),
 (2736, 13, 'Lamim', 'MG'),
 (2737, 18, 'Landri Sales', 'PI'),
 (2738, 16, 'Lapa', 'PR'),
@@ -2907,7 +2905,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2839, 2, 'Maceió', 'AL'),
 (2840, 13, 'Machacalis', 'MG'),
 (2841, 21, 'Machadinho', 'RS'),
-(2842, 22, 'Machadinho D\'Oeste', 'RO'),
+(2842, 22, 'Machadinho D''Oeste', 'RO'),
 (2843, 13, 'Machado', 'MG'),
 (2844, 17, 'Machados', 'PE'),
 (2845, 24, 'Macieira', 'SC'),
@@ -2917,7 +2915,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (2849, 18, 'Madeiro', 'PI'),
 (2850, 5, 'Madre de Deus', 'BA'),
 (2851, 13, 'Madre de Deus de Minas', 'MG'),
-(2852, 15, 'Mãe d\'Água', 'PB'),
+(2852, 15, 'Mãe d''Água', 'PB'),
 (2853, 14, 'Mãe do Rio', 'PA'),
 (2854, 5, 'Maetinga', 'BA'),
 (2855, 24, 'Mafra', 'SC'),
@@ -3161,7 +3159,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3093, 25, 'Mirante do Paranapanema', 'SP'),
 (3094, 16, 'Miraselva', 'PR'),
 (3095, 25, 'Mirassol', 'SP'),
-(3096, 11, 'Mirassol d\'Oeste', 'MT'),
+(3096, 11, 'Mirassol d''Oeste', 'MT'),
 (3097, 25, 'Mirassolândia', 'SP'),
 (3098, 13, 'Miravânia', 'MG'),
 (3099, 24, 'Mirim Doce', 'SC'),
@@ -3366,7 +3364,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3298, 13, 'Nova Belém', 'MG'),
 (3299, 21, 'Nova Boa Vista', 'RS'),
 (3300, 11, 'Nova Brasilândia', 'MT'),
-(3301, 22, 'Nova Brasilândia D\'Oeste', 'RO'),
+(3301, 22, 'Nova Brasilândia D''Oeste', 'RO'),
 (3302, 21, 'Nova Bréscia', 'RS'),
 (3303, 25, 'Nova Campina', 'SP');
 INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`) VALUES
@@ -3500,14 +3498,14 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3431, 3, 'Oiapoque', 'AP'),
 (3432, 13, 'Olaria', 'MG'),
 (3433, 25, 'Óleo', 'SP'),
-(3434, 15, 'Olho d\'Água', 'PB'),
-(3435, 10, 'Olho d\'Água das Cunhãs', 'MA'),
-(3436, 2, 'Olho d\'Água das Flores', 'AL'),
-(3437, 2, 'Olho d\'Água do Casado', 'AL'),
-(3438, 18, 'Olho D\'Água do Piauí', 'PI'),
-(3439, 2, 'Olho d\'Água Grande', 'AL'),
-(3440, 20, 'Olho-d\'Água do Borges', 'RN'),
-(3441, 13, 'Olhos-d\'Água', 'MG'),
+(3434, 15, 'Olho d''Água', 'PB'),
+(3435, 10, 'Olho d''Água das Cunhãs', 'MA'),
+(3436, 2, 'Olho d''Água das Flores', 'AL'),
+(3437, 2, 'Olho d''Água do Casado', 'AL'),
+(3438, 18, 'Olho D''Água do Piauí', 'PI'),
+(3439, 2, 'Olho d''Água Grande', 'AL'),
+(3440, 20, 'Olho-d''Água do Borges', 'RN'),
+(3441, 13, 'Olhos-d''Água', 'MG'),
 (3442, 25, 'Olímpia', 'SP'),
 (3443, 13, 'Olímpio Noronha', 'MG'),
 (3444, 17, 'Olinda', 'PE'),
@@ -3602,7 +3600,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3533, 24, 'Palmeira', 'SC'),
 (3534, 21, 'Palmeira das Missões', 'RS'),
 (3535, 18, 'Palmeira do Piauí', 'PI'),
-(3536, 25, 'Palmeira d\'Oeste', 'SP'),
+(3536, 25, 'Palmeira d''Oeste', 'SP'),
 (3537, 2, 'Palmeira dos Índios', 'AL'),
 (3538, 18, 'Palmeirais', 'PI'),
 (3539, 10, 'Palmeirândia', 'MA'),
@@ -3720,9 +3718,9 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3651, 20, 'Patu', 'RN'),
 (3652, 19, 'Paty do Alferes', 'RJ'),
 (3653, 5, 'Pau Brasil', 'BA'),
-(3654, 14, 'Pau D\'Arco', 'PA'),
-(3655, 27, 'Pau D\'Arco', 'TO'),
-(3656, 18, 'Pau D\'Arco do Piauí', 'PI'),
+(3654, 14, 'Pau D''Arco', 'PA'),
+(3655, 27, 'Pau D''Arco', 'TO'),
+(3656, 18, 'Pau D''Arco do Piauí', 'PI'),
 (3657, 20, 'Pau dos Ferros', 'RN'),
 (3658, 17, 'Paudalho', 'PE'),
 (3659, 4, 'Pauini', 'AM'),
@@ -3819,7 +3817,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3750, 10, 'Peritoró', 'MA'),
 (3751, 16, 'Perobal', 'PR'),
 (3752, 16, 'Pérola', 'PR'),
-(3753, 16, 'Pérola d\'Oeste', 'PR'),
+(3753, 16, 'Pérola d''Oeste', 'PR'),
 (3754, 9, 'Perolândia', 'GO'),
 (3755, 25, 'Peruíbe', 'SP'),
 (3756, 13, 'Pescador', 'MG'),
@@ -3864,7 +3862,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (3795, 25, 'Pindorama', 'SP'),
 (3796, 27, 'Pindorama do Tocantins', 'TO'),
 (3797, 6, 'Pindoretama', 'CE'),
-(3798, 13, 'Pingo-d\'Água', 'MG'),
+(3798, 13, 'Pingo-d''Água', 'MG'),
 (3799, 16, 'Pinhais', 'PR'),
 (3800, 21, 'Pinhal', 'RS'),
 (3801, 21, 'Pinhal da Serra', 'RS'),
@@ -4166,7 +4164,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4097, 16, 'Ramilândia', 'PR'),
 (4098, 25, 'Rancharia', 'SP'),
 (4099, 16, 'Rancho Alegre', 'PR'),
-(4100, 16, 'Rancho Alegre D\'Oeste', 'PR'),
+(4100, 16, 'Rancho Alegre D''Oeste', 'PR'),
 (4101, 24, 'Rancho Queimado', 'SC'),
 (4102, 10, 'Raposa', 'MA'),
 (4103, 13, 'Raposos', 'MG'),
@@ -4418,7 +4416,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4349, 14, 'Santa Bárbara do Pará', 'PA'),
 (4350, 21, 'Santa Bárbara do Sul', 'RS'),
 (4351, 13, 'Santa Bárbara do Tugúrio', 'MG'),
-(4352, 25, 'Santa Bárbara d\'Oeste', 'SP'),
+(4352, 25, 'Santa Bárbara d''Oeste', 'SP'),
 (4353, 25, 'Santa Branca', 'SP'),
 (4354, 5, 'Santa Brígida', 'BA'),
 (4355, 11, 'Santa Carmem', 'MT'),
@@ -4427,7 +4425,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4358, 16, 'Santa Cecília do Pavão', 'PR'),
 (4359, 21, 'Santa Cecília do Sul', 'RS'),
 (4360, 21, 'Santa Clara do Sul', 'RS'),
-(4361, 25, 'Santa Clara d\'Oeste', 'SP'),
+(4361, 25, 'Santa Clara d''Oeste', 'SP'),
 (4362, 15, 'Santa Cruz', 'PB'),
 (4363, 17, 'Santa Cruz', 'PE'),
 (4364, 20, 'Santa Cruz', 'RN'),
@@ -4489,7 +4487,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4420, 2, 'Santa Luzia do Norte', 'AL'),
 (4421, 14, 'Santa Luzia do Pará', 'PA'),
 (4422, 10, 'Santa Luzia do Paruá', 'MA'),
-(4423, 22, 'Santa Luzia D\'Oeste', 'RO'),
+(4423, 22, 'Santa Luzia D''Oeste', 'RO'),
 (4424, 13, 'Santa Margarida', 'MG'),
 (4425, 21, 'Santa Margarida do Sul', 'RS'),
 (4426, 20, 'Santa Maria', 'RN'),
@@ -4528,7 +4526,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4459, 13, 'Santa Rita do Sapucaí', 'MG'),
 (4460, 27, 'Santa Rita do Tocantins', 'TO'),
 (4461, 11, 'Santa Rita do Trivelato', 'MT'),
-(4462, 25, 'Santa Rita d\'Oeste', 'SP'),
+(4462, 25, 'Santa Rita d''Oeste', 'SP'),
 (4463, 21, 'Santa Rosa', 'RS'),
 (4464, 13, 'Santa Rosa da Serra', 'MG'),
 (4465, 9, 'Santa Rosa de Goiás', 'GO'),
@@ -4574,7 +4572,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4505, 2, 'Santana do Ipanema', 'AL'),
 (4506, 16, 'Santana do Itararé', 'PR'),
 (4507, 13, 'Santana do Jacaré', 'MG'),
-(4508, 21, 'Sant\'Ana do Livramento', 'RS'),
+(4508, 21, 'Sant''Ana do Livramento', 'RS'),
 (4509, 13, 'Santana do Manhuaçu', 'MG'),
 (4510, 10, 'Santana do Maranhão', 'MA'),
 (4511, 20, 'Santana do Matos', 'RN'),
@@ -4690,7 +4688,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4621, 13, 'São Domingos do Prata', 'MG'),
 (4622, 21, 'São Domingos do Sul', 'RS'),
 (4623, 5, 'São Felipe', 'BA'),
-(4624, 22, 'São Felipe D\'Oeste', 'RO'),
+(4624, 22, 'São Felipe D''Oeste', 'RO'),
 (4625, 5, 'São Félix', 'BA'),
 (4626, 10, 'São Félix de Balsas', 'MA'),
 (4627, 13, 'São Félix de Minas', 'MG'),
@@ -4762,7 +4760,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4693, 18, 'São João da Serra', 'PI'),
 (4694, 21, 'São João da Urtiga', 'RS'),
 (4695, 18, 'São João da Varjota', 'PI'),
-(4696, 9, 'São João d\'Aliança', 'GO'),
+(4696, 9, 'São João d''Aliança', 'GO'),
 (4697, 25, 'São João das Duas Pontes', 'SP'),
 (4698, 13, 'São João das Missões', 'MG'),
 (4699, 25, 'São João de Iracema', 'SP'),
@@ -4784,7 +4782,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4715, 13, 'São João do Pacuí', 'MG'),
 (4716, 10, 'São João do Paraíso', 'MA'),
 (4717, 13, 'São João do Paraíso', 'MG'),
-(4718, 25, 'São João do Pau d\'Alho', 'SP'),
+(4718, 25, 'São João do Pau d''Alho', 'SP'),
 (4719, 18, 'São João do Piauí', 'PI'),
 (4720, 21, 'São João do Polêsine', 'RS'),
 (4721, 15, 'São João do Rio do Peixe', 'PB'),
@@ -4803,7 +4801,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (4734, 21, 'São Jorge', 'RS'),
 (4735, 16, 'São Jorge do Ivaí', 'PR'),
 (4736, 16, 'São Jorge do Patrocínio', 'PR'),
-(4737, 16, 'São Jorge d\'Oeste', 'PR'),
+(4737, 16, 'São Jorge d''Oeste', 'PR'),
 (4738, 24, 'São José', 'SC'),
 (4739, 13, 'São José da Barra', 'MG'),
 (4740, 25, 'São José da Bela Vista', 'SP'),
@@ -5129,7 +5127,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (5059, 16, 'Siqueira Campos', 'PR'),
 (5060, 17, 'Sirinhaém', 'PE'),
 (5061, 26, 'Siriri', 'SE'),
-(5062, 9, 'Sítio d\'Abadia', 'GO'),
+(5062, 9, 'Sítio d''Abadia', 'GO'),
 (5063, 5, 'Sítio do Mato', 'BA'),
 (5064, 5, 'Sítio do Quinto', 'BA'),
 (5065, 10, 'Sítio Novo', 'MA'),
@@ -5208,7 +5206,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 (5138, 11, 'Tangará da Serra', 'MT'),
 (5139, 19, 'Tanguá', 'RJ'),
 (5140, 5, 'Tanhaçu', 'BA'),
-(5141, 2, 'Tanque d\'Arca', 'AL'),
+(5141, 2, 'Tanque d''Arca', 'AL'),
 (5142, 18, 'Tanque do Piauí', 'PI'),
 (5143, 5, 'Tanque Novo', 'BA'),
 (5144, 5, 'Tanquinho', 'BA'),
@@ -5640,7 +5638,7 @@ INSERT INTO `app_cidades` (`cidade_id`, `estado_id`, `cidade_nome`, `cidade_uf`)
 -- Estrutura da tabela `app_empresas`
 --
 
-CREATE TABLE `app_empresas` (
+CREATE TABLE IF NOT EXISTS `app_empresas` (
   `empresa_id` int(11) NOT NULL,
   `empresa_title` varchar(255) DEFAULT NULL,
   `empresa_name` varchar(255) DEFAULT NULL,
@@ -5665,7 +5663,7 @@ CREATE TABLE `app_empresas` (
 -- Estrutura da tabela `app_estados`
 --
 
-CREATE TABLE `app_estados` (
+CREATE TABLE IF NOT EXISTS `app_estados` (
   `estado_id` int(11) NOT NULL,
   `estado_nome` varchar(75) CHARACTER SET latin1 DEFAULT NULL,
   `estado_uf` varchar(5) CHARACTER SET latin1 DEFAULT NULL,
@@ -5711,9 +5709,9 @@ INSERT INTO `app_estados` (`estado_id`, `estado_nome`, `estado_uf`, `estado_regi
 -- Estrutura da tabela `etapas_voo`
 --
 
-CREATE TABLE `etapas_voo` (
-  `idvoo` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `etapas_voo` (
   `idetapa` int(11) NOT NULL,
+  `idvoo` int(11) NOT NULL,
   `numero_etapa` tinyint(4) NOT NULL,
   `origem` varchar(40) NOT NULL,
   `destino` varchar(40) NOT NULL,
@@ -5727,20 +5725,413 @@ CREATE TABLE `etapas_voo` (
   `noturno` float NOT NULL,
   `qtepouso` int(11) NOT NULL,
   `combustivel_consumido` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=401 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `etapas_voo`
 --
 
-INSERT INTO `etapas_voo` (`idvoo`, `idetapa`, `numero_etapa`, `origem`, `destino`, `partida`, `decolagem`, `pouso`, `corte`, `ng`, `ntl`, `diurno`, `noturno`, `qtepouso`, `combustivel_consumido`) VALUES
-(305, 68, 1, 'Vitória', 'Vila Velha', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
-(306, 69, 1, '103', '103', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
-(307, 70, 1, '857', '1112', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
-(308, 71, 1, '112', '225', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
-(309, 72, 1, '56', '103', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
-(310, 73, 1, 'Vitória', 'Vila Velha', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15'),
-(311, 74, 1, 'Vitória', 'Vila Velha', '10:00:00', '10:05:00', '10:20:00', '10:22:00', 1, 1, 1, 1, 1, '15');
+INSERT INTO `etapas_voo` (`idetapa`, `idvoo`, `numero_etapa`, `origem`, `destino`, `partida`, `decolagem`, `pouso`, `corte`, `ng`, `ntl`, `diurno`, `noturno`, `qtepouso`, `combustivel_consumido`) VALUES
+(1, 144, 1, 'Camborne', 'Richmond', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 91, 89, 11, 0, 10, '93'),
+(2, 54, 1, 'Salem', 'Vezin', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 15, 27, 4, 0, 2, '10'),
+(3, 5, 1, 'Bottrop', 'Valverde', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 17, 94, 10, 0, 7, '86'),
+(4, 327, 1, 'Oteppe', 'Ruda', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 39, 87, 12, 0, 2, '58'),
+(5, 312, 1, 'Chester', 'Garaguso', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 83, 83, 2, 0, 7, '1'),
+(6, 287, 1, 'Cumberland County', 'Jerzu', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 8, 7, 24, 0, 8, '86'),
+(7, 347, 1, 'Akola', 'Poppel', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 10, 8, 24, 0, 7, '81'),
+(8, 33, 1, 'Machynlleth', 'West Jordan', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 27, 9, 12, 0, 8, '28'),
+(9, 18, 1, 'Villers-la-Tour', 'Louvain-la-Neuve', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 44, 80, 18, 0, 4, '65'),
+(10, 12, 1, 'Ancud', 'Logroño', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 92, 90, 5, 0, 9, '91'),
+(11, 241, 1, 'Trevignano Romano', 'Empedrado', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 22, 69, 20, 0, 6, '70'),
+(12, 330, 1, 'White Rock', 'Ethe', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 40, 98, 5, 0, 10, '4'),
+(13, 145, 1, 'Freirina', 'Chippenham', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 58, 20, 1, 0, 4, '5'),
+(14, 89, 1, 'Sant''Omero', 'Cwmbran', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 24, 38, 5, 0, 9, '32'),
+(15, 282, 1, 'Tarragona', 'Oberursel', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 29, 47, 6, 0, 6, '92'),
+(16, 270, 1, 'Holman', 'Spokane', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 43, 78, 14, 0, 2, '55'),
+(17, 274, 1, 'Nobressart', 'Etawah', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 37, 88, 22, 0, 2, '11'),
+(18, 398, 1, 'Westkerke', 'Helensburgh', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 58, 31, 8, 0, 6, '91'),
+(19, 205, 1, 'Tarragona', 'Açailândia', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 82, 57, 14, 0, 5, '11'),
+(20, 362, 1, 'Graz', 'Mont-Saint-AndrŽ', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 54, 67, 6, 0, 2, '74'),
+(21, 358, 1, 'Vauda Canavese', 'Portobuffolè', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 65, 64, 6, 0, 6, '76'),
+(22, 228, 1, 'Verdun', 'Saint-Oyen', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 54, 87, 18, 0, 6, '59'),
+(23, 303, 1, 'Balclutha', 'Monmouth', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 45, 22, 6, 0, 7, '44'),
+(24, 256, 1, 'Lembeek', 'Devizes', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 7, 37, 4, 0, 5, '53'),
+(25, 3, 1, 'Tranås', 'Bathgate', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 84, 72, 9, 0, 8, '80'),
+(26, 36, 1, 'Lauw', 'Serrata', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 2, 74, 9, 0, 9, '20'),
+(27, 312, 1, 'Bras', 'Market Drayton', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 45, 92, 5, 0, 4, '62'),
+(28, 266, 1, 'Kitchener', 'Luton', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 77, 59, 9, 0, 3, '13'),
+(29, 223, 1, 'Tregaron', 'HavrŽ', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 81, 62, 4, 0, 3, '2'),
+(30, 128, 1, 'Nicoya', 'Temuco', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 95, 94, 20, 0, 1, '12'),
+(31, 51, 1, 'Mandasor', 'Kielce', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 75, 55, 4, 0, 8, '42'),
+(32, 142, 1, 'Thorn', 'Saint-L�onard', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 88, 71, 3, 0, 6, '52'),
+(33, 328, 1, 'Chattanooga', 'Susegana', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 66, 98, 17, 0, 5, '92'),
+(34, 165, 1, 'Meeuwen', 'Radebeul', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 24, 87, 20, 0, 1, '58'),
+(35, 231, 1, 'Billings', 'Charny', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 74, 28, 11, 0, 5, '82'),
+(36, 50, 1, 'Sudbury', 'Ganshoren', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 2, 35, 19, 0, 9, '18'),
+(37, 171, 1, 'Genk', 'Milano', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 4, 49, 5, 0, 8, '75'),
+(38, 380, 1, 'Orlando', 'Dégelis', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 50, 55, 11, 0, 1, '57'),
+(39, 341, 1, 'Keiem', 'Versailles', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 34, 81, 1, 0, 8, '75'),
+(40, 282, 1, 'Bionaz', 'Hérouville-Saint-Clair', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 61, 87, 24, 0, 8, '85'),
+(41, 156, 1, 'Farrukhabad-cum-Fatehgarh', 'Corte Brugnatella', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 13, 74, 3, 0, 9, '38'),
+(42, 174, 1, 'Madurai', 'Price', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 5, 58, 2, 0, 7, '28'),
+(43, 304, 1, 'Clarksville', 'Bertiolo', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 2, 34, 18, 0, 1, '32'),
+(44, 265, 1, 'Kinross', 'Buccheri', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 68, 47, 13, 0, 9, '72'),
+(45, 306, 1, 'Montelupo Fiorentino', 'Schwaz', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 94, 47, 6, 0, 10, '27'),
+(46, 379, 1, 'Llangefni', 'Chapecó', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 77, 97, 1, 0, 7, '57'),
+(47, 247, 1, 'Bharatpur', 'Riparbella', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 33, 4, 15, 0, 4, '72'),
+(48, 382, 1, 'Piotrków Trybunalski', 'Toronto', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 34, 23, 18, 0, 3, '2'),
+(49, 324, 1, 'Sargodha', 'Osgoode', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 26, 38, 9, 0, 9, '78'),
+(50, 373, 1, 'Sint-Lambrechts-Herk', 'Cabo de Santo Agostinho', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 22, 44, 13, 0, 7, '93'),
+(51, 216, 1, 'Newbury', 'Bovigny', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 50, 57, 3, 0, 6, '6'),
+(52, 172, 1, 'Chiguayante', 'Meerut', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 29, 64, 16, 0, 5, '62'),
+(53, 58, 1, 'Kester', 'Créteil', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 63, 88, 9, 0, 5, '33'),
+(54, 379, 1, 'Cinisi', 'Wambeek', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 37, 58, 19, 0, 8, '81'),
+(55, 172, 1, 'Millport', 'Montebello sul Sangro', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 42, 68, 23, 0, 3, '84'),
+(56, 253, 1, 'Lonquimay', 'Nanton', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 20, 79, 21, 0, 2, '75'),
+(57, 72, 1, 'Jefferson City', 'Aisén', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 14, 35, 5, 0, 3, '87'),
+(58, 231, 1, 'Athus', 'Cowdenbeath', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 26, 17, 19, 0, 9, '29'),
+(59, 148, 1, 'Villarrica', 'Chiusa Sclafani', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 64, 58, 17, 0, 2, '24'),
+(60, 150, 1, 'Birmingham', 'Recco', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 31, 64, 24, 0, 3, '28'),
+(61, 200, 1, 'Delft', 'Warrnambool', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 62, 91, 21, 0, 5, '8'),
+(62, 16, 1, 'Iqaluit', 'Tomaszów Mazowiecki', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 54, 39, 17, 0, 3, '97'),
+(63, 361, 1, 'Dörtyol', 'South Burlington', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 55, 65, 11, 0, 8, '27'),
+(64, 301, 1, 'Bordeaux', 'Tocopilla', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 84, 46, 13, 0, 10, '23'),
+(65, 308, 1, 'Campbellton', 'Rauco', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 62, 43, 23, 0, 2, '36'),
+(66, 59, 1, 'Saint-Remy-Geest', 'Nijkerk', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 31, 66, 4, 0, 1, '45'),
+(67, 72, 1, 'Mont-Saint-Guibert', 'Cinco Esquinas', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 93, 60, 12, 0, 3, '88'),
+(68, 101, 1, 'Rockville', 'Weesp', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 5, 12, 20, 0, 4, '74'),
+(69, 217, 1, 'Bathurst', 'Borchtlombeek', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 95, 78, 10, 0, 2, '14'),
+(70, 23, 1, 'Skövde', 'Kalgoorlie-Boulder', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 61, 77, 5, 0, 1, '78'),
+(71, 174, 1, 'Tourinnes-Saint-Lambert', 'Olympia', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 21, 29, 22, 0, 3, '45'),
+(72, 129, 1, 'Chełm', 'Brighton', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 98, 54, 17, 0, 6, '89'),
+(73, 199, 1, 'Conselice', 'Kisi', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 42, 27, 9, 0, 6, '10'),
+(74, 126, 1, 'Jodoigne', 'Ch‰telet', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 92, 52, 23, 0, 10, '18'),
+(75, 41, 1, 'Guben', 'Nampa', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 47, 56, 22, 0, 10, '96'),
+(76, 356, 1, 'San Juan (San Juan de Tibás)', 'Kruibeke', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 51, 86, 7, 0, 6, '43'),
+(77, 47, 1, 'Boulogne-Billancourt', 'Sant''Omero', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 24, 73, 14, 0, 3, '66'),
+(78, 185, 1, 'Wrocław', 'Cholet', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 92, 76, 8, 0, 6, '7'),
+(79, 248, 1, 'Wommelgem', 'Sierra Gorda', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 2, 37, 17, 0, 3, '55'),
+(80, 226, 1, 'Meißen', 'North Vancouver', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 11, 72, 21, 0, 8, '99'),
+(81, 120, 1, 'Stoke-on-Trent', 'Cles', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 78, 41, 6, 0, 6, '1'),
+(82, 7, 1, 'Zwolle', 'Lexington', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 22, 94, 5, 0, 3, '67'),
+(83, 336, 1, 'Peterborough', 'B.S.D.', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 19, 71, 3, 0, 1, '63'),
+(84, 37, 1, 'Lockerbie', 'Morro d''Alba', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 33, 72, 2, 0, 3, '19'),
+(85, 388, 1, 'Ostra Vetere', 'Roveredo in Piano', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 64, 3, 16, 0, 7, '29'),
+(86, 227, 1, 'Precenicco', 'Marbella', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 32, 94, 17, 0, 7, '62'),
+(87, 348, 1, 'Sabadell', 'Tampa', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 20, 81, 13, 0, 7, '62'),
+(88, 155, 1, 'Kuşadası', 'Nothomb', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 73, 1, 6, 0, 10, '68'),
+(89, 251, 1, 'Quimper', 'Compiègne', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 45, 98, 14, 0, 5, '99'),
+(90, 110, 1, 'Tuktoyaktuk', 'Buxton', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 18, 41, 10, 0, 5, '54'),
+(91, 134, 1, 'Piracicaba', 'Limelette', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 80, 7, 3, 0, 7, '97'),
+(92, 100, 1, 'Ham-sur-Heure-Nalinnes', 'Maipú', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 58, 49, 7, 0, 6, '90'),
+(93, 4, 1, 'Copertino', 'Montpelier', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 26, 3, 12, 0, 8, '29'),
+(94, 162, 1, 'Maullín', 'Archennes', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 74, 60, 20, 0, 2, '94'),
+(95, 56, 1, 'Lapscheure', 'Heppignies', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 7, 26, 15, 0, 6, '62'),
+(96, 327, 1, 'Maiolati Spontini', 'Torchiarolo', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 80, 8, 20, 0, 10, '56'),
+(97, 180, 1, 'Kircudbright', 'Ajax', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 57, 58, 21, 0, 3, '45'),
+(98, 121, 1, 'Pont-ˆ-Celles', 'Heestert', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 66, 20, 1, 0, 8, '97'),
+(99, 70, 1, 'San Giacomo degli Schiavoni', 'Rocky View', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 76, 22, 21, 0, 4, '54'),
+(100, 126, 1, 'Luik', 'Orp-Jauche', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 25, 97, 22, 0, 7, '12'),
+(101, 281, 1, 'Cuddalore', 'Dendermonde', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 63, 64, 5, 0, 9, '87'),
+(102, 170, 1, 'Brighton', 'Petacciato', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 39, 48, 18, 0, 7, '75'),
+(103, 145, 1, 'Zaffelare', 'Olsztyn', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 84, 64, 20, 0, 8, '76'),
+(104, 3, 1, 'Rosenheim', 'Alandur', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 67, 9, 6, 0, 9, '17'),
+(105, 313, 1, 'Sacramento', 'Matera', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 26, 1, 22, 0, 9, '97'),
+(106, 41, 1, 'Dehradun', 'Flamierge', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 26, 34, 19, 0, 6, '6'),
+(107, 3, 1, 'Seattle', 'Vaulx-lez-Chimay', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 90, 5, 5, 0, 10, '36'),
+(108, 388, 1, 'Saint-Étienne-du-Rouvray', 'Stourbridge', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 61, 100, 7, 0, 8, '30'),
+(109, 358, 1, 'Poggio San Marcello', 'Springfield', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 73, 92, 12, 0, 6, '8'),
+(110, 129, 1, 'Regina', 'Imst', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 3, 70, 16, 0, 2, '92'),
+(111, 128, 1, 'Landshut', 'Terme', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 24, 4, 10, 0, 4, '37'),
+(112, 65, 1, 'Scheggino', 'Fogliano Redipuglia', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 93, 94, 6, 0, 2, '11'),
+(113, 86, 1, 'Raurkela Civil Township', 'Cavallino', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 72, 3, 8, 0, 9, '96'),
+(114, 378, 1, 'La Magdeleine', 'Wijnegem', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 75, 71, 2, 0, 6, '56'),
+(115, 244, 1, 'Wayaux', 'Smetlede', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 100, 44, 5, 0, 3, '3'),
+(116, 316, 1, 'Knittelfeld', 'Tofield', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 58, 99, 2, 0, 1, '97'),
+(117, 343, 1, 'Fort Resolution', 'Gloucester', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 14, 91, 19, 0, 1, '67'),
+(118, 20, 1, 'Ilkeston', 'Grey County', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 27, 82, 5, 0, 5, '43'),
+(119, 113, 1, 'Navadwip', 'Ripacandida', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 33, 9, 10, 0, 9, '8'),
+(120, 80, 1, 'Cariboo Regional District', 'Cabrero', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 31, 63, 1, 0, 3, '8'),
+(121, 167, 1, 'Dessau', 'Mombaruzzo', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 100, 10, 15, 0, 4, '32'),
+(122, 143, 1, 'Grantham', 'Sioux City', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 56, 98, 1, 0, 3, '42'),
+(123, 355, 1, 'Montoggio', 'Stockerau', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 80, 100, 22, 0, 2, '84'),
+(124, 10, 1, 'Blankenberge', 'Orvieto', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 65, 36, 13, 0, 6, '7'),
+(125, 285, 1, 'Monmouth', 'Blevio', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 42, 95, 5, 0, 8, '21'),
+(126, 201, 1, 'Jauche', 'Mesa', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 35, 17, 21, 0, 8, '43'),
+(127, 375, 1, 'Cranbrook', 'Parral', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 57, 97, 12, 0, 1, '38'),
+(128, 255, 1, 'Cannes', 'Elsene', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 98, 24, 21, 0, 7, '39'),
+(129, 334, 1, 'Nashik', 'Gouda', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 89, 100, 3, 0, 4, '29'),
+(130, 99, 1, 'Rocky View', 'Victor Harbor', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 56, 58, 19, 0, 2, '22'),
+(131, 279, 1, 'Drancy', 'Tamworth', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 75, 15, 15, 0, 4, '54'),
+(132, 309, 1, 'Brive-la-Gaillarde', 'San Giovanni la Punta', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 23, 70, 17, 0, 2, '82'),
+(133, 131, 1, 'Sint-Ulriks-Kapelle', 'Kasur', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 1, 62, 23, 0, 2, '12'),
+(134, 331, 1, 'Ilhéus', 'Kolkata', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 57, 47, 3, 0, 10, '20'),
+(135, 62, 1, 'San Rosendo', 'Hay River', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 44, 16, 15, 0, 8, '54'),
+(136, 210, 1, 'Marseille', 'Herk-de-Stad', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 76, 51, 21, 0, 7, '40'),
+(137, 116, 1, 'Laken', 'Santa Vittoria in Matenano', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 67, 47, 22, 0, 10, '60'),
+(138, 250, 1, 'Fontaine-Valmont', 'Murdochville', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 64, 43, 20, 0, 3, '41'),
+(139, 207, 1, 'Sala Baganza', 'Sauvenire', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 48, 17, 24, 0, 7, '36'),
+(140, 89, 1, 'Marbaix', 'Pittsburgh', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 55, 32, 18, 0, 3, '92'),
+(141, 49, 1, 'Joué-lès-Tours', 'Canora', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 28, 63, 2, 0, 3, '68'),
+(142, 191, 1, 'Castel Ritaldi', 'Swan Hills', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 97, 78, 5, 0, 2, '7'),
+(143, 111, 1, 'Bertiolo', 'Bilaspur', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 73, 97, 9, 0, 5, '37'),
+(144, 65, 1, 'Eindhout', 'Rouyn-Noranda', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 85, 95, 16, 0, 6, '90'),
+(145, 392, 1, 'Meridian', 'Pforzheim', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 74, 70, 17, 0, 3, '34'),
+(146, 129, 1, 'Glenrothes', 'Bridgend', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 49, 3, 9, 0, 9, '40'),
+(147, 159, 1, 'BertrŽe', 'San José de Alajuela', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 53, 11, 14, 0, 1, '39'),
+(148, 203, 1, 'Olmué', 'Trani', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 95, 26, 4, 0, 9, '30'),
+(149, 344, 1, 'Ernage', 'Aliano', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 20, 42, 22, 0, 9, '29'),
+(150, 272, 1, 'Casoli', 'Grantham', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 30, 80, 9, 0, 6, '73'),
+(151, 206, 1, 'San Pietro Mussolino', 'Bonnert', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 6, 48, 15, 0, 5, '63'),
+(152, 85, 1, 'Waiblingen', 'Uttarpara-Kotrung', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 41, 91, 9, 0, 9, '37'),
+(153, 32, 1, 'Madison', 'Rulles', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 76, 44, 16, 0, 5, '11'),
+(154, 346, 1, 'Peumo', 'Glauchau', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 95, 42, 21, 0, 10, '93'),
+(155, 15, 1, 'Springfield', 'South Bend', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 98, 19, 21, 0, 1, '42'),
+(156, 279, 1, 'Carnoustie', 'Aubange', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 56, 9, 14, 0, 5, '1'),
+(157, 398, 1, 'Johnstone', 'Kędzierzyn-Koźle', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 15, 66, 16, 0, 4, '70'),
+(158, 358, 1, 'Castanhal', 'Leke', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 26, 19, 23, 0, 10, '66'),
+(159, 395, 1, 'Rezé', 'Township of Minden Hills', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 48, 14, 21, 0, 2, '6'),
+(160, 44, 1, 'Wangaratta', 'Zele', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 83, 17, 21, 0, 5, '30'),
+(161, 392, 1, 'Grasse', 'Petrolina', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 15, 85, 18, 0, 8, '42'),
+(162, 294, 1, 'Ragnies', 'Dampremy', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 81, 47, 8, 0, 4, '66'),
+(163, 93, 1, 'Wansin', 'Champlain', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 60, 9, 14, 0, 8, '48'),
+(164, 349, 1, 'Launceston', 'Whangarei', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 3, 14, 23, 0, 3, '71'),
+(165, 161, 1, 'Cannole', 'Osimo', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 30, 85, 1, 0, 2, '17'),
+(166, 17, 1, 'Rimbey', 'Overland Park', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 55, 35, 12, 0, 3, '43'),
+(167, 247, 1, 'Taunusstein', 'Provost', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 88, 42, 3, 0, 5, '36'),
+(168, 93, 1, 'Golspie', 'Brest', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 61, 67, 20, 0, 2, '52'),
+(169, 151, 1, 'Sneek', 'Arendonk', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 85, 91, 16, 0, 2, '8'),
+(170, 182, 1, 'Oudergem', 'Kanchipuram', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 3, 13, 9, 0, 1, '11'),
+(171, 322, 1, 'Wodonga', 'Barra do Corda', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 53, 31, 8, 0, 10, '87'),
+(172, 345, 1, 'Butte', 'San José de Maipo', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 54, 6, 22, 0, 3, '96'),
+(173, 181, 1, 'Tiltil', 'Gosselies', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 67, 30, 8, 0, 4, '62'),
+(174, 239, 1, 'Humbeek', 'Duncan', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 64, 27, 1, 0, 8, '65'),
+(175, 100, 1, 'Gatineau', 'Raigarh', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 47, 53, 13, 0, 9, '65'),
+(176, 347, 1, 'Brixton', 'Ajmer', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 83, 87, 11, 0, 2, '86'),
+(177, 64, 1, 'Badajoz', 'Arvier', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 94, 36, 9, 0, 2, '89'),
+(178, 153, 1, 'Arsoli', 'North Vancouver', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 19, 27, 8, 0, 10, '7'),
+(179, 3, 1, 'Bay Roberts', 'Gressan', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 90, 74, 24, 0, 1, '18'),
+(180, 275, 1, 'Knokke-Heist', 'Crehen', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 40, 74, 5, 0, 4, '18'),
+(181, 383, 1, 'Gasteiz', 'Labrecque', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 17, 59, 21, 0, 2, '63'),
+(182, 225, 1, 'Medicine Hat', 'Campochiaro', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 79, 63, 5, 0, 8, '81'),
+(183, 372, 1, 'Pointe-aux-Trembles', 'Acerra', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 24, 87, 8, 0, 2, '18'),
+(184, 259, 1, 'Palmiano', 'Gillette', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 39, 48, 1, 0, 2, '48'),
+(185, 307, 1, 'Itegem', 'Pulle', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 9, 56, 12, 0, 7, '20'),
+(186, 320, 1, 'Karimnagar', 'Jerzu', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 86, 51, 5, 0, 9, '90'),
+(187, 399, 1, 'WagnelŽe', 'Knokke-Heist', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 39, 52, 22, 0, 1, '19'),
+(188, 294, 1, 'Glauchau', 'Vöcklabruck', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 3, 63, 8, 0, 8, '39'),
+(189, 55, 1, 'As', 'Waiblingen', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 30, 41, 11, 0, 8, '73'),
+(190, 6, 1, 'Peterborough', 'Saint-Eug�ne-de-Ladri�re', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 84, 87, 3, 0, 1, '78'),
+(191, 203, 1, 'Altidona', 'Patiala', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 99, 95, 18, 0, 1, '95'),
+(192, 354, 1, 'Cittanova', 'Long Eaton', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 100, 97, 1, 0, 2, '26'),
+(193, 247, 1, 'Ciudad Real', 'Cittanova', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 14, 11, 17, 0, 10, '71'),
+(194, 353, 1, 'Vaux-lez-Rosieres', 'Nelson', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 63, 79, 3, 0, 6, '96'),
+(195, 37, 1, 'Speyer', 'Herfelingen', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 25, 79, 18, 0, 1, '60'),
+(196, 226, 1, 'Barrie', 'Tongrinne', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 95, 43, 20, 0, 3, '60'),
+(197, 281, 1, 'San Francisco', 'Gdańsk', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 35, 55, 18, 0, 9, '87'),
+(198, 6, 1, 'Kelkheim', 'Coldstream', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 28, 35, 23, 0, 3, '79'),
+(199, 356, 1, 'Gbongan', 'Hoofddorp', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 42, 64, 7, 0, 2, '95'),
+(200, 317, 1, 'Rockhampton', 'Herne', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 66, 72, 12, 0, 2, '34'),
+(201, 358, 1, 'Lakeshore', 'Valéncia', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 6, 3, 3, 0, 3, '71'),
+(202, 136, 1, 'Nova Iguaçu', 'Vizianagaram', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 38, 59, 11, 0, 7, '29'),
+(203, 5, 1, 'İmamoğlu', 'Perth', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 67, 89, 2, 0, 2, '10'),
+(204, 13, 1, 'Przemyśl', 'Bozeman', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 55, 81, 2, 0, 9, '84'),
+(205, 98, 1, 'Desamparados', 'Panihati', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 26, 90, 17, 0, 7, '71'),
+(206, 318, 1, 'Incourt', 'Zaventem', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 54, 11, 9, 0, 6, '63'),
+(207, 35, 1, 'Tumba', 'Gjoa Haven', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 96, 88, 20, 0, 3, '90'),
+(208, 181, 1, 'Sheikhupura', 'Snellegem', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 17, 4, 2, 0, 3, '64'),
+(209, 89, 1, 'Alessandria', 'Qutubullapur', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 97, 98, 5, 0, 9, '87'),
+(210, 399, 1, 'Cumberland', 'Hody', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 99, 83, 21, 0, 7, '63'),
+(211, 4, 1, 'Siddi', 'Saint-Eug�ne-de-Ladri�re', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 79, 48, 10, 0, 5, '21'),
+(212, 192, 1, 'Haren', 'Vergemoli', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 53, 46, 8, 0, 3, '41'),
+(213, 352, 1, 'Montigny-lès-Metz', 'Kinross', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 74, 45, 9, 0, 3, '83'),
+(214, 249, 1, 'Sangli', 'Dabgram', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 51, 21, 17, 0, 7, '69'),
+(215, 233, 1, 'Ethe', 'Manukau', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 72, 55, 17, 0, 8, '36'),
+(216, 72, 1, 'Great Falls', 'Edmundston', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 88, 70, 18, 0, 1, '63'),
+(217, 128, 1, 'Sellia Marina', 'Monmouth', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 91, 41, 1, 0, 3, '38'),
+(218, 106, 1, 'Pescantina', 'Daska', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 75, 42, 15, 0, 6, '90'),
+(219, 251, 1, 'Falisolle', 'Leeuwarden', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 48, 99, 4, 0, 5, '24'),
+(220, 276, 1, 'Comeglians', 'San Pedro de la Paz', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 40, 81, 11, 0, 9, '98'),
+(221, 204, 1, 'Bilbo', 'Pugwash', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 8, 32, 6, 0, 7, '40'),
+(222, 166, 1, 'Barnstaple', 'Exeter', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 17, 7, 21, 0, 4, '58'),
+(223, 110, 1, 'Fréjus', 'Purnea', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 53, 6, 5, 0, 7, '79'),
+(224, 210, 1, 'Kungälv', 'Innisfail', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 9, 70, 24, 0, 1, '22'),
+(225, 75, 1, 'Rycroft', 'Afsnee', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 41, 70, 20, 0, 4, '61'),
+(226, 53, 1, 'Laakdal', 'Kumluca', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 69, 67, 10, 0, 2, '71'),
+(227, 206, 1, 'Springfield', 'Sasaram', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 12, 91, 20, 0, 5, '30'),
+(228, 68, 1, 'Arsiè', 'Santa Cesarea Terme', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 47, 9, 8, 0, 4, '77'),
+(229, 192, 1, 'Grey County', 'Kasteelbrakel', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 54, 57, 12, 0, 7, '94'),
+(230, 275, 1, 'Lusevera', 'São Gonçalo', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 20, 95, 18, 0, 1, '38'),
+(231, 133, 1, 'Germersheim', 'Padre las Casas', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 79, 5, 18, 0, 7, '94'),
+(232, 206, 1, 'Sunset Point', 'Rocca San Felice', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 23, 67, 3, 0, 7, '68'),
+(233, 11, 1, 'Cap-de-la-Madeleine', 'Bingen', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 46, 32, 4, 0, 9, '2'),
+(234, 299, 1, 'Tiel', 'San Nicolás', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 72, 73, 22, 0, 6, '58'),
+(235, 189, 1, 'New Glasgow', 'Des Moines', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 24, 75, 20, 0, 1, '25'),
+(236, 232, 1, 'Ludlow', 'Kansas City', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 61, 76, 18, 0, 10, '64'),
+(237, 184, 1, 'Scunthorpe', 'Harrison Hot Springs', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 50, 75, 3, 0, 6, '44'),
+(238, 257, 1, 'Guadalajara', 'Leominster', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 30, 10, 15, 0, 9, '93'),
+(239, 340, 1, 'Conca Casale', 'Angleur', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 70, 54, 7, 0, 6, '53'),
+(240, 283, 1, 'Jodoigne', 'Gjoa Haven', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 12, 75, 10, 0, 1, '98'),
+(241, 248, 1, 'São José dos Pinhais', 'Huntsville', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 45, 28, 13, 0, 7, '50'),
+(242, 125, 1, 'San Giovanni in Galdo', 'Beausejour', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 70, 98, 11, 0, 3, '82'),
+(243, 312, 1, 'Gibsons', 'Arnhem', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 80, 11, 3, 0, 10, '71'),
+(244, 52, 1, 'Nagarcoil', 'Petit-Hallet', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 58, 20, 8, 0, 1, '3'),
+(245, 216, 1, 'San Antonio', 'Castlegar', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 51, 31, 19, 0, 7, '18'),
+(246, 315, 1, 'Kansas City', 'Saint-Dié-des-Vosges', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 49, 65, 12, 0, 4, '76'),
+(247, 198, 1, 'San Jose', 'Camborne', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 18, 86, 16, 0, 3, '3'),
+(248, 233, 1, 'Knoxville', 'Riesa', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 2, 26, 7, 0, 9, '34'),
+(249, 309, 1, 'Cairo Montenotte', 'Lissewege', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 99, 20, 5, 0, 1, '3'),
+(250, 258, 1, 'San Ignacio', 'Cavallino', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 98, 59, 19, 0, 4, '85'),
+(251, 60, 1, 'Casper', 'Barasat', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 4, 92, 15, 0, 1, '60'),
+(252, 168, 1, 'Newbury', 'Grande Prairie', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 69, 27, 22, 0, 5, '97'),
+(253, 166, 1, 'Cambridge', 'Saint-Pierre', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 96, 83, 23, 0, 10, '27'),
+(254, 216, 1, 'Aurillac', 'Malahide', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 97, 32, 17, 0, 2, '21'),
+(255, 1, 1, 'Stoke-on-Trent', 'Saint-Martin', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 35, 53, 6, 0, 4, '32'),
+(256, 249, 1, 'Emarèse', 'Recoleta', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 6, 11, 3, 0, 5, '22'),
+(257, 393, 1, 'Jasper', 'Ammanford', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 95, 42, 6, 0, 4, '87'),
+(258, 153, 1, 'Bendigo', 'Neuville', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 16, 93, 18, 0, 1, '89'),
+(259, 156, 1, 'Palombaro', 'Estevan', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 69, 61, 18, 0, 9, '87'),
+(260, 80, 1, 'Wilmont', 'Saint Andr�', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 96, 42, 14, 0, 7, '41'),
+(261, 366, 1, 'Gelsenkirchen', 'Porto Cesareo', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 100, 32, 17, 0, 5, '99'),
+(262, 237, 1, 'Newport News', 'Heppenheim', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 55, 48, 19, 0, 4, '56'),
+(263, 159, 1, 'Maipú', 'Grand-RosiŽre-Hottomont', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 58, 57, 9, 0, 4, '74'),
+(264, 106, 1, 'Quinte West', 'Laurencekirk', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 57, 43, 11, 0, 8, '10'),
+(265, 28, 1, 'Ereğli', 'Palmariggi', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 93, 45, 12, 0, 10, '67'),
+(266, 400, 1, 'Vichuquén', 'Baden', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 34, 58, 14, 0, 9, '88'),
+(267, 328, 1, 'Ross-on-Wye', 'Hollogne-sur-Geer', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 87, 7, 11, 0, 2, '85'),
+(268, 3, 1, 'Quimper', 'San Javier', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 85, 96, 10, 0, 6, '79'),
+(269, 359, 1, 'North Battleford', 'Hubli', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 19, 29, 22, 0, 5, '94'),
+(270, 49, 1, 'Anzegem', 'Farrukhabad-cum-Fatehgarh', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 43, 59, 6, 0, 6, '52'),
+(271, 264, 1, 'Crowsnest Pass', 'Freising', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 57, 50, 19, 0, 7, '75'),
+(272, 4, 1, 'Rhyl', 'Louisville', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 20, 39, 17, 0, 10, '81'),
+(273, 42, 1, 'Alto Hospicio', 'Bissegem', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 63, 47, 18, 0, 7, '37'),
+(274, 22, 1, 'Requínoa', 'Ganganagar', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 21, 26, 6, 0, 3, '71'),
+(275, 276, 1, 'Linares', 'Saint-Remy', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 72, 33, 8, 0, 4, '92'),
+(276, 13, 1, 'Graven Grez-Doiceau', 'Bath', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 81, 53, 6, 0, 4, '68'),
+(277, 224, 1, 'Asbestos', 'Pratovecchio', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 29, 42, 3, 0, 7, '30'),
+(278, 318, 1, 'Rionero in Vulture', 'North Vancouver', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 63, 53, 18, 0, 7, '81'),
+(279, 38, 1, 'Corbara', 'Tamines', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 80, 5, 20, 0, 4, '4'),
+(280, 245, 1, 'Lakewood', 'Rechnitz', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 40, 77, 13, 0, 4, '69'),
+(281, 241, 1, 'Boncelles', 'Villar Pellice', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 1, 68, 17, 0, 10, '6'),
+(282, 212, 1, 'Nieuwmunster', 'Picture Butte', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 85, 7, 20, 0, 9, '48'),
+(283, 74, 1, 'Coronel', 'Zeveneken', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 32, 80, 16, 0, 5, '72'),
+(284, 120, 1, 'Fermont', 'Rijkevorsel', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 96, 86, 14, 0, 7, '40'),
+(285, 211, 1, 'Purulia', 'Chimbarongo', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 60, 18, 18, 0, 7, '13'),
+(286, 16, 1, 'Waarloos', 'Saint-Sébastien-sur-Loire', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 63, 42, 21, 0, 7, '20'),
+(287, 95, 1, 'Rueil-Malmaison', 'Cefalà Diana', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 74, 23, 22, 0, 2, '76'),
+(288, 213, 1, 'Quinte West', 'Introd', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 78, 52, 14, 0, 7, '79'),
+(289, 157, 1, 'Gonda', 'Grobbendonk', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 34, 86, 19, 0, 4, '99'),
+(290, 226, 1, 'Duque de Caxias', 'Zwolle', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 93, 89, 6, 0, 2, '63'),
+(291, 134, 1, 'Den Helder', 'Midlands', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 82, 69, 8, 0, 7, '12'),
+(292, 242, 1, 'Ham-sur-Heure-Nalinnes', 'Gorinchem', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 12, 9, 5, 0, 2, '20'),
+(293, 232, 1, 'Täby', 'Kooigem', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 69, 15, 10, 0, 8, '4'),
+(294, 263, 1, 'Jemeppe-sur-Meuse', 'Johnstone', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 17, 23, 21, 0, 10, '5'),
+(295, 3, 1, 'Giardinello', 'Lo Espejo', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 3, 51, 6, 0, 6, '55'),
+(296, 362, 1, 'Bad Dürkheim', 'Grey County', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 44, 46, 13, 0, 4, '87'),
+(297, 160, 1, 'Pointe-du-Lac', 'Marneffe', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 76, 80, 15, 0, 7, '58'),
+(298, 329, 1, 'Berwick', 'Mission', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 91, 38, 23, 0, 3, '44'),
+(299, 396, 1, 'Farciennes', 'Bad Hersfeld', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 24, 38, 16, 0, 8, '25'),
+(300, 314, 1, 'Lampeter', 'Erchie', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 9, 44, 20, 0, 7, '37'),
+(301, 257, 1, 'Ribeirão Preto', 'Cap-Saint-Ignace', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 6, 37, 19, 0, 9, '26'),
+(302, 159, 1, 'Renfrew', 'Thunder Bay', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 98, 68, 8, 0, 8, '7'),
+(303, 69, 1, 'Ville de Maniwaki', 'Tramatza', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 45, 83, 1, 0, 3, '56'),
+(304, 209, 1, 'Wolfville', 'Máfil', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 84, 82, 2, 0, 8, '22'),
+(305, 327, 1, 'Taber', 'Rae-Edzo', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 26, 20, 16, 0, 2, '97'),
+(306, 114, 1, 'Colobraro', 'Nalinnes', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 12, 19, 3, 0, 2, '30'),
+(307, 325, 1, 'Tavigny', 'Rivello', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 94, 36, 11, 0, 9, '51'),
+(308, 64, 1, 'Tübingen', 'Midnapore', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 16, 73, 15, 0, 9, '13'),
+(309, 379, 1, 'Rouvroy', 'Bromley', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 79, 50, 2, 0, 9, '21'),
+(310, 148, 1, 'Sgonico', 'Lustin', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 43, 72, 21, 0, 5, '71'),
+(311, 157, 1, 'Vergnies', 'Auldearn', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 72, 6, 3, 0, 7, '21'),
+(312, 162, 1, 'Sint-Pieters-Kapelle', 'Mandasor', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 100, 39, 14, 0, 5, '7'),
+(313, 6, 1, 'Jelenia Góra', 'Borgo Valsugana', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 88, 7, 9, 0, 2, '77'),
+(314, 160, 1, 'Calder', 'Kapiti', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 30, 85, 7, 0, 10, '52'),
+(315, 130, 1, 'Recklinghausen', 'Detroit', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 45, 46, 3, 0, 10, '74'),
+(316, 294, 1, 'San Lorenzo', 'Nieuwkapelle', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 77, 88, 8, 0, 9, '67'),
+(317, 177, 1, 'Medemblik', 'Cametá', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 7, 99, 6, 0, 7, '41'),
+(318, 149, 1, 'Panjim', 'Pollena Trocchia', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 54, 9, 11, 0, 2, '62'),
+(319, 311, 1, 'Neumünster', 'Jauchelette', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 86, 24, 8, 0, 6, '76'),
+(320, 246, 1, 'Jauche', 'Varna/Vahrn', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 4, 21, 15, 0, 5, '66'),
+(321, 382, 1, 'Kolmont', 'Malgesso', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 28, 46, 9, 0, 8, '82'),
+(322, 173, 1, 'Santarcangelo di Romagna', 'Gary', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 31, 99, 8, 0, 10, '23'),
+(323, 170, 1, 'Saint-LŽger', 'Worcester', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 44, 35, 22, 0, 6, '47'),
+(324, 34, 1, 'Fort Resolution', 'Cap-Saint-Ignace', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 14, 72, 12, 0, 8, '92'),
+(325, 4, 1, 'Henderson', 'Jaranwala', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 30, 62, 13, 0, 4, '69'),
+(326, 252, 1, 'Camaçari', 'Grand-Leez', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 72, 65, 19, 0, 1, '51'),
+(327, 222, 1, 'Bensheim', 'Beuzet', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 64, 53, 7, 0, 4, '37'),
+(328, 45, 1, 'Bolton', 'Ligny', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 29, 30, 8, 0, 4, '50'),
+(329, 79, 1, 'Anzi', 'Westmount', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 2, 87, 1, 0, 3, '78'),
+(330, 385, 1, 'Solre-sur-Sambre', 'Montoggio', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 12, 53, 24, 0, 7, '14'),
+(331, 64, 1, 'Buguma', 'Ballarat', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 47, 70, 9, 0, 6, '57'),
+(332, 309, 1, 'Kansas City', 'Khanpur', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 79, 93, 9, 0, 6, '52'),
+(333, 391, 1, 'Gonda', 'Itanagar', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 72, 52, 24, 0, 2, '14'),
+(334, 385, 1, 'WagnelŽe', 'Cambridge Bay', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 46, 55, 13, 0, 3, '16'),
+(335, 355, 1, 'Alvito', 'Elbląg', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 15, 98, 1, 0, 5, '73'),
+(336, 154, 1, 'Jaboatão dos Guararapes', 'Wolvertem', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 23, 75, 19, 0, 5, '68'),
+(337, 51, 1, 'Varsenare', 'Flamierge', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 98, 71, 23, 0, 5, '95'),
+(338, 159, 1, 'Montebello', 'Tokoroa', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 86, 75, 17, 0, 4, '70'),
+(339, 181, 1, 'Oudenaken', 'Cicagna', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 79, 12, 19, 0, 1, '76'),
+(340, 80, 1, 'Shreveport', 'Groot-Bijgaarden', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 24, 49, 23, 0, 10, '85'),
+(341, 368, 1, 'Swansea', 'Kuşadası', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 33, 37, 17, 0, 7, '94'),
+(342, 277, 1, 'Dumbarton', 'Juneau', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 24, 59, 16, 0, 3, '39'),
+(343, 162, 1, 'Price', 'Bonn', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 7, 77, 8, 0, 6, '50'),
+(344, 38, 1, 'Knokke-Heist', 'West Valley City', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 61, 59, 24, 0, 3, '78'),
+(345, 103, 1, 'Çaldıran', 'Gonnosnò', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 92, 28, 10, 0, 9, '57'),
+(346, 119, 1, 'Bremen', 'Puente Alto', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 92, 25, 8, 0, 4, '61'),
+(347, 291, 1, 'Uitkerke', 'Westkerke', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 15, 94, 19, 0, 9, '47'),
+(348, 211, 1, 'Vaux-sur-Sure', 'San Giuliano di Puglia', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 38, 94, 22, 0, 2, '45'),
+(349, 68, 1, 'Aurora', 'Portland', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 68, 73, 21, 0, 8, '60'),
+(350, 304, 1, 'Uikhoven', 'Holman', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 9, 29, 20, 0, 7, '59'),
+(351, 355, 1, 'Relegem', 'Montigny-lès-Metz', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 57, 15, 19, 0, 3, '18'),
+(352, 81, 1, 'Vejalpur', 'Swan Hills', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 32, 47, 12, 0, 1, '81'),
+(353, 296, 1, 'Alcorcón', 'Hamilton', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 10, 43, 24, 0, 6, '2'),
+(354, 279, 1, 'Eghezee', 'Des Moines', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 77, 47, 13, 0, 3, '18'),
+(355, 118, 1, 'Görlitz', 'Bloomington', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 91, 56, 8, 0, 2, '42'),
+(356, 374, 1, 'Amroha', 'Neuwied', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 22, 69, 18, 0, 8, '75'),
+(357, 166, 1, 'Orilla', 'Bahawalpur', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 60, 50, 14, 0, 7, '16'),
+(358, 6, 1, 'Temploux', 'Caramanico Terme', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 26, 39, 17, 0, 2, '90'),
+(359, 301, 1, 'Sant''Arsenio', 'Conselice', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 15, 39, 8, 0, 4, '52'),
+(360, 204, 1, 'Venlo', 'Olympia', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 84, 32, 5, 0, 5, '95'),
+(361, 307, 1, 'Tiverton', 'St. Albert', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 82, 81, 5, 0, 3, '58'),
+(362, 125, 1, 'Ludhiana', 'Lillois-WitterzŽe', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 4, 97, 11, 0, 6, '74'),
+(363, 191, 1, 'Damme', 'Tournefeuille', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 55, 37, 14, 0, 8, '51'),
+(364, 393, 1, 'Nancy', 'Santa María', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 86, 60, 15, 0, 2, '22'),
+(365, 394, 1, 'Scalloway', 'Rostock', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 70, 73, 1, 0, 9, '78'),
+(366, 71, 1, 'Diets-Heur', 'Fort Worth', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 47, 70, 4, 0, 8, '78'),
+(367, 319, 1, 'Scarborough', 'Modinagar', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 95, 92, 17, 0, 6, '67'),
+(368, 380, 1, 'Gargazzone/Gargazon', 'Nanton', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 30, 84, 13, 0, 9, '31'),
+(369, 213, 1, 'Alandur', 'Lampa', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 36, 18, 15, 0, 5, '29'),
+(370, 139, 1, 'Essex', 'Neerrepen', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 80, 62, 4, 0, 4, '47'),
+(371, 369, 1, 'Rennes', 'Bierk Bierghes', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 38, 62, 18, 0, 3, '86'),
+(372, 188, 1, 'Gorzów Wielkopolski', 'VTM', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 51, 35, 11, 0, 1, '89'),
+(373, 380, 1, 'Northampton', 'Clare', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 67, 16, 20, 0, 1, '47'),
+(374, 217, 1, 'Centa San Nicolò', 'San Pedro', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 1, 83, 7, 0, 3, '11'),
+(375, 212, 1, 'Sant''Omero', 'Bala', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 49, 96, 13, 0, 8, '67'),
+(376, 399, 1, 'Jamshedpur', 'Talcahuano', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 39, 84, 18, 0, 7, '74'),
+(377, 202, 1, 'Lafayette', 'San Costantino Calabro', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 99, 40, 10, 0, 8, '74'),
+(378, 208, 1, 'Jamioulx', 'Codó', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 57, 34, 2, 0, 8, '89'),
+(379, 147, 1, 'Wandsworth', 'Cochrane', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 16, 49, 13, 0, 1, '24'),
+(380, 313, 1, 'Vauda Canavese', 'Hall in Tirol', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 20, 56, 12, 0, 2, '63'),
+(381, 374, 1, 'Pictou', 'Gagliato', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 50, 79, 11, 0, 2, '34'),
+(382, 363, 1, 'Lanaken', 'Lebu', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 12, 82, 24, 0, 5, '45'),
+(383, 329, 1, 'Maule', 'Saint-Denis-Bovesse', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 70, 20, 22, 0, 9, '32'),
+(384, 122, 1, 'Clare', 'Hay River', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 84, 60, 4, 0, 8, '89'),
+(385, 399, 1, 'Kendal', 'Windermere', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 6, 98, 2, 0, 9, '73'),
+(386, 175, 1, 'Glendale', 'White Rock', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 49, 53, 11, 0, 3, '86'),
+(387, 384, 1, 'Allahabad', 'Quinte West', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 14, 28, 3, 0, 1, '79'),
+(388, 307, 1, 'Tiruchirapalli', 'Merrickville-Wolford', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 41, 49, 23, 0, 9, '9'),
+(389, 214, 1, 'Saint-Lô', 'Antey-Saint-Andrè', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 42, 90, 6, 0, 3, '3'),
+(390, 234, 1, 'South Burlington', 'Vihari', '03:24:00', '03:26:00', '03:24:00', '03:24:00', 87, 84, 18, 0, 5, '72'),
+(391, 368, 1, 'İmamoğlu', 'Colleretto Castelnuovo', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 96, 70, 19, 0, 5, '94'),
+(392, 212, 1, 'Wolkrange', 'Münster', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 10, 81, 23, 0, 1, '89'),
+(393, 202, 1, 'Burg', 'Wabamun', '04:32:00', '04:32:00', '04:32:00', '04:32:00', 89, 75, 21, 0, 10, '89'),
+(394, 67, 1, 'Lakeshore', 'Santa Caterina Villarmosa', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 50, 98, 15, 0, 1, '2'),
+(395, 99, 1, 'Mulchén', 'Penrith', '05:04:00', '05:06:00', '05:04:00', '05:04:00', 75, 100, 19, 0, 9, '35'),
+(396, 178, 1, 'Greymouth', 'Quilaco', '05:40:00', '05:42:00', '05:40:00', '05:40:00', 15, 38, 18, 0, 7, '93'),
+(397, 104, 1, 'Etawah', 'Jette', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 74, 17, 1, 0, 10, '76'),
+(398, 15, 1, 'Cumbernauld', 'Leominster', '06:12:00', '06:14:00', '06:12:00', '06:12:00', 2, 69, 16, 0, 4, '81'),
+(399, 36, 1, 'Regina', 'Todi', '06:48:00', '06:50:00', '06:48:00', '06:48:00', 53, 19, 15, 0, 4, '92'),
+(400, 340, 1, 'Boulogne-Billancourt', 'Seevetal', '08:00:00', '08:05:00', '09:00:00', '09:05:00', 78, 92, 19, 0, 7, '59');
 
 -- --------------------------------------------------------
 
@@ -5748,7 +6139,7 @@ INSERT INTO `etapas_voo` (`idvoo`, `idetapa`, `numero_etapa`, `origem`, `destino
 -- Estrutura da tabela `inspecao`
 --
 
-CREATE TABLE `inspecao` (
+CREATE TABLE IF NOT EXISTS `inspecao` (
   `idInspecao` int(11) NOT NULL,
   `idAeronave` int(11) NOT NULL,
   `id_tipo_inspecao` int(11) NOT NULL,
@@ -5760,7 +6151,7 @@ CREATE TABLE `inspecao` (
   `vencimento_for_date` date DEFAULT NULL,
   `disponivel_for_date` date DEFAULT NULL,
   `disponivel_for_time` int(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inspecao`
@@ -5784,7 +6175,7 @@ INSERT INTO `inspecao` (`idInspecao`, `idAeronave`, `id_tipo_inspecao`, `in_anvI
 -- Estrutura da tabela `inspecao_backup`
 --
 
-CREATE TABLE `inspecao_backup` (
+CREATE TABLE IF NOT EXISTS `inspecao_backup` (
   `idInspecao` int(11) NOT NULL,
   `descricaoInspecao` varchar(45) NOT NULL,
   `itensInspecao` varchar(200) NOT NULL,
@@ -5801,7 +6192,7 @@ CREATE TABLE `inspecao_backup` (
   `vencimento_for_date` date DEFAULT NULL,
   `disponivel_for_date` date DEFAULT NULL,
   `disponivel_for_time` int(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inspecao_backup`
@@ -5821,7 +6212,7 @@ INSERT INTO `inspecao_backup` (`idInspecao`, `descricaoInspecao`, `itensInspecao
 -- Estrutura da tabela `servidor`
 --
 
-CREATE TABLE `servidor` (
+CREATE TABLE IF NOT EXISTS `servidor` (
   `idservidor` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `posto` enum('CEL','TEN_CEL','MAJ','CAP','1_TEN','2_TEN','ASP','ST','1_SGT','2_SGT','3_SGT','CB','SD','DELEGADO') NOT NULL,
@@ -5831,7 +6222,7 @@ CREATE TABLE `servidor` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(32) NOT NULL,
   `privilegio` enum('1','2','3') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `servidor`
@@ -5859,7 +6250,7 @@ INSERT INTO `servidor` (`idservidor`, `nome`, `posto`, `funcao`, `instituicao`, 
 -- Estrutura da tabela `tipo_inspecao`
 --
 
-CREATE TABLE `tipo_inspecao` (
+CREATE TABLE IF NOT EXISTS `tipo_inspecao` (
   `id_tipo_inspecao` int(11) NOT NULL,
   `descricaoInspecao` varchar(45) NOT NULL,
   `pnInspecao` varchar(20) NOT NULL,
@@ -5869,7 +6260,7 @@ CREATE TABLE `tipo_inspecao` (
   `frequencia_for_time` int(20) DEFAULT NULL,
   `frequencia_for_date` int(20) DEFAULT NULL,
   `itensInspecao` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tipo_inspecao`
@@ -5879,24 +6270,12 @@ INSERT INTO `tipo_inspecao` (`id_tipo_inspecao`, `descricaoInspecao`, `pnInspeca
 (1, 'IAM', 'RBHA 91.409', '3011', 'OC', 'M', 12, NULL, 'nenhum'),
 (2, 'certificado-aeronavegabilidade', 'IS-21-181-001B', '15258', 'OC', 'M', 72, NULL, 'nenhum'),
 (3, 'licenca-de-estacao', 'Cap 13 mpr 100', '0009/2010-ES', 'OC', 'M', 120, NULL, 'nenhum'),
-(6, 'qqqq', '23', '34', 'TBO', 'M/H', 23, 0, 'nenhum'),
-(7, 'www', '32', '12', 'OTL', 'M', 44, NULL, 'nenhum'),
-(8, 'rrrr', '33', '22', 'TBO', 'D', 12, NULL, 'nenhum'),
-(9, 'yyyy', '66', '77', 'OTL', 'M', 88, NULL, 'nenhum'),
-(10, 'rrr', '33', '22', 'OC', 'D', 22, NULL, '33'),
-(11, 'rr', '44', '44', 'OTL', 'M', 44, NULL, '44'),
-(12, '333', '33', '44', 'OTL', 'M', 44, NULL, '44'),
-(13, '33', '33', '333', 'OC', 'M', 33, NULL, '33'),
-(14, 'rrrrr', '54', '45', 'OC', 'M', 34, NULL, '34'),
-(15, 'er', 'er', 'err', 'OC', 'M', 23, NULL, 'er'),
-(16, 'fkjkj', '765', '765', 'OC', 'M', 45, NULL, '4554'),
-(17, '55', '555', '555', 'OC', 'M', 55, NULL, '555'),
-(18, 'rrrr', '333', '33', 'OC', 'M', 33, NULL, '33'),
-(19, '345', '345345', '3455', 'OC', 'M', 3453, NULL, '345345'),
-(20, '435345', '345', '345', 'OC', 'M', 345, NULL, '345'),
-(21, '4567', '5467', '5647', 'OC', 'M', 4567, NULL, '4567'),
-(22, '4364536', '43563', '3456', 'OC', 'M', 3456, NULL, '4356'),
-(23, '3456', '3456', '3456', 'OC', 'M/H', 3456, 3456, '3456');
+(37, 'qq-coisa', '234', '234', 'OC', 'M', 234, NULL, '234'),
+(38, 'outra-coisa', '654', '123', 'OC', 'M', 987, NULL, '654'),
+(39, 'wertyr', '2345', '2345', 'OC', 'M', 2345, NULL, '2345'),
+(40, '13451345', '123424', '123431234', 'OC', 'M', 1234124, NULL, '3452345'),
+(41, 'descrição', '456', '789', 'TBO', 'D', 558, NULL, '234'),
+(42, 'trocou', '111', '999', 'OC', 'M/H', 555, 888, 'teste');
 
 -- --------------------------------------------------------
 
@@ -5904,7 +6283,7 @@ INSERT INTO `tipo_inspecao` (`id_tipo_inspecao`, `descricaoInspecao`, `pnInspeca
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `idusuario` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(32) NOT NULL
@@ -5923,7 +6302,7 @@ INSERT INTO `usuario` (`idusuario`, `email`, `senha`) VALUES
 -- Estrutura da tabela `voo`
 --
 
-CREATE TABLE `voo` (
+CREATE TABLE IF NOT EXISTS `voo` (
   `idvoo` int(11) NOT NULL,
   `voo_status` enum('0','1') NOT NULL,
   `data_do_voo` date NOT NULL,
@@ -5942,7 +6321,416 @@ CREATE TABLE `voo` (
   `discrepancia` text NOT NULL,
   `relprev` text NOT NULL,
   `qte_etapas` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=401 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `voo`
+--
+
+INSERT INTO `voo` (`idvoo`, `voo_status`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `natureza`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `historico`, `ocorrencia`, `discrepancia`, `relprev`, `qte_etapas`) VALUES
+(1, '0', '2017-02-22', 611, 1, 'Gemma Cruz', 'Wade Hogan', 'Otto Reeves', 'Leroy G. Vinson', 'vehicula. Pellentesque tincidunt tempus', 18, 1, '61', 'dolor elit, pellentesque a, facilisis non, bibendum', 'habitant morbi tristique senectus et netus et malesuada', 'ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque', 'pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod', 1),
+(2, '0', '2018-10-13', 392, 5, 'Wesley Riddle', 'Yetta Dorsey', 'Stephanie Lester', 'Guinevere L. Bass', 'sit amet orci. Ut', 27, 1, '60', 'pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis', 'augue scelerisque mollis. Phasellus libero mauris, aliquam eu, accumsan sed,', 'odio. Etiam ligula tortor, dictum', 'dolor. Fusce feugiat. Lorem ipsum dolor sit amet, consectetuer', 1),
+(3, '0', '2017-10-13', 811, 3, 'Lyle I. Chavez', 'Porter H. Cole', 'Leo Oneal', 'Ahmed Bryant', 'Nullam ut nisi a', 260, 5, '98', 'est, vitae sodales nisi magna sed dui. Fusce aliquam, enim nec tempus', 'elit, a feugiat tellus lorem eu metus.', 'rhoncus. Donec est. Nunc ullamcorper, velit in', 'orci. Phasellus dapibus quam quis diam. Pellentesque habitant morbi', 1),
+(4, '0', '2017-06-17', 310, 4, 'Daniel P. Snyder', 'Gloria Vinson', 'Lavinia V. Johnston', 'Byron Alford', 'non nisi. Aenean eget', 37, 1, '30', 'lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et magnis dis', 'et ultrices posuere cubilia Curae; Donec tincidunt.', 'est. Nunc ullamcorper, velit in', 'ante dictum mi, ac mattis velit justo nec', 1),
+(5, '0', '2018-02-28', 260, 5, 'Rooney I. Benton', 'Malachi E. Rocha', 'Heidi E. Mcgowan', 'Garth Kane', 'Nulla tincidunt, neque vitae', 205, 3, '33', 'tellus faucibus leo, in lobortis tellus justo sit amet nulla. Donec non justo. Proin non', 'augue porttitor interdum. Sed auctor odio a purus. Duis elementum,', 'Nunc mauris elit, dictum eu,', 'vestibulum massa rutrum magna. Cras convallis', 1),
+(6, '0', '2017-07-24', 744, 4, 'Carol R. Wallace', 'Owen Lynch', 'Sydney F. Leonard', 'Winifred K. Bond', 'Aliquam gravida mauris ut', 212, 4, '94', 'gravida mauris ut mi. Duis risus odio,', 'turpis non enim. Mauris quis turpis vitae purus gravida', 'mi tempor lorem, eget mollis', 'enim, condimentum eget, volutpat ornare, facilisis eget,', 1),
+(7, '0', '2018-07-03', 235, 2, 'Xaviera Hatfield', 'David L. Francis', 'Carlos Chang', 'Luke W. Leblanc', 'ornare placerat, orci lacus', 259, 4, '11', 'lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus', 'ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed', 'amet, consectetuer adipiscing elit. Aliquam auctor,', 'mi fringilla mi lacinia mattis. Integer eu lacus. Quisque', 1),
+(8, '0', '2018-02-23', 778, 4, 'Desirae Mcgowan', 'Silas Spears', 'Holmes Riddle', 'Chantale F. Lloyd', 'pede, nonummy ut, molestie', 6, 1, '42', 'magna sed dui. Fusce aliquam, enim nec tempus scelerisque, lorem ipsum sodales purus, in molestie', 'Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non', 'dictum. Phasellus in felis. Nulla tempor', 'magna. Suspendisse tristique neque venenatis lacus.', 1),
+(9, '0', '2018-07-31', 611, 2, 'Inez T. Mcguire', 'Basia Q. Dejesus', 'Cruz Beck', 'Myles Haynes', 'Integer vulputate, risus a', 1, 5, '16', 'rutrum urna, nec luctus felis purus', 'vel lectus. Cum sociis natoque penatibus et magnis', 'lectus sit amet luctus vulputate, nisi sem semper erat,', 'ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat.', 1),
+(10, '0', '2017-08-29', 127, 2, 'Stacey X. Hayden', 'Quyn Q. Hardy', 'Caesar Vincent', 'Nicole Frye', 'vel lectus. Cum sociis', 145, 4, '15', 'dictum. Phasellus in felis. Nulla tempor', 'Aenean eget magna. Suspendisse tristique neque', 'nulla at sem molestie sodales. Mauris blandit enim consequat purus.', 'lobortis tellus justo sit amet nulla. Donec non', 1),
+(11, '0', '2017-08-09', 412, 2, 'Garth G. Meadows', 'Serena Waller', 'Bradley Burgess', 'Sade Jensen', 'nisi. Cum sociis natoque', 167, 5, '53', 'lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo', 'cursus, diam at pretium aliquet, metus urna', 'feugiat non, lobortis quis, pede. Suspendisse dui.', 'turpis non enim. Mauris quis turpis', 1),
+(12, '0', '2018-01-02', 304, 1, 'Audra Kline', 'Kessie K. Craig', 'Riley Shepard', 'Ignacia Reeves', 'vulputate mauris sagittis placerat.', 243, 5, '51', 'Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt', 'neque venenatis lacus. Etiam bibendum fermentum', 'sodales at, velit. Pellentesque ultricies', 'risus. Quisque libero lacus, varius et, euismod et, commodo', 1),
+(13, '0', '2018-03-27', 370, 3, 'Marny Garza', 'Orson Morgan', 'Basil Finch', 'Wanda K. Bush', 'iaculis aliquet diam. Sed', 279, 2, '51', 'eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget', 'fames ac turpis egestas. Aliquam fringilla', 'ornare, facilisis eget, ipsum. Donec sollicitudin', 'enim. Mauris quis turpis vitae purus gravida sagittis. Duis', 1),
+(14, '0', '2017-03-15', 805, 1, 'Blair R. Snyder', 'Igor Cruz', 'Jack Bullock', 'Imogene A. Webster', 'ipsum sodales purus, in', 238, 2, '91', 'risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat', 'lorem tristique aliquet. Phasellus fermentum convallis ligula.', 'risus. Morbi metus. Vivamus euismod', 'elit sed consequat auctor, nunc nulla', 1),
+(15, '0', '2018-08-07', 568, 2, 'Riley A. Stephenson', 'Levi Campbell', 'Ciara R. Pope', 'Ulric Allison', 'eu augue porttitor interdum.', 337, 1, '17', 'dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi,', 'eu sem. Pellentesque ut ipsum ac', 'mollis. Integer tincidunt aliquam arcu. Aliquam ultrices', 'fringilla euismod enim. Etiam gravida molestie arcu. Sed eu nibh', 1),
+(16, '0', '2018-09-22', 769, 2, 'Jack Wooten', 'Carl L. Conley', 'Heidi H. Payne', 'Forrest Y. Mcdowell', 'vehicula risus. Nulla eget', 224, 1, '53', 'eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et', 'sem eget massa. Suspendisse eleifend.', 'feugiat tellus lorem eu metus. In lorem. Donec', 'Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam', 1),
+(17, '0', '2018-08-30', 777, 1, 'Hu Kelly', 'Hadley O. Barrett', 'Michelle Terry', 'Hollee E. Middleton', 'libero est, congue a,', 285, 4, '86', 'ut nisi a odio semper cursus.', 'ultricies ornare, elit elit fermentum risus, at fringilla purus mauris', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet,', 'ut, pharetra sed, hendrerit a,', 1),
+(18, '0', '2018-02-25', 127, 2, 'Sylvester H. Cameron', 'Amena Page', 'Joseph F. Stone', 'Dexter Burt', 'libero. Morbi accumsan laoreet', 225, 4, '29', 'in molestie tortor nibh sit amet', 'Proin dolor. Nulla semper tellus id nunc interdum', 'montes, nascetur ridiculus mus. Aenean eget', 'cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum', 1),
+(19, '0', '2018-04-16', 498, 3, 'Zelda O. Patton', 'Halee Nguyen', 'Magee Cantu', 'Kaseem Hatfield', 'purus. Duis elementum, dui', 60, 1, '17', 'varius orci, in consequat enim diam vel arcu. Curabitur ut odio vel est tempor', 'eros nec tellus. Nunc lectus pede,', 'tincidunt, nunc ac mattis ornare, lectus', 'amet, faucibus ut, nulla. Cras eu tellus eu augue porttitor', 1),
+(20, '0', '2017-04-04', 172, 1, 'Amos Q. Norton', 'Burton M. Holman', 'Slade Bailey', 'Andrew Hooper', 'eros nec tellus. Nunc', 290, 3, '76', 'facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam', 'Donec est. Nunc ullamcorper, velit in', 'Quisque imperdiet, erat nonummy ultricies', 'mus. Proin vel arcu eu odio tristique pharetra.', 1),
+(21, '0', '2018-12-09', 731, 4, 'Austin F. Mccray', 'Berk S. Rose', 'Shana G. Watts', 'Hyacinth K. Rich', 'amet diam eu dolor', 98, 2, '62', 'arcu. Nunc mauris. Morbi non sapien molestie', 'semper tellus id nunc interdum feugiat. Sed nec metus facilisis', 'urna convallis erat, eget tincidunt', 'fermentum risus, at fringilla purus mauris', 1),
+(22, '0', '2017-11-29', 930, 2, 'Astra Joseph', 'Ralph Sosa', 'Nehru B. Delgado', 'Guy Sexton', 'vulputate velit eu sem.', 357, 5, '85', 'Donec at arcu. Vestibulum ante ipsum primis in', 'Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum', 'scelerisque mollis. Phasellus libero mauris, aliquam eu,', 'adipiscing elit. Aliquam auctor, velit eget laoreet posuere, enim', 1),
+(23, '0', '2017-12-17', 229, 3, 'Jolene P. Frazier', 'Carson O. Mason', 'Ainsley Pratt', 'Slade Stephenson', 'enim commodo hendrerit. Donec', 82, 5, '75', 'vulputate mauris sagittis placerat. Cras dictum ultricies ligula.', 'mauris eu elit. Nulla facilisi. Sed neque. Sed', 'Fusce mi lorem, vehicula et, rutrum eu, ultrices', 'hendrerit a, arcu. Sed et libero. Proin', 1),
+(24, '0', '2017-11-03', 646, 4, 'Ria C. Savage', 'Charissa Wagner', 'Carl Q. Hines', 'Camden C. Todd', 'dui. Fusce diam nunc,', 14, 2, '18', 'sit amet massa. Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a,', 'a, facilisis non, bibendum sed, est. Nunc laoreet', 'dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu', 'diam. Pellentesque habitant morbi tristique senectus et netus et', 1),
+(25, '0', '2017-09-07', 710, 5, 'Sebastian P. Cameron', 'Charissa Z. Ballard', 'Shelly Workman', 'Jade V. Sweet', 'elit elit fermentum risus,', 307, 3, '85', 'purus sapien, gravida non, sollicitudin a, malesuada id, erat. Etiam vestibulum', 'Curabitur sed tortor. Integer aliquam adipiscing', 'Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac', 'sem. Nulla interdum. Curabitur dictum. Phasellus in', 1),
+(26, '0', '2017-06-11', 685, 2, 'Neil Acevedo', 'Griffin Sheppard', 'Jermaine R. Flores', 'Aimee Q. Marsh', 'Nullam ut nisi a', 243, 1, '43', 'Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus', 'Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero.', 'elit fermentum risus, at fringilla purus mauris a nunc.', 'ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc', 1),
+(27, '0', '2017-09-09', 377, 3, 'Christen Powell', 'Cody J. Douglas', 'Sydnee I. Atkinson', 'Cassady Meyers', 'magna. Suspendisse tristique neque', 88, 5, '97', 'sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo.', 'pede sagittis augue, eu tempor erat neque non', 'magna. Praesent interdum ligula eu enim.', 'convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt', 1),
+(28, '0', '2017-09-16', 623, 3, 'Byron Dickson', 'Xena O. Hutchinson', 'Shad Marshall', 'Barbara Ewing', 'nisl sem, consequat nec,', 234, 1, '71', 'sapien. Nunc pulvinar arcu et pede. Nunc sed orci', 'nec, malesuada ut, sem. Nulla interdum.', 'nulla. Integer urna. Vivamus molestie dapibus ligula.', 'neque sed sem egestas blandit. Nam nulla magna,', 1),
+(29, '0', '2018-12-24', 914, 1, 'Wendy Burke', 'Odysseus Alston', 'Leah Haley', 'Wallace Chang', 'Morbi sit amet massa.', 321, 1, '78', 'nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor', 'amet nulla. Donec non justo. Proin non massa', 'eu erat semper rutrum. Fusce dolor quam, elementum', 'dolor, tempus non, lacinia at,', 1),
+(30, '0', '2017-01-11', 467, 3, 'Alexis Daugherty', 'Emmanuel R. Long', 'Scarlet Workman', 'Branden Y. Ewing', 'nonummy ac, feugiat non,', 291, 2, '70', 'eget laoreet posuere, enim nisl elementum purus, accumsan interdum libero dui nec', 'diam. Sed diam lorem, auctor quis, tristique', 'magnis dis parturient montes, nascetur ridiculus mus.', 'Proin dolor. Nulla semper tellus', 1),
+(31, '0', '2018-11-21', 982, 5, 'Kamal G. Cardenas', 'Arthur I. Jarvis', 'Ray R. Burke', 'Ian Sanders', 'lobortis quam a felis', 319, 5, '60', 'justo sit amet nulla. Donec non justo. Proin non massa non ante', 'faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse', 'nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus', 'nulla vulputate dui, nec tempus mauris', 1),
+(32, '0', '2018-06-08', 922, 5, 'Inga H. Russell', 'Charde T. Franks', 'Alfreda W. Ewing', 'Claudia Horne', 'Nullam ut nisi a', 127, 4, '59', 'iaculis odio. Nam interdum enim non nisi. Aenean eget', 'neque tellus, imperdiet non, vestibulum nec, euismod in, dolor.', 'lorem, vehicula et, rutrum eu, ultrices', 'egestas. Aliquam nec enim. Nunc', 1),
+(33, '0', '2017-10-29', 168, 4, 'Britanney Stuart', 'Adrienne Avery', 'Kessie H. Patel', 'Brennan Finley', 'a nunc. In at', 159, 1, '27', 'risus. Donec egestas. Aliquam nec', 'Phasellus nulla. Integer vulputate, risus', 'tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel,', 'accumsan convallis, ante lectus convallis est,', 1),
+(34, '0', '2017-05-10', 986, 2, 'Amelia Hyde', 'Drake Park', 'Valentine Cobb', 'Constance O. Guzman', 'diam nunc, ullamcorper eu,', 132, 2, '96', 'dictum augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim', 'sed pede. Cum sociis natoque penatibus et magnis', 'blandit mattis. Cras eget nisi dictum augue', 'dapibus rutrum, justo. Praesent luctus. Curabitur', 1),
+(35, '0', '2017-03-08', 828, 4, 'Irene M. Benton', 'Logan Dorsey', 'Lucian Houston', 'Dominique Summers', 'mollis dui, in sodales', 295, 4, '92', 'lectus. Cum sociis natoque penatibus et magnis dis parturient', 'tellus eu augue porttitor interdum. Sed auctor odio', 'Cum sociis natoque penatibus et magnis dis parturient montes,', 'sem ut cursus luctus, ipsum', 1),
+(36, '0', '2018-01-22', 177, 4, 'Laurel Cobb', 'Damian Morin', 'Fletcher M. Morrison', 'Emerald Mercado', 'nisi sem semper erat,', 37, 3, '92', 'sit amet, risus. Donec nibh enim, gravida sit amet, dapibus id, blandit', 'ac turpis egestas. Fusce aliquet magna a', 'Donec fringilla. Donec feugiat metus sit amet', 'sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis', 1),
+(37, '0', '2017-12-23', 335, 3, 'Brooke Thomas', 'Ignacia S. Stevenson', 'Ryan Durham', 'Barrett Sullivan', 'Morbi accumsan laoreet ipsum.', 21, 2, '31', 'suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci', 'nunc id enim. Curabitur massa.', 'sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus', 'lacus. Quisque imperdiet, erat nonummy', 1),
+(38, '0', '2018-02-20', 578, 5, 'Kane F. Cantrell', 'Rhonda Wilder', 'Alexandra Guy', 'Nicholas Sparks', 'sociis natoque penatibus et', 248, 4, '59', 'litora torquent per conubia nostra, per inceptos hymenaeos. Mauris ut quam', 'rhoncus. Donec est. Nunc ullamcorper, velit in aliquet', 'aliquam eu, accumsan sed, facilisis vitae,', 'libero at auctor ullamcorper, nisl arcu', 1),
+(39, '0', '2018-11-11', 455, 5, 'Kalia Johnson', 'Cameran N. Navarro', 'Lunea Kirby', 'Germaine Berry', 'risus odio, auctor vitae,', 269, 3, '18', 'Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet', 'elit, a feugiat tellus lorem eu metus. In', 'ornare, facilisis eget, ipsum. Donec', 'arcu. Morbi sit amet massa. Quisque porttitor eros nec', 1),
+(40, '0', '2018-06-26', 485, 1, 'Jonas Daniel', 'Haviva M. Peterson', 'Hayes Cline', 'Brianna F. Joseph', 'arcu. Curabitur ut odio', 338, 1, '95', 'eleifend non, dapibus rutrum, justo. Praesent luctus.', 'nascetur ridiculus mus. Proin vel nisl. Quisque fringilla euismod enim.', 'nunc sed libero. Proin sed turpis', 'sed, facilisis vitae, orci. Phasellus dapibus quam', 1),
+(41, '0', '2017-07-05', 661, 2, 'Cathleen Morse', 'Melissa S. Melton', 'Latifah P. Kirby', 'Noah Harris', 'Curabitur vel lectus. Cum', 126, 3, '22', 'dis parturient montes, nascetur ridiculus mus. Proin vel nisl. Quisque fringilla euismod', 'accumsan neque et nunc. Quisque ornare tortor', 'elit, pretium et, rutrum non,', 'nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus,', 1),
+(42, '0', '2017-03-06', 885, 5, 'Phelan Oneil', 'Megan U. Sullivan', 'Charles P. Fuller', 'Tanner Fowler', 'enim. Nunc ut erat.', 79, 1, '45', 'Vivamus euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas iaculis aliquet diam.', 'montes, nascetur ridiculus mus. Proin vel nisl. Quisque fringilla', 'id, mollis nec, cursus a,', 'felis purus ac tellus. Suspendisse sed dolor. Fusce', 1),
+(43, '0', '2017-06-02', 196, 3, 'Belle Knowles', 'Maile Green', 'Jolene G. Cohen', 'Macy Baker', 'ipsum primis in faucibus', 31, 4, '49', 'nunc sit amet metus. Aliquam', 'molestie arcu. Sed eu nibh vulputate mauris sagittis placerat.', 'orci luctus et ultrices posuere cubilia Curae; Donec tincidunt.', 'ornare placerat, orci lacus vestibulum lorem, sit', 1),
+(44, '0', '2018-09-25', 824, 5, 'Malachi I. Craft', 'September William', 'Hiram S. Mays', 'Yoshio X. Pruitt', 'neque. Nullam nisl. Maecenas', 133, 5, '50', 'neque pellentesque massa lobortis ultrices. Vivamus', 'primis in faucibus orci luctus et', 'leo elementum sem, vitae aliquam eros', 'Cum sociis natoque penatibus et', 1),
+(45, '0', '2017-06-27', 419, 1, 'Tatum Byrd', 'Ulla Payne', 'Zelda Walker', 'Noel Beck', 'lorem. Donec elementum, lorem', 315, 2, '82', 'consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum', 'tellus justo sit amet nulla. Donec non', 'Cras dictum ultricies ligula. Nullam enim. Sed nulla ante, iaculis', 'laoreet ipsum. Curabitur consequat, lectus', 1),
+(46, '0', '2018-03-04', 183, 1, 'Kiayada Campbell', 'Otto V. Lynn', 'Deacon K. Rich', 'Anthony Irwin', 'pede blandit congue. In', 233, 5, '16', 'consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget', 'sagittis. Duis gravida. Praesent eu nulla', 'dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas', 'faucibus leo, in lobortis tellus justo sit', 1),
+(47, '0', '2017-10-21', 704, 5, 'Melvin A. Serrano', 'Mason Dalton', 'MacKensie Reese', 'Lacey Hays', 'ullamcorper. Duis at lacus.', 139, 4, '89', 'lacinia at, iaculis quis, pede. Praesent eu', 'magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim', 'egestas a, dui. Cras pellentesque. Sed dictum.', 'sit amet ornare lectus justo eu arcu.', 1),
+(48, '0', '2018-06-06', 717, 3, 'Ian D. Farmer', 'Jasper E. Clarke', 'Hunter Le', 'Tanner F. Wall', 'mollis vitae, posuere at,', 254, 1, '72', 'enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros', 'vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque', 'consectetuer, cursus et, magna. Praesent interdum ligula eu', 'Nulla semper tellus id nunc interdum feugiat. Sed nec', 1),
+(49, '0', '2018-03-07', 771, 1, 'Reece King', 'Keaton R. Hurst', 'Aquila Best', 'Colton A. Rodgers', 'mattis ornare, lectus ante', 333, 4, '39', 'neque tellus, imperdiet non, vestibulum nec, euismod in, dolor.', 'bibendum. Donec felis orci, adipiscing non, luctus sit', 'dapibus rutrum, justo. Praesent luctus. Curabitur egestas nunc', 'faucibus lectus, a sollicitudin orci', 1),
+(50, '0', '2018-09-23', 819, 4, 'Brock C. Shepherd', 'Jenna I. Castillo', 'Grant Ashley', 'Ryan Scott', 'sit amet lorem semper', 125, 5, '99', 'facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a ultricies adipiscing,', 'Pellentesque ut ipsum ac mi eleifend', 'erat vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse', 'Mauris eu turpis. Nulla aliquet.', 1),
+(51, '0', '2017-11-28', 178, 2, 'Thaddeus Barry', 'Skyler U. Olson', 'Justin Elliott', 'Shay Morton', 'iaculis nec, eleifend non,', 195, 2, '31', 'vitae semper egestas, urna justo faucibus lectus,', 'magna. Duis dignissim tempor arcu. Vestibulum', 'montes, nascetur ridiculus mus. Donec dignissim', 'tempus, lorem fringilla ornare placerat, orci lacus vestibulum lorem,', 1),
+(52, '0', '2018-11-18', 794, 3, 'Ray Mcclure', 'Sophia Brennan', 'Eliana M. Haynes', 'Shay O. Dominguez', 'ac turpis egestas. Fusce', 144, 2, '22', 'Fusce aliquam, enim nec tempus scelerisque, lorem ipsum sodales', 'ipsum. Curabitur consequat, lectus sit amet luctus vulputate,', 'facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus', 'risus, at fringilla purus mauris a nunc. In', 1),
+(53, '0', '2018-01-23', 294, 5, 'Troy N. Willis', 'Dacey D. Andrews', 'Julie X. Owen', 'Ivana L. Dalton', 'auctor velit. Aliquam nisl.', 97, 3, '64', 'Aenean sed pede nec ante blandit viverra. Donec tempus, lorem fringilla', 'accumsan neque et nunc. Quisque ornare tortor', 'vel arcu. Curabitur ut odio', 'Sed nunc est, mollis non, cursus non, egestas', 1),
+(54, '0', '2018-03-27', 456, 3, 'Lee House', 'Tara G. Patterson', 'Jayme Olsen', 'Cleo Mcgowan', 'leo, in lobortis tellus', 28, 2, '54', 'dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna.', 'Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non', 'accumsan sed, facilisis vitae, orci. Phasellus dapibus quam quis', 'adipiscing, enim mi tempor lorem,', 1),
+(55, '0', '2018-12-28', 559, 2, 'Odysseus I. Mcbride', 'Adena Y. Munoz', 'Kiona Chen', 'Eve G. Pollard', 'sem mollis dui, in', 160, 1, '41', 'Phasellus dolor elit, pellentesque a, facilisis non,', 'vel, vulputate eu, odio. Phasellus at augue id ante dictum', 'bibendum fermentum metus. Aenean sed pede nec ante', 'velit. Pellentesque ultricies dignissim lacus.', 1),
+(56, '0', '2018-07-19', 282, 3, 'Charde Alston', 'Donovan Whitfield', 'Jacob Hamilton', 'Laurel U. Roth', 'Lorem ipsum dolor sit', 269, 1, '86', 'fermentum risus, at fringilla purus mauris a nunc. In at', 'Curae; Phasellus ornare. Fusce mollis. Duis sit', 'pede, ultrices a, auctor non, feugiat nec, diam.', 'semper cursus. Integer mollis. Integer', 1),
+(57, '0', '2018-12-06', 827, 3, 'Wynne G. Howe', 'Thaddeus Rivera', 'Medge Lucas', 'Rafael Herrera', 'magna a neque. Nullam', 89, 4, '29', 'blandit mattis. Cras eget nisi dictum augue malesuada malesuada. Integer id magna et ipsum', 'egestas, urna justo faucibus lectus, a sollicitudin', 'ante dictum cursus. Nunc mauris', 'Donec tincidunt. Donec vitae erat vel pede blandit congue. In', 1),
+(58, '0', '2018-12-04', 193, 4, 'Graham Lane', 'Madeson R. Acosta', 'Carol Z. Hood', 'Wesley B. Blackwell', 'vitae erat vel pede', 161, 1, '51', 'per conubia nostra, per inceptos hymenaeos.', 'Phasellus dolor elit, pellentesque a, facilisis non,', 'vitae diam. Proin dolor. Nulla semper', 'rutrum, justo. Praesent luctus. Curabitur egestas nunc sed', 1),
+(59, '0', '2018-08-30', 132, 3, 'Timothy B. Herman', 'Jarrod Howell', 'Oscar Duran', 'Reagan I. Arnold', 'ac risus. Morbi metus.', 199, 3, '95', 'placerat, orci lacus vestibulum lorem,', 'magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor', 'sodales nisi magna sed dui. Fusce aliquam,', 'est ac mattis semper, dui lectus rutrum urna, nec luctus', 1),
+(60, '0', '2018-03-17', 557, 2, 'Vincent Potts', 'Ezekiel Willis', 'Angela Moss', 'Iris Y. Montgomery', 'Mauris non dui nec', 309, 3, '78', 'lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet', 'Nunc commodo auctor velit. Aliquam', 'diam dictum sapien. Aenean massa. Integer', 'ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque', 1),
+(61, '0', '2017-05-30', 536, 5, 'Brittany Rivers', 'Nola Campos', 'Martha Q. Rodriquez', 'Dane R. Dillard', 'ipsum leo elementum sem,', 147, 3, '64', 'purus gravida sagittis. Duis gravida. Praesent eu nulla at sem molestie sodales. Mauris', 'diam lorem, auctor quis, tristique', 'porttitor tellus non magna. Nam ligula elit, pretium et, rutrum', 'sed pede nec ante blandit viverra. Donec', 1),
+(62, '0', '2018-02-20', 887, 2, 'Amal Mccullough', 'Echo K. Oneill', 'Jarrod Z. Bass', 'Ishmael Frazier', 'semper pretium neque. Morbi', 336, 3, '67', 'sollicitudin adipiscing ligula. Aenean gravida nunc sed pede.', 'nascetur ridiculus mus. Proin vel arcu eu', 'dignissim pharetra. Nam ac nulla. In tincidunt', 'vel arcu eu odio tristique pharetra.', 1),
+(63, '0', '2017-04-01', 809, 1, 'Dawn M. Clay', 'Frances C. Lowery', 'Juliet I. Kaufman', 'Leonard Q. Hodges', 'Integer vitae nibh. Donec', 330, 5, '71', 'sit amet ultricies sem magna nec quam. Curabitur', 'Praesent eu nulla at sem molestie sodales. Mauris blandit enim', 'Aliquam auctor, velit eget laoreet', 'diam luctus lobortis. Class aptent taciti sociosqu ad litora', 1),
+(64, '0', '2017-08-25', 438, 2, 'Quinn Dean', 'Nyssa Dotson', 'Stephen G. Dudley', 'Knox G. Nunez', 'eleifend, nunc risus varius', 95, 2, '60', 'tristique ac, eleifend vitae, erat. Vivamus nisi. Mauris nulla. Integer', 'malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris', 'Lorem ipsum dolor sit amet, consectetuer', 'elit, pretium et, rutrum non, hendrerit', 1),
+(65, '0', '2018-03-10', 541, 4, 'Dillon Fowler', 'Derek Mcneil', 'Belle V. Wade', 'Brynne Richmond', 'viverra. Maecenas iaculis aliquet', 168, 4, '82', 'felis eget varius ultrices, mauris', 'Mauris blandit enim consequat purus.', 'mattis ornare, lectus ante dictum mi, ac', 'ligula eu enim. Etiam imperdiet dictum', 1),
+(66, '0', '2018-11-16', 933, 5, 'Oscar L. Sloan', 'Blaze O. Short', 'Ursula Z. Schneider', 'Giacomo Y. Black', 'mollis dui, in sodales', 318, 1, '15', 'Maecenas libero est, congue a, aliquet vel, vulputate eu, odio. Phasellus at', 'viverra. Donec tempus, lorem fringilla ornare placerat, orci lacus vestibulum', 'rutrum. Fusce dolor quam, elementum at, egestas a, scelerisque sed,', 'tortor at risus. Nunc ac sem ut dolor dapibus', 1),
+(67, '0', '2018-06-08', 602, 4, 'Geraldine Heath', 'Gabriel O. Mcdonald', 'Lydia P. Huber', 'Jakeem B. Sullivan', 'Aenean sed pede nec', 225, 4, '15', 'hendrerit consectetuer, cursus et, magna.', 'orci. Ut sagittis lobortis mauris. Suspendisse aliquet molestie tellus.', 'Duis volutpat nunc sit amet metus.', 'morbi tristique senectus et netus et', 1),
+(68, '0', '2017-08-23', 704, 3, 'Davis Coleman', 'Wang Nichols', 'Candice Rocha', 'Aspen J. Bean', 'semper rutrum. Fusce dolor', 90, 5, '78', 'iaculis quis, pede. Praesent eu dui. Cum', 'facilisis, magna tellus faucibus leo, in lobortis', 'arcu iaculis enim, sit amet ornare lectus justo eu', 'Donec porttitor tellus non magna. Nam ligula', 1),
+(69, '0', '2018-11-21', 920, 2, 'Chandler Burns', 'Jerry Deleon', 'Shellie Z. Graves', 'Zane X. Mitchell', 'quam vel sapien imperdiet', 59, 1, '74', 'non, cursus non, egestas a, dui. Cras pellentesque.', 'metus eu erat semper rutrum. Fusce dolor quam, elementum at,', 'nunc sed libero. Proin sed turpis nec mauris blandit', 'egestas lacinia. Sed congue, elit sed consequat', 1),
+(70, '0', '2017-11-02', 315, 4, 'Lance A. Le', 'Irma Weaver', 'Anika N. Kirby', 'Morgan Watkins', 'imperdiet ullamcorper. Duis at', 251, 3, '54', 'fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat', 'egestas. Duis ac arcu. Nunc mauris. Morbi', 'ut lacus. Nulla tincidunt, neque vitae semper egestas,', 'lobortis, nisi nibh lacinia orci,', 1),
+(71, '0', '2017-02-15', 379, 1, 'Martin Schneider', 'Shannon Benjamin', 'Joseph Berger', 'Calvin Dalton', 'erat nonummy ultricies ornare,', 213, 1, '87', 'cursus in, hendrerit consectetuer, cursus', 'Proin nisl sem, consequat nec, mollis vitae, posuere at, velit.', 'Quisque fringilla euismod enim. Etiam gravida molestie arcu. Sed', 'ac mi eleifend egestas. Sed pharetra, felis', 1),
+(72, '0', '2017-06-15', 593, 5, 'Hop Hayden', 'Erasmus Haney', 'Kirsten Banks', 'Fletcher P. Petty', 'pharetra nibh. Aliquam ornare,', 338, 2, '24', 'facilisis facilisis, magna tellus faucibus leo, in lobortis tellus justo sit', 'mauris elit, dictum eu, eleifend nec, malesuada', 'nascetur ridiculus mus. Proin vel nisl. Quisque fringilla euismod', 'faucibus ut, nulla. Cras eu tellus', 1),
+(73, '0', '2018-04-08', 424, 1, 'Robert M. Keller', 'Sierra Burgess', 'Josephine T. Pickett', 'Ava Jimenez', 'Nulla facilisi. Sed neque.', 126, 3, '13', 'in, tempus eu, ligula. Aenean euismod mauris eu', 'dictum magna. Ut tincidunt orci', 'cursus. Nunc mauris elit, dictum eu, eleifend nec, malesuada ut,', 'et netus et malesuada fames ac', 1),
+(74, '0', '2018-04-17', 362, 5, 'Xyla Garcia', 'Chancellor Higgins', 'Kyla Poole', 'Imelda S. Price', 'id nunc interdum feugiat.', 177, 5, '86', 'interdum ligula eu enim. Etiam imperdiet dictum magna. Ut tincidunt orci', 'egestas. Fusce aliquet magna a neque. Nullam ut nisi a', 'volutpat. Nulla facilisis. Suspendisse commodo', 'ac facilisis facilisis, magna tellus', 1),
+(75, '0', '2018-03-18', 589, 3, 'Gregory F. Moody', 'Armando Moss', 'Lewis P. Calhoun', 'Nomlanga M. Morales', 'vulputate mauris sagittis placerat.', 133, 5, '13', 'leo, in lobortis tellus justo sit amet', 'Sed nunc est, mollis non, cursus non,', 'molestie tortor nibh sit amet orci. Ut sagittis lobortis mauris.', 'consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 1),
+(76, '0', '2017-04-21', 720, 3, 'Rajah Kerr', 'Grady Lyons', 'Sylvia H. Willis', 'Beverly D. Terrell', 'risus. Nulla eget metus', 248, 4, '41', 'lectus pede, ultrices a, auctor non, feugiat', 'luctus et ultrices posuere cubilia Curae; Donec', 'magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus.', 'mi fringilla mi lacinia mattis.', 1),
+(77, '0', '2018-07-20', 918, 1, 'Amena T. Mejia', 'Xavier Bradley', 'Angelica Y. Petersen', 'Rafael Walsh', 'aliquam arcu. Aliquam ultrices', 50, 5, '66', 'faucibus orci luctus et ultrices posuere cubilia Curae; Donec tincidunt. Donec vitae erat', 'elementum sem, vitae aliquam eros turpis', 'Cras dolor dolor, tempus non, lacinia', 'tempor erat neque non quam. Pellentesque habitant morbi tristique senectus', 1),
+(78, '0', '2018-05-30', 180, 5, 'Kitra E. Bernard', 'Joseph O. Mcleod', 'Xantha W. Haley', 'Sydney Fletcher', 'malesuada fames ac turpis', 129, 2, '13', 'neque vitae semper egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa.', 'In at pede. Cras vulputate', 'porta elit, a feugiat tellus', 'montes, nascetur ridiculus mus. Proin vel', 1),
+(79, '0', '2017-03-09', 899, 1, 'Cooper S. Ballard', 'Deanna Cabrera', 'Ahmed J. Carlson', 'Joseph G. Bennett', 'magna. Duis dignissim tempor', 328, 4, '41', 'ultricies dignissim lacus. Aliquam rutrum lorem ac risus.', 'neque. Sed eget lacus. Mauris', 'adipiscing, enim mi tempor lorem, eget mollis', 'egestas nunc sed libero. Proin sed', 1),
+(80, '0', '2018-12-03', 208, 2, 'Jayme A. Reed', 'Keith Mcfarland', 'Abigail S. Dillard', 'Burton D. Bowman', 'mauris eu elit. Nulla', 321, 4, '75', 'varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis.', 'elementum sem, vitae aliquam eros turpis non enim.', 'quis urna. Nunc quis arcu vel quam dignissim pharetra.', 'Nam interdum enim non nisi. Aenean eget metus.', 1),
+(81, '0', '2017-04-10', 700, 1, 'Althea K. Finley', 'Ayanna Y. Meyers', 'Justin S. Meyers', 'Matthew Fisher', 'ultrices sit amet, risus.', 150, 2, '25', 'gravida sagittis. Duis gravida. Praesent', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet,', 'Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu', 'ornare, lectus ante dictum mi, ac mattis', 1),
+(82, '0', '2018-08-10', 344, 4, 'Helen O. Silva', 'Emily Suarez', 'Althea Odom', 'Athena K. Ewing', 'non, lacinia at, iaculis', 84, 3, '17', 'lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh', 'at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam', 'leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod', 'Cras vehicula aliquet libero. Integer in', 1),
+(83, '0', '2017-04-23', 835, 2, 'Nichole Oneal', 'Susan M. Crosby', 'Alika B. Greene', 'Mari Norman', 'pede et risus. Quisque', 265, 3, '70', 'lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat', 'semper pretium neque. Morbi quis', 'vel, faucibus id, libero. Donec consectetuer mauris id', 'euismod in, dolor. Fusce feugiat. Lorem ipsum dolor sit amet,', 1),
+(84, '0', '2018-05-13', 931, 2, 'Walker D. Greer', 'Trevor Daugherty', 'Maris W. Fleming', 'Tatum Marquez', 'id ante dictum cursus.', 210, 4, '76', 'accumsan sed, facilisis vitae, orci. Phasellus dapibus quam quis diam. Pellentesque', 'viverra. Maecenas iaculis aliquet diam. Sed diam lorem,', 'ligula. Nullam enim. Sed nulla ante, iaculis', 'quis, pede. Praesent eu dui.', 1),
+(85, '0', '2018-04-09', 532, 4, 'Leonard T. Bradley', 'Rae T. Alvarez', 'Abigail Gray', 'Davis Mullen', 'mi. Aliquam gravida mauris', 157, 1, '59', 'purus gravida sagittis. Duis gravida. Praesent eu nulla', 'enim nisl elementum purus, accumsan interdum libero', 'ac risus. Morbi metus. Vivamus', 'mollis non, cursus non, egestas a, dui.', 1),
+(86, '0', '2017-02-23', 673, 4, 'Camille Peterson', 'Kristen E. Long', 'Sopoline Mckee', 'Latifah Mosley', 'cubilia Curae; Phasellus ornare.', 45, 5, '56', 'tellus faucibus leo, in lobortis tellus justo sit', 'sociis natoque penatibus et magnis', 'lacus. Etiam bibendum fermentum metus. Aenean sed', 'Mauris nulla. Integer urna. Vivamus molestie dapibus', 1),
+(87, '0', '2018-03-19', 257, 1, 'Richard Witt', 'Willow N. Montoya', 'Tara Day', 'Jorden L. Morrow', 'lectus quis massa. Mauris', 111, 2, '42', 'Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus.', 'ac, feugiat non, lobortis quis,', 'lorem fringilla ornare placerat, orci lacus vestibulum lorem,', 'dictum placerat, augue. Sed molestie. Sed id risus quis diam', 1),
+(88, '0', '2017-11-11', 830, 5, 'Gay O. Ratliff', 'Colette E. Macias', 'Jerry Langley', 'Ira O. Larsen', 'justo eu arcu. Morbi', 110, 3, '88', 'ipsum. Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis', 'odio. Nam interdum enim non nisi. Aenean eget metus.', 'feugiat metus sit amet ante. Vivamus non lorem vitae odio', 'neque tellus, imperdiet non, vestibulum nec,', 1),
+(89, '0', '2018-09-26', 781, 2, 'Seth L. Newman', 'Silas M. Ortega', 'Clinton Petersen', 'Heidi Poole', 'turpis. In condimentum. Donec', 79, 2, '58', 'Aenean euismod mauris eu elit. Nulla facilisi. Sed neque.', 'Nam interdum enim non nisi. Aenean eget metus.', 'Aliquam ultrices iaculis odio. Nam interdum enim non nisi.', 'Aliquam rutrum lorem ac risus.', 1),
+(90, '0', '2018-06-09', 924, 1, 'Hadassah U. Booker', 'Zachary Y. Pena', 'Cheryl Y. Crawford', 'Kuame W. Woodard', 'eget varius ultrices, mauris', 22, 1, '37', 'mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra', 'interdum enim non nisi. Aenean eget metus. In', 'nulla vulputate dui, nec tempus mauris erat eget ipsum.', 'non sapien molestie orci tincidunt adipiscing.', 1),
+(91, '0', '2018-06-25', 319, 5, 'Nigel Perkins', 'Daryl Jefferson', 'Quyn Mejia', 'Quyn Z. Craig', 'non nisi. Aenean eget', 113, 2, '16', 'non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna.', 'erat. Sed nunc est, mollis non, cursus non, egestas a,', 'libero mauris, aliquam eu, accumsan sed, facilisis vitae,', 'ut quam vel sapien imperdiet ornare. In', 1),
+(92, '0', '2017-12-08', 475, 4, 'Armand R. Kramer', 'Elijah Holden', 'Isaiah Justice', 'Cora Faulkner', 'Mauris blandit enim consequat', 71, 4, '24', 'molestie arcu. Sed eu nibh vulputate mauris sagittis placerat. Cras dictum ultricies ligula. Nullam enim.', 'dui, semper et, lacinia vitae, sodales at, velit.', 'nisi. Aenean eget metus. In nec orci. Donec nibh.', 'pretium neque. Morbi quis urna. Nunc', 1),
+(93, '0', '2017-10-11', 738, 1, 'Delilah Juarez', 'Keith Z. Stewart', 'Gil A. Allen', 'Kathleen Slater', 'mauris elit, dictum eu,', 215, 4, '67', 'enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit,', 'purus sapien, gravida non, sollicitudin a, malesuada id,', 'eros. Proin ultrices. Duis volutpat nunc sit amet', 'euismod urna. Nullam lobortis quam', 1),
+(94, '0', '2018-10-21', 388, 1, 'Wanda Lloyd', 'Gage M. Thomas', 'Glenna King', 'Tasha Emerson', 'aliquet nec, imperdiet nec,', 253, 5, '45', 'ultrices sit amet, risus. Donec nibh enim, gravida sit amet,', 'Praesent eu nulla at sem molestie sodales.', 'Cras eu tellus eu augue porttitor interdum.', 'mauris. Morbi non sapien molestie orci tincidunt adipiscing.', 1),
+(95, '0', '2018-02-22', 475, 5, 'Lev Brady', 'Nash Schmidt', 'Shana Norris', 'Kylie Cline', 'eget varius ultrices, mauris', 92, 4, '16', 'tellus eu augue porttitor interdum.', 'primis in faucibus orci luctus et ultrices posuere cubilia', 'nulla at sem molestie sodales. Mauris blandit enim consequat purus.', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec', 1),
+(96, '0', '2018-09-07', 403, 4, 'Leo W. Nguyen', 'Graham Santana', 'Bevis Mcknight', 'Francis V. Serrano', 'ac urna. Ut tincidunt', 98, 2, '91', 'sagittis lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit neque. In', 'Donec non justo. Proin non massa non ante bibendum ullamcorper.', 'Donec egestas. Duis ac arcu. Nunc', 'in magna. Phasellus dolor elit, pellentesque a, facilisis', 1),
+(97, '0', '2017-03-31', 456, 1, 'Timothy Y. Sanchez', 'Lee Jordan', 'Ginger Vaughn', 'Shannon K. Bailey', 'Quisque imperdiet, erat nonummy', 204, 2, '80', 'ultrices posuere cubilia Curae; Donec tincidunt.', 'Nam nulla magna, malesuada vel, convallis in, cursus', 'pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus', 'Fusce dolor quam, elementum at, egestas', 1),
+(98, '0', '2018-09-20', 983, 3, 'Nasim C. Hudson', 'Whoopi W. Yates', 'Clio Ferguson', 'Lester B. Luna', 'diam eu dolor egestas', 168, 3, '97', 'montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis', 'nec ligula consectetuer rhoncus. Nullam velit dui, semper', 'scelerisque dui. Suspendisse ac metus vitae velit', 'Proin vel arcu eu odio tristique pharetra.', 1),
+(99, '0', '2017-12-19', 248, 5, 'Nero C. Bailey', 'Vivian O. Mckinney', 'Christian Dunn', 'Armando M. Phillips', 'libero est, congue a,', 223, 4, '52', 'Donec luctus aliquet odio. Etiam ligula tortor, dictum', 'sit amet luctus vulputate, nisi sem semper erat, in', 'In at pede. Cras vulputate velit eu', 'molestie dapibus ligula. Aliquam erat', 1),
+(100, '0', '2018-02-11', 352, 2, 'Wallace Bentley', 'Porter M. Key', 'Kato Z. Navarro', 'Jade C. Barber', 'dis parturient montes, nascetur', 111, 3, '71', 'rhoncus id, mollis nec, cursus a, enim. Suspendisse', 'quam. Pellentesque habitant morbi tristique', 'tincidunt, nunc ac mattis ornare, lectus ante dictum', 'velit. Aliquam nisl. Nulla eu neque pellentesque', 1),
+(101, '0', '2018-11-14', 727, 5, 'Vance Ball', 'Holmes X. Morris', 'Chaney Gilliam', 'Irma Thornton', 'libero est, congue a,', 71, 1, '46', 'felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis,', 'fermentum metus. Aenean sed pede nec', 'dapibus ligula. Aliquam erat volutpat.', 'facilisis eget, ipsum. Donec sollicitudin', 1),
+(102, '0', '2018-02-20', 243, 1, 'Kimberly A. Boone', 'Plato Glover', 'Raya B. Dodson', 'Geoffrey Pickett', 'aliquet magna a neque.', 226, 4, '63', 'tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin', 'lacus. Cras interdum. Nunc sollicitudin', 'ipsum ac mi eleifend egestas. Sed pharetra, felis eget', 'lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus', 1),
+(103, '0', '2018-07-21', 945, 3, 'Grace O. Farley', 'Cyrus Kirk', 'Bryar Hays', 'Chastity N. Jones', 'Praesent luctus. Curabitur egestas', 41, 5, '59', 'lacus pede sagittis augue, eu tempor erat', 'Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a', 'urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum', 'ante lectus convallis est, vitae sodales', 1),
+(104, '0', '2018-12-14', 435, 3, 'Brock Ross', 'Kameko Q. Watts', 'Magee X. Olsen', 'Virginia K. Puckett', 'lacinia. Sed congue, elit', 151, 5, '10', 'nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus', 'faucibus ut, nulla. Cras eu', 'magna et ipsum cursus vestibulum. Mauris magna. Duis', 'lorem semper auctor. Mauris vel', 1),
+(105, '0', '2017-06-05', 608, 2, 'Emily L. Wright', 'Cole Holland', 'Hamish I. Howell', 'Octavius M. Richmond', 'amet, consectetuer adipiscing elit.', 342, 4, '92', 'pede, ultrices a, auctor non, feugiat nec, diam. Duis mi enim, condimentum eget, volutpat', 'sodales elit erat vitae risus. Duis a mi fringilla mi', 'posuere, enim nisl elementum purus, accumsan', 'mi eleifend egestas. Sed pharetra, felis eget', 1),
+(106, '0', '2018-03-23', 233, 3, 'Geoffrey U. Holt', 'Ina K. Shaffer', 'Arden Kaufman', 'Zachery V. Noble', 'Aliquam nec enim. Nunc', 52, 1, '65', 'sed dictum eleifend, nunc risus varius orci, in consequat', 'consequat purus. Maecenas libero est,', 'lacinia. Sed congue, elit sed consequat', 'Etiam vestibulum massa rutrum magna.', 1),
+(107, '0', '2017-09-14', 582, 2, 'Stewart Kline', 'Prescott Walker', 'Alika Z. Rose', 'Amery S. Mcdowell', 'nulla vulputate dui, nec', 294, 2, '43', 'tortor, dictum eu, placerat eget, venenatis', 'libero nec ligula consectetuer rhoncus. Nullam velit dui, semper et,', 'malesuada ut, sem. Nulla interdum. Curabitur dictum.', 'magnis dis parturient montes, nascetur ridiculus mus.', 1),
+(108, '0', '2018-07-01', 805, 3, 'Dieter H. Goodman', 'Eaton Travis', 'Tatum Rice', 'Grant J. Bullock', 'at auctor ullamcorper, nisl', 214, 1, '71', 'ultricies ornare, elit elit fermentum risus, at', 'Donec vitae erat vel pede blandit congue. In scelerisque scelerisque', 'Nunc quis arcu vel quam dignissim pharetra.', 'commodo auctor velit. Aliquam nisl. Nulla', 1),
+(109, '0', '2018-06-28', 964, 4, 'Ariana L. Hale', 'Murphy N. Hutchinson', 'Doris V. Montoya', 'Remedios Z. Thornton', 'sed sem egestas blandit.', 131, 3, '93', 'elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer', 'massa. Suspendisse eleifend. Cras sed leo. Cras', 'leo. Vivamus nibh dolor, nonummy ac, feugiat non, lobortis', 'Duis sit amet diam eu dolor egestas', 1),
+(110, '0', '2017-10-07', 554, 2, 'Lucas Mcdonald', 'Sophia Leach', 'Anthony O. Tanner', 'Hammett Copeland', 'nec metus facilisis lorem', 330, 5, '27', 'Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer', 'parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique', 'neque. Nullam ut nisi a odio', 'Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie', 1),
+(111, '0', '2018-11-07', 934, 4, 'Fitzgerald Hooper', 'Jelani D. Carter', 'Leila J. Martinez', 'Noble W. Callahan', 'blandit congue. In scelerisque', 275, 4, '15', 'tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula et,', 'metus facilisis lorem tristique aliquet. Phasellus', 'a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras', 'leo, in lobortis tellus justo sit', 1),
+(112, '0', '2018-10-24', 250, 1, 'Kibo T. Nguyen', 'Abdul L. Craft', 'Scott Beard', 'Donovan Robinson', 'enim mi tempor lorem,', 346, 5, '44', 'metus. Aenean sed pede nec ante blandit viverra. Donec tempus,', 'netus et malesuada fames ac turpis egestas. Fusce', 'luctus vulputate, nisi sem semper erat, in consectetuer ipsum', 'magna nec quam. Curabitur vel lectus.', 1),
+(113, '0', '2017-04-04', 579, 1, 'Bethany D. Vaughan', 'Anika Hopkins', 'Dennis P. Humphrey', 'Ivan Saunders', 'iaculis aliquet diam. Sed', 140, 1, '40', 'eget odio. Aliquam vulputate ullamcorper magna. Sed eu', 'a felis ullamcorper viverra. Maecenas', 'nec ante. Maecenas mi felis,', 'interdum. Nunc sollicitudin commodo ipsum.', 1),
+(114, '0', '2018-09-17', 978, 5, 'MacKensie Hawkins', 'Malik U. Pace', 'Stacey Fuller', 'Laith Fry', 'pede. Nunc sed orci', 154, 3, '70', 'vitae, posuere at, velit. Cras lorem lorem, luctus ut,', 'quam. Pellentesque habitant morbi tristique senectus et netus', 'urna justo faucibus lectus, a sollicitudin', 'lorem, auctor quis, tristique ac,', 1),
+(115, '0', '2017-03-18', 573, 3, 'Alice G. Farley', 'Talon Z. Valentine', 'Jesse Greer', 'Haviva V. Gallegos', 'Cum sociis natoque penatibus', 5, 4, '97', 'arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia', 'pede. Cras vulputate velit eu sem.', 'amet orci. Ut sagittis lobortis mauris. Suspendisse', 'tempor arcu. Vestibulum ut eros', 1),
+(116, '0', '2018-03-11', 499, 5, 'Allegra Navarro', 'Bryar Meyer', 'Damian Stuart', 'Stewart M. Whitney', 'eu turpis. Nulla aliquet.', 305, 1, '54', 'diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere', 'consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam', 'Morbi sit amet massa. Quisque porttitor', 'consectetuer euismod est arcu ac orci.', 1),
+(117, '0', '2017-05-09', 194, 1, 'Haviva Kane', 'Benedict R. Byers', 'Yoko Bowen', 'Mason N. Pearson', 'penatibus et magnis dis', 19, 4, '94', 'aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod', 'Etiam vestibulum massa rutrum magna.', 'ultrices iaculis odio. Nam interdum enim non nisi.', 'Proin dolor. Nulla semper tellus id nunc interdum feugiat.', 1),
+(118, '0', '2018-08-29', 492, 4, 'Keiko Lamb', 'Kirby Mclean', 'Cade Preston', 'Aidan Strickland', 'Suspendisse tristique neque venenatis', 68, 5, '54', 'ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius', 'vitae nibh. Donec est mauris, rhoncus id, mollis', 'turpis egestas. Aliquam fringilla cursus purus. Nullam', 'risus. Quisque libero lacus, varius et, euismod et, commodo at,', 1),
+(119, '0', '2017-10-01', 176, 5, 'Rhea Lopez', 'Ginger Hopkins', 'Brock E. Brady', 'Yolanda Porter', 'Donec sollicitudin adipiscing ligula.', 192, 4, '64', 'vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam', 'sapien. Nunc pulvinar arcu et pede. Nunc', 'Donec luctus aliquet odio. Etiam ligula tortor, dictum', 'nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam', 1),
+(120, '0', '2017-07-15', 275, 5, 'Alma Z. Franco', 'Dolan Mercer', 'Justin Z. Clarke', 'Echo Santos', 'Phasellus dolor elit, pellentesque', 112, 4, '13', 'sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero', 'purus sapien, gravida non, sollicitudin a, malesuada id, erat. Etiam', 'quis, tristique ac, eleifend vitae,', 'pede nec ante blandit viverra. Donec tempus, lorem', 1),
+(121, '0', '2017-03-19', 672, 1, 'Erin Anthony', 'Odette Herring', 'Jameson S. Contreras', 'Sybil Bolton', 'ullamcorper. Duis at lacus.', 134, 4, '45', 'erat nonummy ultricies ornare, elit elit fermentum', 'facilisis vitae, orci. Phasellus dapibus quam quis diam. Pellentesque habitant', 'vel arcu eu odio tristique pharetra. Quisque ac', 'vel, vulputate eu, odio. Phasellus at augue id ante', 1),
+(122, '0', '2017-05-13', 676, 1, 'Maris Ball', 'Kiara Woodard', 'Sandra Horne', 'Hermione Walters', 'eros non enim commodo', 130, 3, '72', 'ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci,', 'Sed malesuada augue ut lacus. Nulla', 'Fusce mi lorem, vehicula et, rutrum', 'ac, eleifend vitae, erat. Vivamus nisi.', 1),
+(123, '0', '2017-03-05', 808, 1, 'Malcolm Golden', 'Colette G. Harrington', 'Regan Johns', 'Hedley Blankenship', 'risus. Donec egestas. Aliquam', 353, 5, '35', 'Sed neque. Sed eget lacus. Mauris non', 'luctus et ultrices posuere cubilia Curae; Donec tincidunt.', 'justo. Proin non massa non ante bibendum ullamcorper. Duis', 'montes, nascetur ridiculus mus. Proin vel', 1),
+(124, '0', '2017-05-26', 375, 3, 'Cairo Ferrell', 'Boris N. Mcleod', 'Cassidy Waters', 'Xander French', 'convallis est, vitae sodales', 281, 2, '95', 'erat. Etiam vestibulum massa rutrum magna. Cras convallis', 'sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et', 'amet luctus vulputate, nisi sem semper erat, in consectetuer', 'quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque', 1),
+(125, '0', '2018-10-13', 483, 5, 'Colby Sanford', 'Leandra R. Perkins', 'Marvin Heath', 'Ray A. Blankenship', 'semper rutrum. Fusce dolor', 149, 4, '92', 'a odio semper cursus. Integer mollis. Integer', 'faucibus leo, in lobortis tellus justo sit amet', 'vitae semper egestas, urna justo faucibus', 'faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec', 1),
+(126, '0', '2018-10-05', 431, 2, 'Mara U. Morin', 'Aileen Garrison', 'Olga Tucker', 'Clare H. Dennis', 'nec orci. Donec nibh.', 263, 4, '24', 'felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc', 'in, tempus eu, ligula. Aenean', 'sapien molestie orci tincidunt adipiscing. Mauris', 'ac mattis semper, dui lectus rutrum urna,', 1),
+(127, '0', '2017-05-14', 206, 4, 'Howard Peck', 'Vera Mcdowell', 'Erich Harrell', 'Honorato Cox', 'quam. Curabitur vel lectus.', 150, 5, '93', 'risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis', 'Nam tempor diam dictum sapien. Aenean', 'aliquet diam. Sed diam lorem, auctor quis, tristique', 'arcu et pede. Nunc sed orci lobortis', 1),
+(128, '0', '2018-10-19', 607, 1, 'Russell Hurst', 'Colin Kim', 'Zachary L. Gonzales', 'Kennedy G. Cruz', 'eget tincidunt dui augue', 103, 4, '22', 'vel est tempor bibendum. Donec felis orci, adipiscing non, luctus sit amet,', 'a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Aliquam gravida mauris ut mi. Duis risus odio, auctor', 'Nullam ut nisi a odio semper', 1),
+(129, '0', '2018-02-28', 297, 3, 'Scott A. Blackburn', 'Merritt Morgan', 'Mufutau Conrad', 'Boris R. Whitehead', 'hendrerit consectetuer, cursus et,', 108, 1, '10', 'ac libero nec ligula consectetuer', 'Suspendisse non leo. Vivamus nibh', 'et ipsum cursus vestibulum. Mauris', 'dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed', 1),
+(130, '0', '2017-04-05', 872, 2, 'Amber Q. Castillo', 'Damian I. Lloyd', 'Jane Marquez', 'Finn Johns', 'tortor. Nunc commodo auctor', 95, 2, '75', 'sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus', 'a, arcu. Sed et libero. Proin mi. Aliquam', 'Nulla facilisi. Sed neque. Sed eget lacus. Mauris', 'nisi nibh lacinia orci, consectetuer euismod', 1);
+INSERT INTO `voo` (`idvoo`, `voo_status`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `natureza`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `historico`, `ocorrencia`, `discrepancia`, `relprev`, `qte_etapas`) VALUES
+(131, '0', '2018-02-20', 687, 5, 'Paul Donaldson', 'Hiroko Padilla', 'Uriah Mendez', 'Rahim I. Chan', 'Aenean eget metus. In', 177, 2, '28', 'sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi,', 'nascetur ridiculus mus. Proin vel nisl. Quisque fringilla euismod', 'tempus scelerisque, lorem ipsum sodales purus,', 'enim consequat purus. Maecenas libero est, congue a,', 1),
+(132, '0', '2017-12-07', 155, 4, 'Blaze Y. Rosales', 'Germaine Paul', 'Zelenia D. Oneal', 'Arthur N. Graham', 'augue. Sed molestie. Sed', 154, 4, '41', 'Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis.', 'ac, eleifend vitae, erat. Vivamus', 'tellus non magna. Nam ligula elit, pretium et, rutrum', 'quis diam luctus lobortis. Class aptent taciti sociosqu ad', 1),
+(133, '0', '2018-10-25', 526, 1, 'Bevis Whitehead', 'Wanda Buchanan', 'Quyn Y. Romero', 'Colton Hunter', 'Vestibulum accumsan neque et', 88, 4, '63', 'Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat', 'leo elementum sem, vitae aliquam eros', 'et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis', 'Cras vulputate velit eu sem. Pellentesque ut ipsum', 1),
+(134, '0', '2017-08-13', 600, 2, 'Nyssa Richard', 'Macaulay Holmes', 'Orla F. Malone', 'Levi Cooper', 'Nunc ullamcorper, velit in', 42, 3, '33', 'Cras eget nisi dictum augue', 'eget odio. Aliquam vulputate ullamcorper magna. Sed', 'Integer vulputate, risus a ultricies adipiscing, enim mi tempor', 'nunc, ullamcorper eu, euismod ac, fermentum vel, mauris.', 1),
+(135, '0', '2017-10-20', 660, 5, 'Kennedy Tyson', 'Beatrice U. Sosa', 'Jolene Perry', 'Idona Rogers', 'Suspendisse non leo. Vivamus', 207, 2, '36', 'Praesent eu nulla at sem molestie sodales. Mauris blandit enim consequat', 'consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus', 'egestas. Sed pharetra, felis eget varius ultrices, mauris', 'cursus purus. Nullam scelerisque neque', 1),
+(136, '0', '2017-08-07', 418, 1, 'Keegan I. Black', 'Fitzgerald Joyner', 'Karleigh Lindsay', 'Nina N. Dodson', 'dictum mi, ac mattis', 56, 5, '74', 'sagittis lobortis mauris. Suspendisse aliquet molestie tellus.', 'mattis. Integer eu lacus. Quisque imperdiet, erat', 'lectus convallis est, vitae sodales nisi magna sed', 'sit amet, dapibus id, blandit at, nisi. Cum sociis', 1),
+(137, '0', '2017-12-24', 609, 3, 'Iola T. Booth', 'Nicholas Clemons', 'Beverly A. Barnett', 'Adria Lane', 'erat semper rutrum. Fusce', 192, 2, '69', 'metus facilisis lorem tristique aliquet. Phasellus fermentum', 'commodo tincidunt nibh. Phasellus nulla. Integer vulputate,', 'Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum', 'vitae sodales nisi magna sed dui. Fusce', 1),
+(138, '0', '2018-09-24', 843, 5, 'Taylor F. Cruz', 'Guinevere D. Winters', 'Quon C. Hickman', 'Garrett R. Jackson', 'dignissim magna a tortor.', 117, 4, '67', 'ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim', 'lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non', 'mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit', 'metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse', 1),
+(139, '0', '2017-01-12', 343, 2, 'Yoshi Riggs', 'Marshall Pacheco', 'Vernon Brown', 'Aileen Sheppard', 'aliquet nec, imperdiet nec,', 315, 2, '87', 'nunc risus varius orci, in consequat enim diam vel arcu. Curabitur ut', 'Curae; Donec tincidunt. Donec vitae erat vel pede blandit congue.', 'cursus et, eros. Proin ultrices. Duis volutpat nunc', 'et arcu imperdiet ullamcorper. Duis at lacus. Quisque', 1),
+(140, '0', '2017-10-29', 240, 3, 'Stephanie O. Calhoun', 'Phyllis J. Marsh', 'Devin Oliver', 'Aladdin Y. Salinas', 'Maecenas mi felis, adipiscing', 334, 5, '62', 'risus. Duis a mi fringilla mi lacinia mattis. Integer', 'non nisi. Aenean eget metus. In nec orci. Donec nibh.', 'ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu', 'Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet', 1),
+(141, '0', '2017-03-28', 253, 4, 'Eaton S. Salinas', 'Ivory Maldonado', 'Kelsie Patel', 'Hamilton Terrell', 'massa non ante bibendum', 211, 4, '30', 'ut, nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor odio', 'dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula', 'Suspendisse aliquet molestie tellus. Aenean egestas hendrerit neque. In', 'elit. Nulla facilisi. Sed neque. Sed eget lacus.', 1),
+(142, '0', '2018-05-27', 200, 3, 'Karleigh F. Reed', 'Azalia A. Peck', 'Leo Hammond', 'Lev Jacobson', 'gravida mauris ut mi.', 18, 1, '37', 'magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet', 'ornare, facilisis eget, ipsum. Donec', 'lectus, a sollicitudin orci sem eget', 'aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum', 1),
+(143, '0', '2017-04-12', 751, 2, 'Olga Boyer', 'Deirdre Battle', 'Guinevere G. Ware', 'Callum B. Crosby', 'tempor bibendum. Donec felis', 131, 2, '24', 'augue. Sed molestie. Sed id risus quis diam luctus', 'Cum sociis natoque penatibus et', 'facilisi. Sed neque. Sed eget lacus. Mauris non dui', 'vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt', 1),
+(144, '0', '2017-09-04', 267, 1, 'Neve H. Webster', 'Anastasia E. Barron', 'Dale F. Stanley', 'Amanda J. Benton', 'volutpat ornare, facilisis eget,', 189, 5, '53', 'interdum. Sed auctor odio a purus. Duis elementum,', 'luctus aliquet odio. Etiam ligula tortor, dictum eu,', 'commodo ipsum. Suspendisse non leo.', 'ante blandit viverra. Donec tempus, lorem fringilla ornare', 1),
+(145, '0', '2017-08-07', 137, 1, 'Eagan Stout', 'Nichole Q. Britt', 'Bethany Sharpe', 'Marvin H. Reyes', 'adipiscing elit. Curabitur sed', 227, 1, '54', 'dictum eu, placerat eget, venenatis', 'netus et malesuada fames ac turpis', 'Phasellus nulla. Integer vulputate, risus a ultricies', 'sodales purus, in molestie tortor nibh sit amet', 1),
+(146, '0', '2018-10-23', 589, 1, 'Maisie Cash', 'Chelsea Jennings', 'Heidi Bowers', 'Carla D. Mosley', 'Donec consectetuer mauris id', 138, 5, '46', 'montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis', 'Fusce fermentum fermentum arcu. Vestibulum', 'dui nec urna suscipit nonummy.', 'arcu. Vestibulum ut eros non enim commodo', 1),
+(147, '0', '2018-07-04', 655, 2, 'Amery U. Mcknight', 'Christen B. Haynes', 'Heidi Z. Bauer', 'Fallon V. Gamble', 'neque pellentesque massa lobortis', 106, 4, '91', 'magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a', 'pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est.', 'et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus.', 'nibh dolor, nonummy ac, feugiat', 1),
+(148, '0', '2017-09-25', 773, 2, 'Abigail C. Hale', 'Colby X. Stout', 'Tatum M. Hull', 'Amena Barnett', 'Phasellus nulla. Integer vulputate,', 238, 2, '60', 'sapien. Cras dolor dolor, tempus non, lacinia at, iaculis', 'vitae, aliquet nec, imperdiet nec, leo. Morbi neque tellus,', 'blandit at, nisi. Cum sociis natoque penatibus et magnis dis', 'eget odio. Aliquam vulputate ullamcorper magna.', 1),
+(149, '0', '2018-11-08', 658, 2, 'Kermit C. Payne', 'Connor N. Vincent', 'Francis W. Holden', 'Meghan Michael', 'Morbi vehicula. Pellentesque tincidunt', 310, 4, '73', 'faucibus ut, nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor odio a', 'orci. Ut semper pretium neque. Morbi quis', 'orci lobortis augue scelerisque mollis. Phasellus libero', 'Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu', 1),
+(150, '0', '2017-01-12', 139, 1, 'Chester D. Guy', 'Serina O. Baird', 'Mannix F. Mccormick', 'Dane Y. Ellis', 'risus a ultricies adipiscing,', 250, 2, '25', 'arcu. Sed eu nibh vulputate mauris sagittis placerat. Cras dictum', 'consequat enim diam vel arcu. Curabitur ut', 'libero nec ligula consectetuer rhoncus. Nullam velit', 'eu arcu. Morbi sit amet massa. Quisque porttitor eros nec', 1),
+(151, '0', '2018-09-01', 877, 4, 'Marvin Jimenez', 'Blaze Bauer', 'Dieter D. Huff', 'Jenette Carney', 'cursus luctus, ipsum leo', 293, 4, '44', 'habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.', 'Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id,', 'dictum augue malesuada malesuada. Integer id magna et', 'nulla at sem molestie sodales. Mauris blandit enim', 1),
+(152, '0', '2018-10-10', 460, 3, 'Nicholas Cohen', 'Demetrius Cantrell', 'Rafael H. Osborn', 'Harriet Villarreal', 'eu, odio. Phasellus at', 69, 4, '78', 'mollis dui, in sodales elit erat vitae risus. Duis', 'amet massa. Quisque porttitor eros nec', 'mus. Proin vel nisl. Quisque', 'sagittis semper. Nam tempor diam dictum sapien. Aenean massa.', 1),
+(153, '0', '2017-03-28', 910, 5, 'Jonah Watkins', 'Isabelle Fitzpatrick', 'Jana Saunders', 'Alyssa J. Phelps', 'ut ipsum ac mi', 221, 4, '62', 'rutrum, justo. Praesent luctus. Curabitur egestas nunc sed libero. Proin sed turpis', 'neque sed dictum eleifend, nunc risus varius orci,', 'fermentum vel, mauris. Integer sem elit,', 'ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed', 1),
+(154, '0', '2017-01-31', 705, 2, 'Imogene W. Kelley', 'Rebekah L. Rosario', 'Igor N. Mclaughlin', 'Anika Bender', 'Sed congue, elit sed', 344, 5, '86', 'Ut semper pretium neque. Morbi', 'euismod est arcu ac orci. Ut semper', 'sed pede nec ante blandit viverra.', 'sed pede nec ante blandit viverra.', 1),
+(155, '0', '2017-06-22', 435, 4, 'Harriet Silva', 'Ursa M. Cantu', 'Blaze G. Schneider', 'Odysseus R. Stevens', 'Nunc ac sem ut', 292, 1, '69', 'sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique', 'elit fermentum risus, at fringilla purus', 'magna. Duis dignissim tempor arcu.', 'facilisis non, bibendum sed, est. Nunc laoreet lectus quis', 1),
+(156, '0', '2018-06-05', 460, 3, 'Otto G. Hudson', 'Wylie M. Daniels', 'Brennan H. Santos', 'Gannon Griffith', 'Donec vitae erat vel', 59, 5, '41', 'Cras sed leo. Cras vehicula aliquet libero.', 'vel turpis. Aliquam adipiscing lobortis risus.', 'et, euismod et, commodo at, libero.', 'scelerisque dui. Suspendisse ac metus vitae velit', 1),
+(157, '0', '2018-07-17', 730, 5, 'Sheila Bradley', 'Kelly Riley', 'Ishmael Gibson', 'Xyla Jefferson', 'malesuada fames ac turpis', 288, 3, '71', 'morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus', 'auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa', 'nulla. Donec non justo. Proin non massa non ante', 'urna convallis erat, eget tincidunt', 1),
+(158, '0', '2017-11-23', 772, 2, 'Wing Harris', 'Anika O. Shields', 'Colby B. Stokes', 'Xenos K. Kirk', 'ornare, elit elit fermentum', 289, 3, '56', 'lobortis tellus justo sit amet nulla. Donec non justo. Proin non', 'laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate,', 'ante dictum cursus. Nunc mauris elit, dictum eu, eleifend', 'Ut sagittis lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas', 1),
+(159, '0', '2017-06-13', 346, 2, 'Calista T. Alston', 'Merrill X. Trevino', 'Zachary A. Cline', 'Joan Mcgowan', 'Integer in magna. Phasellus', 63, 3, '45', 'iaculis quis, pede. Praesent eu dui. Cum', 'dis parturient montes, nascetur ridiculus mus.', 'at fringilla purus mauris a nunc.', 'montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc', 1),
+(160, '0', '2018-02-14', 829, 1, 'Karleigh I. Williams', 'Murphy Lynch', 'Leigh A. Hoover', 'Shaine B. Hines', 'vulputate, nisi sem semper', 89, 4, '46', 'et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut', 'neque tellus, imperdiet non, vestibulum nec, euismod', 'Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros', 'nec urna suscipit nonummy. Fusce fermentum fermentum', 1),
+(161, '0', '2017-05-30', 749, 1, 'Caldwell E. Kemp', 'Todd V. Flynn', 'Juliet R. Graves', 'Shea Harris', 'Nulla tincidunt, neque vitae', 253, 4, '38', 'eu erat semper rutrum. Fusce', 'pretium aliquet, metus urna convallis erat, eget tincidunt dui', 'nec ante blandit viverra. Donec tempus, lorem fringilla ornare', 'mollis dui, in sodales elit', 1),
+(162, '0', '2017-11-24', 398, 1, 'Macey Hull', 'Gareth Lott', 'Fritz Butler', 'Preston D. Chan', 'conubia nostra, per inceptos', 330, 2, '71', 'augue scelerisque mollis. Phasellus libero mauris, aliquam eu, accumsan', 'adipiscing lacus. Ut nec urna et arcu imperdiet', 'bibendum sed, est. Nunc laoreet lectus quis', 'commodo auctor velit. Aliquam nisl. Nulla', 1),
+(163, '0', '2018-12-21', 578, 3, 'Glenna Z. Ray', 'Callum B. Clements', 'Carter O. Doyle', 'Azalia Howard', 'Sed eu nibh vulputate', 12, 3, '80', 'feugiat metus sit amet ante. Vivamus non', 'Aenean euismod mauris eu elit.', 'eros nec tellus. Nunc lectus pede, ultrices', 'fermentum convallis ligula. Donec luctus aliquet odio. Etiam', 1),
+(164, '0', '2017-06-22', 384, 2, 'Dana Black', 'Wang Horne', 'Thaddeus O. Baxter', 'April Webster', 'pede blandit congue. In', 200, 1, '32', 'semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio.', 'fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum.', 'orci lacus vestibulum lorem, sit', 'et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus', 1),
+(165, '0', '2017-03-08', 525, 4, 'Ursa I. Floyd', 'Bianca Wilkerson', 'Fay Vaughn', 'Adrian Compton', 'nisl. Maecenas malesuada fringilla', 289, 1, '73', 'eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum risus,', 'Nulla dignissim. Maecenas ornare egestas ligula.', 'magna, malesuada vel, convallis in, cursus', 'suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum', 1),
+(166, '0', '2017-04-03', 575, 5, 'Cynthia M. Bates', 'Fatima X. Patrick', 'Drake Chambers', 'Octavia Pratt', 'Ut tincidunt vehicula risus.', 255, 3, '85', 'eget mollis lectus pede et', 'odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa.', 'Nunc mauris. Morbi non sapien molestie orci tincidunt', 'Sed id risus quis diam luctus', 1),
+(167, '0', '2017-05-21', 206, 4, 'Lane A. Knowles', 'Hayley Raymond', 'Graiden Terrell', 'Kaye Blackburn', 'sed, facilisis vitae, orci.', 37, 3, '13', 'elementum at, egestas a, scelerisque sed, sapien. Nunc', 'purus ac tellus. Suspendisse sed dolor.', 'ipsum sodales purus, in molestie tortor nibh sit amet', 'lacus. Aliquam rutrum lorem ac', 1),
+(168, '0', '2018-06-28', 391, 1, 'Zahir W. Burgess', 'Haviva P. Bradley', 'Maryam S. Ewing', 'Paula U. Mckee', 'nec, malesuada ut, sem.', 87, 3, '26', 'Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum', 'et arcu imperdiet ullamcorper. Duis at lacus. Quisque', 'tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum.', 'nibh. Phasellus nulla. Integer vulputate, risus a', 1),
+(169, '0', '2018-08-27', 521, 4, 'Caesar T. Medina', 'Ila E. Hopkins', 'Zahir Morrison', 'Jane Q. Clayton', 'rhoncus. Proin nisl sem,', 280, 3, '26', 'eget lacus. Mauris non dui nec urna suscipit', 'condimentum eget, volutpat ornare, facilisis eget, ipsum.', 'velit dui, semper et, lacinia vitae, sodales at, velit. Pellentesque', 'ac facilisis facilisis, magna tellus', 1),
+(170, '0', '2018-05-01', 924, 1, 'James F. Bryan', 'Eric Irwin', 'Nasim Duncan', 'Jerome D. Rush', 'eu, ultrices sit amet,', 336, 3, '90', 'magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed,', 'lectus convallis est, vitae sodales nisi magna sed dui.', 'ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate,', 'augue scelerisque mollis. Phasellus libero mauris,', 1),
+(171, '0', '2017-06-12', 305, 2, 'Barry Lindsay', 'Callum U. Leon', 'Isaac H. Raymond', 'Shaine D. Brennan', 'facilisis. Suspendisse commodo tincidunt', 78, 4, '85', 'vitae velit egestas lacinia. Sed congue, elit sed', 'Nam nulla magna, malesuada vel, convallis', 'Aenean gravida nunc sed pede. Cum', 'orci luctus et ultrices posuere cubilia Curae; Phasellus', 1),
+(172, '0', '2018-04-11', 141, 2, 'Dahlia Y. Warren', 'Alfonso E. Nunez', 'Myles Glover', 'Ignatius Flowers', 'tellus sem mollis dui,', 313, 5, '59', 'fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam', 'quis diam. Pellentesque habitant morbi tristique senectus et netus et', 'metus sit amet ante. Vivamus non lorem vitae odio', 'tempor, est ac mattis semper, dui lectus', 1),
+(173, '0', '2018-05-29', 154, 1, 'Cyrus Rivera', 'Dominic Crawford', 'Hermione Spears', 'Sopoline A. Bullock', 'congue a, aliquet vel,', 189, 1, '48', 'ac, fermentum vel, mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed', 'ligula. Donec luctus aliquet odio. Etiam ligula', 'Integer urna. Vivamus molestie dapibus', 'interdum. Sed auctor odio a purus. Duis elementum,', 1),
+(174, '0', '2017-07-11', 120, 1, 'Galvin C. Stephenson', 'Dana Stout', 'Allegra Levy', 'Fuller Harrell', 'Sed neque. Sed eget', 293, 3, '11', 'erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc', 'magna. Cras convallis convallis dolor. Quisque tincidunt', 'leo. Cras vehicula aliquet libero. Integer in magna. Phasellus', 'orci, in consequat enim diam vel arcu. Curabitur', 1),
+(175, '0', '2018-10-06', 571, 1, 'Candice Albert', 'Keaton Y. Tran', 'Amelia Daniels', 'Harlan J. Franklin', 'Fusce aliquam, enim nec', 255, 4, '34', 'et, euismod et, commodo at, libero. Morbi accumsan', 'lacus pede sagittis augue, eu tempor erat neque non', 'Integer eu lacus. Quisque imperdiet, erat nonummy ultricies', 'enim, gravida sit amet, dapibus id, blandit at,', 1),
+(176, '0', '2017-04-08', 856, 3, 'Jerome V. Jones', 'Althea Brewer', 'Brennan I. Mcfarland', 'Joshua Z. Warner', 'scelerisque dui. Suspendisse ac', 321, 3, '82', 'nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac', 'in, tempus eu, ligula. Aenean euismod mauris eu', 'ante bibendum ullamcorper. Duis cursus, diam at pretium aliquet, metus', 'at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum', 1),
+(177, '0', '2017-09-12', 933, 3, 'Wayne Perkins', 'Mallory C. Chavez', 'Tanek K. Griffith', 'Thaddeus T. Oneill', 'aptent taciti sociosqu ad', 46, 1, '82', 'sed, facilisis vitae, orci. Phasellus dapibus quam quis diam. Pellentesque habitant morbi tristique senectus et', 'luctus lobortis. Class aptent taciti', 'Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam', 'et magnis dis parturient montes, nascetur', 1),
+(178, '0', '2018-04-08', 942, 4, 'Montana R. Newman', 'Audra Fischer', 'Fuller Franks', 'Violet G. Andrews', 'metus. In lorem. Donec', 282, 4, '33', 'faucibus leo, in lobortis tellus justo sit amet nulla. Donec non', 'Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla', 'nibh vulputate mauris sagittis placerat.', 'sem mollis dui, in sodales', 1),
+(179, '0', '2017-11-20', 225, 5, 'William Carter', 'Lawrence I. Hayes', 'Dexter Farrell', 'Demetrius Frazier', 'netus et malesuada fames', 346, 2, '12', 'ac libero nec ligula consectetuer rhoncus. Nullam velit dui, semper', 'sagittis semper. Nam tempor diam', 'dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare', 'fermentum risus, at fringilla purus mauris a nunc. In', 1),
+(180, '0', '2018-11-15', 287, 4, 'Chancellor N. Mclaughlin', 'TaShya Robinson', 'Jasper Walters', 'Kareem G. Williamson', 'convallis est, vitae sodales', 253, 3, '53', 'Proin ultrices. Duis volutpat nunc sit', 'mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam.', 'ante ipsum primis in faucibus orci luctus et ultrices', 'nec, eleifend non, dapibus rutrum,', 1),
+(181, '0', '2018-06-28', 603, 2, 'Wylie D. Bonner', 'Tobias Barr', 'Martena Little', 'Sarah H. Mclaughlin', 'faucibus. Morbi vehicula. Pellentesque', 159, 4, '23', 'amet, consectetuer adipiscing elit. Etiam laoreet,', 'sed, sapien. Nunc pulvinar arcu et', 'Morbi sit amet massa. Quisque porttitor eros', 'feugiat non, lobortis quis, pede. Suspendisse dui. Fusce', 1),
+(182, '0', '2017-05-12', 308, 1, 'Audra Wall', 'Raja Santiago', 'Hanna Davidson', 'Craig T. Williamson', 'mollis non, cursus non,', 131, 1, '57', 'tellus. Nunc lectus pede, ultrices a, auctor non, feugiat nec, diam. Duis', 'Donec sollicitudin adipiscing ligula. Aenean gravida nunc', 'vel nisl. Quisque fringilla euismod enim. Etiam', 'imperdiet nec, leo. Morbi neque tellus,', 1),
+(183, '0', '2018-03-03', 531, 2, 'Elaine I. Knight', 'Kendall Y. Kane', 'Chanda Rice', 'Brandon Blackwell', 'Nulla facilisis. Suspendisse commodo', 323, 5, '18', 'Nullam suscipit, est ac facilisis facilisis, magna tellus faucibus leo,', 'vehicula risus. Nulla eget metus eu', 'Sed auctor odio a purus. Duis', 'molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est,', 1),
+(184, '0', '2018-09-06', 670, 3, 'Keane M. Dunlap', 'Vance A. Hull', 'Colorado Lara', 'Thomas W. Schmidt', 'consectetuer mauris id sapien.', 199, 3, '34', 'imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,', 'metus facilisis lorem tristique aliquet. Phasellus fermentum convallis', 'dignissim pharetra. Nam ac nulla.', 'rhoncus. Nullam velit dui, semper', 1),
+(185, '0', '2018-04-26', 728, 2, 'Dale Robles', 'Philip Cobb', 'Berk K. Salinas', 'Ronan T. Browning', 'varius ultrices, mauris ipsum', 26, 4, '95', 'eros non enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit, pretium et,', 'dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor', 'a, facilisis non, bibendum sed, est.', 'Cras dolor dolor, tempus non, lacinia at, iaculis', 1),
+(186, '0', '2017-10-02', 404, 5, 'Hollee N. Mason', 'William Z. Delgado', 'Castor Mclean', 'Walter G. Mullins', 'ipsum. Curabitur consequat, lectus', 87, 2, '50', 'metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla.', 'risus. Donec nibh enim, gravida sit amet, dapibus id, blandit', 'Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh.', 'ipsum sodales purus, in molestie tortor nibh sit', 1),
+(187, '0', '2018-02-02', 929, 5, 'Peter Baldwin', 'Grant G. Perkins', 'Patience F. Santana', 'Odessa I. Walls', 'pede blandit congue. In', 355, 1, '90', 'habitant morbi tristique senectus et netus et malesuada fames ac', 'ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula', 'a, aliquet vel, vulputate eu, odio. Phasellus at augue', 'tincidunt nibh. Phasellus nulla. Integer vulputate, risus a', 1),
+(188, '0', '2018-04-05', 556, 5, 'Ashely Mcleod', 'Sade Gardner', 'Brooke Gutierrez', 'Cora B. Rodriquez', 'Nullam suscipit, est ac', 254, 3, '19', 'id magna et ipsum cursus vestibulum. Mauris magna. Duis', 'tellus faucibus leo, in lobortis tellus', 'leo. Vivamus nibh dolor, nonummy ac,', 'aliquet magna a neque. Nullam ut', 1),
+(189, '0', '2017-08-24', 849, 1, 'Brett G. Hodge', 'Brock Sherman', 'Mikayla K. Patrick', 'Aimee L. Pratt', 'cursus a, enim. Suspendisse', 299, 2, '39', 'lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec', 'Fusce feugiat. Lorem ipsum dolor sit', 'rutrum magna. Cras convallis convallis dolor. Quisque tincidunt', 'Cras dictum ultricies ligula. Nullam enim. Sed', 1),
+(190, '0', '2018-01-04', 361, 3, 'Griffin N. Sherman', 'Ray T. Mayo', 'Illiana Goff', 'Jasper Rush', 'ut cursus luctus, ipsum', 113, 1, '95', 'non leo. Vivamus nibh dolor, nonummy ac,', 'a feugiat tellus lorem eu metus. In', 'malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer', 'justo. Praesent luctus. Curabitur egestas nunc sed', 1),
+(191, '0', '2018-11-05', 178, 5, 'Haley N. Glenn', 'Tamara Yates', 'Lilah Wiggins', 'Whitney Y. Hogan', 'nunc sit amet metus.', 290, 3, '87', 'dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in', 'sapien imperdiet ornare. In faucibus. Morbi vehicula.', 'Suspendisse tristique neque venenatis lacus. Etiam', 'mollis lectus pede et risus. Quisque libero', 1),
+(192, '0', '2017-05-16', 521, 1, 'Hope B. Brennan', 'Colin R. Hicks', 'Sonia Sexton', 'Arden D. Colon', 'ut, pellentesque eget, dictum', 113, 3, '42', 'fringilla purus mauris a nunc. In', 'eu eros. Nam consequat dolor vitae dolor. Donec fringilla.', 'pellentesque. Sed dictum. Proin eget', 'eu augue porttitor interdum. Sed auctor', 1),
+(193, '0', '2017-03-02', 107, 2, 'Merrill G. Fernandez', 'Ruby Velazquez', 'Marah Ayala', 'Barry V. Rios', 'eu sem. Pellentesque ut', 302, 2, '97', 'Fusce aliquet magna a neque. Nullam', 'auctor, nunc nulla vulputate dui,', 'fermentum risus, at fringilla purus mauris', 'Nullam ut nisi a odio semper cursus. Integer', 1),
+(194, '0', '2018-11-10', 458, 2, 'Robert C. Pollard', 'Carissa Whitney', 'Lillian Byers', 'Chadwick Z. Lott', 'scelerisque dui. Suspendisse ac', 123, 4, '39', 'risus. Morbi metus. Vivamus euismod urna. Nullam lobortis quam', 'bibendum fermentum metus. Aenean sed pede nec ante', 'morbi tristique senectus et netus et malesuada', 'mollis. Phasellus libero mauris, aliquam', 1),
+(195, '0', '2018-02-13', 954, 4, 'Thaddeus Z. Carver', 'Michael Terry', 'Ezekiel Larson', 'Kelsie N. Cruz', 'orci sem eget massa.', 131, 5, '74', 'ut quam vel sapien imperdiet ornare. In faucibus.', 'nulla. In tincidunt congue turpis. In condimentum. Donec', 'Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus vitae', 'Praesent eu dui. Cum sociis natoque', 1),
+(196, '0', '2018-11-17', 826, 5, 'Jada Steele', 'Jelani T. Head', 'Zachary Pickett', 'Curran C. Zimmerman', 'elementum at, egestas a,', 229, 5, '99', 'suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et', 'Donec vitae erat vel pede blandit', 'dui. Fusce aliquam, enim nec', 'enim, sit amet ornare lectus justo', 1),
+(197, '0', '2017-08-14', 655, 5, 'Odessa Fry', 'Merritt Wade', 'Kuame R. Bonner', 'Bree Herman', 'et magnis dis parturient', 300, 3, '60', 'Suspendisse commodo tincidunt nibh. Phasellus nulla.', 'tellus eu augue porttitor interdum. Sed', 'egestas. Duis ac arcu. Nunc', 'nec, cursus a, enim. Suspendisse', 1),
+(198, '0', '2019-01-03', 193, 1, 'Patrick Adkins', 'Aurelia Deleon', 'Isaiah Z. Bartlett', 'Rogan Nguyen', 'Nulla interdum. Curabitur dictum.', 78, 4, '68', 'ultricies ornare, elit elit fermentum', 'ac sem ut dolor dapibus gravida.', 'ut lacus. Nulla tincidunt, neque', 'libero. Proin mi. Aliquam gravida mauris', 1),
+(199, '0', '2017-04-30', 376, 2, 'Preston Rich', 'Tamekah Knowles', 'Connor S. Crawford', 'Larissa Ball', 'augue ac ipsum. Phasellus', 238, 2, '43', 'dolor elit, pellentesque a, facilisis non, bibendum sed,', 'arcu. Vivamus sit amet risus. Donec egestas.', 'Nulla tempor augue ac ipsum. Phasellus vitae mauris', 'Mauris blandit enim consequat purus. Maecenas libero est,', 1),
+(200, '0', '2018-08-16', 407, 2, 'Illana Martin', 'Olympia Nixon', 'Boris Dean', 'Francesca Palmer', 'a, magna. Lorem ipsum', 327, 4, '37', 'at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed', 'Duis mi enim, condimentum eget, volutpat ornare, facilisis eget, ipsum.', 'purus sapien, gravida non, sollicitudin a, malesuada id, erat.', 'enim commodo hendrerit. Donec porttitor tellus', 1),
+(201, '0', '2017-12-10', 508, 4, 'Ciara C. Barrera', 'Stephen V. Castaneda', 'Clayton Harvey', 'Laurel Cooper', 'lectus justo eu arcu.', 73, 3, '64', 'est, congue a, aliquet vel, vulputate eu, odio. Phasellus at augue', 'blandit at, nisi. Cum sociis natoque', 'id nunc interdum feugiat. Sed nec', 'ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor', 1),
+(202, '0', '2017-12-07', 491, 4, 'Ivor O. Key', 'Elvis E. Pace', 'Thomas Levy', 'Jocelyn Z. Payne', 'mauris erat eget ipsum.', 115, 4, '16', 'turpis egestas. Fusce aliquet magna a neque. Nullam ut nisi', 'id sapien. Cras dolor dolor, tempus', 'dui, in sodales elit erat vitae risus. Duis', 'Morbi accumsan laoreet ipsum. Curabitur consequat,', 1),
+(203, '0', '2017-04-18', 907, 3, 'Jasmine V. White', 'Keane Kemp', 'Winter Winters', 'Willow X. Collier', 'purus mauris a nunc.', 359, 5, '63', 'id, blandit at, nisi. Cum sociis natoque penatibus et magnis dis', 'dolor. Nulla semper tellus id nunc interdum feugiat. Sed', 'pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus', 'Proin sed turpis nec mauris blandit', 1),
+(204, '0', '2017-07-16', 415, 5, 'Simon Dunlap', 'Alika Kramer', 'Abel Franks', 'Cain Y. Roth', 'ante ipsum primis in', 323, 4, '94', 'Fusce fermentum fermentum arcu. Vestibulum ante', 'odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a,', 'euismod urna. Nullam lobortis quam a felis', 'eu odio tristique pharetra. Quisque ac libero nec ligula consectetuer', 1),
+(205, '0', '2018-06-21', 294, 5, 'Kadeem Witt', 'Alexa S. Clarke', 'Trevor Sandoval', 'Shannon P. Bauer', 'risus. Morbi metus. Vivamus', 331, 4, '41', 'egestas rhoncus. Proin nisl sem, consequat nec,', 'sit amet diam eu dolor egestas', 'at pretium aliquet, metus urna convallis erat, eget', 'enim non nisi. Aenean eget metus. In nec orci.', 1),
+(206, '0', '2017-03-18', 543, 5, 'Carlos Conrad', 'Cadman R. Wells', 'Lester Dawson', 'Hilda C. Hansen', 'Nullam suscipit, est ac', 51, 5, '20', 'lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula.', 'metus sit amet ante. Vivamus non lorem vitae', 'justo. Proin non massa non', 'faucibus ut, nulla. Cras eu tellus', 1),
+(207, '0', '2017-04-28', 602, 4, 'Honorato U. Vang', 'Alden Perkins', 'Fletcher U. Hoover', 'Kathleen Hayden', 'nibh vulputate mauris sagittis', 62, 1, '43', 'id, blandit at, nisi. Cum sociis natoque penatibus et magnis dis parturient montes,', 'tristique senectus et netus et malesuada fames ac turpis', 'tempus mauris erat eget ipsum.', 'dictum mi, ac mattis velit justo', 1),
+(208, '0', '2017-10-18', 346, 2, 'Kevyn R. Schroeder', 'Melanie Carlson', 'Brandon Glass', 'Jacqueline I. Todd', 'pretium et, rutrum non,', 6, 5, '65', 'Nullam vitae diam. Proin dolor. Nulla semper tellus id', 'dolor dolor, tempus non, lacinia at, iaculis', 'ipsum. Phasellus vitae mauris sit amet', 'ullamcorper. Duis at lacus. Quisque purus', 1),
+(209, '0', '2018-07-27', 635, 4, 'Buckminster Joyner', 'Belle Z. Henderson', 'Deborah Q. Bentley', 'Beau H. Durham', 'parturient montes, nascetur ridiculus', 185, 1, '29', 'orci. Phasellus dapibus quam quis diam. Pellentesque', 'porttitor tellus non magna. Nam', 'lectus rutrum urna, nec luctus', 'rutrum. Fusce dolor quam, elementum', 1),
+(210, '0', '2017-10-25', 691, 4, 'Buffy Greene', 'Caryn Dalton', 'Renee Schneider', 'Connor Gallagher', 'facilisis facilisis, magna tellus', 41, 3, '80', 'augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris', 'Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed,', 'Nulla dignissim. Maecenas ornare egestas', 'tempus scelerisque, lorem ipsum sodales purus, in molestie tortor', 1),
+(211, '0', '2017-05-06', 130, 3, 'Bernard Y. Mathews', 'Henry Simmons', 'Risa Greer', 'Timon Benton', 'Cras dolor dolor, tempus', 341, 3, '63', 'Integer eu lacus. Quisque imperdiet, erat', 'faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus', 'interdum ligula eu enim. Etiam imperdiet dictum magna.', 'ipsum. Suspendisse non leo. Vivamus nibh dolor, nonummy', 1),
+(212, '0', '2018-10-12', 648, 4, 'Morgan Farley', 'Kyle Z. Perry', 'Giselle Marks', 'Carla C. Clayton', 'mus. Donec dignissim magna', 348, 2, '74', 'lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh', 'dui. Cum sociis natoque penatibus et magnis', 'id, libero. Donec consectetuer mauris id', 'quis lectus. Nullam suscipit, est ac facilisis facilisis,', 1),
+(213, '0', '2018-09-18', 642, 3, 'Vera Rosales', 'Cody Holcomb', 'Isabelle Hill', 'Len Heath', 'elementum purus, accumsan interdum', 17, 4, '70', 'facilisis facilisis, magna tellus faucibus leo, in lobortis tellus justo', 'odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa.', 'risus. Morbi metus. Vivamus euismod urna. Nullam lobortis', 'pede ac urna. Ut tincidunt vehicula', 1),
+(214, '0', '2017-06-10', 571, 5, 'Felix C. Stuart', 'Zenaida Poole', 'Shaeleigh S. Riddle', 'Bell W. Hebert', 'mauris elit, dictum eu,', 220, 3, '25', 'felis, adipiscing fringilla, porttitor vulputate, posuere', 'fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam', 'convallis convallis dolor. Quisque tincidunt pede ac', 'cursus. Integer mollis. Integer tincidunt aliquam arcu.', 1),
+(215, '0', '2017-12-04', 218, 2, 'Allen Hardin', 'Kevin Carney', 'Caesar J. Hendricks', 'Jeanette P. Langley', 'semper rutrum. Fusce dolor', 202, 2, '85', 'purus. Maecenas libero est, congue', 'amet massa. Quisque porttitor eros nec tellus.', 'nisi a odio semper cursus.', 'non, lacinia at, iaculis quis, pede. Praesent', 1),
+(216, '0', '2018-04-27', 181, 5, 'Eugenia P. Sims', 'Hasad O. Solomon', 'Rooney Pacheco', 'Britanni J. Church', 'quis, pede. Praesent eu', 103, 2, '44', 'ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas', 'vestibulum. Mauris magna. Duis dignissim tempor arcu.', 'sit amet nulla. Donec non justo. Proin', 'Quisque varius. Nam porttitor scelerisque neque.', 1),
+(217, '0', '2017-02-28', 698, 1, 'Shay T. Norton', 'Louis Bender', 'Dahlia X. Guzman', 'Alan Hester', 'ornare sagittis felis. Donec', 111, 1, '97', 'mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem', 'ante bibendum ullamcorper. Duis cursus, diam at', 'lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus euismod', 'pharetra nibh. Aliquam ornare, libero at auctor', 1),
+(218, '0', '2017-09-16', 196, 3, 'Venus Petty', 'Gwendolyn Chan', 'Cailin Kaufman', 'Jarrod H. Chandler', 'pharetra, felis eget varius', 351, 5, '29', 'mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at,', 'faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus', 'neque. Nullam ut nisi a odio semper cursus.', 'Integer urna. Vivamus molestie dapibus', 1),
+(219, '0', '2018-02-27', 460, 1, 'Rooney Williams', 'Silas Roach', 'Otto Wyatt', 'Yetta S. Bishop', 'placerat eget, venenatis a,', 79, 5, '25', 'Phasellus in felis. Nulla tempor augue', 'tristique ac, eleifend vitae, erat. Vivamus nisi.', 'vitae, orci. Phasellus dapibus quam quis diam. Pellentesque habitant morbi', 'porta elit, a feugiat tellus lorem eu', 1),
+(220, '0', '2018-06-18', 242, 4, 'Warren Herring', 'Maxwell Trujillo', 'Rajah Acevedo', 'Nola S. Boyd', 'nec ante. Maecenas mi', 264, 5, '97', 'ipsum sodales purus, in molestie tortor nibh sit amet orci. Ut sagittis lobortis mauris. Suspendisse', 'neque. Sed eget lacus. Mauris', 'ornare tortor at risus. Nunc ac', 'odio semper cursus. Integer mollis.', 1),
+(221, '0', '2017-04-14', 192, 2, 'Forrest S. Love', 'Yvonne Gates', 'Charity Crane', 'Cameron Y. Bowman', 'aliquet, sem ut cursus', 325, 5, '83', 'consectetuer mauris id sapien. Cras dolor dolor, tempus', 'ullamcorper eu, euismod ac, fermentum vel, mauris.', 'arcu vel quam dignissim pharetra. Nam ac', 'ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu,', 1),
+(222, '0', '2018-03-10', 469, 3, 'Eaton G. Dawson', 'Beau A. Velasquez', 'Zachary K. Medina', 'Kaitlin V. Dodson', 'dui, nec tempus mauris', 185, 4, '53', 'eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit', 'mauris a nunc. In at pede. Cras vulputate velit eu', 'quis massa. Mauris vestibulum, neque sed', 'dolor. Nulla semper tellus id', 1),
+(223, '0', '2017-03-02', 260, 2, 'Hakeem O. Fowler', 'Adrian Y. Macdonald', 'Hanae T. Garcia', 'Holly Combs', 'diam at pretium aliquet,', 206, 1, '85', 'Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras', 'ullamcorper magna. Sed eu eros. Nam', 'arcu vel quam dignissim pharetra. Nam ac nulla.', 'ligula tortor, dictum eu, placerat eget, venenatis a,', 1),
+(224, '0', '2017-10-16', 308, 3, 'Nevada L. Hendrix', 'Colorado G. Knowles', 'Kirestin Trujillo', 'Philip H. Schmidt', 'vitae semper egestas, urna', 191, 1, '12', 'eu erat semper rutrum. Fusce dolor quam,', 'enim non nisi. Aenean eget metus. In nec orci. Donec', 'convallis in, cursus et, eros. Proin ultrices. Duis volutpat', 'vitae erat vel pede blandit congue. In', 1),
+(225, '0', '2018-01-08', 254, 2, 'Casey Key', 'Lev Lawson', 'Dawn W. Knight', 'Wayne O. Delaney', 'eu sem. Pellentesque ut', 101, 2, '17', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur', 'enim, sit amet ornare lectus justo eu arcu. Morbi sit', 'lectus rutrum urna, nec luctus felis purus', 'velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc', 1),
+(226, '0', '2018-05-08', 882, 2, 'Veda Cortez', 'Indira Holcomb', 'Baker Q. Clay', 'Raya Banks', 'Cras lorem lorem, luctus', 129, 4, '95', 'Curabitur dictum. Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus vitae mauris', 'vitae, aliquet nec, imperdiet nec, leo. Morbi neque tellus, imperdiet', 'sed tortor. Integer aliquam adipiscing lacus. Ut nec urna', 'eu, ligula. Aenean euismod mauris eu elit.', 1),
+(227, '0', '2017-03-26', 291, 5, 'Colby U. Howard', 'Walker Cobb', 'Ivan A. Velasquez', 'Olivia Clay', 'sem magna nec quam.', 306, 3, '35', 'lectus convallis est, vitae sodales nisi magna sed dui.', 'pharetra nibh. Aliquam ornare, libero', 'eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam', 'mi. Aliquam gravida mauris ut mi.', 1),
+(228, '0', '2017-10-23', 479, 2, 'Holly P. Frank', 'Libby Ingram', 'Price Gonzalez', 'Kitra R. Prince', 'suscipit nonummy. Fusce fermentum', 111, 3, '47', 'Donec tempor, est ac mattis semper, dui lectus rutrum urna, nec luctus felis purus ac', 'Proin ultrices. Duis volutpat nunc sit amet metus.', 'a, malesuada id, erat. Etiam', 'dui. Suspendisse ac metus vitae velit egestas', 1),
+(229, '0', '2018-03-15', 294, 4, 'Kendall Wyatt', 'Rowan Fitzpatrick', 'Zelda U. Berry', 'Teegan I. Lyons', 'fermentum convallis ligula. Donec', 212, 5, '96', 'sed, sapien. Nunc pulvinar arcu et', 'nisi sem semper erat, in consectetuer ipsum nunc id', 'fermentum vel, mauris. Integer sem', 'vitae erat vel pede blandit congue. In scelerisque', 1),
+(230, '0', '2018-11-18', 455, 5, 'Francesca R. David', 'Natalie Cherry', 'Leigh Keller', 'Ishmael Bender', 'tincidunt, neque vitae semper', 280, 2, '44', 'felis purus ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula', 'consequat nec, mollis vitae, posuere at, velit.', 'eu, ultrices sit amet, risus. Donec nibh enim,', 'dolor vitae dolor. Donec fringilla.', 1),
+(231, '0', '2018-12-24', 254, 1, 'Garrison Bradford', 'Kellie E. Munoz', 'Baxter Haley', 'Richard Mccullough', 'Mauris non dui nec', 243, 4, '93', 'semper pretium neque. Morbi quis urna. Nunc', 'ac nulla. In tincidunt congue turpis. In condimentum. Donec at', 'Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet.', 'et nunc. Quisque ornare tortor', 1),
+(232, '0', '2018-11-17', 974, 2, 'David Valencia', 'Nigel Hubbard', 'Juliet Cervantes', 'Maisie G. Chavez', 'dictum augue malesuada malesuada.', 35, 1, '80', 'auctor non, feugiat nec, diam. Duis mi enim, condimentum eget, volutpat ornare,', 'tortor nibh sit amet orci. Ut sagittis lobortis mauris. Suspendisse', 'in aliquet lobortis, nisi nibh', 'scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est.', 1),
+(233, '0', '2018-07-30', 545, 4, 'Tanisha Reilly', 'Donna Shaw', 'Blaze Wells', 'Julie Casey', 'ut, sem. Nulla interdum.', 45, 3, '41', 'Duis at lacus. Quisque purus', 'ac, feugiat non, lobortis quis, pede. Suspendisse dui.', 'lacinia mattis. Integer eu lacus. Quisque', 'vestibulum, neque sed dictum eleifend, nunc risus', 1),
+(234, '0', '2017-03-16', 160, 1, 'Silas O. Horton', 'Adam Franklin', 'Adena I. Scott', 'Debra B. Burke', 'laoreet posuere, enim nisl', 349, 4, '75', 'Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu', 'nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula.', 'eros nec tellus. Nunc lectus pede, ultrices a, auctor non,', 'arcu imperdiet ullamcorper. Duis at lacus.', 1),
+(235, '0', '2017-12-31', 517, 5, 'Sasha K. Cameron', 'Yoshio M. Chapman', 'Sheila Turner', 'Maxine Reed', 'Fusce aliquet magna a', 5, 2, '74', 'vulputate, nisi sem semper erat, in', 'Integer in magna. Phasellus dolor elit,', 'sodales nisi magna sed dui. Fusce aliquam, enim nec', 'quis accumsan convallis, ante lectus', 1),
+(236, '0', '2018-08-01', 848, 5, 'Otto D. Huber', 'Phelan T. Vang', 'Hope Donovan', 'Rebecca T. Gibbs', 'vitae semper egestas, urna', 265, 3, '32', 'pulvinar arcu et pede. Nunc sed orci lobortis augue scelerisque mollis.', 'condimentum. Donec at arcu. Vestibulum ante ipsum primis in faucibus', 'Sed pharetra, felis eget varius ultrices, mauris ipsum', 'vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy', 1),
+(237, '0', '2017-01-22', 528, 1, 'India X. Burnett', 'Mara N. Hoover', 'Delilah C. Michael', 'Carson Conrad', 'Integer urna. Vivamus molestie', 53, 2, '22', 'elit. Aliquam auctor, velit eget laoreet posuere,', 'orci lacus vestibulum lorem, sit amet ultricies sem', 'Aliquam adipiscing lobortis risus. In mi pede,', 'Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede.', 1),
+(238, '0', '2017-08-30', 669, 1, 'Jeremy H. Holland', 'Hyatt Z. Campos', 'Shelby E. Fitzpatrick', 'Yeo G. Hahn', 'lectus pede et risus.', 98, 3, '75', 'commodo auctor velit. Aliquam nisl. Nulla eu neque', 'dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris,', 'mauris eu elit. Nulla facilisi. Sed neque.', 'molestie sodales. Mauris blandit enim consequat', 1),
+(239, '0', '2018-03-19', 862, 1, 'Rina Savage', 'Debra I. Norton', 'Maya Ball', 'Risa J. Moody', 'magna nec quam. Curabitur', 87, 1, '25', 'Ut nec urna et arcu imperdiet', 'eu erat semper rutrum. Fusce dolor quam, elementum at, egestas', 'sit amet, consectetuer adipiscing elit. Aliquam auctor, velit eget', 'eget, dictum placerat, augue. Sed molestie. Sed id risus', 1),
+(240, '0', '2018-01-05', 146, 4, 'Wylie Mckee', 'Basil X. Hawkins', 'Hedwig Wallace', 'Illana R. Beck', 'enim. Etiam gravida molestie', 104, 4, '97', 'posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat,', 'dolor. Fusce feugiat. Lorem ipsum', 'aliquam, enim nec tempus scelerisque, lorem ipsum sodales purus, in', 'magna a tortor. Nunc commodo', 1),
+(241, '0', '2018-02-12', 640, 4, 'Ciaran K. Mcclure', 'Grant Maxwell', 'Carson Miles', 'Hop K. West', 'ut dolor dapibus gravida.', 288, 4, '54', 'quis, tristique ac, eleifend vitae, erat.', 'Vestibulum ante ipsum primis in faucibus orci luctus et', 'luctus lobortis. Class aptent taciti sociosqu', 'amet metus. Aliquam erat volutpat. Nulla', 1),
+(242, '0', '2018-01-03', 742, 5, 'Kirk Anthony', 'Quamar C. Dickerson', 'Ashely Mathews', 'Nomlanga K. Conner', 'malesuada fames ac turpis', 235, 5, '17', 'sit amet orci. Ut sagittis lobortis mauris. Suspendisse aliquet molestie', 'tincidunt, neque vitae semper egestas,', 'at arcu. Vestibulum ante ipsum primis in faucibus', 'malesuada vel, convallis in, cursus et, eros. Proin', 1),
+(243, '0', '2017-08-01', 613, 1, 'Drake Underwood', 'Xenos Castaneda', 'Leslie Murphy', 'Jenette Myers', 'aliquam eu, accumsan sed,', 296, 5, '10', 'In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi', 'cubilia Curae; Donec tincidunt. Donec vitae', 'Curabitur egestas nunc sed libero. Proin', 'Quisque fringilla euismod enim. Etiam', 1),
+(244, '0', '2017-12-02', 264, 1, 'Keegan S. Ayala', 'Mechelle Shannon', 'Ingrid H. Decker', 'Hasad Berry', 'ipsum dolor sit amet,', 265, 5, '68', 'aliquet diam. Sed diam lorem, auctor quis, tristique', 'erat eget ipsum. Suspendisse sagittis. Nullam', 'inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare.', 'nulla. Integer vulputate, risus a ultricies adipiscing, enim', 1),
+(245, '0', '2017-10-20', 246, 4, 'Gray W. Randolph', 'Caryn Tucker', 'Maris Cherry', 'Nicole Pratt', 'turpis egestas. Aliquam fringilla', 140, 4, '77', 'ante. Nunc mauris sapien, cursus in,', 'at, nisi. Cum sociis natoque penatibus', 'lectus sit amet luctus vulputate, nisi sem', 'urna justo faucibus lectus, a sollicitudin orci sem eget', 1),
+(246, '0', '2018-01-12', 615, 4, 'Barry Garner', 'Vladimir J. Alexander', 'Chava Richmond', 'Acton R. Lopez', 'consectetuer adipiscing elit. Curabitur', 189, 3, '77', 'Fusce aliquet magna a neque. Nullam ut', 'nulla. Integer vulputate, risus a ultricies adipiscing,', 'ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas', 'in lobortis tellus justo sit amet', 1),
+(247, '0', '2018-06-27', 519, 2, 'Sean P. Woodard', 'Dai Leach', 'Sheila N. Brown', 'Chester F. Blackwell', 'gravida sagittis. Duis gravida.', 107, 5, '89', 'tempor lorem, eget mollis lectus pede et risus. Quisque', 'elit fermentum risus, at fringilla purus mauris a', 'vulputate mauris sagittis placerat. Cras dictum', 'aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque', 1),
+(248, '0', '2017-07-24', 450, 5, 'Declan Henderson', 'Nicole I. Horne', 'Halla Z. Mccall', 'Carolyn Talley', 'elementum sem, vitae aliquam', 97, 2, '67', 'cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet', 'nisi. Cum sociis natoque penatibus et', 'Nunc ut erat. Sed nunc est, mollis non,', 'turpis. In condimentum. Donec at arcu. Vestibulum', 1),
+(249, '0', '2018-10-09', 719, 4, 'Levi James', 'Ciaran U. Perkins', 'Avye T. Livingston', 'Lillian E. Kim', 'et magnis dis parturient', 245, 4, '84', 'a felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis,', 'erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla.', 'sem molestie sodales. Mauris blandit enim consequat purus.', 'quam, elementum at, egestas a, scelerisque', 1),
+(250, '0', '2018-10-28', 834, 4, 'Colleen Shepherd', 'Flavia Rush', 'Kristen Robertson', 'Kaden V. Kerr', 'Morbi non sapien molestie', 74, 1, '33', 'nec ligula consectetuer rhoncus. Nullam velit dui,', 'Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla', 'accumsan convallis, ante lectus convallis est, vitae sodales nisi magna', 'velit in aliquet lobortis, nisi', 1),
+(251, '0', '2018-11-13', 442, 3, 'Heidi Ortega', 'Sheila O. Vang', 'Sheila Schneider', 'Macey Rasmussen', 'ac ipsum. Phasellus vitae', 341, 5, '39', 'adipiscing fringilla, porttitor vulputate, posuere', 'urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac', 'auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In', 'aliquet nec, imperdiet nec, leo. Morbi neque tellus,', 1),
+(252, '0', '2019-01-04', 303, 1, 'Zenia T. Blake', 'Iris Vang', 'Yvonne Warren', 'Jasmine N. Gibson', 'eu, odio. Phasellus at', 182, 4, '18', 'eu arcu. Morbi sit amet massa. Quisque porttitor eros nec', 'lorem, sit amet ultricies sem magna nec quam. Curabitur vel', 'semper et, lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim', 'pede. Cras vulputate velit eu sem. Pellentesque ut ipsum', 1),
+(253, '0', '2017-12-26', 433, 4, 'Ryan Key', 'Lucius H. Payne', 'Madeson F. Combs', 'Cassidy Q. Schultz', 'nibh enim, gravida sit', 241, 3, '29', 'vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse', 'hendrerit id, ante. Nunc mauris sapien,', 'nisl arcu iaculis enim, sit', 'mi, ac mattis velit justo nec ante.', 1),
+(254, '0', '2018-03-06', 486, 3, 'Drake Morris', 'Naomi K. Alston', 'Timon R. Briggs', 'Lester C. Winters', 'Fusce aliquam, enim nec', 341, 3, '85', 'facilisis facilisis, magna tellus faucibus leo,', 'lorem vitae odio sagittis semper. Nam tempor diam', 'tristique ac, eleifend vitae, erat. Vivamus nisi. Mauris nulla. Integer', 'risus. Quisque libero lacus, varius et, euismod et, commodo', 1),
+(255, '0', '2017-12-24', 304, 1, 'Gabriel Hudson', 'Germaine Holt', 'Cody Acosta', 'Linda Campbell', 'erat. Sed nunc est,', 31, 1, '65', 'eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum', 'amet, consectetuer adipiscing elit. Etiam laoreet,', 'eleifend vitae, erat. Vivamus nisi. Mauris nulla. Integer urna. Vivamus', 'sodales purus, in molestie tortor', 1),
+(256, '0', '2018-05-07', 713, 3, 'Amethyst G. Hanson', 'Gage Kinney', 'William Gross', 'Burton Guzman', 'amet, faucibus ut, nulla.', 60, 5, '36', 'tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id,', 'mi lorem, vehicula et, rutrum eu, ultrices sit amet,', 'magna. Praesent interdum ligula eu enim.', 'quis turpis vitae purus gravida', 1),
+(257, '0', '2018-04-29', 131, 3, 'Sydney Q. William', 'Adena J. Newman', 'Haley Douglas', 'Cathleen D. Sykes', 'facilisis. Suspendisse commodo tincidunt', 68, 1, '35', 'Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec ligula consectetuer', 'orci tincidunt adipiscing. Mauris molestie', 'vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce', 'et magnis dis parturient montes, nascetur ridiculus mus. Proin', 1),
+(258, '0', '2018-02-27', 390, 4, 'Brenda B. Franks', 'Evangeline Knight', 'Uta Santiago', 'Veda Franks', 'sed leo. Cras vehicula', 310, 1, '61', 'rhoncus. Donec est. Nunc ullamcorper, velit in aliquet', 'eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit', 'Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum', 'aliquam iaculis, lacus pede sagittis augue, eu tempor', 1),
+(259, '0', '2017-02-27', 928, 5, 'Stone Petersen', 'Melinda M. Ayers', 'Joan Sandoval', 'Xander E. Alford', 'Nam interdum enim non', 182, 4, '15', 'et ultrices posuere cubilia Curae; Donec tincidunt. Donec vitae erat vel', 'rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede', 'id, erat. Etiam vestibulum massa', 'enim. Etiam gravida molestie arcu. Sed eu nibh', 1),
+(260, '0', '2018-10-18', 121, 4, 'Jenna Underwood', 'Xenos H. Conway', 'Angela F. Wright', 'Boris Berger', 'erat nonummy ultricies ornare,', 98, 5, '24', 'euismod et, commodo at, libero. Morbi accumsan laoreet ipsum.', 'tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi.', 'gravida sit amet, dapibus id,', 'pede. Praesent eu dui. Cum', 1);
+INSERT INTO `voo` (`idvoo`, `voo_status`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `natureza`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `historico`, `ocorrencia`, `discrepancia`, `relprev`, `qte_etapas`) VALUES
+(261, '0', '2017-04-08', 892, 4, 'Price Perez', 'Renee P. Ferguson', 'Adrienne Alvarez', 'Leo Y. Hampton', 'lobortis quis, pede. Suspendisse', 312, 4, '65', 'ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut', 'pede. Nunc sed orci lobortis augue scelerisque mollis.', 'faucibus leo, in lobortis tellus justo', 'eu, odio. Phasellus at augue', 1),
+(262, '0', '2018-05-13', 275, 4, 'Kareem J. Abbott', 'Lana E. Burgess', 'Brenda Jacobs', 'Buffy Fernandez', 'laoreet posuere, enim nisl', 173, 1, '32', 'Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec,', 'luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie.', 'conubia nostra, per inceptos hymenaeos. Mauris', 'dictum mi, ac mattis velit justo nec ante. Maecenas mi', 1),
+(263, '0', '2018-02-08', 497, 4, 'Zelenia Q. Morin', 'Rae Lawrence', 'Karleigh Cross', 'Urielle W. Rosales', 'mauris, rhoncus id, mollis', 234, 4, '60', 'aliquet diam. Sed diam lorem, auctor quis,', 'molestie arcu. Sed eu nibh vulputate mauris', 'erat. Vivamus nisi. Mauris nulla. Integer urna. Vivamus molestie', 'malesuada fames ac turpis egestas. Fusce aliquet magna a neque.', 1),
+(264, '0', '2019-01-03', 874, 1, 'Linus E. Tate', 'Maxwell I. Cash', 'Marsden O. Clemons', 'Stephen Alford', 'dignissim pharetra. Nam ac', 133, 2, '78', 'ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante.', 'ac mattis semper, dui lectus', 'Sed et libero. Proin mi. Aliquam gravida', 'metus facilisis lorem tristique aliquet. Phasellus fermentum convallis', 1),
+(265, '0', '2019-01-06', 244, 1, 'Malik T. Deleon', 'Irene Odom', 'Ella Daniels', 'Branden R. Bentley', 'eu tempor erat neque', 286, 5, '71', 'mi, ac mattis velit justo nec ante. Maecenas', 'mollis non, cursus non, egestas', 'amet, consectetuer adipiscing elit. Aliquam', 'hendrerit neque. In ornare sagittis felis. Donec tempor, est', 1),
+(266, '0', '2017-10-10', 442, 1, 'Meredith Duran', 'Giacomo C. Herman', 'Demetria Reilly', 'Andrew Z. Mullins', 'consectetuer adipiscing elit. Aliquam', 244, 1, '75', 'nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero', 'eget, dictum placerat, augue. Sed', 'Cras vulputate velit eu sem. Pellentesque ut', 'libero nec ligula consectetuer rhoncus. Nullam velit dui, semper', 1),
+(267, '0', '2017-07-23', 875, 4, 'Jelani Swanson', 'Shafira Y. Guzman', 'Sandra Walker', 'Kaye Noel', 'non magna. Nam ligula', 112, 4, '98', 'Ut tincidunt vehicula risus. Nulla eget metus eu', 'velit. Aliquam nisl. Nulla eu neque', 'gravida nunc sed pede. Cum sociis natoque penatibus', 'ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci,', 1),
+(268, '0', '2018-07-28', 852, 2, 'Brennan Lindsey', 'Remedios Rice', 'Jeanette Tran', 'Chantale Q. Massey', 'Curabitur massa. Vestibulum accumsan', 108, 3, '15', 'Aliquam nec enim. Nunc ut erat. Sed nunc est,', 'velit dui, semper et, lacinia vitae, sodales at, velit.', 'Nulla eget metus eu erat semper rutrum. Fusce dolor', 'mattis. Integer eu lacus. Quisque', 1),
+(269, '0', '2018-05-30', 718, 1, 'Tamekah Y. Brown', 'Josephine Gutierrez', 'Leo M. Woodard', 'Kelsey Mcpherson', 'sapien imperdiet ornare. In', 201, 3, '76', 'eget nisi dictum augue malesuada malesuada. Integer id', 'a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'diam. Duis mi enim, condimentum eget, volutpat', 'et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis', 1),
+(270, '0', '2017-11-19', 429, 2, 'Alyssa H. Colon', 'Sydnee J. Robbins', 'Petra Alvarez', 'Giacomo Q. Ward', 'Morbi non sapien molestie', 250, 2, '59', 'tempus scelerisque, lorem ipsum sodales purus, in', 'nulla magna, malesuada vel, convallis in, cursus et,', 'bibendum. Donec felis orci, adipiscing non, luctus sit amet,', 'eros. Proin ultrices. Duis volutpat nunc', 1),
+(271, '0', '2018-08-26', 158, 2, 'Karen Atkinson', 'Kaitlin X. Fry', 'Lisandra D. Doyle', 'Branden Lara', 'vel quam dignissim pharetra.', 21, 3, '15', 'ut odio vel est tempor bibendum. Donec felis orci, adipiscing non, luctus', 'sem semper erat, in consectetuer', 'orci. Ut semper pretium neque. Morbi quis', 'Nulla eu neque pellentesque massa lobortis ultrices.', 1),
+(272, '0', '2017-01-12', 716, 4, 'Jana W. Porter', 'Autumn V. Velasquez', 'Mannix E. Bass', 'Raja Diaz', 'Fusce mi lorem, vehicula', 351, 4, '50', 'nunc sed pede. Cum sociis natoque', 'Donec egestas. Duis ac arcu. Nunc mauris.', 'mauris sit amet lorem semper auctor. Mauris', 'et, euismod et, commodo at, libero.', 1),
+(273, '0', '2018-08-06', 923, 3, 'Vivien N. Benton', 'Kiayada Lowery', 'Katelyn Fuller', 'August J. Jimenez', 'cursus. Nunc mauris elit,', 242, 1, '65', 'lobortis, nisi nibh lacinia orci,', 'nec, euismod in, dolor. Fusce feugiat. Lorem ipsum dolor sit', 'lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus euismod', 'at auctor ullamcorper, nisl arcu iaculis enim, sit amet', 1),
+(274, '0', '2017-06-08', 744, 1, 'Randall G. Austin', 'Jaime W. Mccarthy', 'Rhona Phillips', 'Rhea Stanton', 'feugiat placerat velit. Quisque', 258, 4, '59', 'elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis', 'at, velit. Cras lorem lorem, luctus ut,', 'eget odio. Aliquam vulputate ullamcorper', 'porttitor scelerisque neque. Nullam nisl.', 1),
+(275, '0', '2018-04-21', 441, 5, 'Amaya Lynch', 'Phelan C. Lang', 'Valentine Y. Dunn', 'Jamalia Richmond', 'Duis sit amet diam', 55, 2, '16', 'bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc', 'Nulla tempor augue ac ipsum. Phasellus vitae mauris sit amet', 'a, auctor non, feugiat nec, diam. Duis', 'ornare, elit elit fermentum risus, at fringilla purus mauris', 1),
+(276, '0', '2018-11-26', 340, 3, 'Dustin C. Lyons', 'Arthur Huber', 'Hedda B. Kelly', 'Valentine Morris', 'Cras sed leo. Cras', 74, 2, '99', 'parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique', 'fringilla cursus purus. Nullam scelerisque', 'Sed diam lorem, auctor quis, tristique ac, eleifend vitae,', 'euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget', 1),
+(277, '0', '2018-07-02', 678, 2, 'Anthony F. Norton', 'Rahim Roach', 'Linus Franks', 'Reece Ballard', 'ac arcu. Nunc mauris.', 186, 2, '71', 'tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel,', 'a, aliquet vel, vulputate eu, odio. Phasellus at', 'velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis', 'tempus, lorem fringilla ornare placerat, orci lacus', 1),
+(278, '0', '2017-11-21', 950, 4, 'Shellie Murray', 'Anjolie U. Burt', 'Iola F. Delaney', 'Donna J. Jacobs', 'egestas. Sed pharetra, felis', 299, 3, '59', 'nulla. In tincidunt congue turpis. In condimentum. Donec at arcu. Vestibulum ante ipsum primis in', 'pharetra nibh. Aliquam ornare, libero at auctor ullamcorper, nisl arcu', 'ultrices a, auctor non, feugiat nec, diam. Duis mi enim,', 'non, egestas a, dui. Cras pellentesque. Sed', 1),
+(279, '0', '2018-12-30', 100, 2, 'Janna Z. Blankenship', 'Emerald Osborne', 'Dennis Flynn', 'Gray F. Cotton', 'id, erat. Etiam vestibulum', 58, 1, '81', 'nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin', 'ac risus. Morbi metus. Vivamus euismod urna. Nullam lobortis quam', 'quam a felis ullamcorper viverra. Maecenas iaculis aliquet diam.', 'nisl arcu iaculis enim, sit', 1),
+(280, '0', '2017-08-23', 694, 3, 'Charde Moon', 'Joel Brooks', 'Addison Sykes', 'Gwendolyn H. Johns', 'adipiscing fringilla, porttitor vulputate,', 258, 4, '87', 'sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et libero. Proin', 'vel sapien imperdiet ornare. In faucibus.', 'risus. Nulla eget metus eu', 'justo. Proin non massa non ante', 1),
+(281, '0', '2018-09-19', 117, 4, 'Brianna Washington', 'Jermaine H. Wynn', 'Karina Schneider', 'Sylvester Mcintosh', 'Nunc laoreet lectus quis', 295, 1, '91', 'diam vel arcu. Curabitur ut odio vel est tempor bibendum. Donec felis orci,', 'gravida. Aliquam tincidunt, nunc ac mattis ornare,', 'turpis non enim. Mauris quis turpis', 'erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam', 1),
+(282, '0', '2018-06-03', 216, 3, 'Xyla B. Mathews', 'Jeanette X. Wade', 'Ariel P. Richmond', 'Nash Wood', 'nibh. Donec est mauris,', 249, 3, '99', 'Sed et libero. Proin mi. Aliquam gravida mauris ut mi. Duis', 'hendrerit id, ante. Nunc mauris sapien,', 'auctor quis, tristique ac, eleifend vitae, erat.', 'molestie orci tincidunt adipiscing. Mauris molestie pharetra', 1),
+(283, '0', '2018-09-01', 620, 1, 'Germane A. Case', 'Lenore M. Bruce', 'Rebekah O. Morin', 'Octavius I. May', 'vel turpis. Aliquam adipiscing', 183, 2, '79', 'Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus vitae mauris sit', 'molestie tortor nibh sit amet orci. Ut sagittis lobortis', 'sit amet ante. Vivamus non lorem vitae odio sagittis semper.', 'per inceptos hymenaeos. Mauris ut quam vel sapien', 1),
+(284, '0', '2017-09-12', 308, 3, 'Iola Carrillo', 'Raphael Dodson', 'Chase V. Jefferson', 'Elaine V. Johnson', 'ut, pharetra sed, hendrerit', 120, 2, '88', 'dictum placerat, augue. Sed molestie. Sed id risus quis', 'Proin vel nisl. Quisque fringilla euismod', 'euismod mauris eu elit. Nulla', 'lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis', 1),
+(285, '0', '2018-10-13', 221, 5, 'Alika Maxwell', 'Unity P. Taylor', 'Lee X. Hewitt', 'Bevis Vaughan', 'amet luctus vulputate, nisi', 47, 3, '79', 'vitae aliquam eros turpis non enim. Mauris quis turpis', 'quam. Pellentesque habitant morbi tristique senectus et netus et', 'id enim. Curabitur massa. Vestibulum accumsan', 'in sodales elit erat vitae risus. Duis a mi fringilla', 1),
+(286, '0', '2017-09-10', 714, 4, 'Charity Salinas', 'Lunea Roman', 'Blair G. Rice', 'Sacha K. Hatfield', 'auctor velit. Aliquam nisl.', 132, 3, '21', 'ad litora torquent per conubia nostra, per', 'ornare, lectus ante dictum mi,', 'nisl sem, consequat nec, mollis vitae, posuere at,', 'ornare, libero at auctor ullamcorper, nisl', 1),
+(287, '0', '2018-01-28', 679, 1, 'Wade Avila', 'Hu Carver', 'Hilda V. Hamilton', 'Yasir W. Graves', 'Morbi metus. Vivamus euismod', 31, 4, '92', 'viverra. Donec tempus, lorem fringilla ornare placerat, orci lacus vestibulum', 'Donec est mauris, rhoncus id, mollis nec, cursus a, enim.', 'a tortor. Nunc commodo auctor', 'Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus', 1),
+(288, '0', '2017-04-11', 289, 3, 'Ina Waters', 'Leah Bonner', 'Hoyt Holland', 'Austin Kim', 'libero nec ligula consectetuer', 129, 2, '39', 'dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu.', 'vulputate mauris sagittis placerat. Cras dictum ultricies ligula. Nullam enim.', 'vitae risus. Duis a mi fringilla mi lacinia mattis. Integer', 'dui. Cum sociis natoque penatibus', 1),
+(289, '0', '2017-05-30', 414, 4, 'Kuame Clay', 'Gregory Mathews', 'Jael Kerr', 'Ryder L. Schwartz', 'enim. Nunc ut erat.', 265, 5, '50', 'vitae, erat. Vivamus nisi. Mauris', 'ac mattis semper, dui lectus rutrum urna, nec luctus felis', 'et, lacinia vitae, sodales at, velit. Pellentesque', 'in felis. Nulla tempor augue ac', 1),
+(290, '0', '2017-01-27', 577, 5, 'August Bruce', 'Fulton C. Knight', 'Clinton Trujillo', 'Wyatt H. Kirkland', 'eu dui. Cum sociis', 135, 3, '26', 'ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit.', 'aliquet, metus urna convallis erat,', 'congue a, aliquet vel, vulputate eu, odio. Phasellus at', 'velit eu sem. Pellentesque ut ipsum ac mi eleifend', 1),
+(291, '0', '2018-04-26', 165, 4, 'Hasad Avila', 'Marvin Hodge', 'Kenneth N. Marshall', 'Jolie O. Kidd', 'urna justo faucibus lectus,', 115, 2, '95', 'nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam', 'lectus. Nullam suscipit, est ac facilisis facilisis, magna tellus faucibus', 'quis, pede. Praesent eu dui.', 'arcu. Vivamus sit amet risus. Donec egestas.', 1),
+(292, '0', '2018-05-14', 175, 5, 'Ciaran Fisher', 'Axel B. Campbell', 'Yeo Bonner', 'Shelley Valenzuela', 'elit pede, malesuada vel,', 97, 2, '96', 'magna. Duis dignissim tempor arcu. Vestibulum ut eros', 'velit. Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem', 'facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla.', 'magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam', 1),
+(293, '0', '2018-07-31', 299, 5, 'Miranda Knight', 'Sylvester X. Morris', 'Rahim Wilkerson', 'Francesca Collins', 'morbi tristique senectus et', 337, 5, '92', 'Donec non justo. Proin non massa non ante bibendum ullamcorper. Duis cursus, diam at', 'Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc', 'Proin mi. Aliquam gravida mauris ut mi.', 'ut nisi a odio semper', 1),
+(294, '0', '2018-04-24', 831, 3, 'Lacy Knight', 'Dahlia Mitchell', 'Oleg B. Morton', 'Carson Ingram', 'parturient montes, nascetur ridiculus', 162, 2, '70', 'Donec fringilla. Donec feugiat metus sit amet ante. Vivamus non lorem vitae odio', 'dolor vitae dolor. Donec fringilla. Donec feugiat metus sit', 'urna et arcu imperdiet ullamcorper. Duis at', 'habitant morbi tristique senectus et', 1),
+(295, '0', '2018-06-04', 122, 1, 'Linus Rodriquez', 'Yael V. Wood', 'Kane Nielsen', 'Suki Mckinney', 'lacus. Mauris non dui', 205, 5, '18', 'vestibulum lorem, sit amet ultricies sem magna nec quam. Curabitur', 'sed pede nec ante blandit viverra. Donec tempus, lorem', 'non leo. Vivamus nibh dolor,', 'et, magna. Praesent interdum ligula eu enim.', 1),
+(296, '0', '2017-07-29', 939, 5, 'Lane Santiago', 'Kasimir Eaton', 'Kendall Hartman', 'Amery C. Aguilar', 'mauris eu elit. Nulla', 183, 3, '25', 'id enim. Curabitur massa. Vestibulum accumsan neque et', 'Nunc ut erat. Sed nunc est, mollis', 'dui augue eu tellus. Phasellus', 'metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt', 1),
+(297, '0', '2017-08-06', 192, 2, 'Scarlet J. Savage', 'Destiny J. Foley', 'Bree Finley', 'Molly Mosley', 'eu tellus eu augue', 62, 2, '81', 'ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed', 'Integer aliquam adipiscing lacus. Ut nec', 'eu arcu. Morbi sit amet', 'Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean', 1),
+(298, '0', '2017-02-17', 462, 1, 'Doris Branch', 'Gail W. Dillon', 'Jesse V. Byrd', 'Bertha F. Guerra', 'sit amet, faucibus ut,', 192, 1, '73', 'Etiam bibendum fermentum metus. Aenean sed', 'libero lacus, varius et, euismod et, commodo', 'vel arcu eu odio tristique pharetra. Quisque ac libero', 'lectus. Cum sociis natoque penatibus et magnis', 1),
+(299, '0', '2018-03-27', 706, 2, 'Vera F. Hayes', 'Yetta V. Aguilar', 'Jocelyn A. Patton', 'Cyrus Vaughn', 'Donec est mauris, rhoncus', 44, 4, '60', 'tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod', 'Cras eget nisi dictum augue malesuada malesuada.', 'dolor. Fusce feugiat. Lorem ipsum dolor sit amet,', 'in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit', 1),
+(300, '0', '2017-09-22', 978, 4, 'McKenzie A. Thomas', 'Blossom Petty', 'Gareth Webb', 'Cassady Henry', 'risus. Donec nibh enim,', 225, 5, '52', 'tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum.', 'semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices', 'dictum eu, placerat eget, venenatis a, magna.', 'nisl arcu iaculis enim, sit', 1),
+(301, '0', '2017-01-15', 501, 3, 'Donna H. Merrill', 'Wylie Espinoza', 'Ezekiel Montoya', 'Uma B. Caldwell', 'Phasellus elit pede, malesuada', 109, 3, '23', 'Donec fringilla. Donec feugiat metus sit amet ante. Vivamus non', 'felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras', 'eros. Nam consequat dolor vitae dolor. Donec', 'bibendum ullamcorper. Duis cursus, diam at', 1),
+(302, '0', '2017-06-03', 691, 2, 'Odessa Roberson', 'Caryn X. Dean', 'Aquila Everett', 'Jerome O. Rojas', 'elit, dictum eu, eleifend', 229, 5, '95', 'torquent per conubia nostra, per inceptos hymenaeos. Mauris', 'ullamcorper. Duis at lacus. Quisque purus', 'pharetra ut, pharetra sed, hendrerit a, arcu. Sed', 'ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros', 1),
+(303, '0', '2018-03-23', 565, 5, 'Hadassah Q. Patel', 'Cade Hutchinson', 'Fuller Cotton', 'Leroy Joyce', 'nonummy ipsum non arcu.', 219, 2, '38', 'cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut tincidunt orci', 'eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean', 'ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque.', 'lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet', 1),
+(304, '0', '2017-12-21', 762, 3, 'Amena Keith', 'Hoyt Q. Chambers', 'Armando S. Branch', 'Vladimir Salazar', 'rutrum. Fusce dolor quam,', 261, 4, '80', 'consectetuer rhoncus. Nullam velit dui,', 'elit fermentum risus, at fringilla purus mauris a', 'varius ultrices, mauris ipsum porta elit, a', 'odio. Phasellus at augue id ante dictum cursus. Nunc mauris', 1),
+(305, '0', '2018-07-07', 247, 5, 'Chadwick D. Carson', 'Indira C. Sawyer', 'Samantha Mcmahon', 'Trevor W. Murray', 'iaculis quis, pede. Praesent', 19, 4, '39', 'arcu. Sed et libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio,', 'Aliquam vulputate ullamcorper magna. Sed eu eros. Nam', 'Vivamus euismod urna. Nullam lobortis quam a felis ullamcorper', 'a, scelerisque sed, sapien. Nunc pulvinar', 1),
+(306, '0', '2017-11-28', 447, 1, 'Armando A. Hill', 'Alan I. Gallegos', 'Jolene Diaz', 'Hammett N. Fisher', 'interdum feugiat. Sed nec', 232, 5, '54', 'Cras sed leo. Cras vehicula aliquet libero.', 'lorem, auctor quis, tristique ac, eleifend vitae, erat.', 'massa. Vestibulum accumsan neque et nunc. Quisque', 'Aliquam rutrum lorem ac risus. Morbi metus. Vivamus euismod urna.', 1),
+(307, '0', '2017-02-14', 389, 3, 'Kirestin Watkins', 'Kirk Weber', 'Haviva U. Patterson', 'Alden Lowe', 'Sed congue, elit sed', 88, 1, '65', 'erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque', 'per conubia nostra, per inceptos hymenaeos. Mauris', 'a felis ullamcorper viverra. Maecenas iaculis aliquet diam.', 'enim, sit amet ornare lectus justo eu arcu. Morbi', 1),
+(308, '0', '2018-07-21', 692, 1, 'Aspen A. Swanson', 'Lee E. Wood', 'Raphael Garcia', 'Cheryl P. Hurley', 'magna. Suspendisse tristique neque', 65, 1, '60', 'vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam,', 'enim commodo hendrerit. Donec porttitor', 'tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero', 'turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque', 1),
+(309, '0', '2017-04-23', 920, 5, 'Amal M. Stephenson', 'Slade S. Taylor', 'Amos Z. Norton', 'Louis W. Gould', 'pretium aliquet, metus urna', 202, 2, '36', 'lobortis, nisi nibh lacinia orci, consectetuer euismod est', 'urna, nec luctus felis purus ac tellus. Suspendisse', 'Suspendisse non leo. Vivamus nibh dolor, nonummy ac, feugiat non,', 'In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede', 1),
+(310, '0', '2018-07-01', 468, 3, 'Bert Irwin', 'Wyoming L. Cote', 'Ray Stafford', 'Anthony K. Beard', 'turpis non enim. Mauris', 35, 2, '77', 'parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique', 'Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat,', 'ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis', 'arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing.', 1),
+(311, '0', '2018-08-18', 937, 1, 'Barclay Knight', 'Andrew L. Cox', 'Brielle T. Walsh', 'Arthur Morris', 'est ac facilisis facilisis,', 111, 5, '52', 'convallis dolor. Quisque tincidunt pede ac', 'nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam erat', 'neque sed sem egestas blandit. Nam', 'mus. Proin vel nisl. Quisque fringilla euismod enim. Etiam gravida', 1),
+(312, '0', '2017-07-25', 919, 1, 'Mariko Mcguire', 'Moses F. Little', 'Carlos Randall', 'Elmo Oliver', 'lectus pede et risus.', 169, 3, '28', 'mi, ac mattis velit justo nec', 'auctor non, feugiat nec, diam.', 'nisl. Quisque fringilla euismod enim.', 'quis, pede. Praesent eu dui. Cum sociis natoque penatibus et', 1),
+(313, '0', '2017-11-27', 895, 1, 'Damon R. Keller', 'Driscoll Roth', 'Gil Hull', 'Ivy Miles', 'sollicitudin commodo ipsum. Suspendisse', 26, 5, '12', 'luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.', 'Nulla facilisi. Sed neque. Sed eget lacus. Mauris', 'lectus. Nullam suscipit, est ac facilisis facilisis,', 'dolor, nonummy ac, feugiat non, lobortis quis, pede.', 1),
+(314, '0', '2017-01-28', 800, 3, 'Ezekiel Sanchez', 'Ila E. Gibbs', 'Timon Walter', 'Nigel Boyer', 'ultricies adipiscing, enim mi', 208, 3, '53', 'convallis erat, eget tincidunt dui augue eu', 'euismod est arcu ac orci.', 'metus vitae velit egestas lacinia. Sed congue, elit sed consequat', 'rutrum eu, ultrices sit amet, risus.', 1),
+(315, '0', '2018-11-20', 184, 5, 'Alan Lang', 'Ulric Nunez', 'Chancellor Owens', 'Ezra Massey', 'cursus a, enim. Suspendisse', 141, 5, '11', 'auctor, nunc nulla vulputate dui, nec', 'nisi. Cum sociis natoque penatibus et', 'sagittis semper. Nam tempor diam dictum sapien.', 'vel pede blandit congue. In scelerisque scelerisque dui.', 1),
+(316, '0', '2018-12-05', 476, 4, 'Laura U. Joyner', 'Kennedy Long', 'Gwendolyn W. Gross', 'Alexa I. Mccullough', 'ultricies dignissim lacus. Aliquam', 202, 3, '39', 'nec, eleifend non, dapibus rutrum, justo. Praesent luctus. Curabitur egestas nunc sed libero. Proin', 'mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin', 'consectetuer mauris id sapien. Cras dolor', 'nunc ac mattis ornare, lectus ante dictum', 1),
+(317, '0', '2017-01-28', 198, 5, 'Deanna Schneider', 'Noel Castro', 'Trevor Mclaughlin', 'Len B. Potter', 'aliquet odio. Etiam ligula', 268, 3, '82', 'bibendum. Donec felis orci, adipiscing non, luctus sit amet, faucibus', 'convallis ligula. Donec luctus aliquet', 'litora torquent per conubia nostra, per inceptos hymenaeos. Mauris', 'Phasellus at augue id ante dictum cursus. Nunc mauris elit,', 1),
+(318, '0', '2018-09-05', 442, 3, 'Miriam Osborne', 'Kareem Mcpherson', 'Pandora H. Oneil', 'Quynn V. Huber', 'Duis at lacus. Quisque', 168, 2, '43', 'tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit', 'nunc nulla vulputate dui, nec', 'senectus et netus et malesuada fames ac turpis egestas.', 'mauris elit, dictum eu, eleifend nec, malesuada ut, sem. Nulla', 1),
+(319, '0', '2017-01-25', 150, 2, 'Regan E. Stuart', 'Carolyn W. Henry', 'Gillian Woodward', 'Lila Grant', 'mattis. Cras eget nisi', 234, 4, '89', 'Phasellus libero mauris, aliquam eu,', 'in magna. Phasellus dolor elit,', 'penatibus et magnis dis parturient', 'Maecenas malesuada fringilla est. Mauris eu', 1),
+(320, '0', '2018-10-30', 928, 1, 'Miriam Bradford', 'Nerea Ballard', 'Florence S. Strickland', 'Oprah K. Silva', 'feugiat tellus lorem eu', 166, 3, '17', 'lectus rutrum urna, nec luctus felis purus ac tellus. Suspendisse', 'Aliquam erat volutpat. Nulla facilisis. Suspendisse', 'vitae sodales nisi magna sed dui. Fusce', 'dignissim lacus. Aliquam rutrum lorem ac risus. Morbi', 1),
+(321, '0', '2018-03-16', 640, 1, 'Hunter W. Dickson', 'Acton Nguyen', 'Lance Evans', 'Quamar U. Melton', 'sed turpis nec mauris', 85, 2, '15', 'condimentum. Donec at arcu. Vestibulum ante ipsum primis in faucibus', 'ac risus. Morbi metus. Vivamus euismod urna. Nullam lobortis quam', 'Quisque tincidunt pede ac urna. Ut tincidunt', 'aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla', 1),
+(322, '0', '2018-01-02', 445, 3, 'Joshua Adams', 'Ryder Clayton', 'Nina English', 'Otto U. Farrell', 'tellus eu augue porttitor', 236, 2, '92', 'Aliquam ultrices iaculis odio. Nam interdum enim non', 'pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet', 'congue. In scelerisque scelerisque dui.', 'dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et', 1),
+(323, '0', '2017-12-07', 370, 4, 'Bernard C. Hays', 'Aidan Hensley', 'Hashim Z. Burgess', 'Ariana I. Moreno', 'Phasellus nulla. Integer vulputate,', 355, 5, '36', 'id, blandit at, nisi. Cum', 'feugiat. Sed nec metus facilisis lorem tristique', 'posuere at, velit. Cras lorem', 'Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus', 1),
+(324, '0', '2017-06-07', 851, 5, 'Isabella Lewis', 'Zelda R. Whitney', 'Kristen Branch', 'Bianca X. Rocha', 'vulputate dui, nec tempus', 275, 4, '73', 'Sed dictum. Proin eget odio. Aliquam vulputate', 'scelerisque neque. Nullam nisl. Maecenas', 'luctus aliquet odio. Etiam ligula tortor,', 'ligula. Donec luctus aliquet odio.', 1),
+(325, '0', '2017-10-09', 711, 2, 'Amity W. Casey', 'Tanek E. Elliott', 'Quail R. Kim', 'Amena S. Mann', 'semper, dui lectus rutrum', 308, 4, '43', 'erat, eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada', 'malesuada malesuada. Integer id magna et ipsum cursus', 'a purus. Duis elementum, dui quis accumsan convallis, ante lectus', 'Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer', 1),
+(326, '0', '2018-01-30', 694, 5, 'Kiona G. Patton', 'Judah Benjamin', 'Gregory Doyle', 'Shafira Hodges', 'neque. Sed eget lacus.', 65, 3, '97', 'consequat purus. Maecenas libero est, congue a, aliquet vel, vulputate eu,', 'est ac mattis semper, dui', 'consectetuer euismod est arcu ac orci. Ut semper pretium neque.', 'ad litora torquent per conubia', 1),
+(327, '0', '2018-10-30', 941, 4, 'Ryan P. Garza', 'Ivan Q. Campos', 'Nathan A. Vazquez', 'Tucker Compton', 'fermentum vel, mauris. Integer', 215, 1, '35', 'Maecenas ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam', 'sagittis placerat. Cras dictum ultricies ligula. Nullam enim.', 'Phasellus ornare. Fusce mollis. Duis sit amet diam', 'Curabitur consequat, lectus sit amet luctus vulputate, nisi', 1),
+(328, '0', '2018-07-29', 193, 1, 'Ava R. Browning', 'Honorato Cruz', 'Halla Riddle', 'Chancellor Jensen', 'Nunc laoreet lectus quis', 204, 3, '72', 'elit. Aliquam auctor, velit eget', 'iaculis nec, eleifend non, dapibus', 'eu, odio. Phasellus at augue id ante dictum', 'nunc sit amet metus. Aliquam erat volutpat.', 1),
+(329, '0', '2018-04-03', 875, 3, 'Briar Blake', 'Alexa York', 'Halla Holman', 'Virginia Lindsey', 'sem. Pellentesque ut ipsum', 8, 3, '78', 'neque pellentesque massa lobortis ultrices.', 'elit. Aliquam auctor, velit eget laoreet posuere,', 'pede, ultrices a, auctor non,', 'interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus', 1),
+(330, '0', '2017-06-20', 840, 3, 'Salvador P. Beck', 'Gregory V. Barker', 'Doris B. Valencia', 'Regina X. Fox', 'sed sem egestas blandit.', 342, 4, '42', 'orci sem eget massa. Suspendisse eleifend. Cras', 'tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare,', 'enim nisl elementum purus, accumsan interdum libero', 'auctor non, feugiat nec, diam. Duis mi', 1),
+(331, '0', '2018-12-26', 891, 4, 'Devin Mclean', 'Calvin Flores', 'Steel Weiss', 'Macy Hudson', 'Donec sollicitudin adipiscing ligula.', 156, 4, '88', 'eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt, neque vitae', 'lorem semper auctor. Mauris vel turpis. Aliquam adipiscing', 'amet ante. Vivamus non lorem vitae odio sagittis semper. Nam', 'ullamcorper eu, euismod ac, fermentum vel, mauris. Integer sem elit,', 1),
+(332, '0', '2018-02-13', 384, 2, 'Preston Mccray', 'Solomon R. Snyder', 'Adrienne E. Reilly', 'Glenna Willis', 'Aliquam nec enim. Nunc', 158, 5, '21', 'tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id,', 'dis parturient montes, nascetur ridiculus mus. Proin', 'sit amet, faucibus ut, nulla. Cras', 'eu lacus. Quisque imperdiet, erat', 1),
+(333, '0', '2018-11-28', 491, 4, 'Ulla Crawford', 'Gannon X. Castillo', 'Orla E. Avila', 'Julie Bonner', 'Proin vel nisl. Quisque', 147, 3, '38', 'vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut', 'ornare, lectus ante dictum mi, ac mattis velit', 'mollis nec, cursus a, enim. Suspendisse', 'Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat', 1),
+(334, '0', '2017-05-10', 590, 5, 'Kelly Cantrell', 'Alec C. Rosario', 'Jordan Melendez', 'Magee Mayer', 'Pellentesque habitant morbi tristique', 209, 5, '25', 'rutrum lorem ac risus. Morbi metus. Vivamus euismod urna. Nullam lobortis', 'Aliquam adipiscing lobortis risus. In mi pede, nonummy ut,', 'Class aptent taciti sociosqu ad litora torquent per conubia nostra,', 'mattis ornare, lectus ante dictum mi, ac mattis', 1),
+(335, '0', '2017-01-17', 815, 5, 'Castor Kline', 'Scarlet Snow', 'Neil Lopez', 'Cooper Wiggins', 'nibh. Phasellus nulla. Integer', 164, 4, '40', 'auctor vitae, aliquet nec, imperdiet nec, leo.', 'primis in faucibus orci luctus et ultrices', 'nunc. In at pede. Cras', 'nec, mollis vitae, posuere at, velit.', 1),
+(336, '0', '2019-01-05', 767, 2, 'Kieran I. Kinney', 'Lenore Whitaker', 'Lars K. Valenzuela', 'Berk N. Harrington', 'orci tincidunt adipiscing. Mauris', 134, 2, '85', 'lectus ante dictum mi, ac', 'tincidunt pede ac urna. Ut', 'Cras dictum ultricies ligula. Nullam enim.', 'et magnis dis parturient montes, nascetur', 1),
+(337, '0', '2017-09-14', 444, 5, 'Xavier Page', 'Igor U. Schneider', 'Channing C. Fry', 'Patrick Tanner', 'varius orci, in consequat', 173, 1, '98', 'mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate,', 'Proin vel arcu eu odio tristique pharetra. Quisque ac', 'Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue', 'Vestibulum ante ipsum primis in faucibus orci', 1),
+(338, '0', '2018-03-01', 336, 5, 'Adria Valenzuela', 'Morgan Rivas', 'Jamal Ruiz', 'Deacon Gaines', 'vehicula et, rutrum eu,', 85, 4, '52', 'sagittis felis. Donec tempor, est ac mattis semper, dui', 'nostra, per inceptos hymenaeos. Mauris ut quam vel', 'Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc', 'ac libero nec ligula consectetuer rhoncus.', 1),
+(339, '0', '2017-11-01', 490, 1, 'Gisela Berry', 'Cruz Hahn', 'Risa Fuller', 'Ciara C. Mcfarland', 'In lorem. Donec elementum,', 54, 2, '32', 'Nullam nisl. Maecenas malesuada fringilla est. Mauris', 'erat volutpat. Nulla dignissim. Maecenas ornare egestas', 'Maecenas mi felis, adipiscing fringilla, porttitor', 'egestas. Sed pharetra, felis eget varius ultrices,', 1),
+(340, '0', '2017-08-22', 581, 4, 'Hu Ferguson', 'Erasmus T. Keller', 'Simon N. Montoya', 'Harriet Lawrence', 'ut cursus luctus, ipsum', 120, 5, '89', 'ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum.', 'mi tempor lorem, eget mollis lectus pede et', 'vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum.', 'ad litora torquent per conubia nostra, per inceptos', 1),
+(341, '0', '2017-04-15', 270, 3, 'Salvador Levy', 'Hu F. Allison', 'Ivana Dillard', 'Malik Carroll', 'dictum placerat, augue. Sed', 82, 1, '89', 'nunc sit amet metus. Aliquam erat', 'mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam', 'ultricies adipiscing, enim mi tempor lorem,', 'fames ac turpis egestas. Fusce aliquet', 1),
+(342, '0', '2017-01-26', 149, 1, 'Nero Sawyer', 'Evan R. Cervantes', 'Kellie P. Key', 'Dara P. Dennis', 'tincidunt. Donec vitae erat', 173, 1, '95', 'faucibus orci luctus et ultrices posuere cubilia Curae;', 'sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh.', 'morbi tristique senectus et netus', 'mauris sapien, cursus in, hendrerit consectetuer, cursus et, magna. Praesent', 1),
+(343, '0', '2017-06-14', 318, 1, 'Yvette K. Benson', 'Abbot Battle', 'Baxter Mcmahon', 'Imelda N. Warner', 'penatibus et magnis dis', 35, 4, '95', 'lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec', 'fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies', 'Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus vitae', 'nisl. Quisque fringilla euismod enim. Etiam gravida molestie arcu.', 1),
+(344, '0', '2018-12-06', 873, 1, 'Trevor F. Hahn', 'Cooper Mcleod', 'Zeph Long', 'Francis Workman', 'Donec consectetuer mauris id', 227, 3, '30', 'egestas. Fusce aliquet magna a neque.', 'Cum sociis natoque penatibus et magnis dis', 'Nam ac nulla. In tincidunt congue turpis.', 'enim nisl elementum purus, accumsan interdum libero dui', 1),
+(345, '0', '2019-01-04', 347, 5, 'Desirae Horn', 'Kenyon Alexander', 'Hayes D. Carey', 'Audrey Q. Le', 'sagittis felis. Donec tempor,', 107, 2, '58', 'ut, sem. Nulla interdum. Curabitur dictum. Phasellus in felis. Nulla tempor augue ac ipsum.', 'mus. Donec dignissim magna a tortor. Nunc', 'dapibus rutrum, justo. Praesent luctus. Curabitur egestas nunc sed', 'lobortis risus. In mi pede, nonummy', 1),
+(346, '0', '2018-03-25', 100, 4, 'Adria Anthony', 'MacKenzie M. James', 'Carol French', 'Reuben Mayo', 'dis parturient montes, nascetur', 4, 1, '19', 'eget nisi dictum augue malesuada malesuada. Integer id magna et ipsum cursus', 'diam vel arcu. Curabitur ut', 'sed dictum eleifend, nunc risus varius orci,', 'ultrices posuere cubilia Curae; Donec tincidunt. Donec', 1),
+(347, '0', '2017-07-12', 854, 1, 'Mariam Rivera', 'Isaiah N. Robinson', 'Katell Becker', 'Whilemina Z. Witt', 'purus. Duis elementum, dui', 23, 4, '42', 'dignissim tempor arcu. Vestibulum ut eros', 'amet, consectetuer adipiscing elit. Aliquam auctor, velit eget', 'risus. Morbi metus. Vivamus euismod urna. Nullam', 'Quisque porttitor eros nec tellus. Nunc lectus pede,', 1),
+(348, '0', '2017-03-17', 950, 3, 'Raja Warner', 'Emery I. Baldwin', 'Craig Willis', 'Brock Booth', 'aliquet odio. Etiam ligula', 190, 3, '17', 'nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis', 'libero. Proin sed turpis nec mauris blandit mattis. Cras', 'eu, euismod ac, fermentum vel, mauris. Integer sem', 'adipiscing lacus. Ut nec urna et', 1),
+(349, '0', '2017-09-22', 846, 3, 'Tyrone Torres', 'Brian C. Palmer', 'Adele Sanders', 'Colton Goff', 'dictum placerat, augue. Sed', 339, 3, '39', 'Integer vitae nibh. Donec est', 'Donec egestas. Aliquam nec enim. Nunc ut', 'Integer vulputate, risus a ultricies adipiscing, enim mi', 'egestas. Duis ac arcu. Nunc mauris. Morbi non sapien', 1),
+(350, '0', '2018-05-27', 631, 3, 'Porter Berger', 'Alvin Little', 'Buckminster G. Barlow', 'Buffy P. Garner', 'libero mauris, aliquam eu,', 151, 2, '72', 'dictum placerat, augue. Sed molestie. Sed', 'et pede. Nunc sed orci lobortis augue scelerisque', 'senectus et netus et malesuada fames ac turpis egestas. Aliquam', 'sagittis placerat. Cras dictum ultricies ligula. Nullam', 1),
+(351, '0', '2018-02-13', 405, 1, 'Raja Anderson', 'Vera R. Valenzuela', 'Candice Wells', 'Ria Hodges', 'Nunc laoreet lectus quis', 216, 3, '37', 'Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas', 'ante lectus convallis est, vitae sodales nisi magna sed', 'risus. Donec nibh enim, gravida', 'sollicitudin a, malesuada id, erat. Etiam vestibulum massa', 1),
+(352, '0', '2017-03-23', 784, 1, 'Jermaine E. Holt', 'Dustin Burton', 'Hanae Raymond', 'Guy Y. Melton', 'aliquam adipiscing lacus. Ut', 28, 5, '78', 'tellus eu augue porttitor interdum. Sed auctor odio a purus. Duis', 'cursus in, hendrerit consectetuer, cursus et, magna.', 'leo elementum sem, vitae aliquam', 'ante. Maecenas mi felis, adipiscing', 1),
+(353, '0', '2018-08-27', 748, 4, 'Clio Fry', 'Wesley V. Fischer', 'Cheryl D. Simmons', 'Xandra Castillo', 'dictum ultricies ligula. Nullam', 38, 1, '70', 'Etiam imperdiet dictum magna. Ut tincidunt', 'libero est, congue a, aliquet vel, vulputate eu, odio.', 'lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed', 'turpis. In condimentum. Donec at arcu. Vestibulum ante', 1),
+(354, '0', '2018-10-11', 421, 2, 'Allen Woods', 'Giacomo B. Little', 'Lucius Justice', 'Oleg Wilson', 'a, malesuada id, erat.', 220, 1, '70', 'consequat purus. Maecenas libero est, congue a, aliquet vel, vulputate eu,', 'Donec tempus, lorem fringilla ornare placerat, orci', 'eget, volutpat ornare, facilisis eget,', 'bibendum fermentum metus. Aenean sed', 1),
+(355, '0', '2019-01-08', 982, 1, 'Cora Maynard', 'Keith Welch', 'Ignatius Larsen', 'Leigh Woodward', 'aliquet vel, vulputate eu,', 64, 3, '14', 'viverra. Donec tempus, lorem fringilla ornare placerat,', 'pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper,', 'eu nulla at sem molestie sodales. Mauris blandit enim', 'semper, dui lectus rutrum urna, nec', 1),
+(356, '0', '2017-06-05', 210, 4, 'Paloma May', 'Hadassah Britt', 'Hanae E. Cannon', 'George H. Lynn', 'Curabitur massa. Vestibulum accumsan', 74, 2, '38', 'In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean', 'et, rutrum non, hendrerit id, ante. Nunc mauris', 'nibh. Donec est mauris, rhoncus id,', 'enim. Nunc ut erat. Sed nunc est, mollis', 1),
+(357, '0', '2018-05-13', 461, 4, 'Emery Q. Benton', 'Rana F. Bray', 'Gray Buck', 'Rhea Sutton', 'iaculis enim, sit amet', 44, 2, '86', 'facilisis facilisis, magna tellus faucibus leo, in lobortis tellus justo sit', 'sapien. Aenean massa. Integer vitae', 'diam lorem, auctor quis, tristique', 'vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt', 1),
+(358, '0', '2017-03-16', 989, 3, 'Uriel H. Wise', 'Matthew F. Fowler', 'Cynthia P. Moses', 'Brynne Holt', 'tincidunt dui augue eu', 226, 1, '94', 'Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem', 'placerat, augue. Sed molestie. Sed', 'Suspendisse aliquet, sem ut cursus luctus,', 'Aenean eget magna. Suspendisse tristique neque venenatis', 1),
+(359, '0', '2018-05-17', 313, 2, 'Brenden J. Sanchez', 'Lane Guzman', 'Prescott R. Kent', 'Yen Gross', 'Sed nec metus facilisis', 159, 2, '66', 'orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at', 'augue ac ipsum. Phasellus vitae mauris', 'eu, eleifend nec, malesuada ut, sem. Nulla interdum.', 'Cum sociis natoque penatibus et magnis', 1),
+(360, '0', '2018-09-08', 895, 3, 'Colton K. Gilbert', 'Daniel B. Hernandez', 'Wyatt Benson', 'Moses Alvarado', 'montes, nascetur ridiculus mus.', 346, 5, '88', 'scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc', 'gravida nunc sed pede. Cum sociis natoque penatibus et', 'est, mollis non, cursus non, egestas a,', 'semper tellus id nunc interdum feugiat. Sed', 1),
+(361, '0', '2018-06-15', 292, 1, 'Hasad Valdez', 'Graham P. Hart', 'Shoshana M. Marsh', 'Karleigh Flynn', 'euismod et, commodo at,', 340, 3, '80', 'turpis. Nulla aliquet. Proin velit.', 'risus. Donec nibh enim, gravida sit', 'bibendum fermentum metus. Aenean sed pede', 'Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui,', 1),
+(362, '0', '2018-01-22', 795, 1, 'Geoffrey O. Faulkner', 'Kato Petersen', 'Wesley Dunlap', 'Haviva T. Boyd', 'molestie sodales. Mauris blandit', 12, 3, '73', 'adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero', 'ipsum dolor sit amet, consectetuer', 'porta elit, a feugiat tellus lorem', 'dictum ultricies ligula. Nullam enim. Sed nulla ante,', 1),
+(363, '0', '2018-05-04', 442, 2, 'Drew R. Hammond', 'Elijah Melendez', 'Eliana Hendricks', 'Keefe Moran', 'sed dui. Fusce aliquam,', 301, 1, '23', 'tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus', 'felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras', 'convallis, ante lectus convallis est, vitae sodales nisi magna sed', 'dolor sit amet, consectetuer adipiscing', 1),
+(364, '0', '2018-06-29', 598, 4, 'Owen V. Davis', 'Oleg Page', 'Vanna J. Hood', 'Rinah Roberts', 'bibendum. Donec felis orci,', 212, 4, '53', 'egestas, urna justo faucibus lectus, a sollicitudin orci', 'in faucibus orci luctus et ultrices posuere cubilia Curae; Donec', 'Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis,', 'non, bibendum sed, est. Nunc laoreet', 1),
+(365, '0', '2018-06-14', 481, 1, 'George I. Shields', 'Yardley Z. Livingston', 'David V. Suarez', 'Leila P. Henson', 'et arcu imperdiet ullamcorper.', 141, 3, '55', 'cursus. Nunc mauris elit, dictum eu, eleifend nec, malesuada ut, sem.', 'molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare,', 'ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula', 'felis ullamcorper viverra. Maecenas iaculis', 1),
+(366, '0', '2017-01-19', 685, 4, 'Beverly Ayers', 'Fitzgerald Watts', 'Helen Calhoun', 'Ryder Y. Carroll', 'congue a, aliquet vel,', 133, 3, '99', 'non, cursus non, egestas a, dui.', 'dolor, nonummy ac, feugiat non, lobortis', 'arcu. Sed et libero. Proin', 'libero lacus, varius et, euismod', 1),
+(367, '0', '2017-11-01', 728, 4, 'Mannix Q. Rose', 'Cole A. Lynn', 'Gretchen J. Carlson', 'Angelica Moore', 'diam at pretium aliquet,', 295, 1, '60', 'sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet', 'malesuada. Integer id magna et ipsum cursus vestibulum. Mauris', 'tempor diam dictum sapien. Aenean massa.', 'erat neque non quam. Pellentesque habitant morbi tristique', 1),
+(368, '0', '2017-06-30', 311, 5, 'Emerson Dixon', 'Judith Coffey', 'Gillian Pitts', 'Raymond Sanchez', 'non enim. Mauris quis', 358, 4, '63', 'erat. Etiam vestibulum massa rutrum magna. Cras', 'semper tellus id nunc interdum feugiat.', 'iaculis odio. Nam interdum enim non nisi.', 'vulputate dui, nec tempus mauris erat eget ipsum.', 1),
+(369, '0', '2018-12-13', 350, 2, 'Arsenio Cabrera', 'Craig I. Larson', 'Libby Sloan', 'Baxter Johnson', 'nulla. Cras eu tellus', 286, 4, '67', 'eu, accumsan sed, facilisis vitae, orci. Phasellus dapibus quam quis diam.', 'eros turpis non enim. Mauris quis', 'leo, in lobortis tellus justo sit amet nulla.', 'lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis', 1),
+(370, '0', '2017-06-11', 224, 5, 'Judah Hayes', 'John Fernandez', 'Herrod Richardson', 'Ciaran P. Bolton', 'Donec elementum, lorem ut', 335, 4, '34', 'Ut tincidunt orci quis lectus. Nullam suscipit, est ac facilisis facilisis, magna tellus', 'ultrices, mauris ipsum porta elit, a feugiat', 'fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula', 'scelerisque dui. Suspendisse ac metus vitae velit egestas', 1),
+(371, '0', '2017-01-18', 564, 4, 'Uma Osborn', 'Courtney Mccray', 'Bert K. Mayer', 'Ulric M. Velez', 'tortor nibh sit amet', 317, 4, '46', 'mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et libero.', 'Aenean egestas hendrerit neque. In ornare sagittis', 'non leo. Vivamus nibh dolor, nonummy', 'dui, nec tempus mauris erat eget ipsum. Suspendisse', 1),
+(372, '0', '2017-05-13', 982, 4, 'Galvin Roberson', 'Natalie White', 'Justin K. Brock', 'Victor Z. Sargent', 'amet luctus vulputate, nisi', 229, 2, '13', 'lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis', 'et, lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim', 'ultricies dignissim lacus. Aliquam rutrum lorem ac', 'gravida. Aliquam tincidunt, nunc ac', 1),
+(373, '0', '2017-04-03', 771, 1, 'Kamal Nixon', 'Hedy Z. Estes', 'Xantha D. Pratt', 'Duncan A. Zamora', 'ipsum dolor sit amet,', 152, 4, '29', 'enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula', 'augue eu tellus. Phasellus elit', 'convallis, ante lectus convallis est, vitae sodales nisi magna', 'sagittis felis. Donec tempor, est ac mattis semper, dui lectus', 1),
+(374, '0', '2017-10-27', 360, 3, 'Cheryl Mcclain', 'Amery Jensen', 'Sylvia S. Kidd', 'Armando B. Osborne', 'luctus ut, pellentesque eget,', 242, 1, '47', 'tincidunt nibh. Phasellus nulla. Integer vulputate,', 'vitae dolor. Donec fringilla. Donec feugiat metus sit', 'vulputate mauris sagittis placerat. Cras dictum ultricies ligula. Nullam enim.', 'odio. Aliquam vulputate ullamcorper magna.', 1),
+(375, '0', '2017-10-14', 644, 1, 'Serina A. Gilmore', 'Brian Sears', 'Joel G. Stanley', 'Reuben Gaines', 'velit. Aliquam nisl. Nulla', 207, 2, '30', 'mus. Donec dignissim magna a tortor. Nunc commodo auctor velit.', 'sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer', 'natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'eu arcu. Morbi sit amet massa. Quisque porttitor eros nec', 1),
+(376, '0', '2017-06-17', 556, 3, 'Ishmael I. Cash', 'Kennan E. Barton', 'Lucian E. Carson', 'Reed L. Franco', 'lacus. Quisque imperdiet, erat', 194, 2, '95', 'malesuada fringilla est. Mauris eu turpis.', 'sodales nisi magna sed dui. Fusce aliquam, enim nec', 'dui, semper et, lacinia vitae, sodales', 'montes, nascetur ridiculus mus. Donec dignissim magna a tortor.', 1),
+(377, '0', '2017-01-17', 620, 4, 'Brennan Wolf', 'Jesse N. Newman', 'Odysseus I. Grimes', 'Lacey Sexton', 'enim. Mauris quis turpis', 358, 2, '32', 'augue scelerisque mollis. Phasellus libero mauris, aliquam eu, accumsan sed,', 'justo faucibus lectus, a sollicitudin orci', 'vestibulum lorem, sit amet ultricies sem magna nec', 'et pede. Nunc sed orci lobortis augue', 1),
+(378, '0', '2017-07-24', 696, 5, 'Neve M. Hancock', 'Sophia F. Jacobs', 'Inez Swanson', 'Sybil Glover', 'lorem tristique aliquet. Phasellus', 290, 4, '66', 'arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam', 'risus, at fringilla purus mauris a nunc.', 'facilisis non, bibendum sed, est. Nunc laoreet lectus quis', 'justo sit amet nulla. Donec non justo. Proin non massa', 1),
+(379, '0', '2018-11-10', 715, 2, 'Ria Christian', 'Gannon Boyd', 'Eve B. Donovan', 'Holly Morales', 'dui, nec tempus mauris', 263, 5, '90', 'non magna. Nam ligula elit, pretium et, rutrum non, hendrerit id,', 'felis. Donec tempor, est ac', 'ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum', 'erat semper rutrum. Fusce dolor quam, elementum at, egestas', 1),
+(380, '0', '2018-04-10', 777, 3, 'Keelie Jackson', 'Quentin French', 'Haviva Workman', 'Lesley Q. Hoffman', 'dis parturient montes, nascetur', 288, 4, '44', 'molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est, congue a, aliquet', 'accumsan sed, facilisis vitae, orci. Phasellus', 'velit. Quisque varius. Nam porttitor', 'vel nisl. Quisque fringilla euismod enim. Etiam gravida', 1),
+(381, '0', '2017-08-21', 713, 3, 'Deacon B. Cooley', 'Keane K. Duran', 'Judith W. Wilson', 'Bianca O. Porter', 'et libero. Proin mi.', 264, 1, '80', 'lacinia vitae, sodales at, velit. Pellentesque', 'odio vel est tempor bibendum. Donec felis orci,', 'iaculis quis, pede. Praesent eu dui. Cum', 'amet ante. Vivamus non lorem vitae odio sagittis', 1),
+(382, '0', '2018-09-09', 351, 1, 'Timon Floyd', 'Evelyn Z. Graves', 'Constance M. Erickson', 'Seth Dejesus', 'rhoncus. Proin nisl sem,', 327, 1, '90', 'Suspendisse sed dolor. Fusce mi lorem, vehicula et, rutrum', 'ipsum porta elit, a feugiat tellus lorem', 'pede ac urna. Ut tincidunt vehicula risus. Nulla', 'neque. Sed eget lacus. Mauris non dui nec urna', 1),
+(383, '0', '2018-10-07', 582, 5, 'Nora Rosa', 'Sawyer J. Madden', 'Zephr Y. House', 'Sasha Bauer', 'malesuada augue ut lacus.', 275, 4, '23', 'laoreet posuere, enim nisl elementum purus, accumsan', 'feugiat non, lobortis quis, pede. Suspendisse dui.', 'Nunc ullamcorper, velit in aliquet', 'libero at auctor ullamcorper, nisl arcu iaculis enim, sit amet', 1),
+(384, '0', '2017-04-13', 799, 1, 'Lee I. Hodges', 'Aileen B. Ruiz', 'Amanda J. Gregory', 'Valentine Pratt', 'aliquam eros turpis non', 194, 3, '30', 'fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit', 'sit amet, dapibus id, blandit at, nisi. Cum sociis', 'est ac mattis semper, dui lectus', 'felis orci, adipiscing non, luctus sit amet, faucibus ut,', 1),
+(385, '0', '2018-10-29', 551, 3, 'Portia U. Lynch', 'Luke Fields', 'Teegan Chase', 'Keith Tran', 'purus. Nullam scelerisque neque', 217, 4, '98', 'rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida', 'ligula elit, pretium et, rutrum non, hendrerit id,', 'ultrices. Duis volutpat nunc sit amet', 'amet diam eu dolor egestas rhoncus.', 1),
+(386, '0', '2017-11-07', 737, 2, 'Ifeoma C. Roberson', 'Signe K. Prince', 'Inez K. Nolan', 'Kareem E. Whitfield', 'Suspendisse tristique neque venenatis', 83, 5, '31', 'dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu', 'fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus', 'Quisque libero lacus, varius et, euismod et, commodo at, libero.', 'magna nec quam. Curabitur vel lectus. Cum sociis', 1),
+(387, '0', '2017-03-19', 164, 1, 'Alexis Kelley', 'Zena Ashley', 'Orli L. Walton', 'Holmes E. Sweeney', 'placerat velit. Quisque varius.', 125, 5, '82', 'ligula. Aenean euismod mauris eu elit. Nulla facilisi.', 'lobortis quis, pede. Suspendisse dui. Fusce diam nunc,', 'accumsan convallis, ante lectus convallis est, vitae', 'id sapien. Cras dolor dolor, tempus', 1),
+(388, '0', '2017-01-18', 829, 1, 'Yoko Meyer', 'Dana O. Mcpherson', 'Nerea V. Roberts', 'Michelle S. Gonzalez', 'placerat, augue. Sed molestie.', 71, 2, '46', 'faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor', 'nibh. Donec est mauris, rhoncus id, mollis nec, cursus a,', 'nascetur ridiculus mus. Donec dignissim magna', 'cursus vestibulum. Mauris magna. Duis dignissim tempor arcu.', 1),
+(389, '0', '2018-12-01', 998, 5, 'Jamal Blevins', 'Melodie D. Hensley', 'Ivana Snyder', 'Gretchen M. Ware', 'sem eget massa. Suspendisse', 195, 2, '86', 'Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus.', 'rutrum eu, ultrices sit amet, risus. Donec nibh enim,', 'Nunc lectus pede, ultrices a, auctor non, feugiat', 'turpis. In condimentum. Donec at arcu. Vestibulum', 1),
+(390, '0', '2018-03-08', 742, 3, 'Chandler Q. Gilmore', 'Moana M. Serrano', 'Sopoline Collins', 'Hayley N. Trujillo', 'Donec tempus, lorem fringilla', 277, 3, '12', 'sapien molestie orci tincidunt adipiscing.', 'tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus', 'luctus. Curabitur egestas nunc sed libero. Proin sed turpis nec', 'et netus et malesuada fames', 1);
+INSERT INTO `voo` (`idvoo`, `voo_status`, `data_do_voo`, `numero_voo`, `idaeronave`, `comandante`, `copiloto`, `topD`, `topE`, `natureza`, `tempo_total_de_voo`, `total_de_pousos`, `combustivel_total_consumido`, `historico`, `ocorrencia`, `discrepancia`, `relprev`, `qte_etapas`) VALUES
+(391, '0', '2017-09-21', 248, 5, 'Ray Gregory', 'Lance B. Clayton', 'Samson Cochran', 'Micah R. Bowers', 'nulla ante, iaculis nec,', 77, 2, '63', 'ornare, libero at auctor ullamcorper, nisl arcu iaculis enim, sit amet', 'Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis', 'Cras sed leo. Cras vehicula aliquet libero. Integer in magna.', 'pede nec ante blandit viverra.', 1),
+(392, '0', '2017-06-28', 128, 4, 'Victor Knox', 'Justin M. Randolph', 'Quon Wilcox', 'Caryn I. Erickson', 'ut eros non enim', 199, 2, '49', 'malesuada ut, sem. Nulla interdum.', 'bibendum sed, est. Nunc laoreet lectus quis massa.', 'arcu. Vestibulum ut eros non enim commodo hendrerit.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur', 1),
+(393, '0', '2018-07-13', 710, 4, 'Nathaniel P. Mays', 'Yvette Pratt', 'Odysseus J. Douglas', 'Colt M. Barrera', 'enim. Suspendisse aliquet, sem', 217, 1, '55', 'porta elit, a feugiat tellus lorem eu metus. In lorem.', 'consectetuer, cursus et, magna. Praesent', 'iaculis, lacus pede sagittis augue, eu tempor erat neque non', 'pede. Suspendisse dui. Fusce diam nunc, ullamcorper', 1),
+(394, '0', '2018-11-06', 749, 4, 'Ethan Wilkerson', 'Kasper Cannon', 'Catherine Ramsey', 'Kylie I. Hawkins', 'pharetra. Quisque ac libero', 62, 4, '47', 'Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum', 'dignissim tempor arcu. Vestibulum ut eros non', 'justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate,', 'interdum enim non nisi. Aenean eget metus. In nec orci.', 1),
+(395, '0', '2018-09-27', 712, 2, 'Mercedes D. Best', 'Reece G. Kemp', 'Octavius Luna', 'Jael Dickson', 'mi lacinia mattis. Integer', 200, 4, '13', 'amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy', 'vulputate, nisi sem semper erat, in consectetuer', 'hendrerit. Donec porttitor tellus non magna. Nam ligula elit,', 'consectetuer adipiscing elit. Aliquam auctor, velit eget laoreet posuere,', 1),
+(396, '0', '2018-09-27', 626, 1, 'Yoshio Adams', 'Catherine K. Bowman', 'Octavius C. Paul', 'Levi Hess', 'felis. Donec tempor, est', 348, 5, '36', 'ac facilisis facilisis, magna tellus faucibus leo,', 'Nam interdum enim non nisi. Aenean eget metus. In nec', 'Cras vehicula aliquet libero. Integer in magna. Phasellus dolor', 'fringilla euismod enim. Etiam gravida molestie arcu. Sed eu', 1),
+(397, '0', '2017-03-17', 444, 1, 'Barbara Richardson', 'Baxter Skinner', 'Tana Thompson', 'Irma Walsh', 'penatibus et magnis dis', 326, 1, '43', 'aliquet diam. Sed diam lorem, auctor quis, tristique ac, eleifend vitae,', 'dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu.', 'tellus lorem eu metus. In lorem. Donec elementum, lorem', 'penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin', 1),
+(398, '0', '2017-08-11', 713, 2, 'Wayne Ballard', 'Jane S. Goodman', 'Clare N. Obrien', 'Nell O. Brooks', 'bibendum ullamcorper. Duis cursus,', 181, 3, '62', 'sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus', 'et ultrices posuere cubilia Curae;', 'et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,', 'consequat, lectus sit amet luctus vulputate, nisi sem', 1),
+(399, '0', '2018-08-10', 782, 1, 'Sophia Adams', 'Jason Valenzuela', 'Ignatius Blake', 'Cullen G. Mercer', 'sodales at, velit. Pellentesque', 341, 4, '73', 'aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt, neque', 'nec urna suscipit nonummy. Fusce fermentum fermentum', 'Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed', 'risus quis diam luctus lobortis. Class aptent taciti', 1),
+(400, '0', '2017-12-08', 894, 4, 'Olga M. Obrien', 'Keane Lucas', 'Melanie Clements', 'Macon Q. Navarro', 'et netus et malesuada', 134, 4, '93', 'tincidunt. Donec vitae erat vel', 'Integer tincidunt aliquam arcu. Aliquam', 'erat. Sed nunc est, mollis non, cursus', 'lectus pede, ultrices a, auctor', 1);
 
 -- --------------------------------------------------------
 
@@ -5950,7 +6738,7 @@ CREATE TABLE `voo` (
 -- Estrutura da tabela `ws_categories`
 --
 
-CREATE TABLE `ws_categories` (
+CREATE TABLE IF NOT EXISTS `ws_categories` (
   `category_id` int(11) NOT NULL,
   `category_parent` int(11) DEFAULT NULL,
   `category_name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
@@ -5967,7 +6755,7 @@ CREATE TABLE `ws_categories` (
 -- Estrutura da tabela `ws_posts`
 --
 
-CREATE TABLE `ws_posts` (
+CREATE TABLE IF NOT EXISTS `ws_posts` (
   `post_id` int(11) NOT NULL,
   `post_name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `post_title` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
@@ -5981,28 +6769,28 @@ CREATE TABLE `ws_posts` (
   `post_last_views` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `post_status` int(11) DEFAULT NULL,
   `post_type` varchar(255) CHARACTER SET latin1 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_posts`
 --
 
 INSERT INTO `ws_posts` (`post_id`, `post_name`, `post_title`, `post_content`, `post_cover`, `post_date`, `post_author`, `post_category`, `post_cat_parent`, `post_views`, `post_last_views`, `post_status`, `post_type`) VALUES
-(4, 'pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni', 'Pato visita CT, veste camisa do São Paulo e é recebido por Ceni', '<p>Alexandre Pato j&aacute; veste a camisa do S&atilde;o Paulo. Nesta ter&ccedil;a-feira, o atacante visitou o Centro de Treinamento da Barra Funda e foi recebido por Rog&eacute;rio Ceni. O jogador, ex-Corinthians, passou por exames nesta manh&atilde; no HCOR e seguiu para conhecer os novos companheiros de time. Pato tem contrato de empr&eacute;stimo ao clube tricolor at&eacute; o final de 2015.</p>\r\n<p>Ainda n&atilde;o h&aacute; data para a apresenta&ccedil;&atilde;o de Pato. De acordo com o S&atilde;o Paulo, somente quando forem resolvidos \"acertos burocr&aacute;ticos\" que o atacante poder&aacute; falar como jogador do clube. A falta de pressa s&atilde;o-paulina tem como motivo o fato de que Pato n&atilde;o pode jogar no Campeonato Paulista, j&aacute; que atuou no torneio em mais de tr&ecirc;s jogos pelo Corinthians.</p>\r\n<p>\"Desejei as boas-vindas, de cora&ccedil;&atilde;o, e que ele vista a camisa do nosso time. Todos os jogadores que chegam para refor&ccedil;ar o S&atilde;o Paulo s&atilde;o sempre bem recebidos, e que ele d&ecirc; o m&aacute;ximo para nos ajudar\", disse Ceni ao site do clube. O goleiro se envolveu em pol&ecirc;micas com Pato durante o Paulista de 2013, quando o atacante provocou o arqueiro ap&oacute;s cobran&ccedil;a de p&ecirc;nalti e participou de dividida que resultou em les&atilde;o no p&eacute; do &iacute;dolo tricolor.</p>\r\n<p>Alexandre Pato ainda conheceu as depend&ecirc;ncias do S&atilde;o Paulo e se encontrou com o t&eacute;cnico Muricy Ramalho. \"Aqui voc&ecirc; vai ser muito feliz\", disse o treinador do clube tricolor.</p>', 'images/2014/02/pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni.jpg', '2014-02-11 23:27:45', 1, 5, 1, '1', '2014-03-31 10:11:34', 1, 'post'),
+(4, 'pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni', 'Pato visita CT, veste camisa do São Paulo e é recebido por Ceni', '<p>Alexandre Pato j&aacute; veste a camisa do S&atilde;o Paulo. Nesta ter&ccedil;a-feira, o atacante visitou o Centro de Treinamento da Barra Funda e foi recebido por Rog&eacute;rio Ceni. O jogador, ex-Corinthians, passou por exames nesta manh&atilde; no HCOR e seguiu para conhecer os novos companheiros de time. Pato tem contrato de empr&eacute;stimo ao clube tricolor at&eacute; o final de 2015.</p>\r\n<p>Ainda n&atilde;o h&aacute; data para a apresenta&ccedil;&atilde;o de Pato. De acordo com o S&atilde;o Paulo, somente quando forem resolvidos "acertos burocr&aacute;ticos" que o atacante poder&aacute; falar como jogador do clube. A falta de pressa s&atilde;o-paulina tem como motivo o fato de que Pato n&atilde;o pode jogar no Campeonato Paulista, j&aacute; que atuou no torneio em mais de tr&ecirc;s jogos pelo Corinthians.</p>\r\n<p>"Desejei as boas-vindas, de cora&ccedil;&atilde;o, e que ele vista a camisa do nosso time. Todos os jogadores que chegam para refor&ccedil;ar o S&atilde;o Paulo s&atilde;o sempre bem recebidos, e que ele d&ecirc; o m&aacute;ximo para nos ajudar", disse Ceni ao site do clube. O goleiro se envolveu em pol&ecirc;micas com Pato durante o Paulista de 2013, quando o atacante provocou o arqueiro ap&oacute;s cobran&ccedil;a de p&ecirc;nalti e participou de dividida que resultou em les&atilde;o no p&eacute; do &iacute;dolo tricolor.</p>\r\n<p>Alexandre Pato ainda conheceu as depend&ecirc;ncias do S&atilde;o Paulo e se encontrou com o t&eacute;cnico Muricy Ramalho. "Aqui voc&ecirc; vai ser muito feliz", disse o treinador do clube tricolor.</p>', 'images/2014/02/pato-visita-ct-veste-camisa-do-sao-paulo-e-e-recebido-por-ceni.jpg', '2014-02-11 23:27:45', 1, 5, 1, '1', '2014-03-31 10:11:34', 1, 'post'),
 (5, 'lyoto-machida-autografa-poster-e-convoca-torcida-para-o-ufc', 'Lyoto Machida autografa pôster e convoca torcida para o UFC', '<p>Lyoto Machida j&aacute; est&aacute; no Brasil. O lutador, que enfrentar&aacute; Gegard Mousasi no pr&oacute;ximo s&aacute;bado (15), pelo UFC Fight Night 36, em Jaragu&aacute; do Sul, Santa Catarina, postou uma foto em suas redes sociais, nesta ter&ccedil;a-feira (11), em que aparece autografando os p&ocirc;steres do evento.</p>\r\n<p><em>O &ldquo;Drag&atilde;o&rdquo; aproveitou ainda para convocar a torcida brasileira para o evento.</em></p>\r\n<p>&ldquo;Valeu, pessoal! Conto com a torcida de voc&ecirc;s e quero agradecer o apoio de todos&rdquo;, postou o carateca.</p>\r\n<p>Em sua estreia pelo peso m&eacute;dio, Lyoto nocauteou Mark Mu&ntilde;oz, em outubro do ano passado, e tenta manter os 100% de aproveitamento em sua nova categoria. Ex-Strikeforce, Mousasi debutou pelo Ultimate ao vencer Ilir Latifi, por pontos, ap&oacute;s atua&ccedil;&atilde;o discreta, e sabe que vencer o brasileiro poder&aacute; deix&aacute;-lo em &oacute;tima situa&ccedil;&atilde;o na divis&atilde;o.</p>\r\n<p>O UFC Fight Night 36 ser&aacute; transmitido, ao vivo e na &iacute;ntegra, pelo canal Combate a partir das 22h. A TATAME acompanha o evento em tempo real &agrave;s 22h30, hor&aacute;rio previsto para o in&iacute;cio do card preliminar, pelo site, pelo Twitter e pelo Facebook.</p>', 'images/2014/02/lyoto-machida-autografa-poster-e-convoca-torcida-para-o-ufc.jpg', '2014-02-11 23:31:24', 1, 5, 1, '1', '2014-03-31 10:11:40', 1, 'post'),
-(6, 'queridinho-local-surpreende-e-e-ouro-no-snowboard', 'Queridinho local surpreende e é ouro no snowboard', '<p>Nascido na R&uacute;ssia, mas competindo sob a bandeira da Su&iacute;&ccedil;a, o atleta Iouri Podladtchikov surpreendeu nesta ter&ccedil;a-feira, na final do snowboard halfpipe dos Jogos de Inverno 2014, disputados na cidade de Sochi. O su&iacute;&ccedil;o levou a medalha de ouro da prova com a melhor nota (94.75) entre os 12 participantes da decis&atilde;o - Podladtchikov superou a estrela americana bicampe&atilde; ol&iacute;mpica Shaun White, que nem medalha levou.</p>\r\n<p>O novo campe&atilde;o do snowboard halfpipe &eacute; nascido em Moscou, mas foi criado na su&iacute;&ccedil;a. Podladtchikov, que tem o apelido de \"iPod\" e viveu parte da vida na Holanda e na Su&iacute;&ccedil;a, chegou a representar os russos nos Jogos de Inverno em 2006, mas a partir de 2007 passou a competir em nome dos su&iacute;&ccedil;os - j&aacute; havia competido pela Su&iacute;&ccedil;a na Olimp&iacute;ada de 2010.</p>\r\n<p>A torcida da prova entre os locais era toda para o \"russo\". Torcedores foram acompanhar a disputa com bandeiras da R&uacute;ssia misturadas com a da Su&iacute;&ccedil;a e fizeram grande festa com a medalha de ouro do queridinho. Podladtchikov chamou a aten&ccedil;&atilde;o ao comemorar muito logo ap&oacute;s receber a nota e assumir a lideran&ccedil;a da prova, embora mais seis participantes ainda passassem pelo circuito incluindo a estrela Shaun White - a cada entrada de um rival, o su&iacute;&ccedil;o fazia uma careta.</p>\r\n<p>Ap&oacute;s a apresenta&ccedil;&atilde;o do americano e a nota decepcionante que garantiu apenas o quarto lugar para o astro, Podladtchikov foi ao del&iacute;rio e recebeu um abra&ccedil;o exatamente de Shaun White, que levou a derrota no esp&iacute;rito esportivo - euestionado sobre o papo com Shaun White durante o abra&ccedil;o, Podladtchikov brincou: \"ele me disse parab&eacute;ns\".</p>\r\n<p>Se vencesse nesta ter&ccedil;a, a estrela do snowboard americano seria o primeiro americano da hist&oacute;ria a garantir tr&ecirc;s medalhas de ouro em edi&ccedil;&otilde;es diferentes dos Jogos de Inverno.</p>\r\n<p>O ouro e o bronze do snowboard halfpipe ficaram com japoneses: Ayumu Hirano, fen&ocirc;meno de 15 anos que j&aacute; havia sido prata nos X-Games de 2013 em Aspen, terminou em segundo com 93.50 e Taku Hiraoka cravou 92.25, na terceira coloca&ccedil;&atilde;o.</p>\r\n<p>A surpresa pela vit&oacute;ria de Iouri Podladtchikov &eacute; ainda maior pelo su&iacute;&ccedil;o n&atilde;o ter classificado diretamente para a final. O atleta foi mal na primeira fase. que contava com 40 participantes, e teve que disputar uma repescagem para se garantir entre os 12 melhores</p>', 'images/2014/02/queridinho-local-surpreende-e-e-ouro-no-snowboard.jpg', '2014-02-11 23:32:31', 1, 5, 1, '348', '2014-04-03 23:10:05', 1, 'post'),
-(7, 'sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica', 'Sochi 2014: fotos sensuais de atletas russas despertam polêmica', '<p>Fotos sensuais de atletas russas que competem na Olimp&iacute;ada de Inverno de 2014 em alguns meios de comunica&ccedil;&atilde;o do pa&iacute;s causaram pol&ecirc;mica na Inglaterra nesta semana. O jornal brit&acirc;nico The Telegraph questionou se a inten&ccedil;&atilde;o das imagens &eacute; \"explorar\" a imagem das mulheres para tirar o foco das \"m&aacute;s not&iacute;cias\" envolvendo Sochi 2014, como o \"sentimento antigay\" ou o fato de a Vila Ol&iacute;mpica parecer um \"canteiro de obras\".</p>\r\n<p>O texto questiona se as atletas russas est&atilde;o se despindo para as c&acirc;meras para \"vender o pa&iacute;s da &uacute;nica maneira que sabem\", ou se simplesmente querem fazer isso porque se sentem bem, e cita a \"objetifica&ccedil;&atilde;o\" das mulheres no pa&iacute;s-sede dos Jogos de Inverno.</p>\r\n<p>Em resposta, uma russa que vive na Inglaterra, Yulia Ivanova, afirmou ao jornal que as mulheres do pa&iacute;s s&atilde;o \"sexualmente confiantes\" e gostam de mostrar seus corpos. Segundo ela, na R&uacute;ssia a sensualidade n&atilde;o &eacute; um tabu - &eacute; vista como \"for&ccedil;a e confian&ccedil;a\" e n&atilde;o como \"prostitui&ccedil;&atilde;o ou degrada&ccedil;&atilde;o\".</p>\r\n<p>Ivanova tamb&eacute;m reclamou que os Jogos de Sochi ser&atilde;o uma \"oportunidade\" para que a imprensa ocidental \"ataque a R&uacute;ssia e a deixe em peda&ccedil;os\", focando apenas nas coisas negativas e passando por cima dos pontos positivos.</p>\r\n<p>Confira ensaio sensual das atletas russas &agrave; revista ProSports</p>', 'images/2014/02/sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica.jpg', '2014-02-11 23:34:43', 1, 5, 1, '5', '2014-03-31 10:11:42', 1, 'post'),
+(6, 'queridinho-local-surpreende-e-e-ouro-no-snowboard', 'Queridinho local surpreende e é ouro no snowboard', '<p>Nascido na R&uacute;ssia, mas competindo sob a bandeira da Su&iacute;&ccedil;a, o atleta Iouri Podladtchikov surpreendeu nesta ter&ccedil;a-feira, na final do snowboard halfpipe dos Jogos de Inverno 2014, disputados na cidade de Sochi. O su&iacute;&ccedil;o levou a medalha de ouro da prova com a melhor nota (94.75) entre os 12 participantes da decis&atilde;o - Podladtchikov superou a estrela americana bicampe&atilde; ol&iacute;mpica Shaun White, que nem medalha levou.</p>\r\n<p>O novo campe&atilde;o do snowboard halfpipe &eacute; nascido em Moscou, mas foi criado na su&iacute;&ccedil;a. Podladtchikov, que tem o apelido de "iPod" e viveu parte da vida na Holanda e na Su&iacute;&ccedil;a, chegou a representar os russos nos Jogos de Inverno em 2006, mas a partir de 2007 passou a competir em nome dos su&iacute;&ccedil;os - j&aacute; havia competido pela Su&iacute;&ccedil;a na Olimp&iacute;ada de 2010.</p>\r\n<p>A torcida da prova entre os locais era toda para o "russo". Torcedores foram acompanhar a disputa com bandeiras da R&uacute;ssia misturadas com a da Su&iacute;&ccedil;a e fizeram grande festa com a medalha de ouro do queridinho. Podladtchikov chamou a aten&ccedil;&atilde;o ao comemorar muito logo ap&oacute;s receber a nota e assumir a lideran&ccedil;a da prova, embora mais seis participantes ainda passassem pelo circuito incluindo a estrela Shaun White - a cada entrada de um rival, o su&iacute;&ccedil;o fazia uma careta.</p>\r\n<p>Ap&oacute;s a apresenta&ccedil;&atilde;o do americano e a nota decepcionante que garantiu apenas o quarto lugar para o astro, Podladtchikov foi ao del&iacute;rio e recebeu um abra&ccedil;o exatamente de Shaun White, que levou a derrota no esp&iacute;rito esportivo - euestionado sobre o papo com Shaun White durante o abra&ccedil;o, Podladtchikov brincou: "ele me disse parab&eacute;ns".</p>\r\n<p>Se vencesse nesta ter&ccedil;a, a estrela do snowboard americano seria o primeiro americano da hist&oacute;ria a garantir tr&ecirc;s medalhas de ouro em edi&ccedil;&otilde;es diferentes dos Jogos de Inverno.</p>\r\n<p>O ouro e o bronze do snowboard halfpipe ficaram com japoneses: Ayumu Hirano, fen&ocirc;meno de 15 anos que j&aacute; havia sido prata nos X-Games de 2013 em Aspen, terminou em segundo com 93.50 e Taku Hiraoka cravou 92.25, na terceira coloca&ccedil;&atilde;o.</p>\r\n<p>A surpresa pela vit&oacute;ria de Iouri Podladtchikov &eacute; ainda maior pelo su&iacute;&ccedil;o n&atilde;o ter classificado diretamente para a final. O atleta foi mal na primeira fase. que contava com 40 participantes, e teve que disputar uma repescagem para se garantir entre os 12 melhores</p>', 'images/2014/02/queridinho-local-surpreende-e-e-ouro-no-snowboard.jpg', '2014-02-11 23:32:31', 1, 5, 1, '348', '2014-04-03 23:10:05', 1, 'post'),
+(7, 'sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica', 'Sochi 2014: fotos sensuais de atletas russas despertam polêmica', '<p>Fotos sensuais de atletas russas que competem na Olimp&iacute;ada de Inverno de 2014 em alguns meios de comunica&ccedil;&atilde;o do pa&iacute;s causaram pol&ecirc;mica na Inglaterra nesta semana. O jornal brit&acirc;nico The Telegraph questionou se a inten&ccedil;&atilde;o das imagens &eacute; "explorar" a imagem das mulheres para tirar o foco das "m&aacute;s not&iacute;cias" envolvendo Sochi 2014, como o "sentimento antigay" ou o fato de a Vila Ol&iacute;mpica parecer um "canteiro de obras".</p>\r\n<p>O texto questiona se as atletas russas est&atilde;o se despindo para as c&acirc;meras para "vender o pa&iacute;s da &uacute;nica maneira que sabem", ou se simplesmente querem fazer isso porque se sentem bem, e cita a "objetifica&ccedil;&atilde;o" das mulheres no pa&iacute;s-sede dos Jogos de Inverno.</p>\r\n<p>Em resposta, uma russa que vive na Inglaterra, Yulia Ivanova, afirmou ao jornal que as mulheres do pa&iacute;s s&atilde;o "sexualmente confiantes" e gostam de mostrar seus corpos. Segundo ela, na R&uacute;ssia a sensualidade n&atilde;o &eacute; um tabu - &eacute; vista como "for&ccedil;a e confian&ccedil;a" e n&atilde;o como "prostitui&ccedil;&atilde;o ou degrada&ccedil;&atilde;o".</p>\r\n<p>Ivanova tamb&eacute;m reclamou que os Jogos de Sochi ser&atilde;o uma "oportunidade" para que a imprensa ocidental "ataque a R&uacute;ssia e a deixe em peda&ccedil;os", focando apenas nas coisas negativas e passando por cima dos pontos positivos.</p>\r\n<p>Confira ensaio sensual das atletas russas &agrave; revista ProSports</p>', 'images/2014/02/sochi-2014-fotos-sensuais-de-atletas-russas-despertam-polemica.jpg', '2014-02-11 23:34:43', 1, 5, 1, '5', '2014-03-31 10:11:42', 1, 'post'),
 (11, 'especialistas-alertam-para-os-perigos-que-rival-do-brasil-oferece-na-fed-cup', 'Especialistas alertam para os perigos que rival do Brasil oferece na Fed Cup!', '<p>O Brasil j&aacute; conhece o seu advers&aacute;rio do playoff da Fed Cup, que ser&aacute; em 19 e 20 de abril. Em busca de uma vaga no Grupo Mundial da competi&ccedil;&atilde;o entre na&ccedil;&otilde;es, a equipe brasileira vai encarar a Su&iacute;&ccedil;a, em casa.</p>\r\n<p>A princ&iacute;pio, o sorteio foi bom para o Brasil que tinha a chance de enfrentar S&eacute;rvia, Jap&atilde;o, Su&eacute;cia ou Su&iacute;&ccedil;a. Portanto, o time da capit&atilde; Carla Tiene fugiu do confronto com as s&eacute;rvias, que t&ecirc;m na equipe a ex-l&iacute;der do ranking e atual 12&ordf; colocada Ana Ivanovic, tenista que eliminou Serena Williams no Aberto da Austr&aacute;lia este ano.</p>\r\n<p>Por&eacute;m, o LANCE!Net procurou especialistas de t&ecirc;nis para obter opini&otilde;es a respeito do confronto contra a Su&iacute;&ccedil;a. O colunista do L!Net Fabrizio Gallas e o ex-tenista brasileiro Fernando Meligeni alertaram que o time su&iacute;&ccedil;o n&atilde;o &eacute; simples de ser batido (confira as opini&otilde;es abaixo).</p>\r\n<p>O perigo das su&iacute;&ccedil;as se deve muito a Belinda Bencic (139&ordf; do ranking), de apenas 16 anos e que foi l&iacute;der do ranking mundial juvenil. Ela est&aacute; em plena evolu&ccedil;&atilde;o no circuito, passou pelo qualificat&oacute;rio do Aberto da Austr&aacute;lia e ainda venceu a japonesa Kimiko Date-Krumm na primeira rodada do Grand Slam este ano. Depois, foi eliminada para a chinesa Na Li, que seria a campe&atilde; em Melbourne.</p>\r\n<p>Al&eacute;m de Bencic, a Su&iacute;&ccedil;a tem tenistas como Timea Bacsinszky (196&ordf; do ranking) e Stephanie Voegele (47&ordf;) na equipe. O Brasil foi campe&atilde;o do Zonal Americano, que deu vaga no playoff, jogando com Teliana Pereira (92&ordf;), Paula Gon&ccedil;alves (314&ordf;), Laura Pigossi (269&ordf;) e Gabriela C&eacute; (301&ordf;).</p>', 'images/2014/02/especialistas-alertam-para-os-perigos-que-rival-do-brasil-oferece-na-fed-cup.jpg', '2014-02-11 23:45:03', 1, 5, 1, '155', '2014-04-01 08:51:15', 1, 'post'),
 (12, 'vocalista-do-jota-quest-levanta-o-publico-do-planeta', 'Vocalista do Jota Quest levanta o público do Planeta', '<p>Os mineiros da banda Jota Quest est&atilde;o alucinando no palco e j&aacute; tocaram dois grandes hits: &ldquo;Na Moral&rdquo; e &ldquo;Al&eacute;m do Horizonete&rdquo;. Apesar de estar com o p&eacute; imobilizado com bota ortop&eacute;dica, Rog&eacute;rio Flausino n&atilde;o desanima, pula em um p&eacute; s&oacute; e bota todo mundo pra dan&ccedil;ar!</p>\r\n<p>Se voc&ecirc; n&atilde;o est&aacute; vendo o Planeta de perto, ainda pode conferir ao vivo as transmiss&otilde;es do portal G1, da TVCOM e do canal Multishow! O que n&atilde;o pode &eacute; parar de dan&ccedil;ar! #s&oacute;quemvaisabe</p>\r\n<p>Fotos: Jefferson Bernardes / Ag&ecirc;ncia Preview</p>', 'images/2014/02/vocalista-do-jota-quest-levanta-o-publico-do-planeta.jpg', '2014-02-11 23:52:49', 1, 3, 1, '1', '2014-04-01 08:51:37', 1, 'post'),
 (13, 'cidadao-quem-abre-com-muita-elegancia-o-segundo-dia-de-shows', 'Cidadão Quem abre com muita elegância o segundo dia de shows', '<p>Abrindo o segundo dia de shows no Palco Central, os rapazes da Cidad&atilde;o Quem esbanjaram eleg&acirc;ncia de terno, sem uma gota de suor sequer. O p&uacute;blico pode ver a banda tocando m&uacute;sicas como &ldquo;Um dia&rdquo;, &ldquo;Nosso pr&oacute;prio mar&rdquo; e &ldquo;Pinhal&rdquo;.</p>\r\n<p>A pr&oacute;xima atra&ccedil;&atilde;o a subir ao palco &eacute; Gabriel o Pensador e, em seguida, Raimundos com a participa&ccedil;&atilde;o da Comunidade Nin-Jitsu.</p>\r\n<p>Acompanhe a transmiss&atilde;o ao vivo pela internet atrav&eacute;s do portal G1, e na TV veja pela TVCOM e Multishow.</p>\r\n<p>#s&oacute;quemvaisabe</p>', 'images/2014/02/cidadao-quem-abre-com-muita-elegancia-o-segundo-dia-de-shows.jpg', '2014-02-11 23:54:02', 1, 3, 1, '1', '2014-04-01 08:51:40', 1, 'post'),
 (14, 'skank-faz-show-inesquecivel', 'Skank faz show inesquecível', '<p>Skank embala gera&ccedil;&otilde;es com suas m&uacute;sica simples e contagiantes. Para enriquecer ainda mais a apresenta&ccedil;&atilde;o desta noite no Palco Central, a banda contou com a participa&ccedil;&atilde;o do fen&ocirc;meno do hip-hop brasileiro Emicida.</p>\r\n<p>Samuel Rosa incendeia a plateia empunhando camisetas &ldquo;coloradas&rdquo; e &ldquo;gremistas&rdquo; da banda.</p>\r\n<p>#s&oacute;quemvaisabe</p>', 'images/2014/02/skank-faz-show-inesquecivel.jpg', '2014-02-11 23:55:01', 1, 3, 1, '1', '2014-03-31 10:06:30', 1, 'post'),
 (15, 'raimundos-encerra-show-homenageando-chorao-com-participacao-de-seu-filho-e-comunidade-nin-jitsu', 'Raimundos encerra show homenageando Chorão com participação de seu filho e Comunidade Nin-Jitsu', '<p>A banda Raimundos faz um show en&eacute;rgico e empolgante, fazendo todo mundo pular e cantar junto com os hits.</p>\r\n<p>O ponto alto foram &ldquo;Mulher de Fases&rdquo;, logo no in&iacute;cio do show, depois veio a desenfreada &ldquo;N&ecirc;ga Jurema&rdquo; e o &aacute;pice foi em &ldquo;Puteiro em Jo&atilde;o Pessoa&rdquo;.</p>\r\n<p>Mas o momento mais glorioso do show foi a parceria com a Comunidade Nin-Jitsu e a participa&ccedil;&atilde;o de Alexandre Abr&atilde;o, filho de Chor&atilde;o, quando tocaram m&uacute;sicas da banda Charlie Brown Jr.</p>\r\n<p>O p&uacute;blico cantou emocionado com a homenagem.</p>', 'images/2014/02/raimundos-encerra-show-homenageando-chorao-com-participacao-de-seu-filho-e-comunidade-nin-jitsu.jpg', '2014-02-11 23:56:28', 1, 3, 1, '25', '2014-04-01 08:51:33', 1, 'post'),
 (16, 'the-offspring-sacode-a-roda-punk-no-planeta', 'The Offspring sacode a roda punk no Planeta', '<p>The Offspring estreia no Planeta no &uacute;ltimo dia de Planeta 2014 com muita roda punk entre os planet&aacute;rios. A energia da banda de punk rock californiana contagia o p&uacute;blico. F&atilde;s de todas as idades vibraram com os cl&aacute;ssicos.</p>\r\n<p>O guitarrista Noodles subiu ao palco vestindo uma camiseta verde amarela. O presente foi dado aos integrantes da banda pelo pessoal do The Offspring Brasil, f&atilde;-clube oficial da banda no Pa&iacute;s.</p>\r\n<p>Cerca de 50 mil pessoas pularam ao som de m&uacute;sicas como &ldquo;(Come Out And Play) Keep&rsquo;em Separated&rdquo;, &ldquo;Days go by&rdquo; e Staring at the sun&rdquo;.</p>\r\n<p>#s&oacute;quemvaisabe</p>', 'images/2014/02/the-offspring-sacode-a-roda-punk-no-planeta.jpg', '2014-02-11 23:58:14', 1, 3, 1, '37', '2014-03-31 08:49:40', 1, 'post'),
-(17, 'musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade', 'Musas usam fotos no Instagram para testar fantasias, dietas e popularidade', '<p>Na reta final da prepara&ccedil;&atilde;o para o carnaval, as rainhas e as musas das escolas de samba de S&atilde;o Paulo usam o Instagram, rede social de fotos, para compartilhar looks, fantasias, alimenta&ccedil;&atilde;o e exerc&iacute;cios f&iacute;sicos com o p&uacute;blico. Com as imagens, acumulam seguidores e testam a popularidade antes do desfile no Samb&oacute;dromo.</p>\r\n<p>\"Antes eu n&atilde;o gostava muito de redes sociais, mas me apaixonei. As fotos ajudam a criar um v&iacute;nculo muito bacana com o p&uacute;blico e, assim, as pessoas podem acompanhar um pouco do meu dia-a-dia\", explicou Gracyanne Barbosa, rainha de bateria da X-9 Paulistana, que tem 664 mil seguidores na rede social.</p>\r\n<h3>Carnaval</h3>\r\n<p>A agenda de uma rainha de bateria &eacute; repleta de ensaios t&eacute;cnicos e na quadra. Tatiane Minerato, da Gavi&otilde;es da Fiel, aproveita essas ocasi&otilde;es para encher seu perfil na rede social de postagens. Sempre caprichando na escolha da fantasia, Tati tamb&eacute;m aposta em v&iacute;deos para mostrar seu samba no p&eacute; aos seguidores. \"Comecei a postar v&iacute;deos e o pessoal adorou, faz muito sucesso\", comentou a rainha.</p>\r\n<h3>Projeto rainha de bateria</h3>\r\n<p>A modelo Gracyanne Barbosa posta sua rotina di&aacute;ria de treinos na academia e dicas de alimenta&ccedil;&atilde;o. Para agrupar todas as postagens, ela usa a hashtag #projetogracyanne, tamb&eacute;m compartilhada por seguidores que buscam qualidade de vida.</p>\r\n<p>\"Eu vejo que as pessoas que me seguem t&ecirc;m mudado os h&aacute;bitos e ficando mais saud&aacute;veis\", alegrou-se Gracyanne. Segundo ela, &eacute; comum ver coment&aacute;rios de pessoas contando que estavam com pregui&ccedil;a de ir treinar, mas que viram a postagem e ficaram motivadas.</p>', 'images/2014/02/musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade.jpg', '2014-02-12 11:29:11', 1, 2, 1, '9', '2014-04-02 08:17:01', 1, 'post'),
-(18, 'correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas', 'Correios começam em maio a enviar SMS avisando entrega de cartas', '<p>Come&ccedil;ar&aacute; a funcionar em maio o sistema de envio de SMS dos Correios, que, em um primeiro momento, ser&aacute; usado para avisar que uma correspond&ecirc;ncia foi entregue, mas, no futuro, servir&aacute; at&eacute; para alterar a data e o local em que cartas e encomendas devem chegar.</p>\r\n<p>\"Em maio deste ano, a gente j&aacute; vai mandar esse recado ao destinat&aacute;rio\", informou Antonio Luiz Fuschino, vice-presidente de Tecnologia e Infraestrutura dos Correios, com exclusividade ao G1.</p>\r\n<p>Atualmente, o sistema est&aacute; em fase de piloto. Por meio do site, os interessados em rastrear alguma correspond&ecirc;ncia pelo site dos Correios s&atilde;o convidados a cadastrar o n&uacute;mero de celular para que sejam avisados via SMS quando a entrega chegar ao destino.</p>\r\n<p>Quando o sistema for lan&ccedil;ado em maio, o cadastro dos n&uacute;meros de celular ser&aacute; feito diretamente na ag&ecirc;ncia, no momento em que um pacote ou correspond&ecirc;ncia for postado.<br />Segundo Fuschino, j&aacute; est&aacute; pronto o sistema de atendimento que coletar&aacute; os n&uacute;meros de contato do destinat&aacute;rio e do remetente.</p>\r\n<p>Isso permitir&aacute; n&atilde;o s&oacute; que o remetente saiba quando seu despacho foi entregue, mas que o destinat&aacute;rio seja informado de que receber&aacute; uma correspond&ecirc;ncia e a previs&atilde;o da data de recebimento, al&eacute;m de ter ci&ecirc;ncia de quando ela foi deixada em sua casa.</p>', 'images/2014/02/correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas.jpg', '2014-02-12 11:31:20', 1, 2, 1, '26', '2014-03-31 08:58:49', 1, 'post'),
-(19, 'empresa-lanca-pendrive-para-smartphones-e-tablets-android', 'Empresa lança pendrive para smartphones e tablets Android', '<p>Ter mais espa&ccedil;o de armazenamento em tablets e smartphones ou conseguir usar arquivos que est&atilde;o em pendrives s&atilde;o algumas das dificuldades de usu&aacute;rios de dispositivos m&oacute;veis.</p>\r\n<p>Para conseguir transferir estes arquivos com maior facilidade, a fabricante SanDisk apresentou nesta ter&ccedil;a-feira (11) o pendrive \"Ultra Dual USB Drive\", com entradas USB - para conectar no PC, e uma micro-USB, que &eacute; conectada na entrada presente em celulares e tablets.</p>\r\n<p>De acordo com a empresa, o pendrive permite guardar e fazer backup de dados, al&eacute;m de liberar mais espa&ccedil;o ou simplesmente transferir dados multim&iacute;dia entre smartphones, tablets e computadores. O dispositivo tem at&eacute; 64 GB de espa&ccedil;o de armazenamento e as duas portas possuem prote&ccedil;&atilde;o retr&aacute;til, sem capinhas para perder, mas mantendo as conex&otilde;es seguras.</p>\r\n<p>Um aplicativo chamado \"Memory Zone\", dispon&iacute;vel para download na loja Google Play, permite o gerenciamento do conte&uacute;do no pendrive, organizando rquivos armazenados na mem&oacute;ria interna e externa do telefone, para gerenciamento, visualiza&ccedil;&atilde;o, c&oacute;pia e backup.</p>\r\n<p>O SanDisk Ultra Dual USB Drive est&aacute; dispon&iacute;vel no Brasil em capacidades de 16GB a 64 GB com pre&ccedil;os sugeridos de R$ 80 a R$ 250.</p>', 'images/2014/02/empresa-lanca-pendrive-para-smartphones-e-tablets-android.jpg', '2014-02-12 11:32:31', 1, 2, 1, '54', '2014-04-01 07:49:41', 1, 'post'),
-(20, 'twitter-testa-novo-layout-similar-a-facebook-e-google', 'Twitter testa novo layout similar a Facebook e Google+', '<h2>O Twitter est&aacute; testando uma remodela&ccedil;&atilde;o de layout que aproximar&aacute; a forma como microblog exibe o conte&uacute;do do jeito como as redes sociais Facebook e Google+ organizam as publica&ccedil;&otilde;es de usu&aacute;rios.</h2>\r\n<p>A imagem de um perfil com esse redesenho foi publicada pelo site &ldquo;Mashable&rdquo; nesta ter&ccedil;a-feira (11).</p>\r\n<p>Se confirmadas, as mudan&ccedil;as marcar&atilde;o uma virada na rela&ccedil;&atilde;o entre o microblog e as outras redes sociais. Nos &uacute;ltimos anos, foram Facebook e companhia que adotaram as ferramentas criadas pelo Twitter, como a \"hashtag\", os \"trending topics\" e a forma de citar outros usu&aacute;rios usando o s&iacute;mbolo &ldquo;@&rdquo;.</p>\r\n<p>Segundo a imagem postada pelo site, o layout da timeline dos usu&aacute;rios no Twitter deve incorporar uma mescla de elementos da rede social do Google e Facebook.</p>\r\n<p>Os usu&aacute;rios poder&atilde;o escolher uma imagem de exibi&ccedil;&atilde;o e outra grande para estampar como capa, como ocorre nos dois sites concorrentes. As fotos de cobertura poder&atilde;o ter dimens&otilde;es de 1.500 x 1.500 pixels, acima do permitido atualmente, de 1.252 x 626 pixels.</p>\r\n<p>J&aacute; as postagens ser&atilde;o exibidas em quadros grandes. As que contiverem imagens ter&atilde;o maior destaque. Com isso, o formato atual, de lista de tu&iacute;tes, sai de cena.</p>\r\n<p>Recentemente, o Twitter mudou a vers&atilde;o para web para que ficasse mais pr&oacute;xima da exibida pelos aplicativos para celulares e tablets.</p>\r\n<p>Segundo a empresa, a altera&ccedil;&atilde;o foi uma acomoda&ccedil;&atilde;o do design de sua plataforma ao formato mais utilizado, pois 76% de seus usu&aacute;rios acessam o microblog por meio de dispositivos m&oacute;veis.</p>', 'images/2014/02/twitter-testa-novo-layout-similar-a-facebook-e-google.jpg', '2014-02-12 11:35:09', 1, 2, 1, '75', '2014-03-31 10:06:22', 1, 'post'),
-(21, 'apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado', 'Após vídeo virar hit, game que simula bode, \'Goat Simulator\', será lançado', '<p>O est&uacute;dio Coffee Stain Studios publicou h&aacute; algumas semanas um v&iacute;deo que mostrava uma demonstra&ccedil;&atilde;o t&eacute;cnica de um motor gr&aacute;fico que mostrava um bode destruindo tudo o que via pela frente e que causava muita confus&atilde;o.</p>\r\n<p>N&atilde;o era para virar um jogo propriamente dito, mas a repercuss&atilde;o foi tanta, com pessoas pedindo que essa \"demo\" fosse lan&ccedil;ada, que o est&uacute;dio resolveu concluir o jogo e lan&ccedil;ar \"Goat Simulator\" na metade de 2014.</p>\r\n<p>A vers&atilde;o ser&aacute; exclusiva para PCs e ser&aacute; vendida por download na loja virtual Steam. O pre&ccedil;o e a data de lan&ccedil;amentos n&atilde;o foram divulgados.</p>\r\n<p>No game, os jogadores far&atilde;o o papel de um bode que fica sempre com sua l&iacute;ngua para fora e tem como objetivo destruir tudo o que v&ecirc; pela frente.</p>\r\n<p>Haver&aacute; objetivos espec&iacute;ficos para serem cumpridos no mundo aberto do jogo. Para atacar o jogador pode usar oa chifres, o traseiro ou pode dar coices nos advers&aacute;rios.</p>\r\n<p>A lingua tamb&eacute;m podera ser usada, podendo grudar em objetos como machados para causar ainda mais destrui&ccedil;&atilde;o.</p>', 'images/2014/02/apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado.jpg', '2014-02-12 11:39:09', 1, 2, 1, '115', '2014-04-03 17:00:51', 1, 'post');
+(17, 'musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade', 'Musas usam fotos no Instagram para testar fantasias, dietas e popularidade', '<p>Na reta final da prepara&ccedil;&atilde;o para o carnaval, as rainhas e as musas das escolas de samba de S&atilde;o Paulo usam o Instagram, rede social de fotos, para compartilhar looks, fantasias, alimenta&ccedil;&atilde;o e exerc&iacute;cios f&iacute;sicos com o p&uacute;blico. Com as imagens, acumulam seguidores e testam a popularidade antes do desfile no Samb&oacute;dromo.</p>\r\n<p>"Antes eu n&atilde;o gostava muito de redes sociais, mas me apaixonei. As fotos ajudam a criar um v&iacute;nculo muito bacana com o p&uacute;blico e, assim, as pessoas podem acompanhar um pouco do meu dia-a-dia", explicou Gracyanne Barbosa, rainha de bateria da X-9 Paulistana, que tem 664 mil seguidores na rede social.</p>\r\n<h3>Carnaval</h3>\r\n<p>A agenda de uma rainha de bateria &eacute; repleta de ensaios t&eacute;cnicos e na quadra. Tatiane Minerato, da Gavi&otilde;es da Fiel, aproveita essas ocasi&otilde;es para encher seu perfil na rede social de postagens. Sempre caprichando na escolha da fantasia, Tati tamb&eacute;m aposta em v&iacute;deos para mostrar seu samba no p&eacute; aos seguidores. "Comecei a postar v&iacute;deos e o pessoal adorou, faz muito sucesso", comentou a rainha.</p>\r\n<h3>Projeto rainha de bateria</h3>\r\n<p>A modelo Gracyanne Barbosa posta sua rotina di&aacute;ria de treinos na academia e dicas de alimenta&ccedil;&atilde;o. Para agrupar todas as postagens, ela usa a hashtag #projetogracyanne, tamb&eacute;m compartilhada por seguidores que buscam qualidade de vida.</p>\r\n<p>"Eu vejo que as pessoas que me seguem t&ecirc;m mudado os h&aacute;bitos e ficando mais saud&aacute;veis", alegrou-se Gracyanne. Segundo ela, &eacute; comum ver coment&aacute;rios de pessoas contando que estavam com pregui&ccedil;a de ir treinar, mas que viram a postagem e ficaram motivadas.</p>', 'images/2014/02/musas-usam-fotos-no-instagram-para-testar-fantasias-dietas-e-popularidade.jpg', '2014-02-12 11:29:11', 1, 2, 1, '9', '2014-04-02 08:17:01', 1, 'post'),
+(18, 'correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas', 'Correios começam em maio a enviar SMS avisando entrega de cartas', '<p>Come&ccedil;ar&aacute; a funcionar em maio o sistema de envio de SMS dos Correios, que, em um primeiro momento, ser&aacute; usado para avisar que uma correspond&ecirc;ncia foi entregue, mas, no futuro, servir&aacute; at&eacute; para alterar a data e o local em que cartas e encomendas devem chegar.</p>\r\n<p>"Em maio deste ano, a gente j&aacute; vai mandar esse recado ao destinat&aacute;rio", informou Antonio Luiz Fuschino, vice-presidente de Tecnologia e Infraestrutura dos Correios, com exclusividade ao G1.</p>\r\n<p>Atualmente, o sistema est&aacute; em fase de piloto. Por meio do site, os interessados em rastrear alguma correspond&ecirc;ncia pelo site dos Correios s&atilde;o convidados a cadastrar o n&uacute;mero de celular para que sejam avisados via SMS quando a entrega chegar ao destino.</p>\r\n<p>Quando o sistema for lan&ccedil;ado em maio, o cadastro dos n&uacute;meros de celular ser&aacute; feito diretamente na ag&ecirc;ncia, no momento em que um pacote ou correspond&ecirc;ncia for postado.<br />Segundo Fuschino, j&aacute; est&aacute; pronto o sistema de atendimento que coletar&aacute; os n&uacute;meros de contato do destinat&aacute;rio e do remetente.</p>\r\n<p>Isso permitir&aacute; n&atilde;o s&oacute; que o remetente saiba quando seu despacho foi entregue, mas que o destinat&aacute;rio seja informado de que receber&aacute; uma correspond&ecirc;ncia e a previs&atilde;o da data de recebimento, al&eacute;m de ter ci&ecirc;ncia de quando ela foi deixada em sua casa.</p>', 'images/2014/02/correios-comecam-em-maio-a-enviar-sms-avisando-entrega-de-cartas.jpg', '2014-02-12 11:31:20', 1, 2, 1, '26', '2014-03-31 08:58:49', 1, 'post'),
+(19, 'empresa-lanca-pendrive-para-smartphones-e-tablets-android', 'Empresa lança pendrive para smartphones e tablets Android', '<p>Ter mais espa&ccedil;o de armazenamento em tablets e smartphones ou conseguir usar arquivos que est&atilde;o em pendrives s&atilde;o algumas das dificuldades de usu&aacute;rios de dispositivos m&oacute;veis.</p>\r\n<p>Para conseguir transferir estes arquivos com maior facilidade, a fabricante SanDisk apresentou nesta ter&ccedil;a-feira (11) o pendrive "Ultra Dual USB Drive", com entradas USB - para conectar no PC, e uma micro-USB, que &eacute; conectada na entrada presente em celulares e tablets.</p>\r\n<p>De acordo com a empresa, o pendrive permite guardar e fazer backup de dados, al&eacute;m de liberar mais espa&ccedil;o ou simplesmente transferir dados multim&iacute;dia entre smartphones, tablets e computadores. O dispositivo tem at&eacute; 64 GB de espa&ccedil;o de armazenamento e as duas portas possuem prote&ccedil;&atilde;o retr&aacute;til, sem capinhas para perder, mas mantendo as conex&otilde;es seguras.</p>\r\n<p>Um aplicativo chamado "Memory Zone", dispon&iacute;vel para download na loja Google Play, permite o gerenciamento do conte&uacute;do no pendrive, organizando rquivos armazenados na mem&oacute;ria interna e externa do telefone, para gerenciamento, visualiza&ccedil;&atilde;o, c&oacute;pia e backup.</p>\r\n<p>O SanDisk Ultra Dual USB Drive est&aacute; dispon&iacute;vel no Brasil em capacidades de 16GB a 64 GB com pre&ccedil;os sugeridos de R$ 80 a R$ 250.</p>', 'images/2014/02/empresa-lanca-pendrive-para-smartphones-e-tablets-android.jpg', '2014-02-12 11:32:31', 1, 2, 1, '54', '2014-04-01 07:49:41', 1, 'post'),
+(20, 'twitter-testa-novo-layout-similar-a-facebook-e-google', 'Twitter testa novo layout similar a Facebook e Google+', '<h2>O Twitter est&aacute; testando uma remodela&ccedil;&atilde;o de layout que aproximar&aacute; a forma como microblog exibe o conte&uacute;do do jeito como as redes sociais Facebook e Google+ organizam as publica&ccedil;&otilde;es de usu&aacute;rios.</h2>\r\n<p>A imagem de um perfil com esse redesenho foi publicada pelo site &ldquo;Mashable&rdquo; nesta ter&ccedil;a-feira (11).</p>\r\n<p>Se confirmadas, as mudan&ccedil;as marcar&atilde;o uma virada na rela&ccedil;&atilde;o entre o microblog e as outras redes sociais. Nos &uacute;ltimos anos, foram Facebook e companhia que adotaram as ferramentas criadas pelo Twitter, como a "hashtag", os "trending topics" e a forma de citar outros usu&aacute;rios usando o s&iacute;mbolo &ldquo;@&rdquo;.</p>\r\n<p>Segundo a imagem postada pelo site, o layout da timeline dos usu&aacute;rios no Twitter deve incorporar uma mescla de elementos da rede social do Google e Facebook.</p>\r\n<p>Os usu&aacute;rios poder&atilde;o escolher uma imagem de exibi&ccedil;&atilde;o e outra grande para estampar como capa, como ocorre nos dois sites concorrentes. As fotos de cobertura poder&atilde;o ter dimens&otilde;es de 1.500 x 1.500 pixels, acima do permitido atualmente, de 1.252 x 626 pixels.</p>\r\n<p>J&aacute; as postagens ser&atilde;o exibidas em quadros grandes. As que contiverem imagens ter&atilde;o maior destaque. Com isso, o formato atual, de lista de tu&iacute;tes, sai de cena.</p>\r\n<p>Recentemente, o Twitter mudou a vers&atilde;o para web para que ficasse mais pr&oacute;xima da exibida pelos aplicativos para celulares e tablets.</p>\r\n<p>Segundo a empresa, a altera&ccedil;&atilde;o foi uma acomoda&ccedil;&atilde;o do design de sua plataforma ao formato mais utilizado, pois 76% de seus usu&aacute;rios acessam o microblog por meio de dispositivos m&oacute;veis.</p>', 'images/2014/02/twitter-testa-novo-layout-similar-a-facebook-e-google.jpg', '2014-02-12 11:35:09', 1, 2, 1, '75', '2014-03-31 10:06:22', 1, 'post'),
+(21, 'apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado', 'Após vídeo virar hit, game que simula bode, ''Goat Simulator'', será lançado', '<p>O est&uacute;dio Coffee Stain Studios publicou h&aacute; algumas semanas um v&iacute;deo que mostrava uma demonstra&ccedil;&atilde;o t&eacute;cnica de um motor gr&aacute;fico que mostrava um bode destruindo tudo o que via pela frente e que causava muita confus&atilde;o.</p>\r\n<p>N&atilde;o era para virar um jogo propriamente dito, mas a repercuss&atilde;o foi tanta, com pessoas pedindo que essa "demo" fosse lan&ccedil;ada, que o est&uacute;dio resolveu concluir o jogo e lan&ccedil;ar "Goat Simulator" na metade de 2014.</p>\r\n<p>A vers&atilde;o ser&aacute; exclusiva para PCs e ser&aacute; vendida por download na loja virtual Steam. O pre&ccedil;o e a data de lan&ccedil;amentos n&atilde;o foram divulgados.</p>\r\n<p>No game, os jogadores far&atilde;o o papel de um bode que fica sempre com sua l&iacute;ngua para fora e tem como objetivo destruir tudo o que v&ecirc; pela frente.</p>\r\n<p>Haver&aacute; objetivos espec&iacute;ficos para serem cumpridos no mundo aberto do jogo. Para atacar o jogador pode usar oa chifres, o traseiro ou pode dar coices nos advers&aacute;rios.</p>\r\n<p>A lingua tamb&eacute;m podera ser usada, podendo grudar em objetos como machados para causar ainda mais destrui&ccedil;&atilde;o.</p>', 'images/2014/02/apos-video-virar-hit-game-que-simula-bode-goat-simulator-sera-lancado.jpg', '2014-02-12 11:39:09', 1, 2, 1, '115', '2014-04-03 17:00:51', 1, 'post');
 
 -- --------------------------------------------------------
 
@@ -6010,12 +6798,12 @@ INSERT INTO `ws_posts` (`post_id`, `post_name`, `post_title`, `post_content`, `p
 -- Estrutura da tabela `ws_posts_gallery`
 --
 
-CREATE TABLE `ws_posts_gallery` (
+CREATE TABLE IF NOT EXISTS `ws_posts_gallery` (
   `post_id` int(11) DEFAULT NULL,
   `gallery_id` int(11) NOT NULL,
   `gallery_image` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `gallery_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_posts_gallery`
@@ -6043,13 +6831,13 @@ INSERT INTO `ws_posts_gallery` (`post_id`, `gallery_id`, `gallery_image`, `galle
 -- Estrutura da tabela `ws_siteviews`
 --
 
-CREATE TABLE `ws_siteviews` (
+CREATE TABLE IF NOT EXISTS `ws_siteviews` (
   `siteviews_id` int(11) NOT NULL,
   `siteviews_date` date NOT NULL,
   `siteviews_users` decimal(10,0) NOT NULL,
   `siteviews_views` decimal(10,0) NOT NULL,
   `siteviews_pages` decimal(10,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_siteviews`
@@ -6082,12 +6870,12 @@ INSERT INTO `ws_siteviews` (`siteviews_id`, `siteviews_date`, `siteviews_users`,
 -- Estrutura da tabela `ws_siteviews_agent`
 --
 
-CREATE TABLE `ws_siteviews_agent` (
+CREATE TABLE IF NOT EXISTS `ws_siteviews_agent` (
   `agent_id` int(11) NOT NULL,
   `agent_name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_views` decimal(10,0) NOT NULL,
   `agent_lastview` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_siteviews_agent`
@@ -6105,7 +6893,7 @@ INSERT INTO `ws_siteviews_agent` (`agent_id`, `agent_name`, `agent_views`, `agen
 -- Estrutura da tabela `ws_siteviews_online`
 --
 
-CREATE TABLE `ws_siteviews_online` (
+CREATE TABLE IF NOT EXISTS `ws_siteviews_online` (
   `online_id` int(11) NOT NULL,
   `online_session` varchar(255) CHARACTER SET latin1 NOT NULL,
   `online_startview` timestamp NULL DEFAULT NULL,
@@ -6114,7 +6902,7 @@ CREATE TABLE `ws_siteviews_online` (
   `online_url` varchar(255) CHARACTER SET latin1 NOT NULL,
   `online_agent` varchar(255) CHARACTER SET latin1 NOT NULL,
   `agent_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_siteviews_online`
@@ -6149,7 +6937,7 @@ INSERT INTO `ws_siteviews_online` (`online_id`, `online_session`, `online_startv
 -- Estrutura da tabela `ws_users`
 --
 
-CREATE TABLE `ws_users` (
+CREATE TABLE IF NOT EXISTS `ws_users` (
   `user_id` int(11) NOT NULL,
   `user_name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `user_lastname` varchar(255) CHARACTER SET latin1 NOT NULL,
@@ -6158,7 +6946,7 @@ CREATE TABLE `ws_users` (
   `user_registration` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_lastupdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_level` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `ws_users`
@@ -6285,99 +7073,82 @@ ALTER TABLE `ws_users`
 -- AUTO_INCREMENT for table `aeronave`
 --
 ALTER TABLE `aeronave`
-  MODIFY `idAeronave` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `idAeronave` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `app_cidades`
 --
 ALTER TABLE `app_cidades`
-  MODIFY `cidade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5566;
-
+  MODIFY `cidade_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5566;
 --
 -- AUTO_INCREMENT for table `app_empresas`
 --
 ALTER TABLE `app_empresas`
   MODIFY `empresa_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `etapas_voo`
 --
 ALTER TABLE `etapas_voo`
-  MODIFY `idetapa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
-
+  MODIFY `idetapa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=401;
 --
 -- AUTO_INCREMENT for table `inspecao`
 --
 ALTER TABLE `inspecao`
-  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `inspecao_backup`
 --
 ALTER TABLE `inspecao_backup`
-  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
+  MODIFY `idInspecao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `servidor`
 --
 ALTER TABLE `servidor`
-  MODIFY `idservidor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `idservidor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tipo_inspecao`
 --
 ALTER TABLE `tipo_inspecao`
-  MODIFY `id_tipo_inspecao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `id_tipo_inspecao` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `voo`
 --
 ALTER TABLE `voo`
-  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idvoo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=401;
 --
 -- AUTO_INCREMENT for table `ws_categories`
 --
 ALTER TABLE `ws_categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `ws_posts`
 --
 ALTER TABLE `ws_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `ws_posts_gallery`
 --
 ALTER TABLE `ws_posts_gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `ws_siteviews`
 --
 ALTER TABLE `ws_siteviews`
-  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `siteviews_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `ws_siteviews_agent`
 --
 ALTER TABLE `ws_siteviews_agent`
-  MODIFY `agent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `agent_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `ws_siteviews_online`
 --
 ALTER TABLE `ws_siteviews_online`
-  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `online_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `ws_users`
 --
 ALTER TABLE `ws_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

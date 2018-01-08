@@ -1,5 +1,7 @@
+<pre>
 <?php
 $query = "SELECT * FROM voo AS v JOIN etapas_voo ev ON v.idvoo = ev.idvoo";
+//$query = "SELECT * FROM voo";
 $readRegVoo = new Read;
 $readRegVoo->FullRead($query);
 
@@ -7,6 +9,7 @@ if ($readRegVoo->getRowCount() > 0):
     print_r($readRegVoo->getResult());
 endif;
 ?>
+</pre>
 <div class="content home" style="width: 80%;">
 
     <h1>Manutenções</h1>
