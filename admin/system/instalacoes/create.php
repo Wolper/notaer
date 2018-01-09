@@ -76,8 +76,7 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Anv:</span></label> 
-                        <input id="in_anv" class="form-control" type="text" pattern="\(\d{2}\)\d{4}-\d{4}"/>
-                   
+                        <input id="in_anv" class="form-control" name="in_anv" onfocus="MascaraTime()"/>
                     </div>
 
                     <div class="form-group col-md-3">
