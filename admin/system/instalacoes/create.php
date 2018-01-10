@@ -56,11 +56,11 @@
                         <select class="form-control j_loadcity" name="id_tipo_inspecao">
                             <option></option>
                             <?php
-                            $readAero = new Read;
-                            $readAero->ExeRead("tipo_inspecao");
+                            $readInsp = new Read;
+                            $readInsp->ExeRead("tipo_inspecao");
 
-                            if ($readAero->getRowCount()):
-                                foreach ($readAero->getResult() as $aeronave):
+                            if ($readInsp->getRowCount()):
+                                foreach ($readInsp->getResult() as $aeronave):
                                     extract($aeronave);
                                     echo "<option value=\"{$id_tipo_inspecao}\" ";
                                     if (isset($data['inspecao']) && $data['inspecao'] == $id_tipo_inspecao):
