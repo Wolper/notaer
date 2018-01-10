@@ -35,7 +35,7 @@ endif;
             <tbody class="text-uppercase text-center bg-success">
 <?php
 $readInsp = new Read();
-$readInsp->FullRead('SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.idInspecao = ti.id_tipo_inspecao');
+$readInsp->FullRead('SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.id_tipo_inspecao = ti.id_tipo_inspecao');
 
 if (!$readInsp->getRowCount() > 0):
     echo 'Ainda não há dados das aeronaves cadastrados';

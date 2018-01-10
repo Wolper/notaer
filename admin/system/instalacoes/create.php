@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Anv:</span></label> 
-                        <input class="formHour form-control" type="text" name="in_anvInspecao" placeholder="00000:00"/>
+                        <input class="form-control formHour" type="text" name="in_anvInspecao" placeholder="00000:00"/>
                     </div>
 
                     <div class="form-group col-md-3">
@@ -85,11 +85,11 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label><span class="field">In-TSN:</span></label> 
-                        <input class="form-control" type="time" name="in_tsnInspecao" />
+                        <input class="form-control formHour" type="text" name="in_tsnInspecao"  placeholder="00000:00"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label><span class="field">In-TS0:</span></label> 
-                        <input class="form-control" type="time" name="In_tsoInspecao" />
+                        <input class="form-control formHour" type="text" name="In_tsoInspecao"  placeholder="00000:00"/>
                     </div>
 
                 </div><!--/line-->
