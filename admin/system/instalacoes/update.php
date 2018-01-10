@@ -53,7 +53,7 @@
                                     extract($aeronave);
                                     echo "<option value=\"{$idAeronave}\" ";
 
-                                    if (isset($data[0]['idaeronave']) && $data[0]['idaeronave'] == $idAeronave):
+                                    if (isset($data['idaeronave']) && $data['idaeronave'] == $idAeronave):
                                         echo "selected";
                                     endif;
 
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label><span class="field">Tipo de Inspeção:</span></label>
-                         <select class="form-control j_loadcity" name="id_tipo_inspecao" value="<?= $data[0]['id_tipo_inspecao']; ?>">
+                         <select class="form-control j_loadcity" name="id_tipo_inspecao" value="<?= $data['id_tipo_inspecao']; ?>">
 
                             <?php
                             $readAero = new Read;
@@ -76,7 +76,7 @@
                                     extract($inspecao);
                                     echo "<option value=\"{$id_tipo_inspecao}\" ";
 
-                                    if (isset($data[0]['id_tipo_inspecao']) && $data[0]['id_tipo_inspecao'] == $id_tipo_inspecao):
+                                    if (isset($data['id_tipo_inspecao']) && $data['id_tipo_inspecao'] == $id_tipo_inspecao):
                                         echo "selected";
                                     endif;
 

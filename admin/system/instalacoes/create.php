@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Anv:</span></label> 
-                        <input class="formHour form-control" type="text" name="in_anvInspecao" />
+                        <input class="formHour form-control" type="text" name="in_anvInspecao" placeholder="00000:00"/>
                     </div>
 
                     <div class="form-group col-md-3">
