@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label><span class="field">In-Anv:</span></label> 
-                        <input id="in_anv" class="form-control" name="in_anv" onfocus="MascaraTime()"/>
+                        <input class="formHour form-control" type="text" name="in_anvInspecao" />
                     </div>
 
                     <div class="form-group col-md-3">

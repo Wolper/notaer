@@ -1,9 +1,10 @@
-$(function() {
+$(function () {
     //SHADOWBOX
     //Shadowbox.init();
 
     //MASCARAS
     $(".formDate").mask("99/99/9999 99:99:99", {placeholder: " "});
+    $(".formHour").mask("99999:99", {placeholder: " "});
 
 
     //TinyMCE
