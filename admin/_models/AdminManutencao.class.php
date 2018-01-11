@@ -16,7 +16,6 @@ class AdminManutencao {
     //Nome da tabela no banco de dados
     const Entity = 'inspecao';
 
-   
     /**
      * <b>Atualizar a Instalacao:</b> Envelope os dados em uma array atribuitivo e informe o id de uma instalacao
      * para atualiza-la no banco de dados!
@@ -26,17 +25,8 @@ class AdminManutencao {
     public function ExeUpdate($idInstalacao, array $Data) {
         $this->Inspecao = (int) $idInstalacao;
         $this->Data = $Data;
-        if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao Atualizar: Para atualizar a instalacao <b>{$this->Data['descricaoInstalacao']}</b>, preencha todos os campos!", WS_ALERT];
-            $this->Result = false;
-        else:
-//            $this->setData();
-//            $this->setName();
-//            $this->sendCapa();
-            $this->Update();
-        endif;
+        $this->Update();
     }
-
 
     /**
      * <b>Verificar Ação:</b> Retorna TRUE se ação for efetuada ou FALSE se não. Para verificar erros
@@ -66,7 +56,6 @@ class AdminManutencao {
 //        $this->Data['descricaoInstalacao'] = Check::Name($this->Data['descricaoInstalacao']);
 //        $this->Data['data_do_voo'] = date('Y-m-d H:i:s');
     }
-
 
     //Atualiza a instalacao no banco!
     private function Update() {
