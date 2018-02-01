@@ -63,7 +63,7 @@ endif;
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Horas de Voo:</span> </label>
-                        <input class="formHour form-control" type="text" name="horasDeVooAeronave"  value="<?= $data['horasDeVooAeronave'] ?>"/>
+                        <input class="form-control" type="text" name="horasDeVooAeronave"  value="<?= $data['horasDeVooAeronave'] ?>"/>
                     </div>
 
                 </div>

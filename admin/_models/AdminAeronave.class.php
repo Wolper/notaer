@@ -117,7 +117,7 @@ class AdminAeronave {
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idAeronave = :idAero", "idAero={$this->idAeronave}");
         if ($Update->getResult()):
             $this->Result = true;
-            $this->Error = ["<b>Sucesso:</b> A {$this->Data['nomeAeronave']} foi atualizada no sistema!", WS_ACCEPT];
+            $this->Error = ["<b>Sucesso:</b> A atualização foi realizada no sistema!", WS_ACCEPT];
         endif;
     }
 

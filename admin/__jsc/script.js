@@ -16,7 +16,7 @@ $(function () {
             dataType: 'json',
             success: function (json) {
 //                alert("painel.php?exe=voo/update&create=true&emp=" + json.idvoo);
-                window.location.replace("painel.php?exe=voo/update&create=true&emp=" + json.idvoo);
+                window.location.replace("painel.php?exe=voo/update&create=true&emp=" + json.id_voo);
             }
         });
     });
@@ -93,6 +93,7 @@ $(function () {
 
 //----------------------------FIM DA CONSTRUÇÃO DAS DIVS DE ETAPAS E CÁLCULO DE CAMPOS----------------------------
 
+    $('#disponibilidade').css('color', 'red');
 
     //----------------------------------------------FUNÇÕES DIVERSAS-------------------------------------------------
 });

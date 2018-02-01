@@ -1,9 +1,6 @@
-<div class="content list_content">
+<div class="content home" style="width: 80%;">
 
     <section class="list_emp">
-
-        <h1>Atividades Aéreas:</h1>      
-
         <?php
         $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);
         if ($empty):
@@ -41,52 +38,77 @@
         $empi = 0;
         $getPage = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
         $Pager = new Pager('painel.php?exe=voo/index&page=');
-        $Pager->ExePager($getPage, 10);
+        $Pager->ExePager($getPage, 5);
 
         $readVoo = new Read;
-
-        $readVoo->ExeRead("voo", "ORDER BY numero_voo ASC, data_do_voo ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
-        if ($readVoo->getResult()):
-            foreach ($readVoo->getResult() as $voo):
-                $empi++;
-                extract($voo);
-                $status = (!$idaeronave ? 'style="background: #fffed8"' : '');
-
-                ?>
-                <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?> <?= $status; ?>>
-                    <header>
-
-                        <hgroup>
-                            <h1><a target="_blank" href="../voo/<?= $numero_voo; ?>" title="Ver Voo"><?= '<b>Nº do voo: </b>' . $numero_voo; ?></a></h1><br>
-                            <h2><?= '<b>Data do Voo: </b>' . $data_do_voo . '<br><br> <b>Comandante: </b>' . $comandante . ' <br><br> <b>Copiloto: </b>' . $copiloto; ?></h2><br>
-                            <h2><?= '<b>Top D: </b>' . $topD . '<br><br> <b>top E: </b>' . $topE . ' <br><br> <b>Histórico: </b>' . $historico; ?></h2>
-                        </hgroup>
-                    </header>
-                    <ul class="info post_actions">
-                        <li><strong>Data atual:</strong> <?= date('d/m/Y H:i', strtotime($data_do_voo)); ?>Hs</li>
-
-                        <li><a class="act_edit" href="painel.php?exe=voo/update&emp=<?= $idvoo; ?>" title="Editar">Editar</a></li>
-
-                        <?php if (!$idaeronave): ?>
-                            <li><a class="act_inative" href="painel.php?exe=voo/index&emp=<?= $idvoo; ?>&action=active" title="Ativar">Ativar</a></li>
-                        <?php else: ?>
-                            <li><a class="act_ative" href="painel.php?exe=voo/index&emp=<?= $idvoo; ?>&action=inative" title="Inativar">Inativar</a></li>
-                        <?php endif; ?>
-
-                        <li><a class="act_delete" href="painel.php?exe=voo/index&emp=<?= $idvoo; ?>&action=delete" title="Excluir">Deletar</a></li>
-                    </ul>
-                </article>
-                <?php
-            endforeach;
-        else:
-            $Pager->ReturnPage();
-            WSErro("Desculpe, ainda não existem voos cadastrados!", WS_INFOR);
-        endif;
         ?>
+        <div class="content home" style="width: 80%;">
+
+            <h1>Atividades Aéreas:</h1>      
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="text-uppercase text-center" style="background: black; color: white; text-align: justify">
+                        <tr>
+                            <th>Nº Voo</th>
+                            <th>Data do Voo</th>
+                            <th>Aeronave</th>
+                            <th>Comandante</th>
+                            <th>Copiloto</th>
+                            <th>Natureza</th>
+                            <th>Tempo Voo</th>
+                            <th>Nº Pousos</th>                          
+                            <th>Combustível</th>                          
+                            <th>Histórico</th>                          
+                            <th>Ocorrência</th>                          
+                            <th>Discrepância</th>                          
+                            <th>RelPrev</th>                          
+                            <th style="color: blue;">Edição</th>
+                            <th style="color: red;">Exclusão</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-uppercase text-center bg-success">
+
+                        <?php
+//                        $readVoo->ExeRead("voo", "ORDER BY numero_voo ASC, data_do_voo ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+                        $readVoo->FullRead("SELECT * FROM voo AS v JOIN aeronave AS ae ON v.idaeronave = ae.idAeronave ORDER BY idvoo DESC, data_do_voo ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+
+                        if (!$readVoo->getRowCount() > 0):
+                            echo 'Ainda não há dados das aeronaves cadastrados';
+                        else:
+                            foreach ($readVoo->getResult() as $insp):
+                                $empi++;
+                                extract($insp);
+                                ?>
+                                <tr>
+                                    <td><?= $numero_voo ?></td>
+                                    <td><?= $data_do_voo ?></td>
+                                    <td><?= $nomeAeronave ?></td>
+                                    <td><?= $comandante ?></td>
+                                    <td><?= $copiloto ?></td>
+                                    <td><?= $natureza ?></td>
+                                    <td><?= $tempo_total_de_voo ?></td>
+                                    <td><?= $total_de_pousos ?></td>
+                                    <td><?= $combustivel_total_consumido ?></td>
+                                    <td style="width: 300%"><?= $historico ?></td>
+                                    <td><?= $ocorrencia ?></td>
+                                    <td><?= $discrepancia ?></td>
+                                    <td><?= $relprev ?></td>
+                                    <td><a style="color: blue" class="act_edit" href="painel.php?exe=voo/update&emp=<?= $idvoo; ?>" title="Editar">Editar</a></td>
+                                    <td><a style="color: red;" class="act_delete" href="painel.php?exe=voo/index&emp=<?= $idvoo; ?>&action=delete" title="Excluir">Deletar</a></td>
+                                </tr>
+
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clear"></div>
+        </div> <!-- content home -->
 
         <div class="clear"></div>
     </section>
-
 
     <?php
     $Pager->ExePaginator("voo");

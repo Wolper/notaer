@@ -1,11 +1,14 @@
 <?php
 
 require('../../_app/Config.inc.php');
-require '../_models/AdminEtapaVoo.class.php';
+require '../_models/AdminAeronave.class.php';
 
 $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //print_r($data);
+
+
 if (isset($data) && isset($data['SendPostForm'])):
+    $tempoDeVoo = NULL;
 
     $data['voo_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1' );
 
@@ -41,6 +44,7 @@ if (isset($data) && isset($data['SendPostForm'])):
         print_r($cadastraVoo->getResult());
         WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
     else:
+        require '../_models/AdminEtapaVoo.class.php';
         $cadastraEtapa = new AdminEtapaVoo();
         for ($i = 0; $i < $dadosVoo['total_de_pousos']; $i++):
             if ($i < 1):
@@ -49,7 +53,7 @@ if (isset($data) && isset($data['SendPostForm'])):
                 $indice = $i;
             endif;
 
-            $dadosEtapa['idvoo'] = $cadastraVoo->getIdVoo();
+            $dadosEtapa['id_voo'] = $cadastraVoo->getIdVoo();
             $dadosEtapa['numero_etapa'] = $data['numero_etapa' . $indice];
             $dadosEtapa['origem'] = $data['origem' . $indice];
             $dadosEtapa['destino'] = $data['destino' . $indice];
@@ -65,8 +69,64 @@ if (isset($data) && isset($data['SendPostForm'])):
             $dadosEtapa['combustivel_consumido'] = $data['combustivel_consumido' . $indice];
 
             $cadastraEtapa->ExeCreate($dadosEtapa);
+
+            /*
+              --------------------------------------------------------------------------------------
+              FASE DE ATUALIZAÇÃO DAS HORAS DE VOO DA AERONAVE C/ BASE NOS TEMPOS DE PARTIDA E CORTE
+              --------------------------------------------------------------------------------------
+             */
+
+            $part = new DateTime($dadosEtapa['partida']);
+            $cort = new DateTime($dadosEtapa['corte']);
+            $interval = $cort->diff($part);
+
+            if (isset($tempoDeVoo)):
+                $tempoDeVoo->h = $tempoDeVoo->h + $interval->h;
+                $tempoDeVoo->i = $tempoDeVoo->i + $interval->i;
+//                $tempoDeVoo = $tempoDeVoo->add($interval);
+            else:
+                $tempoDeVoo = $interval;
+            endif;
         endfor;
+//------------LÊ AS HORAS DE VOO DA AERONAVE------------
+        $read = new Read;
+        $read->ExeRead('aeronave', "WHERE idAeronave = :idAero", "idAero={$dadosVoo['idaeronave']}");
+
+        if ($read->getResult()):
+            extract($read->getResult()[0]);
+
+//------------EXTRAI HORAS DE VOO DA AERONAVE (STR) E TRANSFORMA EM (DATATIME)-----------
+            $horasVooAero = explode(':', $horasDeVooAeronave);
+            if (isset($horasVooAero[1])):
+                $horas = $horasVooAero[0] * 3600;
+                $minutos = $horasVooAero[1] * 60;
+                $horasTrans = $horas + $minutos;
+            else:
+                $horas = $horasVooAero[0] * 3600;
+                $horasTrans = $horas;
+            endif;
+
+            $horasD = $tempoDeVoo->h * 3600;
+            $minutosD = $tempoDeVoo->i * 60;
+            $horasVooDiario = $horasD + $minutosD;
+            $totalHoras = ($horasTrans + $horasVooDiario) / 3600;
+
+            $minutos = $totalHoras - intval($totalHoras);
+            $minutos *= 60;
+
+//------------ATUALIZA HORAS DE VOO DA AERONAVE------------            
+            $dataAero['horasDeVooAeronave'] = intval($totalHoras) . ':' . $minutos;
+            $updateAero = new AdminAeronave;
+            $updateAero->ExeUpdate($dadosVoo['idaeronave'], $dataAero);
+        endif;
+
+
+
+
+
+//        print_r($dadosVoo);
+//        print_r($dadosEtapa);
         $dados = array_merge($dadosVoo, $dadosEtapa);
         echo json_encode($dados);
     endif;
-   endif;
+endif;

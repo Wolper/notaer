@@ -1,9 +1,6 @@
 <div class="content cat_list">
 
     <section>
-
-        <h1>Aeronaves:</h1>
-
         <?php
         $empty = filter_input(INPUT_GET, 'empty', FILTER_VALIDATE_BOOLEAN);
         if ($empty):
@@ -44,36 +41,54 @@
         $Pager->ExePager($getPage, 10);
 
         $readAeronave = new Read;
-
-        $readAeronave->ExeRead("aeronave", "ORDER BY nomeAeronave ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
-        if ($readAeronave->getResult()):
-            foreach ($readAeronave->getResult() as $insp):
-                $empi++;
-                extract($insp);
-                ?>
-                <article<?php if ($empi % 2 == 0)  ?>
-
-                    class="left">
-
-                    <header>
-                        <hgroup>
-                            <?= 'Nome: <b>' . $nomeAeronave . '</b><br>Prefixo: <b>' . $prefixoAeronave . '</b><br>SerialNumber: <b>' . $snAeronave . '</b><br>Modelo: <b>' . $modeloAeronave . '</b><br>Horas de Voo: <b>' . $horasDeVooAeronave . '</b>' ?>
-                        </hgroup>
-                    </header>
-                    <ul class="info post_actions">
-
-                        <li><a class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $idAeronave; ?>" title="Editar">Editar</a></li>
-
-                        <li><a class="act_delete" href="painel.php?exe=aeronaves/index&emp=<?= $idAeronave; ?>&action=delete" title="Excluir">Deletar</a></li>
-                    </ul>
-                </article>
-                <?php
-            endforeach;
-        else:
-            $Pager->ReturnPage();
-            WSErro("Desculpe, ainda não existem aeronaves cadastradas!", WS_INFOR);
-        endif;
         ?>
+
+        <div class="content home" style="width: 80%;">
+
+            <h1>Manutenções</h1>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="text-uppercase text-center" style="background: black; color: white;">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Prefixo</th>
+                            <th>Modelo</th>
+                            <th>Serial Number</th>
+                            <th>Horas de Voo</th>
+                            <th style="color: blue;">Edição</th>
+                            <th style="color: red;">Exclusão</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-uppercase text-center bg-success">
+                        <?php
+                        $readAeronave->ExeRead("aeronave", "ORDER BY nomeAeronave ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+
+                        if (!$readAeronave->getRowCount() > 0):
+                            echo 'Ainda não há dados das aeronaves cadastrados';
+                        else:
+                            foreach ($readAeronave->getResult() as $insp):
+                                $empi++;
+                                extract($insp);
+                                ?>
+                                <tr>
+                                    <td><?= $nomeAeronave ?></td>
+                                    <td><?= $prefixoAeronave ?></td>
+                                    <td><?= $modeloAeronave ?></td>
+                                    <td><?= $snAeronave ?></td>
+                                    <td><?= $horasDeVooAeronave ?></td>
+                                    <td><a   style="color: blue" class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $idAeronave; ?>" title="Editar">Editar</a></td>
+                                    <td><a   style="color: red;" class="act_delete" href="painel.php?exe=aeronaves/index&emp=<?= $idAeronave; ?>&action=delete" title="Excluir">Deletar</a></td>
+                                </tr>
+
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clear"></div>
+        </div> <!-- content home -->
 
         <div class="clear"></div>
     </section>

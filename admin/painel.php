@@ -39,6 +39,7 @@ endif;
         <script type="text/javascript" src="__jsc/script.js"></script>
         <script type="text/javascript" src="system/inspecoes/script.js"></script>
         <script type="text/javascript" src="system/instalacoes/script.js"></script>
+        <script type="text/javascript" src="system/script.js"></script>
     </head>
 
     <body class="painel">

@@ -44,58 +44,60 @@
         $Pager->ExePager($getPage, 10);
 
         $readInspecao = new Read;
-
-        $readInspecao->ExeRead("inspecao", "ORDER BY descricaoInspecao ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
-        if ($readInspecao->getResult()):
-            foreach ($readInspecao->getResult() as $insp):
-                $empi++;
-                extract($insp);
-//                $status = (!$idInspecao ? 'style="background: #fffed8"' : '');
-//                $stateObj = clone($readInspecao);
-//                $stateObj->ExeRead("app_estados", "WHERE estado_id = :est", "est={$inspecao_uf}");
-//                $state = ($stateObj->getResult() ? $stateObj->getResult()[0]['estado_uf'] : 'NULL');
-//
-//                $cityObj = clone($readInspecao);
-//                $cityObj->ExeRead("app_cidades", "WHERE cidade_id = :city", "city={$inspecao_cidade}");
-//                $city = ($cityObj->getResult() ? $cityObj->getResult()[0]['cidade_nome'] : 'NULL');
-                ?>
-                <article<?php if ($empi % 2 == 0) echo ' class="right"'; ?>>
-                    <header>
-
-                        <hgroup>
-                            <?= '<b>Descrição: </b>' . strtoupper(str_replace('-', ' ', $descricaoInspecao))  . '<br/><b>PN: </b>' . $pnInspecao . '<br/><b>SN: </b>' . $snInspecao . '<br/><b>TL: </b>' . $tlInspecao . '<br/><b>TC: </b>' . $tcInspecao . '<br/><b>Frequência: </b>' . $frequencia_for_time; ?>
-                        </hgroup>
-                        
-                    </header>
-                    <ul class="info post_actions">
-                        <!--<li><strong>Data:</strong> <?= date('d/m/Y H:i', strtotime($inspecao_date)); ?>Hs</li>-->
-
-                        <li><a class="act_edit" href="painel.php?exe=instalacoes/update&emp=<?= $idInspecao; ?>" title="Editar">Editar</a></li>
-<!--
-                        <?php if (!$idInspecao): ?>
-                            <li><a class="act_inative" href="painel.php?exe=instalacoes/index&emp=<?= $idInspecao; ?>&action=active" title="Ativar">Ativar</a></li>
-                        <?php else: ?>
-                            <li><a class="act_ative" href="painel.php?exe=instalacoes/index&emp=<?= $idInspecao; ?>&action=inative" title="Inativar">Inativar</a></li>
-                        <?php endif; ?>
--->
-                        <li><a class="act_delete" href="painel.php?exe=instalacoes/index&emp=<?= $idInspecao; ?>&action=delete" title="Excluir">Deletar</a></li>
-                    </ul>
-                </article>
-                <?php
-            endforeach;
-        else:
-            $Pager->ReturnPage();
-            WSErro("Desculpe, ainda não existem inspeções cadastradas!", WS_INFOR);
-        endif;
         ?>
+        <div class="content home" style="width: 80%;">
+
+            <h1>Manutenções</h1>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="text-uppercase text-center" style="background: black; color: white;">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Prefixo</th>
+                            <th>Modelo</th>
+                            <th>Serial Number</th>
+                            <th>Horas de Voo</th>
+                            <th style="color: blue;">Edição</th>
+                            <th style="color: red;">Exclusão</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-uppercase text-center bg-success">
+                        <?php
+                        $readAeronave->ExeRead("inspecao", "ORDER BY descricaoInspecao ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+
+                        if (!$readAeronave->getRowCount() > 0):
+                            echo 'Ainda não há dados das aeronaves cadastrados';
+                        else:
+                            foreach ($readAeronave->getResult() as $insp):
+                                $empi++;
+                                extract($insp);
+                                ?>
+                                <tr>
+                                    <td><?= $nomeAeronave ?></td>
+                                    <td><?= $prefixoAeronave ?></td>
+                                    <td><?= $modeloAeronave ?></td>
+                                    <td><?= $snAeronave ?></td>
+                                    <td><?= $horasDeVooAeronave ?></td>
+                                    <td><a   style="color: blue" class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $idAeronave; ?>" title="Editar">Editar</a></td>
+                                    <td><a   style="color: red;" class="act_delete" href="painel.php?exe=aeronaves/index&emp=<?= $idAeronave; ?>&action=delete" title="Excluir">Deletar</a></td>
+                                </tr>
+
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clear"></div>
+        </div> <!-- content home -->
 
         <div class="clear"></div>
     </section>
 
-
     <?php
-    $Pager->ExePaginator("inspecao");
-    echo $Pager->getPaginator();
+    $Pager->ReturnPage();
+    WSErro("Desculpe, ainda não existem inspeções cadastradas!", WS_INFOR);
     ?>
 
     <div class="clear"></div>

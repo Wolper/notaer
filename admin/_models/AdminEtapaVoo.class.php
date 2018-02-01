@@ -45,7 +45,7 @@ class AdminEtapaVoo {
         $this->Data = $Data;
         $this->nEtapa = $nEtapa;
         if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao Atualizar: Para atualizar a etapa do voo <b>{$this->Data['idvoo']}</b>, preencha todos os campos!", WS_ALERT];
+            $this->Error = ["Erro ao Atualizar: Para atualizar a etapa do voo <b>{$this->Data['id_voo']}</b>, preencha todos os campos!", WS_ALERT];
             $this->Result = false;
         else:
 //            $this->setData();
@@ -64,7 +64,7 @@ class AdminEtapaVoo {
         $this->Voo = (int) $VooId;
 
         $ReadEmp = new Read;
-        $ReadEmp->ExeRead(self::Entity, "WHERE idvoo = :emp", "emp={$this->Voo}");
+        $ReadEmp->ExeRead(self::Entity, "WHERE id_voo = :emp", "emp={$this->Voo}");
         if (!$ReadEmp->getResult()):
             $this->Error = ["A etapa de voo que você tentou deletar não existe no sistema!", WS_ERROR];
             $this->Result = false;
@@ -72,9 +72,9 @@ class AdminEtapaVoo {
             $VooDelete = $ReadEmp->getResult()[0];
 
             $deleta = new Delete;
-            $deleta->ExeDelete(self::Entity, "WHERE idvoo = :emp", "emp={$this->Voo}");
+            $deleta->ExeDelete(self::Entity, "WHERE id_voo = :emp", "emp={$this->Voo}");
 
-            $this->Error = ["A etapa de nº {$this->Data['numero_etapa']} do voo <b>{$this->Data['idvoo']}</b> foi removida com sucesso do sistema!", WS_ACCEPT];
+            $this->Error = ["A etapa de nº {$this->Data['numero_etapa']} do voo <b>{$this->Data['id_voo']}</b> foi removida com sucesso do sistema!", WS_ACCEPT];
             $this->Result = true;
         endif;
     }
@@ -116,16 +116,16 @@ class AdminEtapaVoo {
         if ($Create->getResult()):
             $this->Result = true;
             $this->idVoo = $Create->getId();
-            $this->Error = ["A etapa do voo <b>{$this->Data['idvoo']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
+            $this->Error = ["A etapa do voo <b>{$this->Data['id_voo']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
         endif;
     }
 
     //Atualiza a empresa no banco!
     private function UpdateEtapa() {
         $Update = new Update;
-        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE idvoo = :id AND numero_etapa = :nEtapa", "id={$this->Voo}&nEtapa={$this->nEtapa}");
+        $Update->ExeUpdate(self::Entity, $this->Data, "WHERE id_voo = :id AND numero_etapa = :nEtapa", "id={$this->Voo}&nEtapa={$this->nEtapa}");
         if ($Update->getRowCount() >= 1):
-            $this->Error = ["A etapa de nº {$this->Data['numero_etapa']} do voo <b>{$this->Data['idvoo']}</b> foi atualizada com sucesso!", WS_ACCEPT];
+            $this->Error = ["A etapa de nº {$this->Data['numero_etapa']} do voo <b>{$this->Data['id_voo']}</b> foi atualizada com sucesso!", WS_ACCEPT];
             $this->Result = true;
         endif;
     }

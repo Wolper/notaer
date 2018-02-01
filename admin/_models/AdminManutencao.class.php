@@ -1,5 +1,4 @@
 <?php
-
 /**
  * AdminInstalacao.class [ MODEL ADMIN ]
  * Responável por gerenciar as instalacaos no admin do sistema!
