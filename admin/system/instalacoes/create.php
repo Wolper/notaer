@@ -8,10 +8,8 @@
 
         <?php
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        print_r($data);
+    
         if ($data && $data['SendPostForm']):
-//            $data['empresa_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1');
-//            $data['empresa_capa'] = ($_FILES['empresa_capa']['tmp_name'] ? $_FILES['empresa_capa'] : null);
 
             unset($data['SendPostForm']);
 
@@ -53,15 +51,15 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label><span class="field">Tipo de Inspeção:</span></label>
-                        <select class="form-control j_loadcity" name="id_tipo_inspecao">
+                        <select class="form-control j_loadcity" name="idtipoinspecao">
                             <option></option>
                             <?php
                             $readInsp = new Read;
                             $readInsp->ExeRead("tipo_inspecao");
 
                             if ($readInsp->getRowCount()):
-                                foreach ($readInsp->getResult() as $aeronave):
-                                    extract($aeronave);
+                                foreach ($readInsp->getResult() as $insp):
+                                    extract($insp);
                                     echo "<option value=\"{$id_tipo_inspecao}\" ";
                                     if (isset($data['inspecao']) && $data['inspecao'] == $id_tipo_inspecao):
                                         echo "selected";

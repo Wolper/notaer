@@ -33,9 +33,12 @@ endif;
             else:
                 $data = $read->getResult()[0];
             endif;
-        endif;
 
-        WSErro("A Aeronave <b>{$data['nomeAeronave']}</b> foi cadastrada com sucesso no sistema! Continue atualizando a mesma!", WS_ACCEPT);
+        endif;
+        $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
+        if ($checkCreate && empty($cadastraVoo)):
+            WSErro("A Aeronave <b>{$data['nomeAeronave']}</b> foi cadastrada com sucesso no sistema! Continue atualizando a mesma!", WS_ACCEPT);
+        endif;
         ?>
 
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
