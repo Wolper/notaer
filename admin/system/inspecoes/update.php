@@ -11,12 +11,12 @@
         $comp = filter_input(INPUT_GET, 'comp', FILTER_DEFAULT);
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-      
+
 
         if ($data && $data['SendPostForm']):
 //            $data['inspeção_status'] = ($data['SendPostForm'] == 'Atualizar' ? '0' : '1');
 //            $data['inspeção_capa'] = ($_FILES['inspeção_capa']['tmp_name'] ? $_FILES['inspeção_capa'] : 'null');
-    
+
             unset($data['SendPostForm']);
             require('_models/AdminInspecao.class.php');
             $cadastraVoo = new AdminInspecao;
@@ -77,7 +77,9 @@
                             <option>H</option>                        
                             <option>M/H</option>                        
                             <option>D/H</option>                        
-                            <option>P</option>                        
+                            <option>P</option>  
+                            <option>T</option>                        
+                            <option>N</option>  
                             <option>X</option>                        
                         </select>
                     </div>

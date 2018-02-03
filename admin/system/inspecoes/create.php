@@ -72,6 +72,8 @@
                             <option>M/H</option>                        
                             <option>D/H</option>                        
                             <option>P</option>                        
+                            <option>T</option>                        
+                            <option>N</option>                        
                             <option>X</option>                        
                         </select>
                     </div>
