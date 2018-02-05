@@ -31,34 +31,73 @@ endif;
         ?>
 
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
-            <div id="form-top" class="form-group">
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Prefixo:</span></label> 
-                        <input class="form-control" type="text" name="prefixoAeronave" />
-                    </div>
-                    
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Serial Number:</span></label> 
-                        <input class="form-control" type="number" name="snAeronave" />
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Nome:</span> </label>
-                        <input class="form-control" type="text" name="nomeAeronave" />
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Modelo:</span> </label>
-                        <input class="form-control" type="text" name="modeloAeronave" />
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Horas de Voo:</span> </label>
-                        <input class="formHour form-control" type="text" name="horasDeVooAeronave"  placeholder="00000:00"/>
-                    </div>
-
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label><span class="field">Nome:</span> </label>
+                    <input class="form-control" type="text" name="nomeAeronave" />
                 </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Prefixo:</span></label> 
+                    <input class="form-control" type="text" name="prefixoAeronave" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Horas de Voo:</span> </label>
+                    <input class="formHour form-control" type="text" name="horasDeVooAeronave"  placeholder="00000:00"/>
+                </div>
+            </div>
+            <div class="row celula">
+                <h4 class="text-center text-primary">CÉLULA</h4>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Modelo:</span> </label>
+                    <input class="form-control" type="text" name="modeloCelula" />
+                </div>
+
+                <div class="col-md-4">
+                    <label><span class="field">Fabricante:</span> </label>
+                    <input class="form-control" type="text" name="fabricanteCelula" />
+                </div>
+
+                <div class="col-md-4">
+                    <label><span class="field">Serial Number:</span></label> 
+                    <input class="form-control" type="number" name="serialCelula" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Pousos:</span></label> 
+                    <input class="form-control" type="number" name="pousos" min="0"/>
+                </div>
+            </div>
+
+            <div class=" row motor">
+                <h4 class="text-center text-capitalize">MOTOR</h4>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Modelo:</span> </label>
+                    <input class="form-control" type="text" name="modeloMotor" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Fabricante:</span> </label>
+                    <input class="form-control" type="text" name="fabricanteMotor" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Serial Number:</span></label> 
+                    <input class="form-control" type="number" name="serialMotor" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">NTL:</span></label> 
+                    <input class="form-control" type="number" name="ntl" step="0.01" min="0" />
+                </div>
+
+                <div class="form-group col-md-4 right">
+                    <label><span class="field">NG:</span></label> 
+                    <input class="form-control" type="number" name="ng" step="0.01" min="0"/>
+                </div>
+
+
 
             </div><!--/line-->
 

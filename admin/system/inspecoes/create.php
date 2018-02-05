@@ -8,14 +8,14 @@
 
         <?php
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        print_r($data);
+
         if ($data && $data['SendPostForm']):
 //            $data['empresa_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1');
 //            $data['empresa_capa'] = ($_FILES['empresa_capa']['tmp_name'] ? $_FILES['empresa_capa'] : null);
             unset($data['SendPostForm']);
             $comp = false;
-            if ($data['tcInspecao'] == 'M/H' || $data['tcInspecao'] == 'D/H'):
-                $comp = true;
+            if ($data['tcInspecao'] === 'M/H' || $data['tcInspecao'] === 'D/H'):
+            $comp = true;
             endif;
 
             require('_models/AdminInspecao.class.php');

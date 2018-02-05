@@ -42,37 +42,73 @@ endif;
         ?>
 
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
-            <div id="form-top" class="form-group">
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Prefixo:</span></label> 
-                        <input class="form-control" type="text" name="prefixoAeronave" value="<?= $data['prefixoAeronave'] ?>"/>
-                    </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label><span class="field">Nome:</span> </label>
+                    <input class="form-control" type="text" name="nomeAeronave" value="<?= $data['nomeAeronave'] ?>"/>
+                </div>
 
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Serial Number:</span></label> 
-                        <input class="form-control" type="number" name="snAeronave"  value="<?= $data['snAeronave'] ?>"/>
-                    </div>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Prefixo:</span></label> 
+                    <input class="form-control" type="text" name="prefixoAeronave" value="<?= $data['prefixoAeronave'] ?>"/>
+                </div>
 
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Nome:</span> </label>
-                        <input class="form-control" type="text" name="nomeAeronave"  value="<?= $data['nomeAeronave'] ?>"/>
-                    </div>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Horas de Voo:</span> </label>
+                    <input class="form-control" type="text" name="horasDeVooAeronave"  value="<?= $data['horasDeVooAeronave'] ?>" placeholder="00000:00"/>
+                </div>
+            </div>
+            <div class="row celula">
+                <h4 class="text-center text-primary">CÉLULA</h4>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Modelo:</span> </label>
+                    <input class="form-control" type="text" name="modeloCelula" value="<?= $data['modeloCelula'] ?>"/>
+                </div>
 
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Modelo:</span> </label>
-                        <input class="form-control" type="text" name="modeloAeronave"  value="<?= $data['modeloAeronave'] ?>"/>
-                    </div>
+                <div class="col-md-4">
+                    <label><span class="field">Fabricante:</span> </label>
+                    <input class="form-control" type="text" name="fabricanteCelula" value="<?= $data['fabricanteCelula'] ?>"/>
+                </div>
 
-                    <div class="form-group col-md-4">
-                        <label><span class="field">Horas de Voo:</span> </label>
-                        <input class="form-control" type="text" name="horasDeVooAeronave"  value="<?= $data['horasDeVooAeronave'] ?>"/>
-                    </div>
+                <div class="col-md-4">
+                    <label><span class="field">Serial Number:</span></label> 
+                    <input class="form-control" type="number" name="serialCelula" value="<?= $data['serialCelula'] ?>"/>
+                </div>
+                
+                     <div class="form-group col-md-4">
+                    <label><span class="field">Pousos:</span></label> 
+                    <input class="form-control" type="number" name="pousos" min="0" value="<?= $data['pousos'] ?>"/>
+                </div>
+            </div>
 
+            <div class=" row motor">
+                <h4 class="text-center text-capitalize">MOTOR</h4>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Modelo:</span> </label>
+                    <input class="form-control" type="text" name="modeloMotor" value="<?= $data['modeloMotor'] ?>"/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Fabricante:</span> </label>
+                    <input class="form-control" type="text" name="fabricanteMotor" value="<?= $data['fabricanteMotor'] ?>"/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Serial Number:</span></label> 
+                    <input class="form-control" type="number" name="serialMotor" value="<?= $data['serialMotor'] ?>"/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">NTL:</span></label> 
+                    <input class="form-control" type="number" name="ntl" step="0.01" min="0" value="<?= $data['ntl'] ?>"/>
+                </div>
+
+                <div class="form-group col-md-4 right">
+                    <label><span class="field">NG:</span></label> 
+                    <input class="form-control" type="number" name="ng" step="0.01" min="0" value="<?= $data['ng'] ?>"/>
                 </div>
 
             </div><!--/line-->
-
                                   <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
             <!--<input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />-->
             <div class="gbform"></div>

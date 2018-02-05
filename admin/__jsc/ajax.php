@@ -76,24 +76,34 @@ if (isset($data) && isset($data['SendPostForm'])):
               --------------------------------------------------------------------------------------
              */
 
-            $part = new DateTime($dadosEtapa['partida']);
-            $cort = new DateTime($dadosEtapa['corte']);
-            $interval = $cort->diff($part);
+            $decolagem = new DateTime($dadosEtapa['decolagem']);
+            $pouso = new DateTime($dadosEtapa['pouso']);
+            $interval = $pouso->diff($decolagem);
 
             if (isset($tempoDeVoo)):
                 $tempoDeVoo->h = $tempoDeVoo->h + $interval->h;
                 $tempoDeVoo->i = $tempoDeVoo->i + $interval->i;
-//                $tempoDeVoo = $tempoDeVoo->add($interval);
+
             else:
                 $tempoDeVoo = $interval;
             endif;
         endfor;
+
+
 //------------LÊ AS HORAS DE VOO DA AERONAVE------------
         $read = new Read;
         $read->ExeRead('aeronave', "WHERE idAeronave = :idAero", "idAero={$dadosVoo['idaeronave']}");
 
         if ($read->getResult()):
             extract($read->getResult()[0]);
+
+            /*
+              --------------------------------------------------------------------------------------
+              FASE DE ATUALIZAÇÃO DA NTL E NG DA AERONAVE
+              --------------------------------------------------------------------------------------
+             */
+            $dataAero['ntl'] = $ntl + $dadosEtapa['ntl'];
+            $dataAero['ng'] = $ng + $dadosEtapa['ng'];
 
 //------------EXTRAI HORAS DE VOO DA AERONAVE (STR) E TRANSFORMA EM (DATATIME)-----------
             $horasVooAero = explode(':', $horasDeVooAeronave);
