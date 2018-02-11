@@ -87,7 +87,7 @@
             endif;
         endif;
         $checkCreate = filter_input(INPUT_GET, 'create', FILTER_VALIDATE_BOOLEAN);
-//            print_r($data);
+//         
         if ($checkCreate && empty($cadastraVoo)):
             WSErro("O voo nº <b>{$data[0]['numero_voo']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT);
         endif;

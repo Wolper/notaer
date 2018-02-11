@@ -22,10 +22,9 @@
         endif;
         ?>
 
-        <form id="form" name="PostForm" method="post" enctype="multipart/form-data">
-            <div id="form-top" class="form-group">
+        <form name="PostForm" method="post" enctype="multipart/form-data">
+            <div class="form-group">
                 <div class="row">
-
                     <div class="form-group col-md-4">
                         <label><span class="field">Selecione a aeronave desejada:</span></label>
                         <select class="form-control j_loadcity" name="idaeronave" required="">

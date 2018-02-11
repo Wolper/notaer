@@ -89,35 +89,31 @@
                     <?php
                     if ($comp === 'false'):
                         ?> 
-                        <div id="freq_simples" class="row">
-                            <div class="form-group col-md-3">
-                                <label><span class="field">Frequencia:</span></label>
-                                <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"  value="<?= $data['frequencia_for_time'] ?>"/>
-                            </div>
+                        <div class="form-group col-md-3">
+                            <label><span class="field">Frequencia:</span></label>
+                            <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"  value="<?= $data['frequencia_for_time'] ?>"/>
+                        </div>
 
-                            <div class="form-group col-md-6 right">
-                                <label><span class="field">Itens de Inspeção:</span> </label>
-                                <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum"   value="<?= $data['itensInspecao'] ?>"/>
-                            </div>
+                        <div class="form-group col-md-6 right">
+                            <label><span class="field">Itens de Inspeção:</span> </label>
+                            <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum"   value="<?= $data['itensInspecao'] ?>"/>
                         </div>
                         <?php
                     else:
                         ?>
-                        <div id="freq_composta" class="row">
-                            <div class="form-group col-md-3">
-                                <label><span class="field">Frequencia/Hora:</span></label>
-                                <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"   value="<?= $data['frequencia_for_time'] ?>"/>
-                            </div>
+                        <div class="form-group col-md-3">
+                            <label><span class="field">Frequencia/Hora:</span></label>
+                            <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"   value="<?= $data['frequencia_for_time'] ?>"/>
+                        </div>
 
-                            <div class="form-group col-md-3">
-                                <label><span class="field">Frequencia/M/D:</span></label>
-                                <input id="freq_MD" class="form-control" type="text" name="frequencia_for_date" placeholder="só números"   value="<?= $data['frequencia_for_date'] ?>"/>
-                            </div>
+                        <div class="form-group col-md-3">
+                            <label><span class="field">Frequencia/M/D:</span></label>
+                            <input id="freq_MD" class="form-control" type="text" name="frequencia_for_date" placeholder="só números"   value="<?= $data['frequencia_for_date'] ?>"/>
+                        </div>
 
-                            <div class="form-group col-md-6">
-                                <label><span class="field">Itens de Inspeção:</span> </label>
-                                <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum"   value="<?= $data['itensInspecao'] ?>"/>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label><span class="field">Itens de Inspeção:</span> </label>
+                            <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum"   value="<?= $data['itensInspecao'] ?>"/>
                         </div>
                     <?php
                     endif;

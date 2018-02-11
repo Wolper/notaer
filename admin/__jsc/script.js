@@ -1,7 +1,8 @@
 $(function () {
-    i = 1;
-    document.querySelector("[id='tp']").value = i;
+    var i = 1;
+    var j = 1;
     var inputEscondido = $('input[type=submit]')[0];
+    document.querySelector("[id='qteEtapas']").value = i;
 //---------------------------------ENVIO DO FORMULÁRIO DE CADASTRO--------------------------------------
     $('#form').bind('submit', function (e) {
         e.preventDefault();
@@ -23,11 +24,10 @@ $(function () {
 //---------------------------------FIM DO ENVIO DO FORMULÁRIO DE CADASTRO--------------------------------------
 
 
-
-
     //---------------------------CONSTRUÇÃO DAS DIVS DE ETAPAS E CÁLCULO DE CAMPOS---------------------------------
 
-    $('#corte').focusout(function () {
+    $(document.getElementsByClassName('pouso')).focusout()
+    $('.pouso').focusout(function () {
         calculaTempoVoo();
     });
 
@@ -45,33 +45,34 @@ $(function () {
                 '<div class="form-group col-md-2"><label><span class="field">Origem:</span></label><input class="form-control" type="text" required="" name="origem' + i + '"/></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Destino:</span></label><input class="form-control" type="text" required=""  name="destino' + i + '"/></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Partida:</span></label><input class="form-control"  type="time" required=""  name="partida' + i + '" /></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">Decolagem:</span></label><input class="form-control"  type="time" required=""  name="decolagem' + i + '" /></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">Pouso:</span></label><input class="form-control"  type="time" required=""  name="pouso' + i + '" /></div>' +
+                '<div class="form-group col-md-2"><label><span class="field">Decolagem:</span></label><input class="form-control decolagem"  type="time" required=""  name="decolagem' + i + '" /></div>' +
+                '<div class="form-group col-md-2"><label><span class="field">Pouso:</span></label><input class="form-control pouso"  type="time" required=""  name="pouso' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Corte:</span></label><input class="form-control"  type="time" required=""  name="corte' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">NG:</span></label><input class="form-control"  type="text" required=""  name="ng' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">NTL:</span></label><input class="form-control"  type="text" required=""  name="ntl' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Diu:</span></label><input class="form-control"  type="text" name="diurno' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Not:</span></label><input class="form-control"  type="text" name="noturno' + i + '" /></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">Pousos:</span></label><input class="form-control"  type="text" required="" name="qtepouso' + i + '"/></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">Gas:</span></label><input id="' + i + '" class="form-control"  type="text" name="combustivel_consumido' + i + '" onblur="blurFunction(' + i + ')"/></div>' +
+                '<div class="form-group col-md-2"><label><span class="field">Pousos:</span></label><input class="form-control"  type="number" required="" name="qtepouso' + j + '" onblur="incrementaPouso(' + j + ')"/></div>' +
+                '<div class="form-group col-md-2"><label><span class="field">Gas:</span></label><input class="form-control"  type="number" required="" name="combustivel_consumido' + i + '" onblur="incrementaCombustivel(' + i + ')"/></div>' +
                 '<a class="btn btn-danger" href="#" id="linkRemover">Remover Etapa</a></div>').appendTo(divContent);
         $('#removehidden').remove();
         i++;
+        j++;
         $('<input type="hidden" name="quantidadeCampos" value="' + i + '" id="removehidden">').appendTo(divContent);
+        document.querySelector("[id='qteEtapas']").value = i;
 
         //recuperando instancia #linkRemover e adicionando evento 
         linha.find("a").on("click", function () {
+            decrementaCombustivel(i);
+            decrementaPouso(j);
             $(this).parent(".conteudoIndividual").remove();
             i--;
+            j--;
             document.querySelector("[id='qteEtapas']").value = i;
-            document.querySelector("[id='tp']").value = i;
             return false;
         });
-        document.querySelector("[id='qteEtapas']").value = i;
-        document.querySelector("[id='tp']").value = i;
+
         return false;
-
-
     });
 
     //    adicionando o numero das etapas no formulário
@@ -79,21 +80,25 @@ $(function () {
 
     //    incrementando o valor do combustível da primeira etapa no cômputo total
     $("#cc").focusout(function () {
-        document.querySelector("[id='tp']").value = i;
         if ($('#ctc').val() === 0) {
             document.querySelector("[id='ctc']").value = parseFloat(0);
         }
-        document.querySelector("[id='ctc']").value = document.querySelector("#cc").value;
+        document.querySelector("[id='ctc']").value = document.querySelector("[id='cc']").value;
     });
 
-    $("#historico").focusin(function () {
-        document.querySelector("[id='qteEtapas']").value = i;
+    $("#pp").focusout(function () {
+        if ($('#tp').val() === 0) {
+            document.querySelector("[id='tp']").value = parseFloat(0);
+        }
+        document.querySelector("[id='tp']").value = document.querySelector("[id='pp']").value;
     });
+
+//    $("#historico").focusin(function () {
+//        document.querySelector("[id='qteEtapas']").value = i;
+//    });
 
 
 //----------------------------FIM DA CONSTRUÇÃO DAS DIVS DE ETAPAS E CÁLCULO DE CAMPOS----------------------------
-
-    $('#disponibilidade').css('color', 'red');
 
     //----------------------------------------------FUNÇÕES DIVERSAS-------------------------------------------------
 });
@@ -103,11 +108,11 @@ function calculaTempoVoo() {
         alert('Insira a data do voo!');
     } else {
         var datavoo = $('#datavoo').val().split("-");
-        var corte = $('#corte').val().split(":");
-        var partida = $('#partida').val().split(":");
+        var pouso = $('.pouso').val().split(":");
+        var decolagem = $('.decolagem').val().split(":");
 
-        var timeCorte = new Date(datavoo[0], datavoo[1] - 1, datavoo[2], corte[0], corte[1]);
-        var timePartida = new Date(datavoo[0], datavoo[1] - 1, datavoo[2], partida[0], partida[1]);
+        var timeCorte = new Date(datavoo[0], datavoo[1] - 1, datavoo[2], pouso[0], pouso[1]);
+        var timePartida = new Date(datavoo[0], datavoo[1] - 1, datavoo[2], decolagem[0], decolagem[1]);
 
 //    tempo total de voo (ttv)
         var tvpe = timeCorte - timePartida;
@@ -121,10 +126,36 @@ function calculaTempoVoo() {
 
 }
 
-function blurFunction(i) {
+function incrementaCombustivel(i) {
+    var valorCelula = parseFloat($(document.getElementsByName('combustivel_consumido'.concat(i))).val());
 
     if ($('#ctc').val() === 0) {
         document.querySelector("[id='ctc']").value = parseFloat(0);
     }
-    document.querySelector("[id='ctc']").value = parseFloat($('#ctc').val()) + parseFloat(document.getElementById(i).value);
+    if (!isNaN(valorCelula)) {
+        document.querySelector("[id='ctc']").value = parseFloat($('#ctc').val()) + valorCelula;
+    }
+}
+function decrementaCombustivel(i) {
+    var gasEtapa = 'combustivel_consumido'.concat(i - 1);
+    var comb = $(document.getElementsByName(gasEtapa)).val();
+
+    $('#ctc').val($('#ctc').val() - comb);
+}
+
+function incrementaPouso(j) {
+    var valorCelula = parseFloat($(document.getElementsByName('qtepouso'.concat(j))).val());
+
+    if ($('#tp').val() === 0) {
+        document.querySelector("[id='tp']").value = parseFloat(0);
+    }
+    if (!isNaN(valorCelula)) {
+        document.querySelector("[id='tp']").value = parseFloat($('#tp').val()) + valorCelula;
+    }
+}
+function decrementaPouso(j) {
+    var gasEtapa = 'qtepouso'.concat(j - 1);
+    var comb = $(document.getElementsByName(gasEtapa)).val();
+
+    $('#tp').val($('#tp').val() - comb);
 }

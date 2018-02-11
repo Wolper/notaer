@@ -1,8 +1,8 @@
 <?php
 
 /**
- * AdminEmpresa.class [ MODEL ADMIN ]
- * Responável por gerenciar as empresas no admin do sistema!
+ * AdminEtapaVoo.class [ MODEL ADMIN ]
+ * Responável por gerenciar as etapa de voos no admin do sistema!
  * 
  * @copyright (c) 2017, Dikson Delgado
  */
@@ -19,7 +19,7 @@ class AdminEtapaVoo {
     const Entity = 'etapas_voo';
 
     /**
-     * <b>Cadastrar a Empresa:</b> Envelope os dados da empresa em um array atribuitivo e execute esse método
+     * <b>Cadastrar a Empresa:</b> Envelope os dados da etapa de voo em um array atribuitivo e execute esse método
      * para cadastrar a mesma no banco.
      * @param ARRAY $Data = Atribuitivo
      */
@@ -35,7 +35,7 @@ class AdminEtapaVoo {
     }
 
     /**
-     * <b>Atualizar a Empresa:</b> Envelope os dados em uma array atribuitivo e informe o id de uma empresa
+     * <b>Atualizar a Empresa:</b> Envelope os dados em uma array atribuitivo e informe o id de uma etapa de voo
      * para atualiza-la no banco de dados!
      * @param INT $IdVoo = Id da Empresa
      * @param ARRAY $Data = Atribuitivo
@@ -56,8 +56,8 @@ class AdminEtapaVoo {
     }
 
     /**
-     * <b>Deleta Empresas:</b> Informe o ID da empresa a ser removida para que esse método realize uma
-     * checagem excluinto todos os dados nessesários e removendo a empresa do banco!
+     * <b>Deleta Empresas:</b> Informe o ID da etapa de voo a ser removida para que esse método realize uma
+     * checagem excluinto todos os dados nessesários e removendo a etapa de voo do banco!
      * @param INT $VooId = Id do voo!
      */
     public function ExeDelete($VooId) {
@@ -109,7 +109,7 @@ class AdminEtapaVoo {
 //        $this->Data['destino'] = Check::Name($this->Data['destino']);
 //    }
 
-    //Cadastra a empresa no banco!
+    //Cadastra a etapa de voo no banco!
     private function Create() {
         $Create = new Create;
         $Create->ExeCreate(self::Entity, $this->Data);
@@ -120,7 +120,7 @@ class AdminEtapaVoo {
         endif;
     }
 
-    //Atualiza a empresa no banco!
+    //Atualiza a etapa de voo no banco!
     private function UpdateEtapa() {
         $Update = new Update;
         $Update->ExeUpdate(self::Entity, $this->Data, "WHERE id_voo = :id AND numero_etapa = :nEtapa", "id={$this->Voo}&nEtapa={$this->nEtapa}");

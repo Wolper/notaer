@@ -15,7 +15,7 @@
             unset($data['SendPostForm']);
             $comp = false;
             if ($data['tcInspecao'] === 'M/H' || $data['tcInspecao'] === 'D/H'):
-            $comp = true;
+                $comp = true;
             endif;
 
             require('_models/AdminInspecao.class.php');
@@ -78,38 +78,13 @@
                         </select>
                     </div>
                 </div>
-                <div id="freq_simples" class="row" style="display: none">
-                    <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia:</span></label>
-                        <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" />
-                    </div>
-
-                    <div class="form-group col-md-6 right">
-                        <label><span class="field">Itens de Inspeção:</span> </label>
-                        <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" />
-                    </div>
-                </div>
-
-                <div id="freq_composta" class="row"  style="display: none">
-                    <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia/Hora:</span></label>
-                        <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números" />
-                    </div>
-
-                    <div class="form-group col-md-3">
-                        <label><span class="field">Frequencia/M/D:</span></label>
-                        <input class="form-control" type="text" name="frequencia_for_date" placeholder="só números" />
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label><span class="field">Itens de Inspeção:</span> </label>
-                        <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum" />
-                    </div>
-                </div>
-
-            </div><!--/line-->
-
-                    <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
+                
+                <!----------------------------------------------------------------------------------------------->
+                <!--Na divPai abaixo, será dicionada uma div dinamicamente com os campos adequados, conforme a seleção do usuário--> 
+                <div id="divPai"></div>
+                <!----------------------------------------------------------------------------------------------->
+          
+            </div>
             <input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />
 
         </form>

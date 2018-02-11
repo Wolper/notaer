@@ -39,7 +39,6 @@ endif;
         <script type="text/javascript" src="__jsc/script.js"></script>
         <script type="text/javascript" src="system/inspecoes/script.js"></script>
         <script type="text/javascript" src="system/instalacoes/script.js"></script>
-        <script type="text/javascript" src="system/script.js"></script>
     </head>
 
     <body class="painel">
@@ -71,11 +70,11 @@ endif;
                     <ul class="menu">
                         <li class="li<?php if (in_array('painel', $linkto)) echo ' active'; ?>"><a class="opensub" href="painel.php">Painel Geral</a>
                             <ul class="sub">
-<!--                                <li><a href="painel.php?exe=voo/create">Registrar Voo</a></li>
-                                <li><a href="painel.php?exe=voo/index">Listar / Editar Registro</a></li>-->
+                                <!--                                <li><a href="painel.php?exe=voo/create">Registrar Voo</a></li>
+                                                                <li><a href="painel.php?exe=voo/index">Listar / Editar Registro</a></li>-->
                             </ul>
                         </li>
-                        
+
                         <li class="li<?php if (in_array('voo', $linkto)) echo ' active'; ?>"><a class="opensub" onclick="return false;" href="#">Registro de Atividade Aérea</a>
                             <ul class="sub">
                                 <li><a href="painel.php?exe=voo/create">Registrar</a></li>

@@ -4,15 +4,11 @@ require('../../_app/Config.inc.php');
 require '../_models/AdminAeronave.class.php';
 
 $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-//print_r($data);
-
 
 if (isset($data) && isset($data['SendPostForm'])):
     $tempoDeVoo = NULL;
 
     $data['voo_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1' );
-
-
 
     $dadosVoo['voo_status'] = $data['voo_status'];
     $dadosVoo['data_do_voo'] = $data['data_do_voo'];
@@ -46,7 +42,7 @@ if (isset($data) && isset($data['SendPostForm'])):
     else:
         require '../_models/AdminEtapaVoo.class.php';
         $cadastraEtapa = new AdminEtapaVoo();
-        for ($i = 0; $i < $dadosVoo['total_de_pousos']; $i++):
+        for ($i = 0; $i < $dadosVoo['qte_etapas']; $i++):
             if ($i < 1):
                 $indice = '';
             else:
@@ -130,12 +126,6 @@ if (isset($data) && isset($data['SendPostForm'])):
             $updateAero->ExeUpdate($dadosVoo['idaeronave'], $dataAero);
         endif;
 
-
-
-
-
-//        print_r($dadosVoo);
-//        print_r($dadosEtapa);
         $dados = array_merge($dadosVoo, $dadosEtapa);
         echo json_encode($dados);
     endif;

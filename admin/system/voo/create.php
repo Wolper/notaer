@@ -12,12 +12,12 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label><span class="field">Data do Voo:</span></label> 
-                        <input id="datavoo" class="form-control" type="date" name="data_do_voo"/>
+                        <input id="datavoo" class="form-control" type="date" name="data_do_voo" value=""/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Número do Voo:</span> </label>
-                        <input class="form-control" type="text" name="numero_voo"/>
+                        <input class="form-control" type="text" name="numero_voo" value=""/>
                     </div>
 
                     <div class="form-group col-md-4">
@@ -192,7 +192,7 @@
                         <div class="row">
                             <div class="form-group col-md-1" style="display: none">
                                 <label><span class="field">Etapa:</span></label>
-                                <input id="ne" class="form-control" type="text" name="numero_etapa" readonly="" /> 
+                                <input id="ne" class="form-control" type="text" name="numero_etapa" readonly=""/> 
                             </div>
 
                             <div class="form-group col-md-2">
@@ -247,13 +247,13 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Decolagem:</span></label>
-                                <input class="form-control" type="time" name="decolagem" value=""/>
+                                <input class="form-control decolagem" type="time" name="decolagem" value=""/>
 
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Pouso:</span></label>
-                                <input class="form-control" type="time" name="pouso" value=""/>
+                                <input class="form-control pouso" type="time" name="pouso" value=""/>
                             </div>
 
                             <div class="form-group col-md-2">
@@ -286,12 +286,12 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Pousos:</span></label>
-                                <input class="form-control"  type="text"  name="qtepouso"  min="0" value=""/>
+                                <input id="pp" class="form-control"  type="number"  name="qtepouso"  min="0" value=""/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Gas:</span></label>
-                                <input id="cc" class="form-control"  type="text" name="combustivel_consumido" min="0" />
+                                <input id="cc" class="form-control"  type="number" name="combustivel_consumido" step="0.01" min="0" value=""/>
                             </div>
 
 
@@ -306,20 +306,20 @@
 
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Tempo de Voo</span></label> 
-                    <input id="ttv" class="form-control" type="text" name="tempo_total_de_voo"  value="" placeholder="em minutos" />
+                    <input id="ttv" class="form-control" type="text" name="tempo_total_de_voo"  value="" placeholder="em minutos" readonly=""/>
                 </div>
                 <div class="form-group col-md-2">           
                     <label><span class="field">T. Pousos:</span></label>
-                    <input id="tp" class="form-control"  type="text" name="total_de_pousos" value="" /> 
+                    <input id="tp" class="form-control"  type="number" name="total_de_pousos" readonly="" value=""/> 
                 </div>
                 <div class="form-group col-md-2" style="display: none">           
                     <label><span class="field">Qte Etapas:</span></label>
-                    <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly=""/> 
+                    <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly="" value=""/> 
                 </div>
 
                 <div class="form-group col-md-2">
                     <label><span class="field">T. Gas Consumido:</span></label>
-                    <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly="" step="0.01"/>
+                    <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly="" value=""/>
                 </div>
 
             </div>
