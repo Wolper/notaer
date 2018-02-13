@@ -30,6 +30,9 @@
                 header('Location: painel.php?exe=inspecoes/index&empty=true');
             else:
                 $data = $readInsp->getResult()[0];
+                if ($data['tcInspecao'] !== 'M/H' && $data['tcInspecao'] !== 'D/H'):
+                    $comp = false;
+                endif;
             endif;
         endif;
 
@@ -48,19 +51,29 @@
                         <input class="form-control" type="text" name="descricaoInspecao" value="<?= $data['descricaoInspecao'] ?>"/>
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label><span class="field">PN:</span></label> 
                         <input class="form-control" type="text" name="pnInspecao" value="<?= $data['pnInspecao'] ?>"/>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label><span class="field">SN:</span></label> 
                         <input class="form-control" type="text" name="snInspecao" value="<?= $data['snInspecao'] ?>"/>
                     </div>
 
                     <div class="form-group col-md-2">
+                        <label><span class="field">Tipo:</span> </label>
+                        <select class="form-control" name="tipoInspecao">
+                            <option><?= $data['tipoInspecao'] ?></option>
+                            <option>CÉLULA</option>                        
+                            <option>MOTOR</option>                                                 
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
                         <label><span class="field">TL:</span> </label>
-                        <select class="form-control" name="tlInspecao" required>
-                            <option disabled="" selected=""><?= $data['tlInspecao'] ?></option>
+                        <select class="form-control" name="tlInspecao">
+                            <option><?= $data['tlInspecao'] ?></option>
                             <option>OC</option>                        
                             <option>TBO</option>                        
                             <option>OTL</option>                        
@@ -68,10 +81,10 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label><span class="field">TC:</span> </label>
-                        <select class="form-control" name="tcInspecao" required>
-                            <option disabled="" selected=""><?= $data['tcInspecao'] ?></option>
+                        <select class="form-control" name="tcInspecao">
+                            <option><?= $data['tcInspecao'] ?></option>
                             <option>M</option>                        
                             <option>D</option>                        
                             <option>H</option>                        
@@ -83,46 +96,32 @@
                             <option>X</option>                        
                         </select>
                     </div>
-                </div>
-                <div class="row">
 
-                    <?php
-                    if ($comp === 'false'):
-                        ?> 
-                        <div class="form-group col-md-3">
-                            <label><span class="field">Frequencia:</span></label>
-                            <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"  value="<?= $data['frequencia_for_time'] ?>"/>
-                        </div>
+                    <div class="row">
 
-                        <div class="form-group col-md-6 right">
-                            <label><span class="field">Itens de Inspeção:</span> </label>
-                            <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum"   value="<?= $data['itensInspecao'] ?>"/>
-                        </div>
                         <?php
-                    else:
+                        if ($comp === false):
+                            ?> 
+                            <div class="form-group col-md-3">
+                                <label><span class="field">Frequencia:</span></label>
+                                <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"  value="<?= $data['frequencia_for_time'] ?>"/>
+                            </div>
+                            <?php
+                        else:
+                            ?>
+                            <div class="form-group col-md-3">
+                                <label><span class="field">Frequencia/Hora:</span></label>
+                                <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"   value="<?= $data['frequencia_for_time'] ?>"/>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label><span class="field">Frequencia/M/D:</span></label>
+                                <input id="freq_MD" class="form-control" type="text" name="frequencia_for_date" placeholder="só números"   value="<?= $data['frequencia_for_date'] ?>"/>
+                            </div>
+                        <?php
+                        endif;
                         ?>
-                        <div class="form-group col-md-3">
-                            <label><span class="field">Frequencia/Hora:</span></label>
-                            <input class="form-control" type="number" name="frequencia_for_time" placeholder="só números"   value="<?= $data['frequencia_for_time'] ?>"/>
-                        </div>
-
-                        <div class="form-group col-md-3">
-                            <label><span class="field">Frequencia/M/D:</span></label>
-                            <input id="freq_MD" class="form-control" type="text" name="frequencia_for_date" placeholder="só números"   value="<?= $data['frequencia_for_date'] ?>"/>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label><span class="field">Itens de Inspeção:</span> </label>
-                            <input class="form-control" type="text" name="itensInspecao" placeholder="caso não exista, digite nenhum"   value="<?= $data['itensInspecao'] ?>"/>
-                        </div>
-                    <?php
-                    endif;
-                    ?>
-
-
-
-
-
+                    </div>
                 </div><!--/line-->
 
                     <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->

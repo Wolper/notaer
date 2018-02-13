@@ -15,7 +15,7 @@
             $diario->FullRead("SELECT * FROM (SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.idtipoinspecao = ti.id_tipo_inspecao) AS insp JOIN aeronave AS aero ON insp.idAeronave = aero.idAeronave");
 
             if ($diario->getRowCount() > 0):
-                header("Location: ./painel.php?exe=manutencoes/update&aeronave={$post['idaeronave']}");
+                header("Location: ./painel.php?exe=manutencoes/update&aeronave={$post['idaeronave']}&tipoInspecao={$post['tipoInspecao']}");
             else:
                 WSErro("Não foi identificado diário de voo para esta data ou aeronave", WS_ALERT);
             endif;
@@ -44,6 +44,14 @@
                                 endforeach;
                             endif;
                             ?>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label><span class="field">Tipo de Inspeção:</span> </label>
+                        <select class="form-control" name="tipoInspecao" required>
+                            <option disabled="" selected=""></option>
+                            <option>CELULA</option>                        
+                            <option>MOTOR</option>                                                 
                         </select>
                     </div>
                 </div>

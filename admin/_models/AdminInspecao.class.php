@@ -29,7 +29,7 @@ class AdminInspecao {
         else:
             $this->setData();
 //            $this->setName();
-//            $this->sendCapa();
+//            $this->sendDocumento();
             $this->Create();
         endif;
     }
@@ -124,6 +124,13 @@ class AdminInspecao {
         if ($Update->getRowCount() >= 1):
             $this->Error = ["A inspeção <b>{$this->Data['descricaoInspecao']}</b> foi atualizada com sucesso!", WS_ACCEPT];
             $this->Result = true;
+        endif;
+    }
+
+    private function sendDocumento() {
+        if (isset($this->Data['itens_inspecao']) && !empty($this->Data['itens_inspecao'])):
+            move_uploaded_file($this->Data['itens_inspecao'], 'teste');
+            unset($this->Data['itens_inspecao']);
         endif;
     }
 

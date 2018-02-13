@@ -41,19 +41,19 @@ $(function () {
     $(botaoAdicionar).click(function () {
         //criando instancia dom .conte4udoIndividual
         var linha = $('<div class="conteudoIndividual">' +
-                '<div class="form-group col-md-1" style="display: none"><label><span class="field">Etapa:</span></label><input id="ne" class="form-control" type="text" value="' + (i + 1) + '"   readonly="" name="numero_etapa' + i + '" /></div>' +
+                '<div class="row"><div class="form-group col-md-1" style="display: none"><label><span class="field">Etapa:</span></label><input id="ne" class="form-control" type="text" value="' + (i + 1) + '"   readonly="" name="numero_etapa' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Origem:</span></label><input class="form-control" type="text" required="" name="origem' + i + '"/></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Destino:</span></label><input class="form-control" type="text" required=""  name="destino' + i + '"/></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Partida:</span></label><input class="form-control"  type="time" required=""  name="partida' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Decolagem:</span></label><input class="form-control decolagem"  type="time" required=""  name="decolagem' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Pouso:</span></label><input class="form-control pouso"  type="time" required=""  name="pouso' + i + '" /></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">Corte:</span></label><input class="form-control"  type="time" required=""  name="corte' + i + '" /></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">NG:</span></label><input class="form-control"  type="text" required=""  name="ng' + i + '" /></div>' +
+                '<div class="form-group col-md-2"><label><span class="field">Corte:</span></label><input class="form-control"  type="time" required=""  name="corte' + i + '" /></div></div>' +
+                '<div class="row"><div class="form-group col-md-2"><label><span class="field">NG:</span></label><input class="form-control"  type="text" required=""  name="ng' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">NTL:</span></label><input class="form-control"  type="text" required=""  name="ntl' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Diu:</span></label><input class="form-control"  type="text" name="diurno' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Not:</span></label><input class="form-control"  type="text" name="noturno' + i + '" /></div>' +
                 '<div class="form-group col-md-2"><label><span class="field">Pousos:</span></label><input class="form-control"  type="number" required="" name="qtepouso' + j + '" onblur="incrementaPouso(' + j + ')"/></div>' +
-                '<div class="form-group col-md-2"><label><span class="field">Gas:</span></label><input class="form-control"  type="number" required="" name="combustivel_consumido' + i + '" onblur="incrementaCombustivel(' + i + ')"/></div>' +
+                '<div class="form-group col-md-2"><label><span class="field">Gas:</span></label><input class="form-control"  type="number" required="" name="combustivel_consumido' + i + '" onblur="incrementaCombustivel(' + i + ')"/></div></div>' +
                 '<a class="btn btn-danger" href="#" id="linkRemover">Remover Etapa</a></div>').appendTo(divContent);
         $('#removehidden').remove();
         i++;

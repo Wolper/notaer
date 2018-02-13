@@ -10,8 +10,10 @@
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if ($data && $data['SendPostForm']):
-//            $data['empresa_status'] = ($data['SendPostForm'] == 'Cadastrar' ? '0' : '1');
-//            $data['empresa_capa'] = ($_FILES['empresa_capa']['tmp_name'] ? $_FILES['empresa_capa'] : null);
+            if ($_FILES) { // Verificando se existe o envio de arquivos.
+                $data['itensInspecao'] = ($_FILES['arquivo']['tmp_name'] ? $_FILES['arquivo']['tmp_name'] : null);
+            }
+
             unset($data['SendPostForm']);
             $comp = false;
             if ($data['tcInspecao'] === 'M/H' || $data['tcInspecao'] === 'D/H'):
@@ -25,6 +27,14 @@
             if (!$cadastraInspecao->getResult()):
                 WSErro($cadastraInspecao->getError()[0], $cadastraInspecao->getError()[1]);
             else:
+                if ($_FILES) { //  move documentos anexados.
+                    $documentos['name'] = $_FILES['arquivo']['name'];
+                    $documentos['tmp_name'] = $_FILES['arquivo']['tmp_name'];
+                    $documentos['type'] = $_FILES['arquivo']['type'];
+                    $documentos['size'] = $_FILES['arquivo']['size'];
+                    $upload = new Upload;
+                    $upload->File($documentos);
+                }
                 if ($data['tcInspecao'] == 'M/H' || $data['tcInspecao'] == 'D/H'):
                     header("Location:painel.php?exe=inspecoes/update&create=true&emp={$cadastraInspecao->getResult()}&comp=true");
                 else:
@@ -42,16 +52,26 @@
                         <input class="form-control" type="text" name="descricaoInspecao" />
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label><span class="field">PN:</span></label> 
                         <input class="form-control" type="text" name="pnInspecao" />
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label><span class="field">SN:</span></label> 
                         <input class="form-control" type="text" name="snInspecao" />
                     </div>
 
                     <div class="form-group col-md-2">
+                        <label><span class="field">Tipo:</span> </label>
+                        <select class="form-control" name="tipoInspecao" required>
+                            <option disabled="" selected=""></option>
+                            <option>CELULA</option>                        
+                            <option>MOTOR</option>                                                 
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
                         <label><span class="field">TL:</span> </label>
                         <select class="form-control" name="tlInspecao" required>
                             <option disabled="" selected=""></option>
@@ -62,7 +82,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label><span class="field">TC:</span> </label>
                         <select id="frequencia" class="form-control" name="tcInspecao" required>
                             <option disabled="" selected=""></option>
@@ -77,13 +97,15 @@
                             <option>X</option>                        
                         </select>
                     </div>
+
+
+                    <!----------------------------------------------------------------------------------------------->
+                    <!--Na divPai abaixo, será dicionada uma div dinamicamente com os campos adequados, conforme a seleção do usuário--> 
+                    <div id="divPai"></div>
+                    <!----------------------------------------------------------------------------------------------->
                 </div>
-                
-                <!----------------------------------------------------------------------------------------------->
-                <!--Na divPai abaixo, será dicionada uma div dinamicamente com os campos adequados, conforme a seleção do usuário--> 
-                <div id="divPai"></div>
-                <!----------------------------------------------------------------------------------------------->
-          
+                <label><span class="field">Anexar Documentos:</span> </label>
+                <input type="file" name="arquivo" />
             </div>
             <input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />
 

@@ -7,7 +7,7 @@
         require './_models/AdminManutencao.class.php';
 
         $get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
-
+ 
         if (isset($get)):
 
             $atualiza = new AdminManutencao;
@@ -37,7 +37,7 @@
                 <tbody class="text-uppercase text-center bg-success">
                     <?php
                     $readInsp = new Read();
-                    $readInsp->FullRead("SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.idtipoinspecao = ti.id_tipo_inspecao WHERE i.idAeronave = '" . $get['aeronave'] . "'");
+                    $readInsp->FullRead("SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.idtipoinspecao = ti.id_tipo_inspecao WHERE i.idAeronave = '" . $get['aeronave'] . "' AND ti.tipoInspecao = '" . $get['tipoInspecao'] . "'");
 
                     if (!$readInsp->getRowCount() > 0):
                         echo 'Ainda não há dados das aeronaves cadastrados';

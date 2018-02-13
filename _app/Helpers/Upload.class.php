@@ -64,6 +64,7 @@ class Upload {
      */
     public function File(array $File, $Name = null, $Folder = null, $MaxFileSize = null) {
         $this->File = $File;
+
         $this->Name = ( (string) $Name ? $Name : substr($File['name'], 0, strrpos($File['name'], '.')) );
         $this->Folder = ( (string) $Folder ? $Folder : 'files' );
         $MaxFileSize = ( (int) $MaxFileSize ? $MaxFileSize : 2 );
@@ -72,7 +73,7 @@ class Upload {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'application/pdf'
         ];
-
+        print_r($this->File);
         if ($this->File['size'] > ($MaxFileSize * (1024 * 1024))):
             $this->Result = false;
             $this->Error = "Arquivo muito grande, tamanho máximo permitido de {$MaxFileSize}mb";
