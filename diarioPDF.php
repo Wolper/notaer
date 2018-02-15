@@ -73,10 +73,10 @@ if (isset($get)):
             $pdf->MultiCell(4, 2.5, utf8_decode('Último voo do Dia'), 0, 'C');
 
             $pdf->SetXY(1, 4.5);
-            $pdf->Cell(5, 0.5, utf8_decode('Marcas: '), 1, 0, 'L');
-            $pdf->Cell(5, 0.5, utf8_decode('Fabricante: '), 1, 0, 'L');
-            $pdf->Cell(5, 0.5, utf8_decode('Modelo: ' . $modeloAeronave), 1, 0, 'L');
-            $pdf->Cell(4, 0.5, utf8_decode('S/N: ' . $snAeronave), 1, 0, 'L');
+            $pdf->Cell(5, 0.5, utf8_decode('Marcas: ' . $prefixoAeronave), 1, 0, 'L');
+            $pdf->Cell(5, 0.5, utf8_decode('Fabricante: ' . $fabricanteCelula), 1, 0, 'L');
+            $pdf->Cell(5, 0.5, utf8_decode('Modelo: ' . $modeloCelula), 1, 0, 'L');
+            $pdf->Cell(4, 0.5, utf8_decode('S/N: ' . $serialCelula), 1, 0, 'L');
             $pdf->Cell(4, 0.5, utf8_decode('Cat. Reg: '), 1, 0, 'L');
 
             $pdf->SetXY(1, 5);
@@ -146,35 +146,47 @@ if (isset($get)):
 //--------------TRECHO QUE VAI ITERAR AS ETAPAS----------------
 
             $pdf->SetXY(1, 7.5);
-            for ($i = 0; $i < $qte_etapas; $i++):
-                $pdf->Cell(0.30, 0.5, utf8_decode($numero_etapa), 1, 0, 'C');
-                $pdf->Cell(2.35, 0.5, utf8_decode($origem), 1, 0, 'C');
-                $pdf->Cell(2.35, 0.5, utf8_decode($destino), 1, 0, 'C');
-                $p = explode(':', $partida);
-                $pdf->Cell(1, 0.5, utf8_decode($p[0] . ':' . $p[1]), 1, 0, 'C');
-                $d = explode(':', $decolagem);
-                $pdf->Cell(1, 0.5, utf8_decode($d[0] . ':' . $d[1]), 1, 0, 'C');
-                $po = explode(':', $pouso);
-                $pdf->Cell(1, 0.5, utf8_decode($po[0] . ':' . $po[1]), 1, 0, 'C');
-                $c = explode(':', $corte);
-                $pdf->Cell(1, 0.5, utf8_decode($c[0] . ':' . $c[1]), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode($diurno), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode($noturno), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode($ng), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode($ntl), 1, 0, 'C');
+            $readEtapas = new Read;
+            $readEtapas->ExeRead("etapas_voo", "WHERE id_voo =:id", "id={$idvoo}");
 
-                $pdf->Cell(1.5, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1.25, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 1, 'C');
-            endfor;
+            if ($readEtapas->getRowCount() > 0):
+                foreach ($readEtapas->getResult() as $etapas):
+                    extract($etapas);
+                    $pdf->Cell(0.30, 0.5, utf8_decode($numero_etapa), 1, 0, 'C');
+                    $pdf->Cell(2.35, 0.5, utf8_decode($origem), 1, 0, 'C');
+                    $pdf->Cell(2.35, 0.5, utf8_decode($destino), 1, 0, 'C');
+                    $p = explode(':', $partida);
+                    $pdf->Cell(1, 0.5, utf8_decode($p[0] . ':' . $p[1]), 1, 0, 'C');
+                    $d = explode(':', $decolagem);
+                    $pdf->Cell(1, 0.5, utf8_decode($d[0] . ':' . $d[1]), 1, 0, 'C');
+                    $po = explode(':', $pouso);
+                    $pdf->Cell(1, 0.5, utf8_decode($po[0] . ':' . $po[1]), 1, 0, 'C');
+                    $c = explode(':', $corte);
+                    $pdf->Cell(1, 0.5, utf8_decode($c[0] . ':' . $c[1]), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode($diurno), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode($noturno), 1, 0, 'C');
+
+                  $hora = intval((strtotime($pouso) - strtotime($decolagem))/3600);
+                  $minuto = floatval((strtotime($pouso) - strtotime($decolagem))/60);
+                  $resultado = $hora .':'. $minuto;
+
+
+                    $pdf->Cell(1, 0.5, utf8_decode($resultado), 1, 0, 'C');
+                    $pdf->Cell(2, 0.5, utf8_decode($qtepouso), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode($ng), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode($ntl), 1, 0, 'C');
+
+                    $pdf->Cell(1.5, 0.5, utf8_decode($combustivel_consumido), 1, 0, 'C');
+                    $pdf->Cell(1.25, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 1, 'C');
+                endforeach;
+            endif;
 
             for ($i = 0; $i < (12 - $qte_etapas); $i++):
                 $pdf->Cell(0.30, 0.5, utf8_decode(''), 1, 0, 'C');
@@ -201,6 +213,7 @@ if (isset($get)):
                 $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(1, 0.5, utf8_decode(''), 1, 1, 'C');
             endfor;
+
 //--------------FIM DI TRECHO QUE ITERA AS ETAPAS----------------
 
 

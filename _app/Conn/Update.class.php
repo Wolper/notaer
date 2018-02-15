@@ -1,5 +1,4 @@
 <?php
-
 /**
  * <b>Update.class:</b>
  * Classe responsável por atualizações genéticas no banco de dados!
@@ -99,5 +98,4 @@ class Update extends Conn {
             WSErro("<b>Erro ao Ler:</b> {$e->getMessage()}", $e->getCode());
         }
     }
-
 }

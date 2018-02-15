@@ -11,7 +11,9 @@
 
         if ($data && $data['SendPostForm']):
             if ($_FILES) { // Verificando se existe o envio de arquivos.
-                $data['itensInspecao'] = ($_FILES['arquivo']['tmp_name'] ? $_FILES['arquivo']['tmp_name'] : null);
+                $nome = strstr($_FILES['arquivo']['name'], '.', true);
+                $FileName = Check::Name($nome) . strrchr($_FILES['arquivo']['name'], '.');
+                $data['itensInspecao'] = $FileName;
             }
 
             unset($data['SendPostForm']);
@@ -104,8 +106,10 @@
                     <div id="divPai"></div>
                     <!----------------------------------------------------------------------------------------------->
                 </div>
-                <label><span class="field">Anexar Documentos:</span> </label>
+                <mark>Antes de anexar, renomeie o arquivo, caso haja pontos (.) na nomeclatura</mark></br>
+                <label><span class="field">Anexar Documentos:</span></label>
                 <input type="file" name="arquivo" />
+
             </div>
             <input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />
 

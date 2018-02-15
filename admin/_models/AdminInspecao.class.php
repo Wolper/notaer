@@ -27,7 +27,7 @@ class AdminInspecao {
             $this->Error = ["Erro ao Cadastrar: Para cadastrar inspeção, preencha todos os campos!", WS_ALERT];
             $this->Result = false;
         else:
-            $this->setData();
+//            $this->setData();
 //            $this->setName();
 //            $this->sendDocumento();
             $this->Create();
@@ -47,7 +47,7 @@ class AdminInspecao {
             $this->Error = ["Erro ao Atualizar: Para atualizar a inspecao <b>{$this->Data['descricaoInspecao']}</b>, preencha todos os campos!", WS_ALERT];
             $this->Result = false;
         else:
-//            $this->setData();
+            $this->setData();
 //            $this->setName();
 //            $this->sendCapa();
             $this->Update();

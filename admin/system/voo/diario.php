@@ -22,7 +22,7 @@
         endif;
         ?>
 
-        <form id="form" name="PostForm" method="post" enctype="multipart/form-data">
+        <form name="PostForm" method="post" enctype="multipart/form-data">
             <div id="form-top" class="form-group">
                 <div class="row">
                     <div class="form-group col-md-4">

@@ -81,7 +81,7 @@
                                     <td><?= $tcInspecao ?></td>
                                     <td><?= $frequencia_for_time ?></td>
                                     <td><?= $frequencia_for_date ?></td>
-                                    <td><a target="_blank" href="../uploads/files/2018/02/balanco-financeiro-mensal.pdf">Ver</a></td>
+                                    <td><a target="_blank" href="../uploads/files/2018/02/<?= $itensInspecao ?>">Ver</a></td>
                                     <!--<td><a target="_blank" href="http://localhost/notaer/uploads/files/2018/02/balanco-financeiro-mensal.pdf">Ver</a></td>-->
                                     <td><a   style="color: blue" class="act_edit" href="painel.php?exe=inspecoes/update&emp=<?= $id_tipo_inspecao; ?>" title="Editar">Editar</a></td>
                                     <td><a   style="color: red;" class="act_delete" href="painel.php?exe=inspecoes/index&emp=<?= $id_tipo_inspecao; ?>&action=delete" title="Excluir">Deletar</a></td>

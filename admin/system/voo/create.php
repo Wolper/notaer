@@ -314,7 +314,7 @@
                 </div>
                 <div class="form-group col-md-2" style="display: none">           
                     <label><span class="field">Qte Etapas:</span></label>
-                    <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly="" value=""/> 
+                    <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly="" value="1"/> 
                 </div>
 
                 <div class="form-group col-md-2">

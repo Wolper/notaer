@@ -11,17 +11,24 @@
         $comp = filter_input(INPUT_GET, 'comp', FILTER_DEFAULT);
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-
-
         if ($data && $data['SendPostForm']):
-//            $data['inspeção_status'] = ($data['SendPostForm'] == 'Atualizar' ? '0' : '1');
-//            $data['inspeção_capa'] = ($_FILES['inspeção_capa']['tmp_name'] ? $_FILES['inspeção_capa'] : 'null');
-
+            if ($_FILES) { // Verificando se existe o envio de arquivos.
+                $nome = strstr($_FILES['arquivo']['name'], '.', true);
+                $FileName = Check::Name($nome) . strrchr($_FILES['arquivo']['name'], '.');
+                $data['itensInspecao'] = $FileName;
+            }
             unset($data['SendPostForm']);
             require('_models/AdminInspecao.class.php');
             $cadastraVoo = new AdminInspecao;
             $cadastraVoo->ExeUpdate($insp, $data);
-
+            if ($_FILES) { //  move documentos anexados.
+                $documentos['name'] = $_FILES['arquivo']['name'];
+                $documentos['tmp_name'] = $_FILES['arquivo']['tmp_name'];
+                $documentos['type'] = $_FILES['arquivo']['type'];
+                $documentos['size'] = $_FILES['arquivo']['size'];
+                $upload = new Upload;
+                $upload->File($documentos);
+            }
             WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
         else:
             $readInsp = new Read;
@@ -123,6 +130,10 @@
                         ?>
                     </div>
                 </div><!--/line-->
+
+                <mark>Antes de anexar, renomeie o arquivo, caso haja pontos (.) na nomeclatura</mark></br>
+                <label><span class="field">Anexar Documentos:</span></label>
+                <input type="file" name="arquivo" />
 
                     <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
             <!--<input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />-->

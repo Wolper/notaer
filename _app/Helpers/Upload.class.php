@@ -73,7 +73,7 @@ class Upload {
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'application/pdf'
         ];
-        print_r($this->File);
+   
         if ($this->File['size'] > ($MaxFileSize * (1024 * 1024))):
             $this->Result = false;
             $this->Error = "Arquivo muito grande, tamanho máximo permitido de {$MaxFileSize}mb";

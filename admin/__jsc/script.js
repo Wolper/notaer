@@ -2,7 +2,7 @@ $(function () {
     var i = 1;
     var j = 1;
     var inputEscondido = $('input[type=submit]')[0];
-    document.querySelector("[id='qteEtapas']").value = i;
+//    document.querySelector("[id='qteEtapas']").value = i;
 //---------------------------------ENVIO DO FORMULÁRIO DE CADASTRO--------------------------------------
     $('#form').bind('submit', function (e) {
         e.preventDefault();
@@ -94,7 +94,7 @@ $(function () {
     });
 
 //    $("#historico").focusin(function () {
-//        document.querySelector("[id='qteEtapas']").value = i;
+//    document.querySelector("[id='qteEtapas']").value = i;
 //    });
 
 
