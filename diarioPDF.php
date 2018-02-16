@@ -149,6 +149,16 @@ if (isset($get)):
             $readEtapas = new Read;
             $readEtapas->ExeRead("etapas_voo", "WHERE id_voo =:id", "id={$idvoo}");
 
+            $totalHora = 0;
+            $totalMinuto = 0;
+            $totalPousos = 0;
+            $totalNg = 0;
+            $totalNtl = 0;
+            $totalCombustivel = 0;
+            $totalDiurno = 0;
+            $totalNoturno = 0;
+            $totalHorasPiloto = 0;
+
             if ($readEtapas->getRowCount() > 0):
                 foreach ($readEtapas->getResult() as $etapas):
                     extract($etapas);
@@ -163,20 +173,44 @@ if (isset($get)):
                     $pdf->Cell(1, 0.5, utf8_decode($po[0] . ':' . $po[1]), 1, 0, 'C');
                     $c = explode(':', $corte);
                     $pdf->Cell(1, 0.5, utf8_decode($c[0] . ':' . $c[1]), 1, 0, 'C');
+                    
+                    $totalDiurno += $diurno;
+                    $totalNoturno += $noturno;
+                    
+                    $totalHorasPiloto += $diurno + $noturno;
+                    
                     $pdf->Cell(1, 0.5, utf8_decode($diurno), 1, 0, 'C');
                     $pdf->Cell(1, 0.5, utf8_decode($noturno), 1, 0, 'C');
 
-                  $hora = intval((strtotime($pouso) - strtotime($decolagem))/3600);
-                  $minuto = floatval((strtotime($pouso) - strtotime($decolagem))/60);
-                  $resultado = $hora .':'. $minuto;
+//                  ------------------------------------------------------------
+                    $hora = intval((strtotime($pouso) - strtotime($decolagem)) / 3600);
+                    $minuto = ((strtotime($pouso) - strtotime($decolagem)) / 3600 - 1) * 60;
 
+                    $totalHora += $hora;
+                    $totalMinuto += $minuto;
 
-                    $pdf->Cell(1, 0.5, utf8_decode($resultado), 1, 0, 'C');
+                    $minutoFinal = $minuto;
+                    if (strlen($minuto) === 1):
+                        $minutoFinal = '0' . $minuto;
+                    endif;
+
+                    $totalTime = $hora . ':' . $minutoFinal;
+//                  ------------------------------------------------------------
+                    $pdf->Cell(1, 0.5, utf8_decode($totalHorasPiloto), 1, 0, 'C');
+                    
+                    $totalPousos += $qtepouso;
+                    
                     $pdf->Cell(2, 0.5, utf8_decode($qtepouso), 1, 0, 'C');
                     $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    
+                    $totalNg += $ng; 
+                    $totalNtl += $ntl; 
+                    
                     $pdf->Cell(1, 0.5, utf8_decode($ng), 1, 0, 'C');
                     $pdf->Cell(1, 0.5, utf8_decode($ntl), 1, 0, 'C');
 
+                    $totalCombustivel += $combustivel_consumido;
+                    
                     $pdf->Cell(1.5, 0.5, utf8_decode($combustivel_consumido), 1, 0, 'C');
                     $pdf->Cell(1.25, 0.5, utf8_decode(''), 1, 0, 'C');
                     $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
@@ -220,19 +254,25 @@ if (isset($get)):
             $pdf->SetXY(1, 13.5);
             $pdf->Cell(5, 0.5, utf8_decode('Total'), 1, 0, 'C');
 
-            $pdf->Cell(1, 0.5, utf8_decode('////////'), 1, 0, 'C', true);
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode('////////'), 1, 0, 'C', true);
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    if (strlen($totalMinuto) === 1):
+                        $totalMinuto = '0' . $minuto;
+                    endif;
 
-            $pdf->Cell(1.5, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $totalTime = $totalHora . ':' . $totalMinuto;
+            
+                        
+            $pdf->Cell(1, 0.5, utf8_decode('////////'), 1, 0, 'C', true);
+            $pdf->Cell(2, 0.5, utf8_decode($totalTime), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode('////////'), 1, 0, 'C', true);
+            $pdf->Cell(1, 0.5, utf8_decode($totalDiurno), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode($totalNoturno), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalPousos), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode($totalNg), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode($totalNtl), 1, 0, 'C');
+
+            $pdf->Cell(1.5, 0.5, utf8_decode($totalCombustivel), 1, 0, 'C');
             $pdf->Cell(8.5, 0.5, utf8_decode('////////////////////////////////////////////////////////////////////////////////////////////////////'), 1, 1, 'C', true);
 
             $pdf->Cell(27, 0.5, utf8_decode('Ocorrências: '), 1, 1, 'L');
