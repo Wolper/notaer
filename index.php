@@ -25,7 +25,6 @@ header("Location: ./admin/painel.php");
         <link rel="stylesheet" href="<?= HOME; ?>/_cdn/shadowbox/shadowbox.css">
         <link rel="shortcut icon" href="images/favicon.ico" />
         <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
-
     </head>
     <body>
 

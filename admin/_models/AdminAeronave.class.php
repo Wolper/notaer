@@ -24,14 +24,14 @@ class AdminAeronave {
     public function ExeCreate(array $Data) {
         $this->Data = $Data;
 
-        if (in_array('', $this->Data)):
-            $this->Result = false;
-            $this->Error = ['<b>Erro ao cadastrar:</b> Para cadastrar uma aeronave, preencha todos os campos!', WS_ALERT];
-        else:
+//        if (in_array('', $this->Data)):
+//            $this->Result = false;
+//            $this->Error = ['<b>Erro ao cadastrar:</b> Para cadastrar uma aeronave, preencha todos os campos!', WS_ALERT];
+//        else:
 //            $this->setData();
 //            $this->setName();
             $this->Create();
-        endif;
+//        endif;
     }
 
     /**
@@ -44,14 +44,14 @@ class AdminAeronave {
         $this->idAeronave = (int) $idAero;
         $this->Data = $Data;
 
-        if (in_array('', $this->Data)):
-            $this->Result = false;
-            $this->Error = ["<b>Erro ao atualizar:</b> Para atualizar a aeronave {$this->Data['nomeAeronave']}, preencha todos os campos!", WS_ALERT];
-        else:
+//        if (in_array('', $this->Data)):
+//            $this->Result = false;
+//            $this->Error = ["<b>Erro ao atualizar:</b> Para atualizar a aeronave {$this->Data['nomeAeronave']}, preencha todos os campos!", WS_ALERT];
+//        else:
 //            $this->setData();
 //            $this->setName();
             $this->Update();
-        endif;
+//        endif;
     }
 
     /**

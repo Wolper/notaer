@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+session_start();
 define('FPDF', 'FONTPATH', 'font/');
 require('./_app/Config.inc.php');
 require './admin/pdf/fpdf.php';
@@ -58,7 +60,7 @@ if ($diario->getRowCount() > 0):
 
         $pdf->Cell(3.5, 0.5, utf8_decode($prefixoAeronave), 1, 0, 'C');
         $pdf->Cell(3, 0.5, utf8_decode($modeloCelula), 1, 0, 'C');
-        $pdf->Cell(3, 0.5, utf8_decode(''), 1, 0, 'C');
+        $pdf->Cell(3, 0.5, utf8_decode($tipoCelula), 1, 0, 'C');
         $pdf->Cell(3, 0.5, utf8_decode($serialCelula), 1, 0, 'C');
         $pdf->Cell(3, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->Cell(3.5, 0.5, utf8_decode('N/A'), 1, 0, 'C');
@@ -76,7 +78,7 @@ if ($diario->getRowCount() > 0):
         $pdf->Cell(2, 0.5, utf8_decode('TSN'), 1, 0, 'C');
         $pdf->Cell(4, 0.5, utf8_decode($horasDeVooAeronave), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('TSN'), 1, 0, 'C');
-        $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
+        $pdf->Cell(2.25, 0.5, utf8_decode($horasMotor1), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('TSO'), 1, 0, 'C');
         $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('TSN'), 1, 0, 'C');
@@ -87,7 +89,7 @@ if ($diario->getRowCount() > 0):
         $pdf->Cell(2, 0.5, utf8_decode('POUSOS'), 1, 0, 'C');
         $pdf->Cell(4, 0.5, utf8_decode($pousos), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('NG'), 1, 0, 'C');
-        $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
+        $pdf->Cell(2.25, 0.5, utf8_decode($ng1), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('CSO'), 1, 0, 'C');
         $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('NG'), 1, 0, 'C');
@@ -98,7 +100,7 @@ if ($diario->getRowCount() > 0):
         $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->Cell(4, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('NTL'), 1, 0, 'C');
-        $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
+        $pdf->Cell(2.25, 0.5, utf8_decode($ntl1), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('CSO'), 1, 0, 'C');
         $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->Cell(1, 0.5, utf8_decode('NTL'), 1, 0, 'C');
@@ -109,63 +111,83 @@ if ($diario->getRowCount() > 0):
 
         $pdf->SetXY(1, 9);
         $pdf->Cell(19, 0.5, utf8_decode('TAREFAS'), 0, 1, 'C');
-
+        
+    
+        $pdf->SetFontSize(8);
         $pdf->Cell(1, 0.5, utf8_decode('Item'), 1, 0, 'C', true);
-        $pdf->Cell(4.4, 0.5, utf8_decode('Descrição dos serviços'), 1, 0, 'C', true);
-        $pdf->Cell(4.4, 0.5, utf8_decode('Resultado da intervenção'), 1, 0, 'C', true);
+        $pdf->Cell(5, 0.5, utf8_decode('Descrição dos serviços'), 1, 0, 'C', true);
+        $pdf->Cell(3.8, 0.5, utf8_decode('Resultado da intervenção'), 1, 0, 'C', true);
         $pdf->Cell(2, 0.5, utf8_decode('Data'), 1, 0, 'C', true);
         $pdf->Cell(2, 0.5, utf8_decode('Tempo'), 1, 0, 'C', true);
         $pdf->Cell(2.3, 0.5, utf8_decode('Mecânico'), 1, 0, 'C', true);
         $pdf->Cell(2.9, 0.5, utf8_decode('Assinatura'), 1, 1, 'C', true);
 
-        $pdf->Cell(1, 1, utf8_decode('1'), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+        for ($i = 0; $i < count($_SESSION['descricaoInspecao']); $i++):
+            $pdf->Cell(1, 1, utf8_decode($i + 1), 1, 0, 'C');
+            $pdf->Cell(5, 1, (utf8_decode($_SESSION['descricaoInspecao'][$i])), 1, 0, 'C',false);
 
-        $pdf->Cell(1, 1, utf8_decode('2'), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
 
-        $pdf->Cell(1, 1, utf8_decode('3'), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
 
-        $pdf->Cell(1, 1, utf8_decode('4'), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+            //            $pdf->Cell(5, 1, (utf8_decode($_SESSION['inspecoes'][$i])), 1, 0, 'C');notaer/uploads/files/2018/02/dbpp-mes.pdf
+//            $pdf->MultiCell(5, 1, strtoupper(utf8_decode($_SESSION['inspecoes'][$i])), 0, 'L', false);
+            $pdf->Cell(3.8, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+        endfor;
 
-        $pdf->Cell(1, 1, utf8_decode('5'), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+        for ($i = 0; $i < (6 - count($_SESSION['descricaoInspecao'])); $i++):
+            $pdf->Cell(1, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(5, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(3.8, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+        endfor;
 
-        $pdf->Cell(1, 1, utf8_decode('6'), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
-        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+//        $pdf->Cell(1, 1, utf8_decode('2'), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+//
+//        $pdf->Cell(1, 1, utf8_decode('3'), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+//
+//        $pdf->Cell(1, 1, utf8_decode('4'), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+//
+//        $pdf->Cell(1, 1, utf8_decode('5'), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
+//
+//        $pdf->Cell(1, 1, utf8_decode('6'), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(4.4, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.3, 1, utf8_decode(''), 1, 0, 'C');
+//        $pdf->Cell(2.9, 1, utf8_decode(''), 1, 1, 'C');
 
+        $pdf->SetFontSize(10);
         $pdf->Cell(11.8, 0.5, utf8_decode('Tempo Gasto nas Inspeções'), 1, 0, 'C');
         $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
         $pdf->SetFillColor(0);
@@ -188,11 +210,12 @@ if ($diario->getRowCount() > 0):
 
         $pdf->Cell(19, 0.5, utf8_decode('RESULTADO DA AÇÃO DE MANUTENÇÃO REALIZADA'), 1, 1, 'C');
 
-        $pdf->Cell(19, 1, utf8_decode(''), 1, 1, 'C');
+        $pdf->Cell(19, 1.5, utf8_decode(''), 1, 1, 'C');
         $pdf->SetFontSize(8);
         $pdf->SetY(19.7);
-        $pdf->Cell(19, 0.3, utf8_decode('Certifico que a aeronave XXXX XXXX, SN, XXX sofreu as intervenções acimarelacionadas conforme manual de Manutenção XXX'), 0, 1, 'C');
-        $pdf->Cell(19, 0.5, utf8_decode('Revisão XX atulizada em: xx/xx/xxxx e/ou XXXXX e está aprovada para retorno ao serviço'), 0, 1, 'C');
+        $pdf->Cell(19, 0.3, utf8_decode('Certifico que a aeronave ' . $prefixoAeronave . ', ' . $modeloCelula . ', SN: ' . $serialCelula . ' sofreu as intervenções acima relacionadas'), 0, 1, 'C');
+        $pdf->Cell(19, 0.3, utf8_decode('conforme manual de Manutenção ______________________________________'), 0, 1, 'C');
+        $pdf->Cell(19, 0.5, utf8_decode('Revisão ______ atualizada em: ' . date('d/m/Y') . ' e/ou XXXXX e está aprovada para retorno ao serviço'), 0, 1, 'C');
 
         $pdf->SetFontSize(10);
         $pdf->Cell(19, 0.5, utf8_decode('Inspeção p/ Liberação - Ferramentas'), 1, 1, 'C', true);

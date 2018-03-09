@@ -98,8 +98,8 @@ if (isset($data) && isset($data['SendPostForm'])):
               FASE DE ATUALIZAÇÃO DA NTL E NG DA AERONAVE
               --------------------------------------------------------------------------------------
              */
-            $dataAero['ntl'] = $ntl + $dadosEtapa['ntl'];
-            $dataAero['ng'] = $ng + $dadosEtapa['ng'];
+            $dataAero['ntl1'] = $ntl1 + $dadosEtapa['ntl'];
+            $dataAero['ng1'] = $ng1 + $dadosEtapa['ng'];
 
 //------------EXTRAI HORAS DE VOO DA AERONAVE (STR) E TRANSFORMA EM (DATATIME)-----------
             $horasVooAero = explode(':', $horasDeVooAeronave);

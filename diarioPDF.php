@@ -10,16 +10,14 @@ $get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
 if (isset($get)):
 
     $diario = new Read();
-    $diario->FullRead("SELECT * FROM (SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.id_voo WHERE data_do_voo = '" . $get['data'] . "' AND idaeronave = '" . $get['aeronave'] . "' GROUP BY v.numero_voo) AS vooetapa JOIN aeronave AS aero ON vooetapa.idaeronave = aero.idAeronave");
-
-    unset($get);
+    $diario->FullRead("SELECT * FROM (SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.id_voo WHERE data_do_voo = '" . $get['data'] . "' AND idaeronave = '" . $get['aeronave'] . "' GROUP BY v.numero_voo) AS vooetapa JOIN aeronave AS aero ON vooetapa.idaeronave = aero.idAeronave LIMIT 1");
+//    unset($get);
 
 
     $pdf = new FPDF('L', 'cm', 'A4');
     $pdf->AddPage();
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->SetTitle('Diário de bordo', $isUTF8 = TRUE);
-//$pdf->SetTextColor(0, 0, 150);
     date_default_timezone_set('America/Sao_Paulo');
     $mes = date('m');
     if ($diario->getRowCount() > 0):
@@ -43,17 +41,17 @@ if (isset($get)):
             $pdf->Cell(3, 1, utf8_decode($copiloto), 1, 0, 'C');
             $pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(1.5, 1, utf8_decode(''), 1, 1, 'C');
-            $pdf->Cell(3, 1, utf8_decode($topD), 1, 0, 'C');
+            $pdf->Cell(3, 1, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(3, 1, utf8_decode($topE), 1, 0, 'C');
+            $pdf->Cell(3, 1, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(1.5, 1, utf8_decode(''), 1, 0, 'C');
 
             $pdf->SetFont('Arial', 'B', 14);
             $pdf->SetXY(13, 1);
             $pdf->MultiCell(11, 3.5, utf8_decode(''), 1, 'C');
-            $pdf->Image('./admin/images/logoNotaer.jpg', 13.25, 1.25, 2, 2);
+            $pdf->Image('./admin/images/escudo.jpg', 13.25, 1.25, 2, 2);
             $pdf->SetXY(13.25, 1);
             $pdf->MultiCell(11, 1, utf8_decode('PARTE I - REGISTRO DE VOO'), 0, 'C');
             $pdf->SetFont('Arial', 'B', 14);
@@ -79,13 +77,13 @@ if (isset($get)):
             $pdf->Cell(4, 0.5, utf8_decode('S/N: ' . $serialCelula), 1, 0, 'L');
             $pdf->Cell(4, 0.5, utf8_decode('Cat. Reg: '), 1, 0, 'L');
 
-            $pdf->SetXY(1, 5);
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo anterior: '), 1, 0, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo do dia: '), 1, 0, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo final: '), 1, 1, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo anterior: '), 1, 0, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo do dia: '), 1, 0, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo final: '), 1, 0, 'L');
+//            $pdf->SetXY(1, 5);
+//            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo anterior: '), 1, 0, 'L');
+//            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo do dia: '), 1, 0, 'L');
+//            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo final: '), 1, 1, 'L');
+//            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula anterior: '), 1, 0, 'L');
+//            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula do dia: '), 1, 0, 'L');
+//            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula total: '), 1, 0, 'L');
 
             $pdf->SetXY(1, 6);
             $pdf->Cell(5, 1, utf8_decode('Trecho '), 1, 0, 'C');
@@ -96,16 +94,16 @@ if (isset($get)):
 
             $pdf->SetFont('Arial', 'B', 8);
 
-//ALINHAMENTO DA COLUNA CÉLULA
+            //ALINHAMENTO DA COLUNA CÉLULA
             $pdf->SetXY(6, 6.5);
             $pdf->Cell(7, 0.5, utf8_decode('Horas'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('Ciclos'), 1, 0, 'C');
 
-//ALINHAMENTO DA COLUNA MOTOR
-            $pdf->Cell(1, 0.5, utf8_decode('Horas'), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode('Ciclos'), 1, 0, 'C');
+            //ALINHAMENTO DA COLUNA MOTOR
+            $pdf->Cell(1.2, 0.5, utf8_decode('Horas'), 1, 0, 'C');
+            $pdf->Cell(1.8, 0.5, utf8_decode('Ciclos'), 1, 0, 'C');
 
-//ALINHAMENTO DA COLUNA GERAL
+            //ALINHAMENTO DA COLUNA GERAL
             $pdf->Cell(1.5, 1, utf8_decode('Comb'), 1, 0, 'C');
             $pdf->Cell(1.25, 1, utf8_decode('Ordem'), 1, 0, 'C');
             $pdf->Cell(1, 1, utf8_decode('Pax'), 1, 0, 'C');
@@ -138,91 +136,113 @@ if (isset($get)):
             $pdf->Cell(1, 0.5, utf8_decode('Not'), 1, 0, 'C');
             $pdf->Cell(1, 0.5, utf8_decode('Tot'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('Pousos'), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode('Total'), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode('NG'), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode('NTL'), 1, 0, 'C');
+            $pdf->Cell(1.2, 0.5, utf8_decode('Total'), 1, 0, 'C');
+            $pdf->Cell(0.9, 0.5, utf8_decode('NG'), 1, 0, 'C');
+            $pdf->Cell(0.9, 0.5, utf8_decode('NTL'), 1, 0, 'C');
 
 
 //--------------TRECHO QUE VAI ITERAR AS ETAPAS----------------
 
             $pdf->SetXY(1, 7.5);
-            $readEtapas = new Read;
-            $readEtapas->ExeRead("etapas_voo", "WHERE id_voo =:id", "id={$idvoo}");
+            $readVoo = new Read;
+            $readVoo->FullRead("SELECT * FROM (SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.id_voo WHERE data_do_voo = '" . $get['data'] . "' AND idaeronave = '" . $get['aeronave'] . "' GROUP BY v.numero_voo) AS vooetapa JOIN aeronave AS aero ON vooetapa.idaeronave = aero.idAeronave");
+//            $readEtapas->ExeRead("etapas_voo", "WHERE id_voo =:id", "id={$idvoo}");
 
             $totalHora = 0;
             $totalMinuto = 0;
             $totalPousos = 0;
             $totalNg = 0;
             $totalNtl = 0;
-            $totalCombustivel = 0;
             $totalDiurno = 0;
             $totalNoturno = 0;
             $totalHorasPiloto = 0;
+            $totalTime = 0;
+            $totalEtapas = 0;
+            $i = 1;
+            if ($readVoo->getRowCount() > 0):
+                foreach ($readVoo->getResult() as $voo):
+                    extract($voo);
 
-            if ($readEtapas->getRowCount() > 0):
-                foreach ($readEtapas->getResult() as $etapas):
-                    extract($etapas);
-                    $pdf->Cell(0.30, 0.5, utf8_decode($numero_etapa), 1, 0, 'C');
-                    $pdf->Cell(2.35, 0.5, utf8_decode($origem), 1, 0, 'C');
-                    $pdf->Cell(2.35, 0.5, utf8_decode($destino), 1, 0, 'C');
-                    $p = explode(':', $partida);
-                    $pdf->Cell(1, 0.5, utf8_decode($p[0] . ':' . $p[1]), 1, 0, 'C');
-                    $d = explode(':', $decolagem);
-                    $pdf->Cell(1, 0.5, utf8_decode($d[0] . ':' . $d[1]), 1, 0, 'C');
-                    $po = explode(':', $pouso);
-                    $pdf->Cell(1, 0.5, utf8_decode($po[0] . ':' . $po[1]), 1, 0, 'C');
-                    $c = explode(':', $corte);
-                    $pdf->Cell(1, 0.5, utf8_decode($c[0] . ':' . $c[1]), 1, 0, 'C');
-                    
-                    $totalDiurno += $diurno;
-                    $totalNoturno += $noturno;
-                    
-                    $totalHorasPiloto += $diurno + $noturno;
-                    
-                    $pdf->Cell(1, 0.5, utf8_decode($diurno), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode($noturno), 1, 0, 'C');
+                    $readEtapas = new Read;
+                    $readEtapas->ExeRead("etapas_voo", "WHERE id_voo =:id", "id={$idvoo}");
+                    if ($readEtapas->getRowCount() > 0):
+                        $totalEtapas += $qte_etapas;
+                        foreach ($readEtapas->getResult() as $etapas):
+                            extract($etapas);
+
+
+                            $pdf->Cell(0.30, 0.5, utf8_decode($i), 1, 0, 'C');
+                            $pdf->Cell(2.35, 0.5, utf8_decode($origem), 1, 0, 'C');
+                            $pdf->Cell(2.35, 0.5, utf8_decode($destino), 1, 0, 'C');
+                            $p = explode(':', $partida);
+                            $pdf->Cell(1, 0.5, utf8_decode($p[0] . ':' . $p[1]), 1, 0, 'C');
+                            $d = explode(':', $decolagem);
+                            $pdf->Cell(1, 0.5, utf8_decode($d[0] . ':' . $d[1]), 1, 0, 'C');
+                            $po = explode(':', $pouso);
+                            $pdf->Cell(1, 0.5, utf8_decode($po[0] . ':' . $po[1]), 1, 0, 'C');
+                            $c = explode(':', $corte);
+                            $pdf->Cell(1, 0.5, utf8_decode($c[0] . ':' . $c[1]), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode($diurno), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode($noturno), 1, 0, 'C');
 
 //                  ------------------------------------------------------------
-                    $hora = intval((strtotime($pouso) - strtotime($decolagem)) / 3600);
-                    $minuto = ((strtotime($pouso) - strtotime($decolagem)) / 3600 - 1) * 60;
+                            $data_voo = explode('-', $data_do_voo);
+                            $pouso = explode(':', $pouso);
+                            $decolagem = explode(':', $decolagem);
 
-                    $totalHora += $hora;
-                    $totalMinuto += $minuto;
+                            $pou = mktime($pouso[0], $pouso[1], 0, $data_voo[2], $data_voo[1], $data_voo[0]);
+                            $dec = mktime($decolagem[0], $decolagem[1], 0, $data_voo[2], $data_voo[1], $data_voo[0]);
+                            $totalTime += ($pou - $dec) / 3600;
+//                  ------------------------------------------------------------
+//                            DIURNO
+                            $diurno = explode(':', $diurno);
+                            $di = ($diurno[0] * 60) + $diurno[1];
 
-                    $minutoFinal = $minuto;
-                    if (strlen($minuto) === 1):
-                        $minutoFinal = '0' . $minuto;
+                            $totalDiurno += ($di / 60);
+                            $minutosD = ($totalDiurno - intval($totalDiurno)) * 60;
+//                            -------------------------
+//                            NOTURNO
+                            $noturno = explode(':', $noturno);
+                            $no = ($noturno[0] * 60) + $noturno[1];
+
+                            $totalNoturno += ($no / 60);
+                            $minutosN = ($totalNoturno - intval($totalNoturno)) * 60;
+//                            ------------------------
+//                            HORAS/PILOTO = DIURNO + NOTURNO
+                            $totalHorasPiloto = ($di + $no) / 60;
+                            $minutos = ($totalHorasPiloto - intval($totalHorasPiloto)) * 60;
+                            $totalHorasPiloto = intval($totalHorasPiloto) . ':' . $minutos;
+//                  ------------------------------------------------------------                  
+
+                            $pdf->Cell(1, 0.5, utf8_decode($totalHorasPiloto), 1, 0, 'C');
+
+                            $totalPousos += $qtepouso;
+
+                            $pdf->Cell(2, 0.5, utf8_decode($qtepouso), 1, 0, 'C');
+                            $pdf->Cell(1.2, 0.5, utf8_decode($horasMotor1), 1, 0, 'C');
+
+                            $totalNg += $ng;
+                            $totalNtl += $ntl;
+
+                            $pdf->Cell(0.9, 0.5, utf8_decode($ng), 1, 0, 'C');
+                            $pdf->Cell(0.9, 0.5, utf8_decode($ntl), 1, 0, 'C');
+
+
+                            $pdf->Cell(1.5, 0.5, utf8_decode($combustivel_consumido . '%'), 1, 0, 'C');
+                            $pdf->Cell(1.25, 0.5, utf8_decode(''), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                            $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 1, 'C');
+                            $i++;
+                        endforeach;
                     endif;
-
-                    $totalTime = $hora . ':' . $minutoFinal;
-//                  ------------------------------------------------------------
-                    $pdf->Cell(1, 0.5, utf8_decode($totalHorasPiloto), 1, 0, 'C');
-                    
-                    $totalPousos += $qtepouso;
-                    
-                    $pdf->Cell(2, 0.5, utf8_decode($qtepouso), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                    
-                    $totalNg += $ng; 
-                    $totalNtl += $ntl; 
-                    
-                    $pdf->Cell(1, 0.5, utf8_decode($ng), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode($ntl), 1, 0, 'C');
-
-                    $totalCombustivel += $combustivel_consumido;
-                    
-                    $pdf->Cell(1.5, 0.5, utf8_decode($combustivel_consumido), 1, 0, 'C');
-                    $pdf->Cell(1.25, 0.5, utf8_decode(''), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                    $pdf->Cell(2.25, 0.5, utf8_decode(''), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 1, 'C');
                 endforeach;
             endif;
 
-            for ($i = 0; $i < (12 - $qte_etapas); $i++):
+            for ($i = 0; $i < (12 - $totalEtapas); $i++):
                 $pdf->Cell(0.30, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(2.35, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(2.35, 0.5, utf8_decode(''), 1, 0, 'C');
@@ -234,9 +254,9 @@ if (isset($get)):
                 $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-                $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                $pdf->Cell(1.2, 0.5, utf8_decode(''), 1, 0, 'C');
+                $pdf->Cell(0.9, 0.5, utf8_decode(''), 1, 0, 'C');
+                $pdf->Cell(0.9, 0.5, utf8_decode(''), 1, 0, 'C');
 
                 $pdf->Cell(1.5, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(1.25, 0.5, utf8_decode(''), 1, 0, 'C');
@@ -254,26 +274,44 @@ if (isset($get)):
             $pdf->SetXY(1, 13.5);
             $pdf->Cell(5, 0.5, utf8_decode('Total'), 1, 0, 'C');
 
-                    if (strlen($totalMinuto) === 1):
-                        $totalMinuto = '0' . $minuto;
-                    endif;
 
-                    $totalTime = $totalHora . ':' . $totalMinuto;
-            
-                        
-            $pdf->Cell(1, 0.5, utf8_decode('////////'), 1, 0, 'C', true);
-            $pdf->Cell(2, 0.5, utf8_decode($totalTime), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode('////////'), 1, 0, 'C', true);
-            $pdf->Cell(1, 0.5, utf8_decode($totalDiurno), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode($totalNoturno), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+            $hora = explode('.', $totalTime);
+            $difMinutos = $totalTime - $hora[0];
+            $minuto = ($difMinutos * 60);
+            $totalTime = $hora[0] . ':' . $minuto;
+
+            $horaD = explode('.', $totalDiurno);
+            $difMinutosD = $totalDiurno - $horaD[0];
+            $minutoD = ($difMinutosD * 60);
+            $totalD = $horaD[0] . ':' . $minutoD;
+
+            $horaN = explode('.', $totalNoturno);
+            $difMinutosN = $totalNoturno - $horaN[0];
+            $minutoN = ($difMinutosN * 60);
+            $totalN = $horaN[0] . ':' . $minutoN;
+
+            $totalDiNot = $totalDiurno + $totalNoturno;
+            $horaDN = explode('.', $totalDiNot);
+            $difMinutosDN = $totalDiNot - $horaDN[0];
+            $minutoDN = ($difMinutosDN * 60);
+            $totalDN = $horaDN[0] . ':' . $minutoDN;
+
+//            $totalDiurno = intval($totalDiurno) . ':' . $minutosD;
+
+            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C', true);
+            $pdf->Cell(2, 0.5, utf8_decode($totalTime . 'h'), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C', true);
+
+            $pdf->Cell(1, 0.5, utf8_decode($totalD . 'h'), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode($totalN . 'h'), 1, 0, 'C');
+            $pdf->Cell(1, 0.5, utf8_decode($totalDN . 'h'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode($totalPousos), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode($totalNg), 1, 0, 'C');
-            $pdf->Cell(1, 0.5, utf8_decode($totalNtl), 1, 0, 'C');
+            $pdf->Cell(1.2, 0.5, utf8_decode('h'), 1, 0, 'C');
+            $pdf->Cell(0.9, 0.5, utf8_decode($totalNg), 1, 0, 'C');
+            $pdf->Cell(0.9, 0.5, utf8_decode($totalNtl), 1, 0, 'C');
 
-            $pdf->Cell(1.5, 0.5, utf8_decode($totalCombustivel), 1, 0, 'C');
-            $pdf->Cell(8.5, 0.5, utf8_decode('////////////////////////////////////////////////////////////////////////////////////////////////////'), 1, 1, 'C', true);
+            $pdf->Cell(1.5, 0.5, utf8_decode(''), 1, 0, 'C', true);
+            $pdf->Cell(8.5, 0.5, utf8_decode(''), 1, 1, 'C', true);
 
             $pdf->Cell(27, 0.5, utf8_decode('Ocorrências: '), 1, 1, 'L');
             $pdf->Cell(27, 0.5, utf8_decode(''), 1, 1, 'L');
@@ -281,9 +319,27 @@ if (isset($get)):
             $pdf->Cell(27, 0.5, utf8_decode(''), 1, 1, 'L');
             $pdf->Cell(27, 0.5, utf8_decode('Lavagem de Compressor: (   )Sim   (   )Não   Nº VEMD/Voo:           Obs:'), 1, 1, 'L');
 
+
+//            *******************************
+//            PARTE DO CABEÇALHO DA 1ª PÁGINA
+//            *******************************
+
+            $pdf->SetFontSize(10);
+            $pdf->SetXY(1, 5);
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo anterior: '), 1, 0, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo do dia: '), 1, 0, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de voo final: '), 1, 1, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula anterior: '), 1, 0, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula do dia: ' . $totalHora), 1, 0, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula total: '), 1, 0, 'L');
+
+//            **************************************
+//            FIM DA PARTE DO CABEÇALHO DA 1ª PÁGINA
+//            **************************************
+
             $pdf->AddPage();
             $pdf->SetFont('Arial', 'B', 14);
-            $pdf->Image('./admin/images/logoNotaer.jpg', 1, 1, 2, 2);
+            $pdf->Image('./admin/images/escudo.jpg', 1.5, 1.05, 1.9, 1.9);
             $pdf->Cell(13.5, 2, utf8_decode('RELATÓRIO DE MANUTENÇÃO'), 1, 0, 'C');
             $pdf->Cell(13.5, 2, utf8_decode('PARTE II - SITUAÇÃO TÉCNICA DA AERONAVE'), 1, 1, 'C');
 
@@ -307,7 +363,29 @@ if (isset($get)):
             $pdf->Cell(2, 0.5, utf8_decode('Rub'), 1, 1, 'C');
 
 //--------------TRECHO DE ITERAÇÃO DE DISCREPÂNCIA E APROVAÇÃO DE SERVIÇO---------
-            for ($i = 0; $i < 7; $i++):
+            $readDisc = new Read;
+            $readDisc->FullRead("SELECT * FROM (SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.id_voo WHERE data_do_voo = '" . $get['data'] . "' AND idaeronave = '" . $get['aeronave'] . "' GROUP BY v.numero_voo) AS vooetapa JOIN aeronave AS aero ON vooetapa.idaeronave = aero.idAeronave");
+
+            if ($readDisc->getRowCount() > 0):
+
+                for ($i = 0; $i < count($readDisc->getResult()); $i++):
+                    $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(6.5, 0.5, utf8_decode($readDisc->getResult()[$i]['discrepancia']), 1, 0, 'C');
+                    $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
+
+                    $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(6.5, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
+                    $pdf->Cell(2, 0.5, utf8_decode(''), 1, 1, 'C');
+                endfor;
+            endif;
+//
+//
+//endif;
+            for ($i = 0; $i < 5; $i++):
                 $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C');
                 $pdf->Cell(6.5, 0.5, utf8_decode(''), 1, 0, 'C');
@@ -327,18 +405,13 @@ if (isset($get)):
             $pdf->Cell(13.5, 0.5, utf8_decode('SERVIÇOS REALIZADOS'), 1, 1, 'C');
 
             $pdf->Cell(3.5, 0.5, utf8_decode(''), 1, 0, 'C', true);
-//$pdf->Cell(4, 0.5, utf8_decode('HORAS CÉLULA'), 1, 0, 'C');
             $pdf->Cell(4, 0.5, utf8_decode('CÉLULA'), 1, 0, 'C');
-//$pdf->Cell(2, 0.5, utf8_decode('HS MOTOR'), 1, 0, 'C');
-//$pdf->Cell(4, 0.5, utf8_decode('CICLO MOTOR'), 1, 0, 'C');
             $pdf->Cell(6, 0.5, utf8_decode('MOTOR'), 1, 0, 'C');
-//$pdf->Cell(4, 0.5, utf8_decode('CICLO MOTOR'), 1, 0, 'C');
             $pdf->Cell(13.5, 0.5, utf8_decode(''), 1, 1, 'C');
 
             $pdf->Cell(3.5, 0.5, utf8_decode(''), 1, 0, 'C', true);
             $pdf->Cell(2, 0.5, utf8_decode('HORAS'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('POUSOS'), 1, 0, 'C');
-//$pdf->Cell(2, 0.5, utf8_decode('MOTOR'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('HORAS'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('NG'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('NTL'), 1, 0, 'C');
@@ -352,14 +425,16 @@ if (isset($get)):
             $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(13.5, 0.5, utf8_decode(''), 1, 1, 'C');
 
+            $pdf->SetFontSize(8);
             $pdf->Cell(3.5, 0.5, utf8_decode('Do dia'), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
-            $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalHora), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalPousos), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalHora), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalNg), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalNtl), 1, 0, 'C');
             $pdf->Cell(13.5, 0.5, utf8_decode(''), 1, 1, 'C');
 
+            $pdf->SetFontSize(8);
             $pdf->Cell(3.5, 0.5, utf8_decode('Total'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
@@ -501,28 +576,5 @@ if (isset($get)):
 
         endforeach;
     endif;
-
-//$pdf->Cell(19, 1, '', 0, 1, 'C');
-//$pdf->Cell(3, 1, utf8_decode('Nº VOO'), 0, 0, 'C', '');
-//$pdf->Cell(8, 1, utf8_decode('ID_AERO'), 0, 0, 'C', '');
-//$pdf->Cell(3, 1, utf8_decode('T. TEMPO VOO'), 0, 0, 'C', '');
-//$pdf->Cell(2, 1, utf8_decode('T. POUSOS'), 0, 0, 'C', '');
-//$pdf->Cell(3, 1, utf8_decode('COMB.'), 0, 1, 'C', '');
-//$pdf->SetTextColor(0, 0, 0);
-//------------------    FIM DO CABEÇALHO    -------------------
-//if ($diario->getRowCount() > 0):
-//
-//    extract($diario->getResult()[0]);
-//    $pdf->Cell(3, 1, utf8_decode($numero_voo), 'T', 0, 'C', '');
-//    $pdf->Cell(8, 1, utf8_decode($idaeronave), 'T', 0, 'C', '');
-//    $pdf->Cell(3, 1, utf8_decode($tempo_total_de_voo), 'T', 0, 'C', '');
-//    $pdf->Cell(2, 1, utf8_decode($total_de_pousos), 'T', 0, 'C', '');
-//    $pdf->Cell(3, 1, utf8_decode($combustivel_total_consumido), 'T', 1, 'C', '');
-//
-//endif;
-//$pdf->Cell(19, 1, utf8_decode(''), 0, 1, 'C');
-//$pdf->Cell(19, 1, utf8_decode(''), 0, 1, 'C');
-//$pdf->Cell(19, 1, utf8_decode('Data/Hora de Emissão: ' . date('d / m / Y - H:i') . 'h'), 0, 1, 'R');
-
     $pdf->Output();
 endif;

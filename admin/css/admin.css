@@ -252,9 +252,17 @@ body.painel{background: url(../images/header_bg.png) repeat-x #fbfbfb;}
 }
 
 .celula{
-    background-color: #ccc;
+    background-color: #09f;
 }
 
-.motor{
-    background-color: #999;
+.motor1{
+    background-color: #33752c;
+}
+
+.motor2{
+    background-color: #71ca73;
+}
+
+.neutra{
+     background-color: #faf7b7;
 }

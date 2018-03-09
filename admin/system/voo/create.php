@@ -276,17 +276,17 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Diu:</span></label>
-                                <input class="form-control"  type="number" name="diurno" step="0.01" min="0" value=""/>
+                                <input class="formHourPilot form-control"  type="time" name="diurno" placeholder="00:00"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Not:</span></label>
-                                <input class="form-control"  type="number" name="noturno" step="0.01" min="0" value=""/>
+                                <input class="formHourPilot form-control"  type="time" name="noturno" placeholder="00:00"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Pousos:</span></label>
-                                <input id="pp" class="form-control"  type="number"  name="qtepouso"  min="0" value=""/>
+                                <input id="pp" class="form-control"  type="number"  name="qtepouso"  min="0" />
                             </div>
 
                             <div class="form-group col-md-2">

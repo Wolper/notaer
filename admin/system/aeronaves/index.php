@@ -49,16 +49,23 @@ $readAeronave = new Read;
                 <tr>
                     <th>Nome</th>
                     <th>Prefixo</th>
-                    <th>Modelo Célula</th>
-                    <th>Fabricante Célula</th>
+                    <td>Mod. Célula</th>
+                    <th>Fabr. Célula</th>
                     <th>SN Célula</th>
                     <th>Pousos</th>
-                    <th>Modelo Motor</th>
-                    <th>Fabricante Motor</th>
-                    <th>SN Motor</th>                           
-                    <th>NTL</th>
-                    <th>NG</th>
-                    <th>Horas de Voo</th>
+                    <th>Horas Célula</th>
+                    <th>Mod. M1</th>
+                    <th>Fabr. M1</th>
+                    <th>SN M1</th>                           
+                    <th>NTL M1</th>
+                    <th>NG M1</th>
+                    <th>Horas M1</th>
+                    <th>Mod. M2</th>
+                    <th>Fabr. M2</th>
+                    <th>SN M2</th>                           
+                    <th>NTL M2</th>
+                    <th>NG M2</th>
+                    <th>Horas M2</th>
                     <th style="color: blue;">Edição</th>
                     <th style="color: red;">Exclusão</th>
                 </tr>
@@ -75,20 +82,27 @@ $readAeronave = new Read;
                         extract($insp);
                         ?>
                         <tr>
-                            <td><?= $nomeAeronave ?></td>
-                            <td><?= $prefixoAeronave ?></td>
-                            <td><?= $modeloCelula ?></td>
-                            <td><?= $fabricanteCelula ?></td>
-                            <td><?= $serialCelula ?></td>
-                            <td><?= $pousos ?></td>
-                            <td><?= $modeloMotor ?></td>
-                            <td><?= $fabricanteMotor ?></td>
-                            <td><?= $serialMotor ?></td>
-                            <td><?= $ntl ?></td>
-                            <td><?= $ng ?></td>
-                            <td><?= $horasDeVooAeronave ?></td>
-                            <td><a   style="color: blue" class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $idAeronave; ?>" title="Editar">Editar</a></td>
-                            <td><a   style="color: red;" class="act_delete" href="painel.php?exe=aeronaves/index&emp=<?= $idAeronave; ?>&action=delete" title="Excluir">Deletar</a></td>
+                            <td class="neutra"><?= $nomeAeronave ?></td>
+                            <td class="neutra"><?= $prefixoAeronave ?></td>
+                            <td class="celula"><?= $modeloCelula ?></td>
+                            <td class="celula"><?= $fabricanteCelula ?></td>
+                            <td class="celula"><?= $serialCelula ?></td>
+                            <td class="celula"><?= $pousos ?></td>
+                             <td class="celula"><?= $horasDeVooAeronave ?></td>
+                            <td class="motor1"><?= $modeloMotor1 ?></td>
+                            <td class="motor1"><?= $fabricanteMotor1 ?></td>
+                            <td class="motor1"><?= $serialMotor1 ?></td>
+                            <td class="motor1"><?= $ntl1 ?></td>
+                            <td class="motor1"><?= $ng1 ?></td>
+                             <td class="motor1"><?= $horasMotor1 ?></td>
+                            <td class="motor2"><?= $modeloMotor2 ?></td>
+                            <td class="motor2"><?= $fabricanteMotor2 ?></td>
+                            <td class="motor2"><?= $serialMotor2 ?></td>
+                            <td class="motor2"><?= $ntl2 ?></td>
+                            <td class="motor2"><?= $ng2 ?></td>
+                            <td class="motor2"><?= $horasMotor2 ?></td>
+                            <td class="neutra"><a   style="color: blue" class="act_edit" href="painel.php?exe=aeronaves/update&catid=<?= $idAeronave; ?>" title="Editar">Editar</a></td>
+                            <td class="neutra"><a   style="color: red;" class="act_delete" href="painel.php?exe=aeronaves/index&emp=<?= $idAeronave; ?>&action=delete" title="Excluir">Deletar</a></td>
                         </tr>
 
                         <?php

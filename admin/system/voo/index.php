@@ -1,4 +1,4 @@
-<div class="content home" style="width: 80%;">
+<div class="content home" style="width: 100%;">
 
     <section class="list_emp">
         <?php

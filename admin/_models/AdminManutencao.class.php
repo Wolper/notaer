@@ -61,8 +61,8 @@ class AdminManutencao {
                 $this->vencimento_for_date = $cons['vencimento_for_date'];
                 $this->frequencia_for_date = $cons['frequencia_for_date'];
                 $this->horasDeVooAeronave = $cons['horasDeVooAeronave'];
-                $this->ntl = $cons['ntl'];
-                $this->ng = $cons['ng'];
+                $this->ntl = $cons['ntl1'];
+                $this->ng = $cons['ng1'];
 
                 $this->selecionaTC();
                 $this->ExeUpdate($cons['idInspecao'], $this->Data);

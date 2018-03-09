@@ -34,72 +34,112 @@ endif;
             <div class="row">
                 <div class="form-group col-md-4">
                     <label><span class="field">Nome:</span> </label>
-                    <input class="form-control" type="text" name="nomeAeronave" />
+                    <input class="form-control" type="text" name="nomeAeronave" required=""/>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 right">
                     <label><span class="field">Prefixo:</span></label> 
-                    <input class="form-control" type="text" name="prefixoAeronave" />
+                    <input class="form-control" type="text" name="prefixoAeronave" required=""/>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label><span class="field">Horas de Voo:</span> </label>
-                    <input class="formHour form-control" type="text" name="horasDeVooAeronave"  placeholder="00000:00"/>
-                </div>
             </div>
             <div class="row celula">
                 <h4 class="text-center text-primary">CÉLULA</h4>
                 <div class="form-group col-md-4">
                     <label><span class="field">Modelo:</span> </label>
-                    <input class="form-control" type="text" name="modeloCelula" />
+                    <input class="form-control" type="text" name="modeloCelula" required=""/>
                 </div>
 
                 <div class="col-md-4">
                     <label><span class="field">Fabricante:</span> </label>
-                    <input class="form-control" type="text" name="fabricanteCelula" />
+                    <input class="form-control" type="text" name="fabricanteCelula" required=""/>
                 </div>
 
                 <div class="col-md-4">
                     <label><span class="field">Serial Number:</span></label> 
-                    <input class="form-control" type="number" name="serialCelula" />
+                    <input class="form-control" type="number" name="serialCelula" required=""/>
                 </div>
-
+            </div>
+            <div class="row celula">
+                <div class="col-md-4">
+                    <label><span class="field">Tipo:</span> </label>
+                    <input class="form-control" type="text" name="tipoCelula" required=""/>
+                </div>
                 <div class="form-group col-md-4">
                     <label><span class="field">Pousos:</span></label> 
-                    <input class="form-control" type="number" name="pousos" min="0"/>
+                    <input class="form-control" type="number" name="pousos" min="0" required=""/>
+                </div>
+                <div class="form-group col-md-4 right">
+                    <label><span class="field">Horas de Voo:</span> </label>
+                    <input class="formHour form-control" type="text" name="horasDeVooAeronave"  placeholder="00000:00" required=""/>
                 </div>
             </div>
 
-            <div class=" row motor">
-                <h4 class="text-center text-capitalize">MOTOR</h4>
+            <div class="row motor1">
+                <h4 class="text-center text-capitalize">MOTOR 1</h4>
                 <div class="form-group col-md-4">
                     <label><span class="field">Modelo:</span> </label>
-                    <input class="form-control" type="text" name="modeloMotor" />
+                    <input class="form-control" type="text" name="modeloMotor1" required=""/>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label><span class="field">Fabricante:</span> </label>
-                    <input class="form-control" type="text" name="fabricanteMotor" />
+                    <input class="form-control" type="text" name="fabricanteMotor1" required=""/>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label><span class="field">Serial Number:</span></label> 
-                    <input class="form-control" type="number" name="serialMotor" />
+                    <input class="form-control" type="number" name="serialMotor1" required=""/>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label><span class="field">NTL:</span></label> 
-                    <input class="form-control" type="number" name="ntl" step="0.01" min="0" />
+                    <input class="form-control" type="number" name="ntl1" step="0.01" min="0" required=""/>
                 </div>
 
-                <div class="form-group col-md-4 right">
+                <div class="form-group col-md-4">
                     <label><span class="field">NG:</span></label> 
-                    <input class="form-control" type="number" name="ng" step="0.01" min="0"/>
+                    <input class="form-control" type="number" name="ng1" step="0.01" min="0" required=""/>
                 </div>
 
+                <div class="form-group col-md-4">
+                    <label><span class="field">Horas de Motor:</span> </label>
+                    <input class="formHour form-control" type="text" name="horasMotor1"  placeholder="00000:00" required=""/>
+                </div>
+            </div>
 
+            <div class="row motor2">
+                <h4 class="text-center text-right">MOTOR 2</h4>
+                <div class="form-group col-md-4">
+                    <label><span class="field">Modelo:</span> </label>
+                    <input class="form-control" type="text" name="modeloMotor2" />
+                </div>
 
-            </div><!--/line-->
+                <div class="form-group col-md-4">
+                    <label><span class="field">Fabricante:</span> </label>
+                    <input class="form-control" type="text" name="fabricanteMotor2" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Serial Number:</span></label> 
+                    <input class="form-control" type="number" name="serialMotor2" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">NTL:</span></label> 
+                    <input class="form-control" type="number" name="ntl2" step="0.01" min="0" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">NG:</span></label> 
+                    <input class="form-control" type="number" name="ng2" step="0.01" min="0"/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="field">Horas de Motor:</span> </label>
+                    <input class="formHour form-control" type="text" name="horasMotor2"  placeholder="00000:00"/>
+                </div>
+            </div>
 
                                   <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
             <input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />
