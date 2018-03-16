@@ -89,6 +89,18 @@
                     </div>
 
                     <div class="form-group col-md-3">
+                        <label><span class="field">Previsão Limite:</span> </label>
+                        <select class="form-control" name="limiteInspecao" required>
+                            <option disabled="" selected=""><?= $data['limiteInspecao'] ?></option>
+                            <option value="10">10%</option>                        
+                            <option value="15">15%</option>                        
+                            <option value="20">20%</option>                        
+                            <option value="25">25%</option>                        
+                            <option value="30">30%</option>                        
+                        </select>
+                    </div>
+                    
+                    <div class="form-group col-md-3">
                         <label><span class="field">TC:</span> </label>
                         <select class="form-control" name="tcInspecao">
                             <option><?= $data['tcInspecao'] ?></option>

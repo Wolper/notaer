@@ -22,6 +22,7 @@ class AdminManutencao {
     private $frequencia_for_date;
     private $vencimento_for_date;
     private $horasDeVooAeronave;
+    private $limiteInspecao;
     private $ntl;
     private $ng;
 
@@ -49,6 +50,7 @@ class AdminManutencao {
         if (!$readRegVoo->getRowCount() > 0):
             return 'Ainda não há dados das aeronaves cadastrados';
         else:
+
             foreach ($readRegVoo->getResult() as $cons):
 
                 $this->tcInspecao = $cons['tcInspecao'];
@@ -61,15 +63,98 @@ class AdminManutencao {
                 $this->vencimento_for_date = $cons['vencimento_for_date'];
                 $this->frequencia_for_date = $cons['frequencia_for_date'];
                 $this->horasDeVooAeronave = $cons['horasDeVooAeronave'];
+                $this->limiteInspecao = $cons['limiteInspecao'];
                 $this->ntl = $cons['ntl1'];
                 $this->ng = $cons['ng1'];
 
                 $this->selecionaTC();
                 $this->ExeUpdate($cons['idInspecao'], $this->Data);
 
-
             endforeach;
         endif;
+    }
+
+    public static function somaTime($time) {
+        $tempo = explode(':', $time);
+        return ($tempo[0] * 60) + $tempo[1];
+    }
+
+    public static function formataTime($time) {
+        $hora = explode('.', $time);
+        $difMinutos = $time - $hora[0];
+        $minuto = ($difMinutos * 60);
+        return $hora[0] . ':' . self::acrescentaZeroNoTime($minuto);
+    }
+
+    public static function acrescentaZeroNoTime($time) {
+        if (strlen($time) < 2):
+            return $time = '0' . $time;
+        else:
+            return $time;
+        endif;
+    }
+
+    /* @disponibilidadeDataLimite
+     * Esta Função subtrai as datas de vencimento e instalação de uma inspeção 
+     * averiguando o fator multiplicativo (percentual) de limite de alerta e retorna
+     * true ou false para alertas
+     */
+
+    public static function disponibilidadeDataLimite($dataInst, $dataVenc, $limite) {
+        $inst = new DateTime($dataInst);
+        $venc = new DateTime($dataVenc);
+        $interval1 = $venc->diff($inst);
+        $limitePercentual = $venc->format(($interval1->y * 365) + ($interval1->m * 30) + $interval1->d) * ($limite * 0.01);
+
+        $disp = new DateTime(date('Y-m-d'));
+        $interval2 = $disp->diff($venc);
+
+        $tempoAteVenc = $interval2->format(($interval2->y * 365) + ($interval2->m * 30) + $interval2->d);
+        $total = $tempoAteVenc - $limitePercentual;
+
+        if ($interval2->invert === 1):
+            $alerta = 2;
+        elseif ($total < 0 && $interval2->invert === 0):
+            $alerta = 1;
+        else:
+            $alerta = 0;
+        endif;
+
+        if ($dataVenc === '' || is_null($dataVenc)):
+            $alerta = 0;
+        endif;
+
+        return $alerta;
+    }
+
+//    public static function retornaDias($dataVenc) {
+//        $venc = new DateTime($dataVenc);
+//        $disp = new DateTime(date('Y-m-d'));
+//        $interval = $disp->diff($venc);
+//        return ceil(($interval->format(($interval->y * 365) + ($interval->m * 30) + $interval->d)));
+//    }
+
+    public static function disponibilidadeTempoLimite($tempInst, $tempVenc, $tempAero, $limite) {
+        if ($tempInst === '' || is_null($tempInst)):
+            $alerta = 0;
+        else:
+            $horasInst = explode(':', $tempInst);
+            $horasVenc = explode(':', $tempVenc);
+            $horasAero = explode(':', $tempAero);
+            $limitePercentual = (((float) $horasVenc[0] * 60 + (float) $horasVenc[1]) - ((float) $horasInst[0] * 60 + (float) $horasInst[1])) * (float) ($limite * 0.01);
+            $tempoAteVenc = (($horasVenc[0] * 60 + $horasVenc[1]) - ($horasAero[0] * 60 + $horasAero[1]));
+            $timeTotal = $tempoAteVenc - $limitePercentual;
+
+            if ($tempoAteVenc < $limitePercentual):
+                $alerta = 2;
+            elseif ($timeTotal < 0):
+                $alerta = 1;
+            else:
+                $alerta = 0;
+            endif;
+        endif;
+
+        return $alerta;
     }
 
     private function selecionaTC() {
@@ -113,40 +198,19 @@ class AdminManutencao {
         $tempoVenc = (int) ($hora[0] * 60 + $hora[1]) + ((int) $this->frequencia_for_time * 60) - ((int) $tsn[0] * 60 + (int) $tso[0] * 60);
         $tempoVenc /= 60;
 
-        $vencInt = intval($tempoVenc);
-        $vencFloat = ($tempoVenc - $vencInt);
-        $vencFloat *= 60;
-
-        if ($vencFloat === 0):
-            $Data['vencimento_for_time'] = $vencInt . ':00';
-        else:
-            $Data['vencimento_for_time'] = $vencInt . ':' . intval($vencFloat);
-        endif;
+        $Data['vencimento_for_time'] = self::formataTime(floor($tempoVenc));
         $Data['vencimento_for_date'] = NULL;
 
         if (isset($this->vencimento_for_time)):
             $horasAero = explode(':', $this->horasDeVooAeronave);
-            $in_anv = explode(':', $this->in_anvInspecao);
-
             $kmAero = (int) $horasAero[0] * 60 + (int) $horasAero[1];
-
             $tempoVenc *= 60;
 
             $totalMinutos = $tempoVenc - $kmAero;
             $totalMinutos /= 60;
 
-            $dispInt = intval($totalMinutos);
-            $dispFloat = (floatval($totalMinutos) - $dispInt);
-            $dispFloat *= 60;
-            $disponivelFloat = intval($dispFloat);
 
-            if ($dispFloat === 0):
-                $Data['disponivel_for_time'] = $dispInt . ':00';
-            elseif (strlen($disponivelFloat) === 1):
-                $Data['disponivel_for_time'] = $dispInt . ':0' . $disponivelFloat;
-            else:
-                $Data['disponivel_for_time'] = $dispInt . ':' . $disponivelFloat;
-            endif;
+            $Data['disponivel_for_time'] = self::formataTime(floor($totalMinutos));
             $Data['disponivel_for_date'] = NULL;
         endif;
 
@@ -199,15 +263,7 @@ class AdminManutencao {
         $tempoVenc = (int) ($hora[0] * 60 + $hora[1]) + ((int) $this->frequencia_for_time * 60) - ((int) $tsn[0] * 60 + (int) $tso[0] * 60);
         $tempoVenc /= 60;
 
-        $vencInt = intval($tempoVenc);
-        $vencFloat = ($tempoVenc - $vencInt);
-        $vencFloat *= 60;
-
-        if ($vencFloat === 0):
-            $Data['vencimento_for_time'] = $vencInt . ':00';
-        else:
-            $Data['vencimento_for_time'] = $vencInt . ':' . intval($vencFloat);
-        endif;
+        $Data['vencimento_for_time'] = self::formataTime(floor($tempoVenc));
         $Data['vencimento_for_date'] = NULL;
 
         if (isset($this->vencimento_for_time)):
@@ -221,18 +277,7 @@ class AdminManutencao {
             $totalMinutos = $tempoVenc - $kmAero;
             $totalMinutos /= 60;
 
-            $dispInt = intval($totalMinutos);
-            $dispFloat = (floatval($totalMinutos) - $dispInt);
-            $dispFloat *= 60;
-            $disponivelFloat = intval($dispFloat);
-
-            if ($dispFloat === 0):
-                $Data['disponivel_for_time'] = $dispInt . ':00';
-            elseif (strlen($disponivelFloat) === 1):
-                $Data['disponivel_for_time'] = $dispInt . ':0' . $disponivelFloat;
-            else:
-                $Data['disponivel_for_time'] = $dispInt . ':' . $disponivelFloat;
-            endif;
+            $Data['disponivel_for_time'] = self::formataTime(floor($totalMinutos));
             $Data['disponivel_for_date'] = NULL;
         endif;
 
@@ -272,15 +317,7 @@ class AdminManutencao {
         endif;
         $tempoVenc /= 60;
 
-        $vencInt = intval($tempoVenc);
-        $vencFloat = ($tempoVenc - $vencInt);
-        $vencFloat *= 60;
-
-        if ($vencFloat === 0):
-            $Data['vencimento_for_time'] = $vencInt . ':00';
-        else:
-            $Data['vencimento_for_time'] = $vencInt . ':' . intval($vencFloat);
-        endif;
+        $Data['vencimento_for_time'] = self::formataTime(floor($tempoVenc));
         $Data['vencimento_for_date'] = NULL;
 
 
@@ -295,21 +332,7 @@ class AdminManutencao {
 
             $totalMinutos = $tempoVenc - $kmAero;
             $totalMinutos /= 60;
-
-            $dispInt = intval($totalMinutos);
-            $dispFloat = (floatval($totalMinutos) - $dispInt);
-            $dispFloat *= 60;
-            $disponivelFloat = intval($dispFloat);
-            $findme = '-8';
-            $pos = strpos($disponivelFloat, $findme);
-
-            if ($dispFloat === 0):
-                $Data['disponivel_for_time'] = $dispInt . ':00';
-            elseif (strlen($disponivelFloat) === 1 && !$pos):
-                $Data['disponivel_for_time'] = $dispInt . ':0' . $disponivelFloat;
-            else:
-                $Data['disponivel_for_time'] = $dispInt . ':' . $disponivelFloat;
-            endif;
+            $Data['disponivel_for_time'] = self::formataTime(floor($totalMinutos));
             $Data['disponivel_for_date'] = NULL;
         endif;
 

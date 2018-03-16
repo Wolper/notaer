@@ -1,5 +1,5 @@
 <div class="content home" style="width: 80%;">
-    <h1>Controle de Inspeções:</h1>
+    <h1>Controle de Alertas de Inspeções:</h1>
     <div class="table-responsive">
         <?php
         require './_models/AdminManutencao.class.php';
@@ -64,7 +64,7 @@
 
                         <?php
                         $readInsp = new Read();
-                        $readInsp->FullRead("SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.idtipoinspecao = ti.id_tipo_inspecao WHERE i.idAeronave = '" . $get['aeronave'] . "' AND ti.tipoInspecao = '" . $get['tipoInspecao'] . "'");
+                        $readInsp->FullRead("SELECT * FROM aeronave AS aero JOIN (SELECT * FROM inspecao AS i JOIN tipo_inspecao AS ti ON i.idtipoinspecao = ti.id_tipo_inspecao WHERE i.idAeronave = '" . $get['aeronave'] . "' AND ti.tipoInspecao = '" . $get['tipoInspecao'] . "') AS insp ON aero.idAeronave = '" . $get['aeronave'] . "'");
 
                         if (!$readInsp->getRowCount() > 0):
                             echo 'Ainda não há dados das aeronaves cadastrados';
@@ -73,74 +73,76 @@
 
                                 extract($query);
 
-                                $v = new DateTime($vencimento_for_date);
-                                $disp = new DateTime(date('Y-m-d'));
-                                $dif = $disp->diff($v);
-                                $y = $dif->format($dif->y);
-                                $m = $dif->format($dif->m);
-                                $di = $dif->format($dif->d);
+                                $alerta = AdminManutencao::disponibilidadeDataLimite($in_dataInspecao, $vencimento_for_date, $limiteInspecao);
 
-                                $d = explode(':', $disponivel_for_time);
-
-                                if (!isset($d[1])):
-                                    $d[1] = 0;
-                                endif;
-
-                                if ($disponivel_for_time !== null):
-                                    if ($d[0] < '0' || $d[1] < '0'):
-                                        echo '<tr style="background: #EE0000">';
-                                    elseif ($d[0] <= '10' && $d[0] >= '0'):
-                                        echo '<tr style="background: #FFE7A1">';
-                                    elseif ($d[0] > '10'):
-                                        echo '<tr style="background: #4cae4c">';
-                                    endif;
-                                endif;
-
-                                if ($disponivel_for_date !== null):
-                                    if ($y === '0' && $m === '0' && $di < '0'):
-                                        echo '<tr style="background: #EE0000">';
-                                    elseif ($y === '0' && $m === '0' && $di <= '10'):
-                                        echo '<tr style="background: #FFE7A1">';
-                                    elseif ($y > '0' || $m > '0' || $di > '10'):
-                                        echo '<tr style="background: #4cae4c">';
-                                    endif;
-                                endif;
-
-                                if ($disponivel_for_date !== null && $disponivel_for_time !== null):
-                                    if (($y === '0' && $m === '0' && $di < '0') || ($d[0] < '0' || $d[1] < '0')):
-                                        echo '<tr style="background: #EE0000">';
-                                    elseif (($y === '0' && $m === '0' && $di <= '10') || ($d[0] <= '10' && $d[0] >= '0')):
-                                        echo '<tr style="background: #FFE7A1">';
-                                    elseif (($y > '0' || $m > '0' || $di > '10') || ($d[0] > '10')):
-                                        echo '<tr style="background: #4cae4c">';
-                                    endif;
-                                endif;
-
-                                echo '<td>' . (str_replace('-', ' ', $descricaoInspecao)) . '</td>';
-                                echo '<td>' . $pnInspecao . '</td>';
-                                echo '<td>' . $snInspecao . '</td>';
-                                echo '<td>' . $tlInspecao . '</td>';
-                                echo '<td>' . $tcInspecao . '</td>';
-                                echo '<td>' . $frequencia_for_time . '</td>';
-                                echo '<td>' . $frequencia_for_date . '</td>';
-                                echo '<td>' . $in_anvInspecao . '</td>';
-                                $inData = explode('-', $in_dataInspecao);
-                                echo '<td>' . $inData[2] . '/' . $inData[1] . '/' . $inData[0] . '</td>';
-                                echo '<td>' . $in_tsnInspecao . '</td>';
-                                echo '<td>' . $in_tsoInspecao . '</td>';
-                                echo '<td>' . $vencimento_for_time . '</td>';
-
-                                if (isset($vencimento_for_date)):
-                                    $inVencData = explode('-', $vencimento_for_date);
-                                    echo '<td>' . $inVencData[2] . '/' . $inVencData[1] . '/' . $inVencData[0] . '</td>';
+                                if ($in_tsoInspecao !== ''):
+                                    $horaComputada = $in_tsoInspecao;
+                                elseif ($in_tsnInspecao !== '' && $in_tsoInspecao === ''):
+                                    $horaComputada = $in_tsnInspecao;
+                                elseif ($in_anvInspecao !== ''):
+                                    $horaComputada = $in_anvInspecao;
                                 else:
-                                    echo '<td></td>';
+                                    $horaComputada = '';
                                 endif;
-                                echo '<td>' . $disponivel_for_time . '</td>';
-                                echo '<td>' . $disponivel_for_date . '</td>';
-                                echo '<td><input type="checkbox" name="descricaoInspecao[]" value="' . $descricaoInspecao . '" /></td>';
-                                echo '</tr>';
+
+                                $alerta2 = AdminManutencao::disponibilidadeTempoLimite($horaComputada, $vencimento_for_time, $horasDeVooAeronave, $limiteInspecao);
+
+                                if ($alerta >= 1 || $alerta2 >= 1):
+
+                                  
+                                    if ($disponivel_for_time !== null):
+                                        if ($alerta === 2 || $alerta2 === 2):
+                                            echo '<tr style="background: #EE0000">';
+                                        elseif ($alerta === 1 || $alerta2 === 1):
+                                            echo '<tr style="background: #FFE7A1">';
+                                        endif;
+                                    endif;
+
+                                    if ($disponivel_for_date !== null):
+                                        if ($alerta === 2 || $alerta2 === 2):
+                                            echo '<tr style="background: #EE0000">';
+                                        elseif ($alerta === 1 || $alerta2 === 1):
+                                            echo '<tr style="background: #FFE7A1">';
+
+                                        endif;
+                                    endif;
+
+                                    if ($disponivel_for_date !== null && $disponivel_for_time !== null):
+
+                                        if ($alerta === 2 || $alerta2 === 2):
+                                            echo '<tr style="background: #EE0000">';
+                                        elseif ($alerta === 1 || $alerta2 === 1):
+                                            echo '<tr style="background: #FFE7A1">';
+
+                                        endif;
+                                    endif;
+
+                                    echo '<td>' . (str_replace('-', ' ', $descricaoInspecao)) . '</td>';
+                                    echo '<td>' . $pnInspecao . '</td>';
+                                    echo '<td>' . $snInspecao . '</td>';
+                                    echo '<td>' . $tlInspecao . '</td>';
+                                    echo '<td>' . $tcInspecao . '</td>';
+                                    echo '<td>' . $frequencia_for_time . '</td>';
+                                    echo '<td>' . $frequencia_for_date . '</td>';
+                                    echo '<td>' . $in_anvInspecao . '</td>';
+                                    $inData = explode('-', $in_dataInspecao);
+                                    echo '<td>' . $inData[2] . '/' . $inData[1] . '/' . $inData[0] . '</td>';
+                                    echo '<td>' . $in_tsnInspecao . '</td>';
+                                    echo '<td>' . $in_tsoInspecao . '</td>';
+                                    echo '<td>' . $vencimento_for_time . '</td>';
+
+                                    if (isset($vencimento_for_date)):
+                                        $inVencData = explode('-', $vencimento_for_date);
+                                        echo '<td>' . $inVencData[2] . '/' . $inVencData[1] . '/' . $inVencData[0] . '</td>';
+                                    else:
+                                        echo '<td></td>';
+                                    endif;
+                                    echo '<td>' . $disponivel_for_time . '</td>';
+                                    echo '<td>' . $disponivel_for_date . '</td>';
+                                    echo '<td><input type="checkbox" name="descricaoInspecao[]" value="' . $descricaoInspecao . '" /></td>';
+                                    echo '</tr>';
 //                                echo '<input type="hidden" name="itensInspecao[]" value="' . $itensInspecao . '" />';
+                                endif;
                             endforeach;
 
                         endif;

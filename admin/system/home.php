@@ -3,7 +3,7 @@
     <article>
 
         <header>
-            <h1>Controle de Inspeções:</h1>
+            <h1>Controle de Alertas de Inspeções:</h1>
         </header>
 
         <?php

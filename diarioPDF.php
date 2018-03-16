@@ -3,6 +3,7 @@
 define('FPDF', 'FONTPATH', 'font/');
 require('./_app/Config.inc.php');
 require './admin/pdf/fpdf.php';
+require './admin/_models/AdminManutencao.class.php';
 header("Content-type: text/html; charset=utf-8");
 
 $get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
@@ -19,6 +20,7 @@ if (isset($get)):
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->SetTitle('Diário de bordo', $isUTF8 = TRUE);
     date_default_timezone_set('America/Sao_Paulo');
+    $pdf->SetFillColor(200, 200, 200);
     $mes = date('m');
     if ($diario->getRowCount() > 0):
         foreach ($diario->getResult() as $result):
@@ -90,7 +92,6 @@ if (isset($get)):
             $pdf->Cell(9, 0.5, utf8_decode('Célula '), 1, 0, 'C');
             $pdf->Cell(3, 0.5, utf8_decode('Motor '), 1, 0, 'C');
             $pdf->Cell(10, 0.5, utf8_decode('Geral '), 1, 1, 'C');
-
 
             $pdf->SetFont('Arial', 'B', 8);
 
@@ -170,7 +171,6 @@ if (isset($get)):
                         foreach ($readEtapas->getResult() as $etapas):
                             extract($etapas);
 
-
                             $pdf->Cell(0.30, 0.5, utf8_decode($i), 1, 0, 'C');
                             $pdf->Cell(2.35, 0.5, utf8_decode($origem), 1, 0, 'C');
                             $pdf->Cell(2.35, 0.5, utf8_decode($destino), 1, 0, 'C');
@@ -193,25 +193,20 @@ if (isset($get)):
                             $pou = mktime($pouso[0], $pouso[1], 0, $data_voo[2], $data_voo[1], $data_voo[0]);
                             $dec = mktime($decolagem[0], $decolagem[1], 0, $data_voo[2], $data_voo[1], $data_voo[0]);
                             $totalTime += ($pou - $dec) / 3600;
+                            $horasMotor1 = AdminManutencao::formataTime(($pou - $dec) / 3600);
 //                  ------------------------------------------------------------
-//                            DIURNO
-                            $diurno = explode(':', $diurno);
-                            $di = ($diurno[0] * 60) + $diurno[1];
-
+//                          DIURNO                        
+                            $di = AdminManutencao::somaTime($diurno);
                             $totalDiurno += ($di / 60);
-                            $minutosD = ($totalDiurno - intval($totalDiurno)) * 60;
-//                            -------------------------
-//                            NOTURNO
-                            $noturno = explode(':', $noturno);
-                            $no = ($noturno[0] * 60) + $noturno[1];
-
+//                          ----------------------------------------------------
+//                          NOTURNO
+                            $no = AdminManutencao::somaTime($noturno);
                             $totalNoturno += ($no / 60);
-                            $minutosN = ($totalNoturno - intval($totalNoturno)) * 60;
-//                            ------------------------
-//                            HORAS/PILOTO = DIURNO + NOTURNO
+//                          ----------------------------------------------------
+//                          HORAS/PILOTO = DIURNO + NOTURNO
                             $totalHorasPiloto = ($di + $no) / 60;
                             $minutos = ($totalHorasPiloto - intval($totalHorasPiloto)) * 60;
-                            $totalHorasPiloto = intval($totalHorasPiloto) . ':' . $minutos;
+                            $totalHorasPiloto = intval($totalHorasPiloto) . ':' . AdminManutencao::acrescentaZeroNoTime($minutos);
 //                  ------------------------------------------------------------                  
 
                             $pdf->Cell(1, 0.5, utf8_decode($totalHorasPiloto), 1, 0, 'C');
@@ -274,44 +269,26 @@ if (isset($get)):
             $pdf->SetXY(1, 13.5);
             $pdf->Cell(5, 0.5, utf8_decode('Total'), 1, 0, 'C');
 
-
-            $hora = explode('.', $totalTime);
-            $difMinutos = $totalTime - $hora[0];
-            $minuto = ($difMinutos * 60);
-            $totalTime = $hora[0] . ':' . $minuto;
-
-            $horaD = explode('.', $totalDiurno);
-            $difMinutosD = $totalDiurno - $horaD[0];
-            $minutoD = ($difMinutosD * 60);
-            $totalD = $horaD[0] . ':' . $minutoD;
-
-            $horaN = explode('.', $totalNoturno);
-            $difMinutosN = $totalNoturno - $horaN[0];
-            $minutoN = ($difMinutosN * 60);
-            $totalN = $horaN[0] . ':' . $minutoN;
+            $totalT = AdminManutencao::formataTime($totalTime);
+            $totalD = AdminManutencao::formataTime($totalDiurno);
+            $totalN = AdminManutencao::formataTime($totalNoturno);
 
             $totalDiNot = $totalDiurno + $totalNoturno;
-            $horaDN = explode('.', $totalDiNot);
-            $difMinutosDN = $totalDiNot - $horaDN[0];
-            $minutoDN = ($difMinutosDN * 60);
-            $totalDN = $horaDN[0] . ':' . $minutoDN;
-
-//            $totalDiurno = intval($totalDiurno) . ':' . $minutosD;
+            $totalDN = AdminManutencao::formataTime($totalDiNot);
 
             $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C', true);
-            $pdf->Cell(2, 0.5, utf8_decode($totalTime . 'h'), 1, 0, 'C');
+            $pdf->Cell(2, 0.5, utf8_decode($totalT . 'h'), 1, 0, 'C');
             $pdf->Cell(1, 0.5, utf8_decode(''), 1, 0, 'C', true);
 
             $pdf->Cell(1, 0.5, utf8_decode($totalD . 'h'), 1, 0, 'C');
             $pdf->Cell(1, 0.5, utf8_decode($totalN . 'h'), 1, 0, 'C');
             $pdf->Cell(1, 0.5, utf8_decode($totalDN . 'h'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode($totalPousos), 1, 0, 'C');
-            $pdf->Cell(1.2, 0.5, utf8_decode('h'), 1, 0, 'C');
+            $pdf->Cell(1.2, 0.5, utf8_decode($totalT . 'h'), 1, 0, 'C');
             $pdf->Cell(0.9, 0.5, utf8_decode($totalNg), 1, 0, 'C');
             $pdf->Cell(0.9, 0.5, utf8_decode($totalNtl), 1, 0, 'C');
 
-            $pdf->Cell(1.5, 0.5, utf8_decode(''), 1, 0, 'C', true);
-            $pdf->Cell(8.5, 0.5, utf8_decode(''), 1, 1, 'C', true);
+            $pdf->Cell(10, 0.5, utf8_decode(''), 1, 1, 'C', true);
 
             $pdf->Cell(27, 0.5, utf8_decode('Ocorrências: '), 1, 1, 'L');
             $pdf->Cell(27, 0.5, utf8_decode(''), 1, 1, 'L');
@@ -330,8 +307,8 @@ if (isset($get)):
             $pdf->Cell(9, 0.5, utf8_decode('Horas de voo do dia: '), 1, 0, 'L');
             $pdf->Cell(9, 0.5, utf8_decode('Horas de voo final: '), 1, 1, 'L');
             $pdf->Cell(9, 0.5, utf8_decode('Horas de célula anterior: '), 1, 0, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula do dia: ' . $totalHora), 1, 0, 'L');
-            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula total: '), 1, 0, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula do dia: ' . $totalT), 1, 0, 'L');
+            $pdf->Cell(9, 0.5, utf8_decode('Horas de célula total: '.$horasDeVooAeronave), 1, 0, 'L');
 
 //            **************************************
 //            FIM DA PARTE DO CABEÇALHO DA 1ª PÁGINA
@@ -365,7 +342,7 @@ if (isset($get)):
 //--------------TRECHO DE ITERAÇÃO DE DISCREPÂNCIA E APROVAÇÃO DE SERVIÇO---------
             $readDisc = new Read;
             $readDisc->FullRead("SELECT * FROM (SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.id_voo WHERE data_do_voo = '" . $get['data'] . "' AND idaeronave = '" . $get['aeronave'] . "' GROUP BY v.numero_voo) AS vooetapa JOIN aeronave AS aero ON vooetapa.idaeronave = aero.idAeronave");
-
+            $pdf->SetFontSize(8);
             if ($readDisc->getRowCount() > 0):
 
                 for ($i = 0; $i < count($readDisc->getResult()); $i++):
@@ -400,16 +377,16 @@ if (isset($get)):
             endfor;
 
 //--------------FIM DO TRECHO DE ITERAÇÃO DE DISCREPÂNCIA E APROVAÇÃO DE SERVIÇO---------
-
+            $pdf->SetFontSize(10);
             $pdf->Cell(13.5, 0.5, utf8_decode('DADOS DE VOO'), 1, 0, 'C');
             $pdf->Cell(13.5, 0.5, utf8_decode('SERVIÇOS REALIZADOS'), 1, 1, 'C');
 
-            $pdf->Cell(3.5, 0.5, utf8_decode(''), 1, 0, 'C', true);
+            $pdf->Cell(3.5, 1, utf8_decode(''), 1, 0, 'C', true);
             $pdf->Cell(4, 0.5, utf8_decode('CÉLULA'), 1, 0, 'C');
             $pdf->Cell(6, 0.5, utf8_decode('MOTOR'), 1, 0, 'C');
             $pdf->Cell(13.5, 0.5, utf8_decode(''), 1, 1, 'C');
 
-            $pdf->Cell(3.5, 0.5, utf8_decode(''), 1, 0, 'C', true);
+            $pdf->Cell(3.5, 0.5, utf8_decode(''), 'L', 0, 'C', true);
             $pdf->Cell(2, 0.5, utf8_decode('HORAS'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('POUSOS'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode('HORAS'), 1, 0, 'C');
@@ -434,7 +411,7 @@ if (isset($get)):
             $pdf->Cell(2, 0.5, utf8_decode($totalNtl), 1, 0, 'C');
             $pdf->Cell(13.5, 0.5, utf8_decode(''), 1, 1, 'C');
 
-            $pdf->SetFontSize(8);
+            $pdf->SetFontSize(10);
             $pdf->Cell(3.5, 0.5, utf8_decode('Total'), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');
             $pdf->Cell(2, 0.5, utf8_decode(''), 1, 0, 'C');

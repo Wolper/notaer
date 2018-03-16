@@ -98,7 +98,9 @@ endif;
                             </ul>
                         </li>
 
-                        <li class="li"><a href="painel.php" target="_blank" class="opensub">Relatórios</a></li>
+                        <li class="li<?php if (in_array('manutencoes', $linkto)) echo ' active'; ?>"><a class="opensub"  href="painel.php?exe=homeRelatorio">Relatórios</a>
+
+                        </li>
                     </ul>
                 </nav>
 
