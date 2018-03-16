@@ -15,7 +15,7 @@
             $diario->FullRead("SELECT * FROM (SELECT * FROM voo AS v JOIN etapas_voo AS e ON v.idvoo = e.id_voo WHERE data_do_voo = '" . $post['data_do_voo'] . "' AND idaeronave = '" . $post['idaeronave'] . "' GROUP BY v.numero_voo) AS vooetapa JOIN aeronave AS aero ON vooetapa.idaeronave = aero.idAeronave");
 
             if ($diario->getRowCount() > 0):
-                header("Location: http://localhost/notaer/diarioPDF.php?data={$post['data_do_voo']}&aeronave={$post['idaeronave']}");
+                header("Location: ../diarioPDF.php?data={$post['data_do_voo']}&aeronave={$post['idaeronave']}");
             else:
                 WSErro("Não foi identificado diário de voo para esta data ou aeronave", WS_ALERT);
             endif;
