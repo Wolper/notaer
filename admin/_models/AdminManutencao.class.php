@@ -127,15 +127,22 @@ class AdminManutencao {
         return $alerta;
     }
 
-//    public static function retornaDias($dataVenc) {
-//        $venc = new DateTime($dataVenc);
-//        $disp = new DateTime(date('Y-m-d'));
-//        $interval = $disp->diff($venc);
-//        return ceil(($interval->format(($interval->y * 365) + ($interval->m * 30) + $interval->d)));
-//    }
+    public static function exibeCorAlerta($alerta, $alerta2) {
+         
+        if ($alerta === 2 || $alerta2 === 2):
+            $style = '<tr style="background: #EE0000">';
+        elseif ($alerta === 1 || $alerta2 === 1):
+            $style = '<tr style="background: #FFE7A1">';
+        else:
+            $style = '<tr style="background: #4cae4c">';
+        endif;
+        
+        return $style;
+    }
 
     public static function disponibilidadeTempoLimite($tempInst, $tempVenc, $tempAero, $limite) {
-        if ($tempInst === '' || is_null($tempInst)):
+        if (($tempInst === '' || is_null($tempInst) || is_null($tempVenc) || $tempVenc === '')):
+
             $alerta = 0;
         else:
             $horasInst = explode(':', $tempInst);

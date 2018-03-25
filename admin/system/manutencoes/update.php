@@ -77,7 +77,7 @@
 
                                 if ($in_tsoInspecao !== ''):
                                     $horaComputada = $in_tsoInspecao;
-                                elseif ($in_tsnInspecao !== '' && $in_tsoInspecao === ''):
+                                elseif ($in_tsnInspecao !== '' && ($in_tsoInspecao === '' || is_null($in_tsoInspecao))):
                                     $horaComputada = $in_tsnInspecao;
                                 elseif ($in_anvInspecao !== ''):
                                     $horaComputada = $in_anvInspecao;
@@ -89,32 +89,16 @@
 
                                 if ($alerta >= 1 || $alerta2 >= 1):
 
-                                  
                                     if ($disponivel_for_time !== null):
-                                        if ($alerta === 2 || $alerta2 === 2):
-                                            echo '<tr style="background: #EE0000">';
-                                        elseif ($alerta === 1 || $alerta2 === 1):
-                                            echo '<tr style="background: #FFE7A1">';
-                                        endif;
+                                        echo AdminManutencao::exibeCorAlerta($alerta, $alerta2);
                                     endif;
 
                                     if ($disponivel_for_date !== null):
-                                        if ($alerta === 2 || $alerta2 === 2):
-                                            echo '<tr style="background: #EE0000">';
-                                        elseif ($alerta === 1 || $alerta2 === 1):
-                                            echo '<tr style="background: #FFE7A1">';
-
-                                        endif;
+                                        echo AdminManutencao::exibeCorAlerta($alerta, $alerta2);
                                     endif;
 
                                     if ($disponivel_for_date !== null && $disponivel_for_time !== null):
-
-                                        if ($alerta === 2 || $alerta2 === 2):
-                                            echo '<tr style="background: #EE0000">';
-                                        elseif ($alerta === 1 || $alerta2 === 1):
-                                            echo '<tr style="background: #FFE7A1">';
-
-                                        endif;
+                                        echo AdminManutencao::exibeCorAlerta($alerta, $alerta2);
                                     endif;
 
                                     echo '<td>' . (str_replace('-', ' ', $descricaoInspecao)) . '</td>';

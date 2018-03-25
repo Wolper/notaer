@@ -12,6 +12,7 @@
         $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if ($data && $data['SendPostForm']):
+
             if ($_FILES) { // Verificando se existe o envio de arquivos.
                 $nome = strstr($_FILES['arquivo']['name'], '.', true);
                 $FileName = Check::Name($nome) . strrchr($_FILES['arquivo']['name'], '.');
@@ -48,6 +49,7 @@
             WSErro("A inspeção <b>{$data['descricaoInspecao']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT);
         endif;
         ?>
+
 
         <form name="PostForm" action="" method="post" enctype="multipart/form-data">
             <div id="form-top" class="form-group">
@@ -91,7 +93,7 @@
                     <div class="form-group col-md-3">
                         <label><span class="field">Previsão Limite:</span> </label>
                         <select class="form-control" name="limiteInspecao" required>
-                            <option disabled="" selected=""><?= $data['limiteInspecao'] ?></option>
+                            <option><?= $data['limiteInspecao'] ?></option>
                             <option value="10">10%</option>                        
                             <option value="15">15%</option>                        
                             <option value="20">20%</option>                        
@@ -99,7 +101,7 @@
                             <option value="30">30%</option>                        
                         </select>
                     </div>
-                    
+
                     <div class="form-group col-md-3">
                         <label><span class="field">TC:</span> </label>
                         <select class="form-control" name="tcInspecao">
@@ -119,7 +121,7 @@
                     <div class="row">
 
                         <?php
-                        if ($comp === false):
+                        if ($comp === 'false'):
                             ?> 
                             <div class="form-group col-md-3">
                                 <label><span class="field">Frequencia:</span></label>
@@ -145,7 +147,7 @@
 
                 <mark>Antes de anexar, renomeie o arquivo, caso haja pontos (.) na nomeclatura</mark></br>
                 <label><span class="field">Anexar Documentos:</span></label>
-                <input type="file" name="arquivo" />
+                <input type="file" name="arquivo" value="<?= $data['itensInspecao'] ?>" />
 
                     <!--<input type="submit" class="btn blue" value="Rascunho" name="SendPostForm" />-->
             <!--<input type="submit" class="btn green" value="Cadastrar" name="SendPostForm" />-->

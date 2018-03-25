@@ -144,11 +144,12 @@ class Upload {
 
     //Verifica e cria os diretórios com base em tipo de arquivo, ano e mês!
     private function CheckFolder($Folder) {
-        list($y, $m) = explode('/', date('Y/m'));
-        $this->CreateFolder("{$Folder}");
-        $this->CreateFolder("{$Folder}/{$y}");
-        $this->CreateFolder("{$Folder}/{$y}/{$m}/");
-        $this->Send = "{$Folder}/{$y}/{$m}/";
+//        list($y, $m) = explode('/', date('Y/m'));
+//        $this->CreateFolder("{$Folder}");
+//        $this->CreateFolder("{$Folder}/{$y}");
+//        $this->CreateFolder("{$Folder}/{$y}/{$m}/");
+//        $this->Send = "{$Folder}/{$y}/{$m}/";
+        $this->Send = "{$Folder}/";
     }
 
     //Verifica e cria o diretório base!
