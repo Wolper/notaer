@@ -74,6 +74,21 @@ class AdminManutencao {
         endif;
     }
 
+    public static function retornaTempoDeVoo($tempoDeVoo, $decolagem, $pouso) {
+        $dec = new DateTime($decolagem);
+        $pou = new DateTime($pouso);
+        $interval = $pou->diff($dec);
+
+        if (isset($tempoDeVoo)):
+            $tempoDeVoo->h = $tempoDeVoo->h + $interval->h;
+            $tempoDeVoo->i = $tempoDeVoo->i + $interval->i;
+        else:
+            $tempoDeVoo = $interval;
+        endif;
+        
+        return $tempoDeVoo;
+    }
+
     public static function somaTime($time) {
         $tempo = explode(':', $time);
         return ($tempo[0] * 60) + $tempo[1];
@@ -128,7 +143,7 @@ class AdminManutencao {
     }
 
     public static function exibeCorAlerta($alerta, $alerta2) {
-         
+
         if ($alerta === 2 || $alerta2 === 2):
             $style = '<tr style="background: #EE0000">';
         elseif ($alerta === 1 || $alerta2 === 1):
@@ -136,7 +151,7 @@ class AdminManutencao {
         else:
             $style = '<tr style="background: #4cae4c">';
         endif;
-        
+
         return $style;
     }
 

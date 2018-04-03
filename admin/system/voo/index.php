@@ -70,6 +70,7 @@
 
                         <?php
 //                        $readVoo->ExeRead("voo", "ORDER BY numero_voo ASC, data_do_voo ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
+//                        $readVoo->FullRead("SELECT * FROM voo AS v JOIN aeronave AS ae ON v.idaeronave = ae.idAeronave ORDER BY idvoo DESC, data_do_voo ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
                         $readVoo->FullRead("SELECT * FROM voo AS v JOIN aeronave AS ae ON v.idaeronave = ae.idAeronave ORDER BY idvoo DESC, data_do_voo ASC LIMIT :limit OFFSET :offset", "limit={$Pager->getLimit()}&offset={$Pager->getOffset()}");
 
                         if (!$readVoo->getRowCount() > 0):
@@ -81,7 +82,11 @@
                                 ?>
                                 <tr>
                                     <td><?= $numero_voo ?></td>
-                                    <td><?= $data_do_voo ?></td>
+                                    <?php
+                                    $data = explode('-', $data_do_voo);
+                                    ?>
+                                    <td><?= $data[2].'/'.$data[1].'/'.$data[0] ?></td>
+                                    <!--<td><?= $data_do_voo ?></td>-->
                                     <td><?= $nomeAeronave ?></td>
                                     <td><?= $comandante ?></td>
                                     <td><?= $copiloto ?></td>

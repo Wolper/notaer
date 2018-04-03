@@ -2,6 +2,7 @@
 
 require('../../_app/Config.inc.php');
 require '../_models/AdminAeronave.class.php';
+require '../_models/AdminManutencao.class.php';
 
 $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
@@ -37,7 +38,7 @@ if (isset($data) && isset($data['SendPostForm'])):
     $cadastraVoo->ExeCreate($dadosVoo);
 
     if (!$cadastraVoo->getResult()):
-        print_r($cadastraVoo->getResult());
+//        print_r($cadastraVoo->getResult());
         WSErro($cadastraVoo->getError()[0], $cadastraVoo->getError()[1]);
     else:
         require '../_models/AdminEtapaVoo.class.php';
@@ -83,6 +84,7 @@ if (isset($data) && isset($data['SendPostForm'])):
             else:
                 $tempoDeVoo = $interval;
             endif;
+//            $tempoDeVoo = AdminManutencao::retornaTempoDeVoo($tempoDeVoo, $dadosEtapa['decolagem'], $dadosEtapa['pouso']);
         endfor;
 
 

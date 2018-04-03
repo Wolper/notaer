@@ -387,12 +387,12 @@
 
                                 <div class="form-group col-md-2">
                                     <label><span class="field">Diu:</span></label>
-                                    <input class="formHourPilot form-control"  placeholder="00:00"  type="time" name="diurno<?= $indice ?>" value="<?= $data[$i + 1]['diurno'] ?>"/>
+                                    <input class="formHourPilot form-control"  placeholder="00:00"  type="text" name="diurno<?= $indice ?>" value="<?= $data[$i + 1]['diurno'] ?>"/>
                                 </div>
 
                                 <div class="form-group col-md-2">
                                     <label><span class="field">Not:</span></label>
-                                    <input class="formHourPilot form-control" placeholder="00:00" type="time" name="noturno<?= $indice ?>" value="<?= $data[$i + 1]['noturno'] ?>"/>
+                                    <input class="formHourPilot form-control" placeholder="00:00" type="text" name="noturno<?= $indice ?>" value="<?= $data[$i + 1]['noturno'] ?>"/>
                                 </div>
 
                                 <div class="form-group col-md-2">

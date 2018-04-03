@@ -16,7 +16,7 @@ $(function () {
             data: dados,
             dataType: 'json',
             success: function (json) {
-//                alert("painel.php?exe=voo/update&create=true&emp=" + json.idvoo);
+//                alert("painel.php?exe=voo/update&create=true&emp=" + json.id_voo);
                 window.location.replace("painel.php?exe=voo/update&create=true&emp=" + json.id_voo);
             }
         });

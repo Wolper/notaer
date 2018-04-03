@@ -14,18 +14,19 @@ require('../_app/Config.inc.php');
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/admin.css" />
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
         <script type="text/javascript" src="bootstrap/jquery.min.js"></script>
         <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
         <script type="text/javascript" src="system/inspecoes/script.js"></script>
         <script type="text/javascript" src="system/instalacoes/script.js"></script>
-   
-        
+
+
     </head>
     <body class="login">
 
         <div id="login">
             <div class="boxin">
-                <h1>Administrar Site</h1>
+                <h1>SisNotaer</h1>
 
                 <?php
                 $login = new Login(3);
@@ -45,9 +46,9 @@ require('../_app/Config.inc.php');
                     endif;
 
                 endif;
-
+                $post = filter_input(INPUT_POST, FILTER_DEFAULT);
                 $get = filter_input(INPUT_GET, 'exe', FILTER_DEFAULT);
-                if (!empty($get)):
+                if (!empty($get) && isset($post['Logar'])):
                     if ($get == 'restrito'):
                         WSErro('<b>Oppsss:</b> Acesso negado. Favor efetue login para acessar o painel!', WS_ALERT);
                     elseif ($get == 'logoff'):

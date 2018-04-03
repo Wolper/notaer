@@ -12,17 +12,17 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label><span class="field">Data do Voo:</span></label> 
-                        <input id="datavoo" class="form-control" type="date" name="data_do_voo" value=""/>
+                        <input id="datavoo" class="form-control" type="date" name="data_do_voo" required="" min="2018-01-01" max="2030-12-31"/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Número do Voo:</span> </label>
-                        <input class="form-control" type="text" name="numero_voo" value=""/>
+                        <input class="form-control" type="text" name="numero_voo" required=""/>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label><span class="field">Aeronave:</span></label>
-                        <select class="form-control j_loadcity" name="idaeronave">
+                        <select class="form-control j_loadcity" name="idaeronave" required="">
                             <option></option>
                             <?php
                             $readAero = new Read;
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="form-group col-md-3">
                     <label><span class="field">Comandante:</span></label>
-                    <select class="form-control j_loadcity" name="comandante">
+                    <select class="form-control j_loadcity" name="comandante" required="">
                         <option></option>
                         <?php
                         $readServ = new Read;
@@ -70,7 +70,7 @@
 
                 <div class="form-group  col-md-3">
                     <label><span class="field">Copiloto:</span></label>
-                    <select class="form-control j_loadcity" name="copiloto">
+                    <select class="form-control j_loadcity" name="copiloto" required="">
                         <option></option>
                         <?php
                         $readServ = new Read;
@@ -92,7 +92,7 @@
 
                 <div class="form-group col-md-3">
                     <label><span class="field">Top D:</span> </label>
-                    <select class="form-control j_loadcity" name="topD">
+                    <select class="form-control j_loadcity" name="topD" required="">
                         <option></option>
                         <?php
                         $readServ = new Read;
@@ -114,7 +114,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label><span class="field">Top E:</span></label>
-                    <select class="form-control j_loadcity" name="topE">
+                    <select class="form-control j_loadcity" name="topE" required="">
                         <option></option>
                         <?php
                         $readServ = new Read;
@@ -140,7 +140,7 @@
 
                 <div class="form-group col-md-12">
                     <label><span class="field">Natureza:</span></label>
-                    <select  class="form-control j_loadcity"  name="natureza">
+                    <select  class="form-control j_loadcity"  name="natureza" required="">
                         <option></option>
                         <option>A2 - Traslado</option>
                         <option>A3 - Experiência (Manutenção)</option>
@@ -197,7 +197,7 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Origem:</span></label>
-                                <input class="form-control" type="text" name="origem" value=""/>
+                                <input class="form-control" type="text" name="origem" required=""/>
 
 <!--                                <select class="form-control j_loadcity" name="origem"><option></option>
                                     
@@ -220,7 +220,7 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Destino:</span></label>
-                                <input class="form-control" type="text" name="destino" value=""/>
+                                <input class="form-control" type="text" name="destino" required=""/>
 <!--                            <select class="form-control j_loadcity" name="destino">
                                     <option></option>
                                 <?php
@@ -242,23 +242,23 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Partida:</span></label>
-                                <input class="form-control" type="time" name="partida" value=""/> 
+                                <input class="form-control" type="time" name="partida" required=""/> 
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Decolagem:</span></label>
-                                <input class="form-control decolagem" type="time" name="decolagem" value=""/>
+                                <input class="form-control decolagem" type="time" name="decolagem" required=""/>
 
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Pouso:</span></label>
-                                <input class="form-control pouso" type="time" name="pouso" value=""/>
+                                <input class="form-control pouso" type="time" name="pouso" required=""/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Corte:</span></label>
-                                <input class="form-control" type="time" name="corte" value=""/>
+                                <input class="form-control" type="time" name="corte" required=""/>
                             </div>
 
                         </div>
@@ -266,34 +266,33 @@
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">NG:</span></label>
-                                <input class="form-control"  type="number" name="ng" step="0.01" min="0" value=""/>
+                                <input class="form-control"  type="number" name="ng" step="0.01" min="0" required=""/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">NTL:</span></label>
-                                <input class="form-control"  type="number" name="ntl" step="0.01" min="0" value=""/>
+                                <input class="form-control"  type="number" name="ntl" step="0.01" min="0" required=""/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Diu:</span></label>
-                                <input class="formHourPilot form-control"  type="time" name="diurno" placeholder="00:00"/>
+                                <input class="formHourPilot form-control"  type="text" name="diurno" placeholder="00:00"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Not:</span></label>
-                                <input class="formHourPilot form-control"  type="time" name="noturno" placeholder="00:00"/>
+                                <input class="formHourPilot form-control"  type="text" name="noturno" placeholder="00:00"/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Pousos:</span></label>
-                                <input id="pp" class="form-control"  type="number"  name="qtepouso"  min="0" />
+                                <input id="pp" class="form-control"  type="number"  name="qtepouso"  min="0" required=""/>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label><span class="field">Gas:</span></label>
-                                <input id="cc" class="form-control"  type="number" name="combustivel_consumido" step="0.01" min="0" value=""/>
+                                <input id="cc" class="form-control"  type="number" name="combustivel_consumido" min="0" max="100" placeholder="em %" required=""/>
                             </div>
-
 
                         </div>
                     </div>

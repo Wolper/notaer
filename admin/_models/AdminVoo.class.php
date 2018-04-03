@@ -25,16 +25,16 @@ class AdminVoo {
      */
     public function ExeCreate(array $Data) {
         $this->Data = $Data;
-        if (in_array('', $this->Data)):
-            $this->Error = ["Erro ao Cadastrar: Para cadastrar voo, preencha todos os campos!", WS_ALERT];
-            $this->Result = false;
-        else:
+//        if (in_array('', $this->Data)):
+//            $this->Error = ["Erro ao Cadastrar: Para cadastrar voo, preencha todos os campos!", WS_ALERT];
+//            $this->Result = false;
+//        else:
             $this->setData();
 //            $this->setName();
 //            $this->sendCapa();
             $this->Create();
 
-        endif;
+//        endif;
     }
 
     /**

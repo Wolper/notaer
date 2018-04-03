@@ -33,7 +33,7 @@ endif;
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/admin.css" />
         <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="shortcut icon" href="images/brasaoNotaer.ico" />
         <script type="text/javascript" src="bootstrap/jquery.min.js"></script>
         <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
         <script type="text/javascript" src="__jsc/script.js"></script>
@@ -44,7 +44,7 @@ endif;
     <body class="painel">
 
         <header id="navadmin">
-            <div class="content">
+            <div class="content fundo">
 
                 <h1 class="logomarca">Pro Admin</h1>
 
