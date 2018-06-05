@@ -91,7 +91,12 @@ class AdminManutencao {
 
     public static function somaTime($time) {
         $tempo = explode(':', $time);
-        return ($tempo[0] * 60) + $tempo[1];
+        if(isset($tempo[1])):
+             return ($tempo[0] * 60) + $tempo[1];
+        else:
+            return ($tempo[0] * 60);
+        endif;
+        
     }
 
     public static function formataTime($time) {

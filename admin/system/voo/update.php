@@ -144,7 +144,7 @@
                         <option><?= $data[0]['comandante']; ?></option>
                         <?php
                         $readServ1 = new Read;
-                        $readServ1->ExeRead("servidor", "WHERE funcao = :func", "func=Comandante");
+                        $readServ1->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Comandante");
 
                         if ($readServ1->getRowCount()):
                             foreach ($readServ1->getResult() as $servidor):
@@ -168,7 +168,7 @@
                         <option><?= $data[0]['copiloto']; ?></option>
                         <?php
                         $readServ2 = new Read;
-                        $readServ2->ExeRead("servidor", "WHERE funcao = :func", "func=Copiloto");
+                        $readServ2->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Comandante");
 
                         if ($readServ2->getRowCount()):
                             foreach ($readServ2->getResult() as $servidor):
@@ -192,7 +192,7 @@
                       <option><?= $data[0]['topD']; ?></option>
                         <?php
                         $readServ3 = new Read;
-                        $readServ3->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
+                        $readServ3->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Tripulante");
 
                         if ($readServ3->getRowCount()):
                             foreach ($readServ3->getResult() as $servidor):
@@ -216,7 +216,7 @@
                      <option><?= $data[0]['topE']; ?></option>
                         <?php
                         $readServ4 = new Read;
-                        $readServ4->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
+                        $readServ4->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Tripulante");
 
                         if ($readServ4->getRowCount()):
                             foreach ($readServ4->getResult() as $servidor):
@@ -430,10 +430,10 @@
                     <label><span class="field">Qte Etapas:</span></label>
                     <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" value="<?= $data[0]['qte_etapas'] ?>" readonly=""/> 
                 </div>
-                <div class="form-group col-md-2">
+<!--                <div class="form-group col-md-2">
                     <label><span class="field">T. Gas Consumido:</span></label>
                     <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly=""  value="<?= $data[0]['combustivel_total_consumido'] ?>" step="0.01"/>
-                </div>
+                </div>-->
 
             </div>
             <!--/line-->    

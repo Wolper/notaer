@@ -57,7 +57,7 @@
                             <th>Natureza</th>
                             <th>Tempo Voo</th>
                             <th>Nº Pousos</th>                          
-                            <th>Combustível</th>                          
+                            <!--<th>Combustível</th>-->                          
                             <th>Histórico</th>                          
                             <th>Ocorrência</th>                          
                             <th>Discrepância</th>                          
@@ -93,7 +93,7 @@
                                     <td><?= $natureza ?></td>
                                     <td><?= $tempo_total_de_voo ?></td>
                                     <td><?= $total_de_pousos ?></td>
-                                    <td><?= $combustivel_total_consumido ?></td>
+                                    <!--<td><?= $combustivel_total_consumido ?></td>-->
                                     <td style="width: 300%"><?= $historico ?></td>
                                     <td><?= $ocorrencia ?></td>
                                     <td><?= $discrepancia ?></td>

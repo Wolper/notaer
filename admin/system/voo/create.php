@@ -52,7 +52,7 @@
                         <option></option>
                         <?php
                         $readServ = new Read;
-                        $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Comandante");
+                        $readServ->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Comandante");
 
                         if ($readServ->getRowCount()):
                             foreach ($readServ->getResult() as $servidor):
@@ -74,7 +74,7 @@
                         <option></option>
                         <?php
                         $readServ = new Read;
-                        $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Copiloto");
+                        $readServ->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Comandante");
 
                         if ($readServ->getRowCount()):
                             foreach ($readServ->getResult() as $servidor):
@@ -96,7 +96,7 @@
                         <option></option>
                         <?php
                         $readServ = new Read;
-                        $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
+                        $readServ->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Tripulante");
 
                         if ($readServ->getRowCount()):
                             foreach ($readServ->getResult() as $servidor):
@@ -118,7 +118,7 @@
                         <option></option>
                         <?php
                         $readServ = new Read;
-                        $readServ->ExeRead("servidor", "WHERE funcao = :func", "func=Tripulante");
+                        $readServ->ExeRead("servidor", "WHERE funcao = :func ORDER BY nome ASC", "func=Tripulante");
 
                         if ($readServ->getRowCount()):
                             foreach ($readServ->getResult() as $servidor):
@@ -316,10 +316,10 @@
                     <input id="qteEtapas" class="form-control"  type="text" name="qte_etapas" readonly="" value="1"/> 
                 </div>
 
-                <div class="form-group col-md-2">
+<!--                <div class="form-group col-md-2">
                     <label><span class="field">T. Gas Consumido:</span></label>
                     <input id="ctc" class="form-control"  type="number" name="combustivel_total_consumido" readonly="" value=""/>
-                </div>
+                </div>-->
 
             </div>
             <!--/line-->    
