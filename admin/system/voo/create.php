@@ -92,7 +92,7 @@
 
                 <div class="form-group col-md-3">
                     <label><span class="field">Top D:</span> </label>
-                    <select class="form-control j_loadcity" name="topD" required="">
+                    <select class="form-control j_loadcity" name="topD" >
                         <option></option>
                         <?php
                         $readServ = new Read;
@@ -114,7 +114,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label><span class="field">Top E:</span></label>
-                    <select class="form-control j_loadcity" name="topE" required="">
+                    <select class="form-control j_loadcity" name="topE" >
                         <option></option>
                         <?php
                         $readServ = new Read;
